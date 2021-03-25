@@ -7,6 +7,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 5px;
 }
 
 
@@ -25,6 +26,7 @@ header {
     font-size: 1.2em;
 }
 
+
 .title {
     display: flex;
     justify-content: center;
@@ -40,6 +42,21 @@ header {
     flex-direction: column;
     margin: auto;
     width: 75%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: grey;
+    opacity: 0.45; /
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: grey;
+    opacity: 0.45;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: grey;
+    opacity: 0.45;
 }
 
 .name {
@@ -110,22 +127,24 @@ button {
 
 .cguBox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     margin-top: 20px;
 }
 
-.check {
+.checkBox {
     display: flex;
-    justify-content: flex-start;
-    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
 }
 
-.msg {
+.para {
     display: flex;
     justify-content: flex-start;
-    border: 1px solid blue;
+    margin-left: 15px;
+    align-items: center;
 }
+
 
 .join {
     display: flex;
