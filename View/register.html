@@ -5,16 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S'inscrire</title>
+    <link rel="stylesheet" type="text/css" href="register.css">
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 </head>
 
 <body>
 <header>
-    <ul>
-        <li>BurgerMenu</li>
-        <li>Home</li>
-        <li>Basket</li>
-        <li>Sign In</li>
-    </ul>
+    <div class="burgerMenu">
+        <a href="/" class="iconify" data-inline="false" data-icon="cil:hamburger-menu" style="color: #6b8954; font-size: 35px;"></a>
+    </div>
+    <div class="homeMenu">
+        <a href="/" class="iconify" data-inline="false" data-icon="ant-design:home-filled" style="color: #bb4e0b; font-size: 30px;"></a>
+    </div>
+    <div class="basketMenu">
+        <a href="/" class="iconify" data-inline="false" data-icon="fa:shopping-basket" style="color: #bb4e0b; font-size: 30px;"></a>
+    </div>
+    <div class="myAccount">
+        <a href="/" class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled" style="color: #bb4e0b; font-size: 30px;"></a>
+    </div>
 </header>
 <div id="registerView">
     <div class="title">
@@ -41,20 +49,12 @@
         <input type="button" class="citoyen" value="Citoyenne">
     </div>
     <div class="cguBox">
-        <input type="checkbox">
-        <p>J'ai lu et j'accepte les <a href="/">conditions générales d'utilisation</a>.</p>
+        <input type="checkbox" class="check">
+        <p class="msg">J'ai lu et j'accepte les <a href="/">conditions générales d'utilisation</a>.</p>
+    </div>
+    <div class="join">
+        <input type="button" class="btnJoin" value="Rejoindre la botte">
     </div>
 </div>
-
-
-<footer>
-    <ul class="footerMenu">
-        <li>Nous contacter</li>
-        <li>L'histoire de la Karott</li>
-        <li>CGU</li>
-        <li>Disposition légales</li>
-    </ul>
-
-</footer>
 </body>
 </html>
