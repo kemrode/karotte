@@ -35,6 +35,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="repository" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -59,7 +60,7 @@
       <workItem from="1616679027889" duration="15797000" />
       <workItem from="1616750762480" duration="832000" />
       <workItem from="1616752376288" duration="43000" />
-      <workItem from="1616752420559" duration="2139000" />
+      <workItem from="1616752420559" duration="2522000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -75,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616765312155</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="commit change on register.css">
+      <created>1616765460477</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616765460477</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
