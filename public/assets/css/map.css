@@ -1,4 +1,28 @@
 
 #map{
+    positon : absolute;
+    top: 0;
+    left : 0;
     height: 100vh;
+    z-index: 1;
+}
+
+#overMapContainer{
+    z-index: 2;
+    opacity : 0;
+    position : absolute;
+    top : 0;
+    left:0;
+    height: 100vh;
+    width:100vw;
+}
+
+.widgetContainer{
+
+    opacity: 0.5;
+}
+
+p{
+    color:black;
+    font-family: Algerian;
 }
