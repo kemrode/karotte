@@ -1,4 +1,5 @@
 <?php
+require "templates/header/header.php";
 require "../vendor/autoload.php";
 
 // Autoloader de Classe
