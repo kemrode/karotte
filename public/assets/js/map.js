@@ -68,7 +68,7 @@ function PopulateMap(map){
     // Searching into DB and loop for each seller
 
     markerIcon = new L.icon({
-        iconUrl: "/karotte/public/assets/img/carrot.png",
+        iconUrl: "/public/assets/img/carrot.png",
         iconSize:[30,40]
     });
 
