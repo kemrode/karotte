@@ -1,6 +1,6 @@
 
 #map{
-    positon : absolute;
+    position : absolute;
     top: 0;
     left : 0;
     height: 100vh;
@@ -8,20 +8,31 @@
 }
 
 #overMapContainer{
-    visibility: hidden;
+    pointer-events:none;
     z-index: 2;
     position : absolute;
     top : 0;
     left:0;
     height: 100vh;
     width:100vw;
+
+    display:flex;
+
+}
+
+
+#overMapContainer>*{
+    pointer-events:all;
+    z-index: 3;
 }
 
 .widgetContainer{
+    height: 100px;
+    width:100px;
     background-color: white;
 }
 
 p{
+
     color:black;
-    font-family: Algerian;
 }
