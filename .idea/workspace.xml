@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/BDD.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register/registerView.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="commit change on register.css" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,8 +59,23 @@
       <workItem from="1616679027889" duration="15797000" />
       <workItem from="1616750762480" duration="832000" />
       <workItem from="1616752376288" duration="43000" />
-      <workItem from="1616752420559" duration="1827000" />
+      <workItem from="1616752420559" duration="2139000" />
     </task>
+    <task id="LOCAL-00001" summary="commit before pull new integers">
+      <created>1616765141343</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616765141343</updated>
+    </task>
+    <task id="LOCAL-00002" summary="commit change on register.css">
+      <created>1616765312155</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616765312155</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,5 +92,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit before pull new integers" />
+    <MESSAGE value="commit change on register.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit change on register.css" />
   </component>
 </project>
