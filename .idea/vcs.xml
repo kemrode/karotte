@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="VcsDirectoryMappings">
-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/Service/Services_Openstreetmap" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/src/Services_Openstreetmap" vcs="Git" />
-  </component>
-</project>
