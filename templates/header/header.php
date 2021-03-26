@@ -1,4 +1,4 @@
-<!doctype html>
+<!--<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,4 +24,4 @@
             </ul>
         </nav>
     </header>
-    <script type="text/javascript" src="../../public/assets/js/header.js"></script>
+    <script type="text/javascript" src="../../public/assets/js/header.js"></script>-->

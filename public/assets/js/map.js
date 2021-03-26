@@ -7,7 +7,7 @@ document.addEventListener("load", (e) =>{
     e.preventDefault();
 })
 
-GetLoc();
+/*GetLoc();*/
 
 //*******************************//
 //        VARIABLES              //
@@ -16,19 +16,21 @@ GetLoc();
 // Creating map options
 let mapOptions = {
     center: [49.4431300, 1.0993200],
-    zoom: 18
+    zoom: 18,
+    zoomControl: false
 }
 
-
+GenerateMap();
 //*******************************//
 //   GEOLOCALIZATION FUNC.       //
 //*******************************//
 
+/*
 
 // Geolocalisation
 function GetLocSuccess(pos) {
     let crd = pos.coords;
-    //mapOptions.center = [crd.latitude,crd.longitude]
+    mapOptions.center = [crd.latitude,crd.longitude]
     GenerateMap();
 }
 
@@ -42,6 +44,7 @@ function GetLocError(err) {
 function GetLoc(){
     navigator.geolocation.getCurrentPosition(GetLocSuccess, GetLocError);
 }
+*/
 
 
 function GenerateMap(){
@@ -71,6 +74,12 @@ function PopulateMap(map){
         iconUrl: "/public/assets/img/carrot.png",
         iconSize:[30,40]
     });
+
+    // Add the zoom control to top right position
+/*    L.control.zoom({
+        position:'topright'
+    }).addTo(map);*/
+
 
     L.marker([49.4431300, 1.0993200], {icon:markerIcon}).addTo(map).on('click', displayMarkerInfo);
 }
