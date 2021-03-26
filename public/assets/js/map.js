@@ -7,7 +7,7 @@ document.addEventListener("load", (e) =>{
     e.preventDefault();
 })
 
-/*GetLoc();*/
+GetLoc();
 
 //*******************************//
 //        VARIABLES              //
@@ -20,12 +20,10 @@ let mapOptions = {
     zoomControl: false
 }
 
-GenerateMap();
 //*******************************//
 //   GEOLOCALIZATION FUNC.       //
 //*******************************//
 
-/*
 
 // Geolocalisation
 function GetLocSuccess(pos) {
@@ -44,7 +42,6 @@ function GetLocError(err) {
 function GetLoc(){
     navigator.geolocation.getCurrentPosition(GetLocSuccess, GetLocError);
 }
-*/
 
 
 function GenerateMap(){

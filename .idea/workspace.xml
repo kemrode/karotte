@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="commit change on register.css">
-      <change afterPath="$PROJECT_DIR$/src/Model/ProductModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Model/SellerModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/map.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/map.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/reset.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/reset.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/mapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/mapController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/map/mapView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map/mapView.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
