@@ -1,5 +1,7 @@
 {
     "require": {
         "twig/twig": "^3.3"
-    }
+    },
+    "name": "",
+    "description": ""
 }
