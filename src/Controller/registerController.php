@@ -1,5 +1,7 @@
 <?php
-namespace src\Controller;
+require 'src/Model/registerModel.php';
+
+//namespace src\Controller;
 class registerController extends AbstractController {
 
     public function index(){
