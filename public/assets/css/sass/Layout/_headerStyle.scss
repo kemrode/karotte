@@ -4,6 +4,8 @@
 .tabBarMenuContainer {
   @include flexBoxRowFlexStart;
 }
+
 .tabBarMenu__background {
   background-color: red;
+  color: white;
 }

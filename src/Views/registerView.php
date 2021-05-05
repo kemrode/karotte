@@ -10,68 +10,98 @@
     <title>S'inscrire</title>
     <link rel="stylesheet" href="/public/assets/css/sass/registerStylus.scss">
     <link rel="stylesheet" href="/public/assets/css/sass/registerStylus.css">
-
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 </head>
 <body>
-<header>
+<div class="primaryContainer primaryContainer__backgroundColor">
     <div class="headerContainer">
-        <?php require 'headerView.php';?>
+        <?= require 'headerView.php'; ?>
     </div>
-</header>
-<div id="registerView">
-    <div class="title">
-        <h1>Inscription</h1>
-    </div>
-    <div class="formRegister">
-        <form class="registerForm">
-            <div class="itemBox itemBox__nameBox">
-                <input type="text" class="name" placeholder="Nom">
+    <div class="registerContainer registerContainer__backgroundColor">
+        <div class="registerTitleBox registerTitleBox__font">
+            <div class="registerTitle">
+                <h2>Inscription</h2>
             </div>
-            <div class="itemBox itemBox__surnameBox">
-                <input type="text" class="surname" placeholder="Prénom">
-            </div>
-            <div class="itemBox itemBox__pseudoBox">
-                <input type="text" class="pseudo" placeholder="Pseudonyme">
-            </div>
-            <div class="itemBox itemBox__adressBox">
-                <input type="text" class="adress" placeholder="Adresse(numéro de voirie, rue, etc.)">
-            </div>
-            <div class="itemBox itemBox__postCodeBox">
-                <input type="text" class="postCode" placeholder="Code Postale">
-            </div>
-            <div class="itemBox itemBox__cityBox">
-                <input type="text" class="city" placeholder="Ville">
-            </div>
-            <div class="itemBox itemBox__eMailBox">
-                <input type="email" class="eMail" placeholder="E-mail">
-            </div>
-            <div class="itemBox itemBox__passwordBox">
-                <input type="password" class="password" placeholder="Mot de passe">
-            </div>
-            <div class="itemBox itemBox__passwordVerifBox">
-                <input type="password" class="passwordVerif" placeholder="Confirmation de votre mot de passe" >
-            </div>
-        </form>
-    </div>
-    <div class="title">
-        <h2>Quelle Karotte êtes-vous ?</h2>
-    </div>
-    <div class="btnChoice">
-        <input type="button" class="prod" value="Productrice">
-        <input type="button" class="citoyen" value="Citoyenne">
-    </div>
-    <div class="cguBox">
-        <div class="checkBox">
-            <input type="checkbox" class="check">
         </div>
-        <div class="para">
-            <p class="msg">J'ai lu et j'accepte les <a href="/">conditions générales d'utilisation</a>.</p>
+        <div class="formContainer">
+            <div class="itemsFormContainer">
+                <form method="post" action="" name="itemForm">
+                    <div class="itemsListBox">
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="text" name="itemName" placeholder="Nom">
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="text" name="itemSurname" placeholder="Prénom">
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="text" name="itemPseudo" placeholder="Pseudonyme">
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="text" name="itemAdress" placeholder="Adresse">
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="text" name="itemPostCode" placeholder="Code Postal">
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="text" name="itemCity" placeholder="Ville">
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="email" name="itemMail" placeholder="e-mail">
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="password" name="itemPasswrd" placeholder="Mot de Passe">
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="text" name="itemPasswrdVerif" placeholder="Mot de Passe">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subtitleRegisterBox">
+                        <div class="subtitleRegister">
+                            <h5>Quelle karotte êtes-vous ?</h5>
+                        </div>
+                    </div>
+                    <div class="choicesListBox">
+                        <div class="choiceBox">
+                            <button name="prodKarotte">Productrice</button>
+                        </div>
+                        <div class="choiceBox">
+                            <button name="citoyKarotte">Citoyenne</button>
+                        </div>
+                    </div>
+                    <div class="cguBox">
+                        <div class="checkBoxContainer">
+                            <input type="checkbox" name="checkCGU">
+                        </div>
+                        <div class="labelCheckboxContainer">
+                            <div class="labelBox">
+                                <p>J'ai lu et accepte les conditions générales d'utilisation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonBox">
+                        <input type="submit" name="joinUpBtn" value="Rejoindre la botte">
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-    <div class="join">
-        <input type="button" class="btnJoin" value="Rejoindre la botte">
     </div>
 </div>
 </body>
-</html>

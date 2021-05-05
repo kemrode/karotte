@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="function postUser and getUserinfo OK">
-      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Base/bodyStyle.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Base/boxSizingStyle.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Layout/_headerStyle.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Pages/_registerViewStyle.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Utils/_mixin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Utils/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/registerStylus.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/headerView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Views/registerView.php" afterDir="false" />
+    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="added package.json OK, but not working on headerView.php">
+      <change afterPath="$PROJECT_DIR$/src/Views/registerViewOld.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/register.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register/registerView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/registerView.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Layout/_headerStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/sass/Layout/_headerStyle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Pages/_registerViewStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/sass/Pages/_registerViewStyle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/registerStylus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/sass/registerStylus.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/headerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/headerView.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/registerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/registerView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +68,7 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.sass (1)">
-    <configuration name="sass (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="sass (1)" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/public/assets/css/package.json" />
       <command value="run" />
       <scripts>
@@ -96,7 +90,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.sass (1)" />
         <item itemvalue="npm.sass" />
       </list>
     </recent_temporary>
@@ -116,7 +109,7 @@
       <workItem from="1617045504693" duration="681000" />
       <workItem from="1617824786308" duration="3007000" />
       <workItem from="1620159092253" duration="10863000" />
-      <workItem from="1620209220614" duration="2006000" />
+      <workItem from="1620209220614" duration="5772000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -160,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616768431088</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added package.json OK, but not working on headerView.php">
+      <created>1620244212025</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1620244212025</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +184,7 @@
     <MESSAGE value="commit change on register.css" />
     <MESSAGE value="creation of the user class and add getters and setters" />
     <MESSAGE value="function postUser and getUserinfo OK" />
-    <option name="LAST_COMMIT_MESSAGE" value="function postUser and getUserinfo OK" />
+    <MESSAGE value="added package.json OK, but not working on headerView.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="added package.json OK, but not working on headerView.php" />
   </component>
 </project>
