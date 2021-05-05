@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="function postUser and getUserinfo OK">
+      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Base/bodyStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Base/boxSizingStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Layout/_headerStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Pages/_registerViewStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Utils/_mixin.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/Utils/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/css/sass/registerStylus.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/headerView.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/registerView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/registerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/registerModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/registerModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register/registerView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/registerView.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
+        <option value="CSS File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -33,12 +45,15 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
   <component name="ProjectId" id="1qFcxiL1VLjvH2VuakQXago684A" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ChangesTree.GroupingKeys" value="repository" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -46,13 +61,45 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\public\assets\css" />
+      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\public\assets" />
       <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\View" />
       <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\ressources" />
     </key>
+  </component>
+  <component name="RunManager" selected="npm.sass (1)">
+    <configuration name="sass (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/public/assets/css/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="sass" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="sass" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/public/assets/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="sass" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.sass (1)" />
+        <item itemvalue="npm.sass" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -68,7 +115,8 @@
       <workItem from="1616752420559" duration="6519000" />
       <workItem from="1617045504693" duration="681000" />
       <workItem from="1617824786308" duration="3007000" />
-      <workItem from="1620159092253" duration="705000" />
+      <workItem from="1620159092253" duration="10863000" />
+      <workItem from="1620209220614" duration="2006000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -131,6 +179,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="commit before pull new integers" />
     <MESSAGE value="commit change on register.css" />
     <MESSAGE value="creation of the user class and add getters and setters" />

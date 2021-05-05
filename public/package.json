@@ -1,10 +1,10 @@
 {
-  "name": "sass",
+  "name": "public",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./public/css/sass/connectionStylus.scss:./public/css/sass/main.css"
+    "sass": "sass --watch ./assets/css/sass/registerStylus.scss:./assets/css/sass/registerStylus.css"
   },
   "author": "",
   "license": "ISC"

@@ -1,0 +1,25 @@
+//mixin about how to organize flexbox
+@mixin flexBoxRow {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flexBoxColumn {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flexBoxRowJustifyCentering {
+  @include flexBoxRow;
+  justify-content: center;
+}
+@mixin flexBoxColumnJustifyCentering {
+  @include flexBoxColumn;
+  justify-content: center;
+}
+@mixin flexBoxRowFlexStart {
+  @include flexBoxRow;
+  justify-content: flex-start;
+}
+@mixin flexBoxColumnFlexStart {
+  @include flexBoxColumn;
+  justify-content: flex-start;
+}
