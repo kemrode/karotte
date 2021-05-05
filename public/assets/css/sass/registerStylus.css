@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+}
+
+*,
+* before::after {
+  box-sizing: border-box;
+}
+
+.tabBarMenuContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.tabBarMenu__background {
+  background-color: red;
+  color: white;
+}
+
+/*# sourceMappingURL=registerStylus.css.map */
