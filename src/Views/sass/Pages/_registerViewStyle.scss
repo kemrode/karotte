@@ -1,0 +1,93 @@
+@import '../Utils/mixin';
+@import '../Utils/variables';
+
+.registerContainer {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.registerContainer::-webkit-scrollbar {
+  display: none;
+}
+.registerContainer__backgroundColor {
+  background-color: #bb4e0b;
+  width: auto;
+  height: 100vh;
+}
+.registerTitle {
+  @include titleManagement;
+}
+.itemsFormContainer {
+  @include flexBoxColumn;
+}
+/*.itemsListBox {
+  @include flexBoxColumn;
+  justify-content: space-evenly;
+  width: auto;
+  height: 100vh;
+}*/
+.itemBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: $highHandySize;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+.item {
+  @include flexBoxRow;
+  width: $highWidthSize;
+  background-color: white;
+  @include borderRadiusQuarter;
+}
+.item input{
+  @include flexBoxRowFlexStart;
+  width: auto;
+  color: black;
+  opacity: 0.5;
+  border: none;
+  @include borderRadiusQuarter;
+  margin-left: 10px;
+}
+.subtitleRegister{
+  @include titleManagement;
+}
+.choicesListBox{
+  @include flexBoxRow;
+  justify-content: space-evenly;
+}
+.choiceBox {
+  @include flexBoxRowJustifyCentering;
+  height: $highHandySize;
+}
+.choiceBox button {
+  width: 150px;
+  height: $highHandySize;
+  background-color: $secondColor;
+  font-weight: bold;
+  @include borderRadiusQuarter;
+}
+.cguBox {
+  @include flexBoxRow;
+  justify-content: space-evenly;
+}
+.checkBoxContainer {
+  width: 25%;
+  height: auto;
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+}
+.labelBox {
+  width: 75%;
+  height: auto;
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+}
+.buttonBox {
+  width: auto;
+  height: auto;
+}
+.buttonBox input {
+  width: 100vw;
+  height: $veryHighWidthSizePX;
+  background-color: $secondColor;
+  @include fontStyleButton;
+}

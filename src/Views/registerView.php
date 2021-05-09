@@ -1,6 +1,5 @@
 <?php
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,14 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S'inscrire</title>
-    <link rel="stylesheet" href="/public/assets/css/sass/registerStylus.scss">
-    <link rel="stylesheet" href="/public/assets/css/sass/registerStylus.css">
-    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+    <link rel="stylesheet" href="./sass/registerStyle.css">
 </head>
 <body>
 <div class="primaryContainer primaryContainer__backgroundColor">
     <div class="headerContainer">
-        <?= require 'headerView.php'; ?>
+        <?php require 'headerView.php';?>
     </div>
     <div class="registerContainer registerContainer__backgroundColor">
         <div class="registerTitleBox registerTitleBox__font">
@@ -104,4 +101,5 @@
         </div>
     </div>
 </div>
+<script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 </body>

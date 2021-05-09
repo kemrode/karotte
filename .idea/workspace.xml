@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="added package.json OK, but not working on headerView.php">
-      <change afterPath="$PROJECT_DIR$/src/Views/registerViewOld.php" afterDir="false" />
+    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="refactor registerView.php">
+      <change afterPath="$PROJECT_DIR$/src/Views/sass/Layout/_headerStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/sass/Pages/_registerViewStyle.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Views/sass/registerStyle.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Layout/_headerStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/sass/Layout/_headerStyle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Pages/_registerViewStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/sass/Pages/_registerViewStyle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/registerStylus.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/sass/registerStylus.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Base/bodyStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/Base/_bodyStyle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Base/boxSizingStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/Base/_boxSizingStyle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Layout/_headerStyle.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Pages/_registerViewStyle.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Utils/_mixin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/Utils/_mixin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/Utils/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/Utils/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/registerStylus.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/sass/registerStylus.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/headerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/headerView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Views/registerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/registerView.php" afterDir="false" />
     </list>
@@ -61,18 +69,59 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\src\Views" />
+      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\src\Views\sass\Utils" />
+      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\src\Views\sass\Layout" />
+      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\src\Views\sass\Base" />
       <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\public\assets\css" />
-      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\public\assets" />
-      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\View" />
-      <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\ressources" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.sass (1)">
+  <component name="RunManager" selected="npm.sass-main (1)">
     <configuration name="sass (1)" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/public/assets/css/package.json" />
       <command value="run" />
       <scripts>
         <script value="sass" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="sass (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/public/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="sass" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="sass-header" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/public/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="sass-header" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="sass-main (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/src/Views/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="sass-main" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="sass-main" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/public/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="sass-main" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -90,6 +139,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.sass-main (1)" />
+        <item itemvalue="npm.sass-main" />
+        <item itemvalue="npm.sass-header" />
+        <item itemvalue="npm.sass (2)" />
         <item itemvalue="npm.sass" />
       </list>
     </recent_temporary>
@@ -109,7 +162,9 @@
       <workItem from="1617045504693" duration="681000" />
       <workItem from="1617824786308" duration="3007000" />
       <workItem from="1620159092253" duration="10863000" />
-      <workItem from="1620209220614" duration="5772000" />
+      <workItem from="1620209220614" duration="6049000" />
+      <workItem from="1620330700775" duration="4464000" />
+      <workItem from="1620382698698" duration="13316000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -160,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620244212025</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor registerView.php">
+      <created>1620248321271</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1620248321271</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +247,7 @@
     <MESSAGE value="creation of the user class and add getters and setters" />
     <MESSAGE value="function postUser and getUserinfo OK" />
     <MESSAGE value="added package.json OK, but not working on headerView.php" />
-    <option name="LAST_COMMIT_MESSAGE" value="added package.json OK, but not working on headerView.php" />
+    <MESSAGE value="refactor registerView.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor registerView.php" />
   </component>
 </project>
