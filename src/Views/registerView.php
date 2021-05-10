@@ -1,4 +1,6 @@
 <?php
+//require '../Model/BDD.php';
+require '../Controller/registerController.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -66,7 +68,7 @@
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemPasswrdVerif" placeholder="Mot de Passe">
+                                <input type="password" name="itemPasswrdVerif" placeholder="Mot de Passe">
                             </div>
                         </div>
                     </div>
