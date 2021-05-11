@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="finish sass version about register page for mobile.">
-      <change afterPath="$PROJECT_DIR$/src/Model/userModel.php" afterDir="false" />
+    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="creation of USER class">
+      <change afterPath="$PROJECT_DIR$/src/Controller/bddConfig.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/registerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/BDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BDD.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/registerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/registerView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +154,8 @@
       <workItem from="1620209220614" duration="6049000" />
       <workItem from="1620330700775" duration="4464000" />
       <workItem from="1620382698698" duration="13986000" />
-      <workItem from="1620674981877" duration="5551000" />
+      <workItem from="1620674981877" duration="5684000" />
+      <workItem from="1620717033300" duration="1002000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -220,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620578453387</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="creation of USER class">
+      <created>1620681356520</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1620681356520</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +254,7 @@
     <MESSAGE value="added package.json OK, but not working on headerView.php" />
     <MESSAGE value="refactor registerView.php" />
     <MESSAGE value="finish sass version about register page for mobile." />
-    <option name="LAST_COMMIT_MESSAGE" value="finish sass version about register page for mobile." />
+    <MESSAGE value="creation of USER class" />
+    <option name="LAST_COMMIT_MESSAGE" value="creation of USER class" />
   </component>
 </project>
