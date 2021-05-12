@@ -41,7 +41,6 @@ if (isset($_POST['joinUpBtn'])){
     $newUserPasswrdVerif=htmlspecialchars($_POST['itemPasswrdVerif']);
     if($newUserPassword == $newUserPasswrdVerif){
         $newUserPasswd=$newUserPassword;
-        echo $newUserPasswd;
     }
     else {
         echo 'error passwords !';

@@ -1,0 +1,173 @@
+*,
+* before::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.tabBarMenuContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.iconBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 25%;
+}
+.iconBox__burgerMenu {
+  margin-left: 5px;
+}
+.iconBox__homeMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.iconBox__basketMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.iconBox__myAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.registerContainer {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.registerContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.registerContainer__backgroundColor {
+  background-color: #bb4e0b;
+  width: auto;
+  height: 100vh;
+}
+
+.registerTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  font-size: 1.4em;
+}
+
+.itemsFormContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/*.itemsListBox {
+  @include flexBoxColumn;
+  justify-content: space-evenly;
+  width: auto;
+  height: 100vh;
+}*/
+.itemBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: 50px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  width: 85%;
+  background-color: white;
+  border-radius: 45px;
+}
+
+.item input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: auto;
+  color: black;
+  opacity: 0.5;
+  border: none;
+  border-radius: 45px;
+  margin-left: 10px;
+}
+
+.subtitleRegister {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  font-size: 1.4em;
+}
+
+.choicesListBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.choiceBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 50px;
+}
+
+.choiceBox button {
+  width: 150px;
+  height: 50px;
+  background-color: #6B8954;
+  font-weight: bold;
+  border-radius: 45px;
+}
+
+.cguBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.checkBoxContainer {
+  width: 25%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.labelBox {
+  width: 75%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonBox {
+  width: auto;
+  height: auto;
+}
+
+.buttonBox input {
+  width: 100vw;
+  height: 50px;
+  background-color: #6B8954;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=registerStyle.css.map */
