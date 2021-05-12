@@ -1,0 +1,48 @@
+{% extends"header/header.html.twig" %}
+
+{% block title %}Inscription {{ parent() }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="">
+{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    <form method="post" action="/?controller=user&action=add">
+        <label>Nom</label>
+        <input type="text" name="username" required>
+
+        <label>Prénom</label>
+        <input type="text" name="userSurname" required>
+
+        <label>Pseudo</label>
+        <input type="text" name="userPseudo" required>
+
+        <label>Adresse</label>
+        <input type="text" name="userAddress" required>
+
+        <label>Code postal</label>
+        <input type="text" name="userZipCode" required>
+
+        <label>Ville</label>
+        <input type="text" name="userCity" required>
+
+        <label>Email</label>
+        <input type="email" name="userEmail" required>
+
+        <label>Téléphone</label>
+        <input type="text" name="userPhone" required>
+
+        <label>Mot de passe</label>
+        <input type="password" name="userPwd" required>
+
+        {#<label>Confirmer le mot de passe</label>
+        <input type="password" name="userPwdConfirm" required>#}
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">S'inscrire
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+
+{% endblock %}

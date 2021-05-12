@@ -1,0 +1,28 @@
+{% extends"header/header.html.twig" %}
+
+{% block title %}Se connecter {{ parent() }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="">
+{% endblock %}
+
+{% block body %}
+    <h1>Connexion</h1>
+
+    <form method="post" action="/?controller=user&action=login">
+        <label>Email</label>
+        <input type="text" name="userEmail" required>
+
+        <label>Password</label>
+        <input type="password" name="userPwd" required>
+
+        {#<label>Role</label>
+        <input type="text" name="txt_role" required>#}
+
+        <button type="submit" name="btn_login">Se connecter</button>
+
+    </form>
+
+    <a href="/?controller=home&action=register">Créer un compte</a>
+
+{% endblock %}

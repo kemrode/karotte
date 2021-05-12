@@ -1,6 +1,6 @@
 <?php
-require "../templates/header/header.php";
-require "../vendor/autoload.php";
+require "../../vendor/autoload.php";
+/*require "../templates/header/header.php";*/
 
 // Autoloader de Classe
 function chargerClasse($classe){
@@ -29,11 +29,11 @@ if($controller != ''){
         else
             echo $controller->index();
     }else{
-        $controller = new src\Controller\mapController();
+        $controller = new src\Controller\HomeController();
         echo $controller->index();
     }
 }
 else{
-    $controller = new src\Controller\mapController();
+    $controller = new src\Controller\HomeController();
     echo $controller->index();
 }

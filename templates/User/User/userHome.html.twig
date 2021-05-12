@@ -1,0 +1,24 @@
+{% extends "header/headerLogged.html.twig" %}
+{% block title %}Home {{ parent() }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="">
+{% endblock %}
+
+{% block body %}
+
+    <h1>Page User</h1>
+
+    <p>Bienvenue sur la page admin {{ session.user_login }}</p>
+
+
+
+
+
+
+
+    <a href="/?controller=user&action=logout">Logout</a>
+
+{% endblock %}
+{% block javascript %}
+{% endblock %}
