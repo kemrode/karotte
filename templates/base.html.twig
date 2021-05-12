@@ -7,24 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}Karotte{% endblock %}</title>
     <link type="text/css" rel="stylesheet" href="/assets/css/main.css"/>
+    <link rel = "stylesheet" href = "/assets/css/map.css" />
+    <link rel="stylesheet" href="/assets/css/header.scss">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
     {#<link type="text/css" rel="stylesheet" href="/assets/css/header.css"/>#}
-    <link href="https://fonts.googleapis.com/css?family=Proza+Libre:400,400i" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
     {% block css %}{% endblock %}
 </head>
 <body>
-<header>
-    {% block header %}{% endblock %}
-</header>
+{% block map %}{% endblock %}
+<div id="overMapContainer">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
 
-<div class="container">
+    <div class="container">
 
-    {% block body %}{% endblock %}
+        {% block body %}{% endblock %}
 
+    </div>
 </div>
 
 {% block javascript %}{% endblock %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Proza+Libre:400,400i" rel="stylesheet">
+<script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 <script type="text/javascript" src="/assets/js/header.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+<script src="/assets/js/map.js"></script>
 </body>
 </html>
