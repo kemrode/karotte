@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="commit change on register.css">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AbstractController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AbstractController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/BDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BDD.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map/mapView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map/mapView.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register/registerView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/registerView.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +48,14 @@
       <server host="www.karotte.fr" id="5d006abd-cb08-4424-ac5f-82d8600f8b41" name="www.karotte.fr" />
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1qFcxiL1VLjvH2VuakQXago684A" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -77,6 +90,10 @@
       <workItem from="1616750762480" duration="832000" />
       <workItem from="1616752376288" duration="43000" />
       <workItem from="1616752420559" duration="2522000" />
+      <workItem from="1616954781541" duration="341000" />
+      <workItem from="1617217793044" duration="840000" />
+      <workItem from="1617256344609" duration="41000" />
+      <workItem from="1620848003999" duration="964000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
