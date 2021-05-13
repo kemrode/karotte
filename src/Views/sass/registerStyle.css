@@ -162,7 +162,7 @@ body {
   height: auto;
 }
 
-.buttonBox input {
+.buttonBox button {
   width: 100vw;
   height: 50px;
   background-color: #6B8954;

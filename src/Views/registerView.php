@@ -68,7 +68,7 @@ require '../Controller/registerController.php';
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="password" name="itemPasswrdVerif" placeholder="Mot de Passe">
+                                <input type="password" name="itemVerifPasswrd" placeholder="Mot de Passe">
                             </div>
                         </div>
                     </div>
@@ -79,15 +79,16 @@ require '../Controller/registerController.php';
                     </div>
                     <div class="choicesListBox">
                         <div class="choiceBox">
-                            <button name="prodKarotte">Productrice</button>
+                            <button name="prodKarotte" value="producer">Productrice</button>
                         </div>
                         <div class="choiceBox">
-                            <button name="citoyKarotte">Citoyenne</button>
+                            <button name="citoyKarotte" value="citizen">Citoyenne</button>
                         </div>
                     </div>
                     <div class="cguBox">
                         <div class="checkBoxContainer">
-                            <input type="checkbox" name="checkCGU">
+                            <input type="hidden" name="checkCGU" value="0">
+                            <input type="checkbox" name="checkCGU" value="1">
                         </div>
                         <div class="labelCheckboxContainer">
                             <div class="labelBox">
@@ -96,7 +97,8 @@ require '../Controller/registerController.php';
                         </div>
                     </div>
                     <div class="buttonBox">
-                        <input type="submit" name="joinUpBtn" value="Rejoindre la botte">
+                        <button type="submit" name="joinUpBtn">Rejoindre la botte</button>
+                        <!-- <input type="submit" name="joinUpBtn" value="Rejoindre la botte"> -->
                     </div>
                 </form>
             </div>

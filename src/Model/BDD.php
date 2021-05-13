@@ -4,7 +4,7 @@ use PDO;
 
 class BDD {
     //private static $_instance = null;
-    private static $bdd = null;
+    private static $_instance = null;
 
     protected function __construct() { } // Constructeur en privé.
     protected function __clone() { } // Méthode de clonage en privé aussi et vide pour empêcher le clonage
@@ -18,30 +18,21 @@ class BDD {
             $password="KarotteDu76";
             $dbname="karotte_db";
 
-           /* SELF::$_instance = new PDO('mysql:host='.$hostname.';dbname='.$dbname.';charset=utf8', $username, $password);
+           SELF::$_instance = new PDO('mysql:host='.$hostname.';dbname='.$dbname.';charset=utf8', $username, $password);
             SELF::$_instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            */
-            $bdd = new PDO('mysql:host='.$hostname.';dbname='.$dbname.';charset=utf8', $username, $password);
-            $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         }catch(\Exception $e){
-            //SELF::$_instance = 'Erreur : '.$e->getMessage();
-           // $bdd = 'Erreur : '.$e->getMessage();
-            die('Erreur :'.$e->getMessage());
+            SELF::$_instance = 'Erreur : '.$e->getMessage();
+            SELF::$_instance = 'Erreur : '.$e->getMessage();
         }
     }
 
     public static function getInstance()
     {
-       /* if(SELF::$_instance == null){
+       if(SELF::$_instance == null){
             SELF::initInstance();
         }
-        return SELF::$_instance;*/
-
-        if($bdd== null){
-            SELF::initInstance();
-        }
-        return $bdd;
+        return SELF::$_instance;
     }
 
 }
