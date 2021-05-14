@@ -1,9 +1,6 @@
 <?php
 
 function configBDD(){
-
-    global $bdd;
-
     $hostname="mysql-karotte.alwaysdata.net";
     $username="karotte";
     $password="KarotteDu76";
@@ -12,6 +9,7 @@ function configBDD(){
     try {
         $bdd = new PDO('mysql:host='.$hostname.';dbname='.$dbname.';charset=utf8', $username, $password);
         $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $bdd;
     }
     catch(Exception $e) {
         die('Erreur :'.$e->getMessage());

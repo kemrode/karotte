@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="connection to database for registerController.php">
+    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="functions to take back informations from $_POST">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/bddConfig.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/bddConfig.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/registerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/BDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BDD.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/registerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/registerView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/sass/Pages/_registerViewStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/Pages/_registerViewStyle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/sass/registerStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/registerStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/userModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/userModel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +157,8 @@
       <workItem from="1620382698698" duration="13986000" />
       <workItem from="1620674981877" duration="5684000" />
       <workItem from="1620717033300" duration="2297000" />
-      <workItem from="1620847506816" duration="14782000" />
+      <workItem from="1620847506816" duration="14880000" />
+      <workItem from="1620978910315" duration="12165000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -245,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620847860254</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="functions to take back informations from $_POST">
+      <created>1620939803344</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1620939803344</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +281,7 @@
     <MESSAGE value="creation of USER class" />
     <MESSAGE value="connection to database for registerController.php" />
     <MESSAGE value="commit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit test" />
+    <MESSAGE value="functions to take back informations from $_POST" />
+    <option name="LAST_COMMIT_MESSAGE" value="functions to take back informations from $_POST" />
   </component>
 </project>

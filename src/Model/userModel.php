@@ -7,16 +7,18 @@ use PDO;
 
 class userModel
 {
-    private string $userName;
-    private string $userSurname;
-    private string $userPseudo;
-    private string $userPasswd;
-    private string $userMail;
-    private string $userAdress;
-    private string $userZipCode;
-    private string $userCity;
-    private string $userPhoneNumber;
-    private Int $userId;
+    public string $userName;
+    public string $userSurname;
+    public string $userPseudo;
+    public string $userPasswd;
+    public string $userMail;
+    public string $userAdress;
+    public int $userZipCode;
+    public string $userCity;
+    public int $userPhoneNumber;
+    public Int $userId;
+
+    //regular expression
 
     /**
      * @return string
@@ -172,12 +174,10 @@ class userModel
 
     /**
      * @param string $userSurname
-     * @return userModel
      */
-    public function setUserSurname(string $userSurname): userModel
+    public function setUserSurname(string $userSurname): void
     {
         $this->userSurname = $userSurname;
-        return $this;
     }
 
     /**
@@ -190,11 +190,9 @@ class userModel
 
     /**
      * @param string $userName
-     * @return userModel
      */
-    public function setUserName(string $userName): userModel
+    public function setUserName(string $userName): void
     {
         $this->userName = $userName;
-        return $this;
     }
 }
