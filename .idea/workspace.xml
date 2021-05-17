@@ -4,11 +4,10 @@
     <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="commit change on register.css">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AbstractController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AbstractController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/BDD.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BDD.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/map/mapView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map/mapView.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register/registerView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register/registerView.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/mapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/mapController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/SellerModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SellerModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header/header.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +42,11 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpServers">
     <servers>
       <server host="www.karotte.fr" id="5d006abd-cb08-4424-ac5f-82d8600f8b41" name="www.karotte.fr" />
+      <server host="karotte" id="5be0db32-81cf-4c8a-9813-848e1256af7d" name="karotte" />
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.4">
@@ -63,13 +64,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ChangesTree.GroupingKeys" value="repository" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/Programation/CESI/HTML Web/Exo interface admin" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -93,7 +97,9 @@
       <workItem from="1616954781541" duration="341000" />
       <workItem from="1617217793044" duration="840000" />
       <workItem from="1617256344609" duration="41000" />
-      <workItem from="1620848003999" duration="964000" />
+      <workItem from="1620848003999" duration="3177000" />
+      <workItem from="1621230666205" duration="3844000" />
+      <workItem from="1621262904402" duration="9320000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -138,5 +144,16 @@
     <MESSAGE value="commit before pull new integers" />
     <MESSAGE value="commit change on register.css" />
     <option name="LAST_COMMIT_MESSAGE" value="commit change on register.css" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/map/mapView.html.twig</url>
+          <line>26</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

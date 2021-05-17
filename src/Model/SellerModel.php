@@ -87,11 +87,22 @@ class SellerModel{
 
     #endregion
 
-    #region function CRUD ProductModel
+    #region function CRUD SellerModel
 
-    function GetAllSellers(\PDO $bdd){
+    function GetAllSellers(){
         try{
+            $bdd = BDD::getInstance();
             $requete = $bdd->prepare("SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER");
+            $execute = $requete->execute();
+            return $requete->fetchAll();
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+    public static function GetAllSellerLocationAndId(){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT SELL_ID, SELL_LOC FROM SELLER");
             $execute = $requete->execute();
             return $requete->fetchAll();
         }catch (\Exception $e){

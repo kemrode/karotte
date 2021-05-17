@@ -59,26 +59,51 @@ function GenerateMap(){
     PopulateMap(map);
 }
 
+function GetSellerLocation(){
+ return new Promise((resolve, reject) => {
+     xhr = new XMLHttpRequest()
+     xhr.open("GET", "/?controller=Seller&action=GetAllSellersLocationAndId");
+     xhr.onload = () => {
+         if (xhr.status >= 200 && xhr.status < 300) {
+             resolve(xhr.response);
+         } else {
+             reject(xhr.statusText);
+         }
+     };
+     xhr.onerror = () => reject(xhr.statusText);
+     xhr.send();
+    })
+};
 //*******************************//
 //   FONCTIONS INTERAC. MARKER   //
 //*******************************//
 
 function PopulateMap(map){
+    // Add the zoom control to top right position
 
-    // Searching into DB and loop for each seller
+        L.control.zoom({
+            position:'topright'
+        }).addTo(map);
 
     markerIcon = new L.icon({
         iconUrl: "/assets/img/carrot.png",
         iconSize:[30,40]
     });
 
-    // Add the zoom control to top right position
-/*    L.control.zoom({
-        position:'topright'
-    }).addTo(map);*/
+    // Searching into DB and loop for each seller
+    getSellerLoccationPromise = GetSellerLocation();
+    getSellerLoccationPromise.then((result) => {
+        result =JSON.parse(result);
+        for(let i=0; i<result.length; i++){
+            loc = result[i]["SELL_LOC"].split(";")
+            console.log(loc, parseInt(loc[0]), parseInt(loc[1]));
+            L.marker([parseFloat(loc[0]), parseFloat(loc[1])], {icon:markerIcon}).addTo(map).on('click', displayMarkerInfo);
+        }
+    }).catch((error)=>{
+        console.error(error);
+    })
 
 
-    L.marker([49.4431300, 1.0993200], {icon:markerIcon}).addTo(map).on('click', displayMarkerInfo);
 }
 
 function displayMarkerInfo(e){

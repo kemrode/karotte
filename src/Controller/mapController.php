@@ -2,14 +2,13 @@
 namespace src\Controller;
 
 use src\Model\SellerModel;
-use src\Model\BDD;
 
 class MapController extends AbstractController {
 
     public function index(){
         try{
             $seller = new SellerModel();
-            $sellerList = $seller->GetAllSellers(BDD::getInstance());
+            $sellerList = $seller->GetAllSellers();
             return $this->twig->render("map/mapView.html.twig",[
                 "sellerList" => $sellerList
             ]);
@@ -18,5 +17,7 @@ class MapController extends AbstractController {
             var_dump($e);
         }
     }
+
+
 
 }
