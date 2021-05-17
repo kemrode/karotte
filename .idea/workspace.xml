@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="rename variable test et supertest by userInfo and infoToPost">
-      <change afterPath="$PROJECT_DIR$/src/Views/sass/Pages/_registerViewMediaQueries.scss" afterDir="false" />
+    <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="registerView responsiv on 600px to 992px">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/sass/Pages/_registerViewStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/Pages/_registerViewStyle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/sass/Utils/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/Utils/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/sass/registerStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/registerStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Views/sass/registerStyle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/sass/registerStyle.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/registerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/registerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Views/registerView.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Views/registerView.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +159,7 @@
       <workItem from="1620847506816" duration="14880000" />
       <workItem from="1620978910315" duration="12821000" />
       <workItem from="1621179761828" duration="1202000" />
-      <workItem from="1621233438550" duration="5496000" />
+      <workItem from="1621233438550" duration="10735000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -269,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621235697804</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="registerView responsiv on 600px to 992px">
+      <created>1621281092218</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1621281092218</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +306,7 @@
     <MESSAGE value="functions to take back informations from $_POST" />
     <MESSAGE value="finish send into database informations from $_POST" />
     <MESSAGE value="rename variable test et supertest by userInfo and infoToPost" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename variable test et supertest by userInfo and infoToPost" />
+    <MESSAGE value="registerView responsiv on 600px to 992px" />
+    <option name="LAST_COMMIT_MESSAGE" value="registerView responsiv on 600px to 992px" />
   </component>
 </project>

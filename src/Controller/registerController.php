@@ -13,11 +13,11 @@ require '../Model/userModel.php';
 function postNewUserRegistering($userArray=array()){
     try {
         $bdd = \src\Model\BDD::getInstance();
-        $sql = 'INSERT INTO USER(USER_NAME,USER_SURNAME,USER_PSEUDO,USER_EMAIL,USER_ADDRESS,USER_ZIP_CODE,USER_CITY,USER_PWD) VALUE (?,?,?,?,?,?,?,?)';
-        $userInfo = implode(',',$userArray);
-        $infoToPost = explode(',', $userInfo);
+        $sql = 'INSERT INTO USER(USER_NAME,USER_SURNAME,USER_PSEUDO,USER_EMAIL,USER_ADDRESS,USER_ZIP_CODE,USER_CITY,USER_PHONE,USER_PWD) VALUE (?,?,?,?,?,?,?,?,?)';
+        //$userInfo = implode(',',$userArray);
+        //$infoToPost = explode(',',$userInfo);
         $registeringData = $bdd->prepare($sql);
-        $registeringData->execute($infoToPost);
+        $registeringData->execute($userArray);
     }
     catch(Exception $e) {
         die('Erreur :'.$e->getMessage());
@@ -54,7 +54,8 @@ if(isset($_POST['joinUpBtn'])){
     $itemForBDD = backValuesItemsPost();
     $returnBool = passwordVerifying();
     if ($returnBool==true){
-        $itemForBDD[]=password_hash($_POST['itemPasswrd']);
+        $hashedPassword = password_hash($_POST['itemPasswrd'],PASSWORD_DEFAULT);
+        $itemForBDD[]=$hashedPassword;
         postNewUserRegistering($itemForBDD);
         unset($itemForBDD);
     }

@@ -28,47 +28,52 @@ require '../Controller/registerController.php';
                     <div class="itemsListBox">
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemName" placeholder="Nom">
+                                <input type="text" name="itemName" placeholder="Nom" required>
                             </div>
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemSurname" placeholder="Prénom">
+                                <input type="text" name="itemSurname" placeholder="Prénom" required>
                             </div>
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemPseudo" placeholder="Pseudonyme">
+                                <input type="text" name="itemPseudo" placeholder="Pseudonyme" required>
                             </div>
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemAdress" placeholder="Adresse">
+                                <input type="text" name="itemAdress" placeholder="Adresse" required>
                             </div>
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemPostCode" placeholder="Code Postal">
+                                <input type="text" name="itemPostCode" placeholder="Code Postal" required>
                             </div>
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemCity" placeholder="Ville">
+                                <input type="text" name="itemCity" placeholder="Ville" required>
                             </div>
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="email" name="itemMail" placeholder="e-mail">
+                                <input type="email" name="itemMail" placeholder="e-mail" required>
                             </div>
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="password" name="itemPasswrd" placeholder="Mot de Passe">
+                                <input type="text" name="itemPhone" placeholder="téléphone" required>
                             </div>
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="password" name="itemVerifPasswrd" placeholder="Mot de Passe">
+                                <input type="password" name="itemPasswrd" placeholder="Mot de Passe" required>
+                            </div>
+                        </div>
+                        <div class="itemBox">
+                            <div class="item">
+                                <input type="password" name="itemVerifPasswrd" placeholder="Vérification du Mot de Passe" required>
                             </div>
                         </div>
                     </div>
