@@ -1,0 +1,68 @@
+@import '../Utils/mixin';
+@import '../Utils/variables';
+
+@media only screen and (max-width:600px){
+  .itemBox{
+    height: $highHandySize;
+  }
+  .item{
+    width: $highWidthSize;
+  }
+  .choiceBox{
+    height: $highHandySize;
+  }
+  .choiceBox button {
+    width: 150px;
+    height: $highHandySize;
+  }
+  .buttonBox button{
+    height: $veryHighWidthSizePX;
+  }
+}
+@media only screen and (min-width:600px){
+
+}
+@media only screen and (min-width:768px){
+
+}
+@media only screen and (min-width:992px){
+  .itemBox {
+    height: $mediumScreenSize;
+  }
+  .item{
+    width: $ultraHighScreenWidthSize;
+  }
+  .item input {
+    width: $ultraHighScreenWidthSize;
+  }
+  .choiceBox {
+    height: $mediumScreenSize;
+  }
+  .choiceBox button {
+    width: $shortScreenButton;
+    height: $mediumScreenSize;
+    font-size: 1.5em;
+  }
+  .cguBox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  .checkBoxContainer input {
+    width: 25px;
+    height: 25px;
+  }
+  .labelBox {
+    font-size: 1.3em;
+  }
+  .buttonBox button{
+    width: 50%;
+    height: $smallScreenWidthSize;
+    margin-bottom: 50px;
+    @include borderRadiusQuarter;
+    font-size: 1.6em;
+  }
+}
+@media only screen and (min-width:1200px){
+
+}

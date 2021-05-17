@@ -19,22 +19,14 @@
 .itemsFormContainer {
   @include flexBoxColumn;
 }
-/*.itemsListBox {
-  @include flexBoxColumn;
-  justify-content: space-evenly;
-  width: auto;
-  height: 100vh;
-}*/
 .itemBox {
   @include flexBoxRowJustifyCentering;
   width: auto;
-  height: $highHandySize;
   margin-bottom: 30px;
   margin-top: 10px;
 }
 .item {
   @include flexBoxRow;
-  width: $highWidthSize;
   background-color: white;
   @include borderRadiusQuarter;
 }
@@ -56,11 +48,8 @@
 }
 .choiceBox {
   @include flexBoxRowJustifyCentering;
-  height: $highHandySize;
 }
 .choiceBox button {
-  width: 150px;
-  height: $highHandySize;
   background-color: $secondColor;
   font-weight: bold;
   @include borderRadiusQuarter;
@@ -82,12 +71,12 @@
   align-items: center;
 }
 .buttonBox {
+  @include flexBoxRowJustifyCentering;
   width: auto;
   height: auto;
 }
 .buttonBox button {
   width: 100vw;
-  height: $veryHighWidthSizePX;
   background-color: $secondColor;
   @include fontStyleButton;
 }

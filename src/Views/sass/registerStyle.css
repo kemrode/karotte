@@ -68,18 +68,11 @@ body {
   flex-direction: column;
 }
 
-/*.itemsListBox {
-  @include flexBoxColumn;
-  justify-content: space-evenly;
-  width: auto;
-  height: 100vh;
-}*/
 .itemBox {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: auto;
-  height: 50px;
   margin-bottom: 30px;
   margin-top: 10px;
 }
@@ -87,7 +80,6 @@ body {
 .item {
   display: flex;
   flex-direction: row;
-  width: 85%;
   background-color: white;
   border-radius: 45px;
 }
@@ -122,12 +114,9 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 50px;
 }
 
 .choiceBox button {
-  width: 150px;
-  height: 50px;
   background-color: #6B8954;
   font-weight: bold;
   border-radius: 45px;
@@ -158,16 +147,87 @@ body {
 }
 
 .buttonBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: auto;
   height: auto;
 }
 
 .buttonBox button {
   width: 100vw;
-  height: 50px;
   background-color: #6B8954;
   font-size: 1.2em;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .itemBox {
+    height: 50px;
+  }
+
+  .item {
+    width: 85%;
+  }
+
+  .choiceBox {
+    height: 50px;
+  }
+
+  .choiceBox button {
+    width: 150px;
+    height: 50px;
+  }
+
+  .buttonBox button {
+    height: 50px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .itemBox {
+    height: 100px;
+  }
+
+  .item {
+    width: 500px;
+  }
+
+  .item input {
+    width: 500px;
+  }
+
+  .choiceBox {
+    height: 100px;
+  }
+
+  .choiceBox button {
+    width: 350px;
+    height: 100px;
+    font-size: 1.5em;
+  }
+
+  .cguBox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .checkBoxContainer input {
+    width: 25px;
+    height: 25px;
+  }
+
+  .labelBox {
+    font-size: 1.3em;
+  }
+
+  .buttonBox button {
+    width: 50%;
+    height: 150px;
+    margin-bottom: 50px;
+    border-radius: 45px;
+    font-size: 1.6em;
+  }
 }
 
 /*# sourceMappingURL=registerStyle.css.map */
