@@ -10,6 +10,7 @@ require '../Controller/registerController.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S'inscrire</title>
     <link rel="stylesheet" href="./sass/registerStyle.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 <div class="primaryContainer primaryContainer__backgroundColor">
@@ -84,10 +85,10 @@ require '../Controller/registerController.php';
                     </div>
                     <div class="choicesListBox">
                         <div class="choiceBox">
-                            <button name="prodKarotte" value="producer">Productrice</button>
+                            <button class="mdc-button prodButton" name="prodKarotte" value="0">Productrice</button>
                         </div>
                         <div class="choiceBox">
-                            <button name="citoyKarotte" value="citizen">Citoyenne</button>
+                            <button class="mdc-button" name="citoyKarotte" value="1">Citoyenne</button>
                         </div>
                     </div>
                     <div class="cguBox">
@@ -111,4 +112,5 @@ require '../Controller/registerController.php';
     </div>
 </div>
 <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+<script src="../../public/assets/js/register.js"></script>
 </body>
