@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+
+{#{% block title %}Home {{ parent() }}{% endblock %}#}
+
+{% block css %}
+    <link rel="stylesheet" href="/karotte/public/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+    {#<h1>Bienvenue sur Karotte</h1>#}
+    <div id="sellerList" class="widgetContainer SellerCarousel">
+        <div class="title-SellerList">
+            <h2>Producteurs près de chez vous</h2>
+        </div>
+        <div class="seller-cards">
+            {% for seller in sellerList %}
+                <div class="seller-card">
+                    <div class="seller-card__image">
+                        <img class="seller-card__thumb" src="/assets/img/img1.jpg">
+                    </div>
+                    <div class="seller-card__resume">
+                        <h3><a href="/?controller=seller&action=sellerPage">{{ seller['SELL_NAME'] }}</a></h3>
+                        <div class="seller-card__rate">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="seller-card__tag">
+                            <ul>
+                                <li>Légumes</li>
+                                <li>Bio</li>
+                                <li>Permaculture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {#<div id ="map"></div>
+    <div id="sellerBlock">
+        <header>
+            <button id="burger-menu" data-toggle="burger-nav" class="burger-menu-button">
+                <span class="burger-menu-button-open"></span>
+            </button>
+            <nav id="burger-nav" class="main-menu">
+                <ul class="menu">
+                    <li><a href="#"><span class="iconify" data-inline="false" data-icon="ant-design:home-filled"></span></a></li>
+                    <li><a href="#"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a></li>
+                    <li><a href="#"><span class="iconify" data-inline="false" data-icon="bi:gear-fill"></span></a></li>
+                    <li><a href="#"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a></li>
+                </ul>
+            </nav>
+        </header>#}
+        {#<div class="main">
+            <div class="widgetContainer SellerCarousel">
+                <h2>Liste des Vendeurs autour de vous </h2>
+                <div class="SellerList">
+                    {% for seller in sellerList %}
+                        <p>{{ seller['SELL_NAME'] }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>#}
+
+    {#</div>#}
+
+{% endblock %}
+
+{% block js %}
+
+
+{% endblock %}

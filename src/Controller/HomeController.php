@@ -4,8 +4,8 @@ namespace src\Controller;
 use src\Model\SellerModel;
 use src\Model\BDD;
 
-class MapController extends AbstractController {
-
+class HomeController extends AbstractController
+{
     public function index(){
         try{
             $seller = new SellerModel();
@@ -18,5 +18,4 @@ class MapController extends AbstractController {
             var_dump($e);
         }
     }
-
 }
