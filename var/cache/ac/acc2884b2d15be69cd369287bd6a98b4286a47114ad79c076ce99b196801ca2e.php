@@ -48,13 +48,13 @@ class __TwigTemplate_7bc86b43020a4668ab1f68ecd3a9f2d908648fc2ae919b01a1a31272b35
         <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.css\"
               integrity=\"sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==\"
               crossorigin=\"\"/>
-        <link rel=\"stylesheet\" href = \"/assets/css/map.css\" />
+        <link rel=\"stylesheet\" href = \"/assets/css/seller.css\" />
 
         <title>Karotte</title>
     </head>
 
     <body>
-        <div id =\"map\"></div>
+        <div id =\"seller\"></div>
         <div id=\"overMapContainer\">
             <header>
                 <button id=\"burger-menu\" data-toggle=\"burger-nav\" class=\"burger-menu-button\">
@@ -85,7 +85,7 @@ class __TwigTemplate_7bc86b43020a4668ab1f68ecd3a9f2d908648fc2ae919b01a1a31272b35
     <script src=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js\"
             integrity=\"sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==\"
             crossorigin=\"\"></script>
-    <script src=\"/assets/js/map.js\"></script>
+    <script src=\"/assets/js/seller.js\"></script>
 </html>";
     }
 
@@ -120,13 +120,13 @@ class __TwigTemplate_7bc86b43020a4668ab1f68ecd3a9f2d908648fc2ae919b01a1a31272b35
         <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.css\"
               integrity=\"sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==\"
               crossorigin=\"\"/>
-        <link rel=\"stylesheet\" href = \"/assets/css/map.css\" />
+        <link rel=\"stylesheet\" href = \"/assets/css/seller.css\" />
 
         <title>Karotte</title>
     </head>
 
     <body>
-        <div id =\"map\"></div>
+        <div id =\"seller\"></div>
         <div id=\"overMapContainer\">
             <header>
                 <button id=\"burger-menu\" data-toggle=\"burger-nav\" class=\"burger-menu-button\">
@@ -154,7 +154,7 @@ class __TwigTemplate_7bc86b43020a4668ab1f68ecd3a9f2d908648fc2ae919b01a1a31272b35
     <script src=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js\"
             integrity=\"sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==\"
             crossorigin=\"\"></script>
-    <script src=\"/assets/js/map.js\"></script>
+    <script src=\"/assets/js/seller.js\"></script>
 </html>", "layout/layoutMapAndMenu.html.twig", "C:\\wamp64\\www\\karotte\\templates\\layout\\layoutMapAndMenu.html.twig");
     }
 }

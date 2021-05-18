@@ -3,7 +3,7 @@
 Layout CSS
 */
 
-/* Background map - size of all screen */
+/* Background seller - size of all screen */
 #map{
     positon : absolute;
     top: 0;
@@ -12,9 +12,9 @@ Layout CSS
     z-index: 1;
 }
 
-/* Main covering the map to allow placing element over the map*/
+/* Main covering the seller to allow placing element over the seller*/
 #overMapContainer{
-    pointer-events: none; /*To click on the map through the container*/
+    pointer-events: none; /*To click on the seller through the container*/
     z-index: 2;
     position : absolute;
     top : 0;
@@ -30,36 +30,11 @@ Layout CSS
     flex:1;
 }
 
-/*
- !!!!!!!!!!!! Specific to the page --> To be moved on specific css file once the layout is created !!!!!!!!!!!!!!!!!!!
-*/
-
 #overMapContainer{
     display : flex;
     flex-flow: column nowrap;
     justify-content: space-between;
 
-}
-.main{
-    display:flex;
-    flex-flow: row;
-    justify-content: center;
-    align-items: center;
-    padding : 5px;
-}
-
-.SellerCarousel{
-    padding : 10px;
-    align-self: flex-end;
-    text-align: center;
-    width:100%;
-}
-.widgetContainer{
-    background-color: white;
-}
-
-.SellerList{
-    display: none;
 }
 
 
@@ -70,15 +45,8 @@ Layout CSS
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .main{
-        justify-content: flex-start;
-    }
-    .SellerCarousel{
-        align-self: flex-start;
-        height: 100%;
-        width: 30%;
-    }
 
+}
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
@@ -86,7 +54,4 @@ Layout CSS
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-}
-
-
 }

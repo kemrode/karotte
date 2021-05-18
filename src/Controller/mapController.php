@@ -9,7 +9,7 @@ class MapController extends AbstractController {
         try{
             $seller = new SellerModel();
             $sellerList = $seller->GetAllSellers();
-            return $this->twig->render("layout/layoutMapAndMenu.html.twig",[
+            return $this->twig->render("seller/Seller.html.twig",[
                 "sellerList" => $sellerList
             ]);
         }

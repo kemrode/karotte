@@ -1,0 +1,17 @@
+{% extends"layoutMapAndMenu.html.twig" %}
+
+ {% block css %}
+     <link rel="stylesheet" href="/assets/css/seller.css">
+ {% endblock %}
+
+ {% block content %}
+     <div class="widgetContainer SellerCarousel">
+         <h2>Liste des Vendeurs autour de vous </h2>
+         <div class="SellerList">
+             {% for seller in sellerList %}
+                 <p>{{ seller['SELL_NAME'] }}</p>
+             {% endfor %}
+         </div>
+
+     </div>
+ {% endblock %}

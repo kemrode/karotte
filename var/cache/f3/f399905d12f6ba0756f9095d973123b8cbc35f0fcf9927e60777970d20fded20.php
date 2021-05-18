@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* map/layoutMapAndMenu.html.twig */
+/* seller/layoutMapAndMenu.html.twig */
 class __TwigTemplate_161294dd275c0072d2aa67347676ed8c7d8299f55424b1f3355599a5754261d1 extends Template
 {
     private $source;
@@ -46,14 +46,14 @@ class __TwigTemplate_161294dd275c0072d2aa67347676ed8c7d8299f55424b1f3355599a5754
         <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.css\"
               integrity=\"sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==\"
               crossorigin=\"\"/>
-        <link rel = \"stylesheet\" href = \"/assets/css/map.css\" />
+        <link rel = \"stylesheet\" href = \"/assets/css/seller.css\" />
         <link rel=\"stylesheet\" href=\"/assets/css/header.scss\">
 
         <title>Karotte</title>
     </head>
 
     <body>
-        <div id =\"map\"></div>
+        <div id =\"seller\"></div>
         <div id=\"overMapContainer\">
             <header>
                 <button id=\"burger-menu\" data-toggle=\"burger-nav\" class=\"burger-menu-button\">
@@ -101,13 +101,13 @@ class __TwigTemplate_161294dd275c0072d2aa67347676ed8c7d8299f55424b1f3355599a5754
     <script src=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js\"
             integrity=\"sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==\"
             crossorigin=\"\"></script>
-    <script src=\"/assets/js/map.js\"></script>
+    <script src=\"/assets/js/seller.js\"></script>
 </html>";
     }
 
     public function getTemplateName()
     {
-        return "map/layoutMapAndMenu.html.twig";
+        return "seller/layoutMapAndMenu.html.twig";
     }
 
     public function isTraitable()
@@ -122,6 +122,6 @@ class __TwigTemplate_161294dd275c0072d2aa67347676ed8c7d8299f55424b1f3355599a5754
 
     public function getSourceContext()
     {
-        return new Source("", "map/layoutMapAndMenu.html.twig", "C:\\wamp64\\www\\karotte\\templates\\map\\layoutMapAndMenu.html.twig");
+        return new Source("", "seller/layoutMapAndMenu.html.twig", "C:\\wamp64\\www\\karotte\\templates\\seller\\layoutMapAndMenu.html.twig");
     }
 }

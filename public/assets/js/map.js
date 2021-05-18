@@ -13,7 +13,7 @@ GetLoc();
 //        VARIABLES              //
 //*******************************//
 
-// Creating map options
+// Creating seller options
 let mapOptions = {
     center: [49.4431300, 1.0993200],
     zoom: 18,
@@ -46,16 +46,16 @@ function GetLoc(){
 
 function GenerateMap(){
 
-    // Creating a map object
+    // Creating a seller object
     let map = new L.map('map', mapOptions);
 
     // Creating a Layer object
     let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
-    // Adding layer to the map
+    // Adding layer to the seller
     map.addLayer(layer);
 
-    // Adding marker on the map
+    // Adding marker on the seller
     PopulateMap(map);
 }
 
