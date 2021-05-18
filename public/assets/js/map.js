@@ -16,9 +16,9 @@ GetLoc();
 // Creating map options
 let mapOptions = {
     center: [49.4431300, 1.0993200],
-    zoom: 18
+    zoom: 18,
+    zoomControl: false
 }
-
 
 //*******************************//
 //   GEOLOCALIZATION FUNC.       //
@@ -28,7 +28,7 @@ let mapOptions = {
 // Geolocalisation
 function GetLocSuccess(pos) {
     let crd = pos.coords;
-    //mapOptions.center = [crd.latitude,crd.longitude]
+    mapOptions.center = [crd.latitude,crd.longitude]
     GenerateMap();
 }
 
@@ -68,9 +68,15 @@ function PopulateMap(map){
     // Searching into DB and loop for each seller
 
     markerIcon = new L.icon({
-        iconUrl: "/public/assets/img/carrot.png",
+        iconUrl: "/assets/img/carrot.png",
         iconSize:[30,40]
     });
+
+    // Add the zoom control to top right position
+/*    L.control.zoom({
+        position:'topright'
+    }).addTo(map);*/
+
 
     L.marker([49.4431300, 1.0993200], {icon:markerIcon}).addTo(map).on('click', displayMarkerInfo);
 }

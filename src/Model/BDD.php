@@ -26,9 +26,9 @@ class BDD {
 
     public static function getInstance()
     {
-        if(SELF::$_instance == null){
+        if(SELF::$_instance == null)
             SELF::initInstance();
-        }
+
         return SELF::$_instance;
     }
 
