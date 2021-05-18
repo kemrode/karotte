@@ -1,7 +1,12 @@
 {
+    "name": "hp/karotte",
     "require": {
         "twig/twig": "^3.3"
     },
-    "name": "",
-    "description": ""
+    "authors": [
+        {
+            "name": "Loïck B.",
+            "email": "loickbrouard@yahoo.fr"
+        }
+    ]
 }

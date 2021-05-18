@@ -1,7 +1,7 @@
 <?php
-//require '../Model/BDD.php';
 require '../Controller/registerController.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

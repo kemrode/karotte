@@ -93,7 +93,7 @@ class SellerModel{
         try{
             $bdd = BDD::getInstance();
             $requete = $bdd->prepare("SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER");
-            $execute = $requete->execute();
+            $requete->execute();
             return $requete->fetchAll();
         }catch (\Exception $e){
             throw $e;
@@ -103,7 +103,7 @@ class SellerModel{
         try{
             $bdd = BDD::getInstance();
             $requete = $bdd->prepare("SELECT SELL_ID, SELL_LOC FROM SELLER");
-            $execute = $requete->execute();
+            $requete->execute();
             return $requete->fetchAll();
         }catch (\Exception $e){
             throw $e;
