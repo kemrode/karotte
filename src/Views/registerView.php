@@ -103,7 +103,6 @@ require '../Controller/registerController.php';
                     </div>
                     <div class="buttonBox">
                         <button type="submit" name="joinUpBtn">Rejoindre la botte</button>
-                        <!-- <input type="submit" name="joinUpBtn" value="Rejoindre la botte"> -->
                     </div>
                 </form>
             </div>

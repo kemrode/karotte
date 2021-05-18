@@ -1,8 +1,8 @@
 <?php
-require '../Model/BDD.php';
-require '../Model/userModel.php';
+//require '../Model/BDD.php';
+//require '../Model/userModel.php';
 
-//namespace src\Controller;
+namespace src\Controller;
 /*class registerController extends AbstractController {
 
     public function index(){
