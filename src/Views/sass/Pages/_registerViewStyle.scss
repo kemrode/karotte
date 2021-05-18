@@ -1,0 +1,82 @@
+@import '../Utils/mixin';
+@import '../Utils/variables';
+
+.registerContainer {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.registerContainer::-webkit-scrollbar {
+  display: none;
+}
+.registerContainer__backgroundColor {
+  background-color: #bb4e0b;
+  width: auto;
+  height: 100vh;
+}
+.registerTitle {
+  @include titleManagement;
+}
+.itemsFormContainer {
+  @include flexBoxColumn;
+}
+.itemBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+.item {
+  @include flexBoxRow;
+  background-color: white;
+  @include borderRadiusQuarter;
+}
+.item input{
+  @include flexBoxRowFlexStart;
+  width: auto;
+  color: black;
+  opacity: 0.5;
+  border: none;
+  @include borderRadiusQuarter;
+  margin-left: 10px;
+}
+.subtitleRegister{
+  @include titleManagement;
+}
+.choicesListBox{
+  @include flexBoxRow;
+  justify-content: space-evenly;
+}
+.choiceBox {
+  @include flexBoxRowJustifyCentering;
+}
+.choiceBox button {
+  background-color: $secondColor;
+  font-weight: bold;
+  @include borderRadiusQuarter;
+}
+.cguBox {
+  @include flexBoxRow;
+  justify-content: space-evenly;
+}
+.checkBoxContainer {
+  width: 25%;
+  height: auto;
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+}
+.labelBox {
+  width: 75%;
+  height: auto;
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+}
+.buttonBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: auto;
+}
+.buttonBox button {
+  width: 100vw;
+  background-color: $secondColor;
+  @include fontStyleButton;
+}
