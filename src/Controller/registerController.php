@@ -14,10 +14,10 @@ function postNewUserRegistering($userArray=array()){
     try {
         $bdd = \src\Model\BDD::getInstance();
         $sql = 'INSERT INTO USER(USER_NAME,USER_SURNAME,USER_PSEUDO,USER_EMAIL,USER_ADDRESS,USER_ZIP_CODE,USER_CITY,USER_PHONE,USER_PWD) VALUE (?,?,?,?,?,?,?,?,?)';
-        //$userInfo = implode(',',$userArray);
-        //$infoToPost = explode(',',$userInfo);
+        $userInfo = implode(';',$userArray);
+        $infoToPost = explode(';',$userInfo);
         $registeringData = $bdd->prepare($sql);
-        $registeringData->execute($userArray);
+        $registeringData->execute($infoToPost);
     }
     catch(Exception $e) {
         die('Erreur :'.$e->getMessage());
