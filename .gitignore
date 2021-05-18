@@ -1,5 +1,8 @@
  Skip to content
 
+#connection string
+configProd.php
+
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 

@@ -12,8 +12,8 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* map/layoutMapAndMenu.html.twig */
-class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809e1a5c extends Template
+/* layout/layoutMapAndMenu.html.twig */
+class __TwigTemplate_7bc86b43020a4668ab1f68ecd3a9f2d908648fc2ae919b01a1a31272b35804d7 extends Template
 {
     private $source;
     private $macros = [];
@@ -27,6 +27,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
         $this->parent = false;
 
         $this->blocks = [
+            'content' => [$this, 'block_content'],
         ];
     }
 
@@ -41,14 +42,13 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
         <meta name=\"viewport\"
               content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
         <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+        <link rel=\"stylesheet\" href = \"/assets/css/header.css\" />
         <link rel=\"shortcut icon\" type=\"image/ico\" href=\"/assets/favicon.ico\">
-        <link rel = \"stylesheet\" href = \"/assets/css/materialize.css\" />
-        <link rel = \"stylesheet\" href = \"/assets/css/reset.css\" />
+        <link rel=\"stylesheet\" href=\"/assets/css/reset.css\" />
         <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.css\"
               integrity=\"sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==\"
               crossorigin=\"\"/>
-        <link rel = \"stylesheet\" href = \"/assets/css/map.css\" />
-        <link rel=\"stylesheet\" href=\"/assets/css/header.scss\">
+        <link rel=\"stylesheet\" href = \"/assets/css/map.css\" />
 
         <title>Karotte</title>
     </head>
@@ -70,28 +70,11 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
                 </nav>
             </header>
             <div class=\"main\">
-                <div class=\"widgetContainer SellerCarousel\">
-                    <h2>Liste des Vendeurs autour de vous </h2>
-                    <div class=\"SellerList\">
-                        ";
-        // line 40
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(($context["sellerList"] ?? null));
-        foreach ($context['_seq'] as $context["_key"] => $context["seller"]) {
-            // line 41
-            echo "                            <p>";
-            echo twig_escape_filter($this->env, (($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = $context["seller"]) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4["SELL_NAME"] ?? null) : null), "html", null, true);
-            echo "</p>
-                        ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['seller'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
-        echo "                    </div>
-
-                </div>
-            </div>
+                ";
+        // line 36
+        $this->displayBlock('content', $context, $blocks);
+        // line 37
+        echo "            </div>
 
         </div>
     </body>
@@ -102,24 +85,24 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
     <script src=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js\"
             integrity=\"sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==\"
             crossorigin=\"\"></script>
-    <scrip src=\"/assets/js/materialize.js\"></scrip>
     <script src=\"/assets/js/map.js\"></script>
 </html>";
     }
 
-    public function getTemplateName()
+    // line 36
+    public function block_content($context, array $blocks = [])
     {
-        return "map/layoutMapAndMenu.html.twig";
+        $macros = $this->macros;
     }
 
-    public function isTraitable()
+    public function getTemplateName()
     {
-        return false;
+        return "layout/layoutMapAndMenu.html.twig";
     }
 
     public function getDebugInfo()
     {
-        return array (  91 => 43,  82 => 41,  78 => 40,  37 => 1,);
+        return array (  93 => 36,  77 => 37,  75 => 36,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -131,14 +114,13 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
         <meta name=\"viewport\"
               content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
         <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+        <link rel=\"stylesheet\" href = \"/assets/css/header.css\" />
         <link rel=\"shortcut icon\" type=\"image/ico\" href=\"/assets/favicon.ico\">
-        <link rel = \"stylesheet\" href = \"/assets/css/materialize.css\" />
-        <link rel = \"stylesheet\" href = \"/assets/css/reset.css\" />
+        <link rel=\"stylesheet\" href=\"/assets/css/reset.css\" />
         <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.css\"
               integrity=\"sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==\"
               crossorigin=\"\"/>
-        <link rel = \"stylesheet\" href = \"/assets/css/map.css\" />
-        <link rel=\"stylesheet\" href=\"/assets/css/header.scss\">
+        <link rel=\"stylesheet\" href = \"/assets/css/map.css\" />
 
         <title>Karotte</title>
     </head>
@@ -160,15 +142,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
                 </nav>
             </header>
             <div class=\"main\">
-                <div class=\"widgetContainer SellerCarousel\">
-                    <h2>Liste des Vendeurs autour de vous </h2>
-                    <div class=\"SellerList\">
-                        {% for seller in sellerList %}
-                            <p>{{ seller['SELL_NAME'] }}</p>
-                        {% endfor %}
-                    </div>
-
-                </div>
+                {% block content %}{% endblock %}
             </div>
 
         </div>
@@ -180,8 +154,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
     <script src=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js\"
             integrity=\"sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==\"
             crossorigin=\"\"></script>
-    <scrip src=\"/assets/js/materialize.js\"></scrip>
     <script src=\"/assets/js/map.js\"></script>
-</html>", "map/layoutMapAndMenu.html.twig", "C:\\wamp64\\www\\karotte\\templates\\map\\layoutMapAndMenu.html.twig");
+</html>", "layout/layoutMapAndMenu.html.twig", "C:\\wamp64\\www\\karotte\\templates\\layout\\layoutMapAndMenu.html.twig");
     }
 }

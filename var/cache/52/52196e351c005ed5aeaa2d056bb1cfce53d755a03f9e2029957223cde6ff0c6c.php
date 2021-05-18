@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* map/mapView.html.twig */
+/* map/layoutMapAndMenu.html.twig */
 class __TwigTemplate_9267eabbd66e28a4f898f70a4b47260e0fa78badab33a3bf8893283d6f32396c extends Template
 {
     private $source;
@@ -109,7 +109,7 @@ class __TwigTemplate_9267eabbd66e28a4f898f70a4b47260e0fa78badab33a3bf8893283d6f3
 
     public function getTemplateName()
     {
-        return "map/mapView.html.twig";
+        return "map/layoutMapAndMenu.html.twig";
     }
 
     public function isTraitable()
@@ -182,6 +182,6 @@ class __TwigTemplate_9267eabbd66e28a4f898f70a4b47260e0fa78badab33a3bf8893283d6f3
             crossorigin=\"\"></script>
     <scrip src=\"/assets/js/materialize.js\"></scrip>
     <script src=\"/assets/js/map.js\"></script>
-</html>", "map/mapView.html.twig", "C:\\wamp64\\www\\karotte\\templates\\map\\mapView.html.twig");
+</html>", "map/layoutMapAndMenu.html.twig", "C:\\wamp64\\www\\karotte\\templates\\map\\layoutMapAndMenu.html.twig");
     }
 }
