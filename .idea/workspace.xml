@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d19d831-6a22-48b5-b2d5-f9b203bfe188" name="Default Changelist" comment="commit change on register.css">
+      <change afterPath="$PROJECT_DIR$/public/assets/scss/essai.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/map.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/mapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/mapController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/SellerModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/SellerModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header/header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/map/mapView.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/map/mapView.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/cache/38/382a239e7bd11e9b9b911f7e40147e0989c6acc280a3f91d763e81ba454cf42c.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/38/382a239e7bd11e9b9b911f7e40147e0989c6acc280a3f91d763e81ba454cf42c.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,10 +73,14 @@
     <property name="last_opened_file_path" value="D:/Programation/CESI/HTML Web/Exo interface admin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\karotte\public\assets\scss" />
+      <recent name="C:\wamp64\www\karotte\public\assets\js" />
+      <recent name="C:\wamp64\www\karotte\public\assets\css" />
       <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\View" />
       <recent name="C:\Users\2217873\Documents\CESI\cubesProjetWeb\karotte\ressources" />
     </key>
@@ -99,7 +102,8 @@
       <workItem from="1617256344609" duration="41000" />
       <workItem from="1620848003999" duration="3177000" />
       <workItem from="1621230666205" duration="3844000" />
-      <workItem from="1621262904402" duration="9320000" />
+      <workItem from="1621262904402" duration="9414000" />
+      <workItem from="1621323311392" duration="3442000" />
     </task>
     <task id="LOCAL-00001" summary="commit before pull new integers">
       <created>1616765141343</created>
@@ -150,7 +154,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/templates/map/mapView.html.twig</url>
-          <line>26</line>
+          <line>27</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>

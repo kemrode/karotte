@@ -42,6 +42,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
               content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
         <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
         <link rel=\"shortcut icon\" type=\"image/ico\" href=\"/assets/favicon.ico\">
+        <link rel = \"stylesheet\" href = \"/assets/css/materialize.css\" />
         <link rel = \"stylesheet\" href = \"/assets/css/reset.css\" />
         <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.css\"
               integrity=\"sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==\"
@@ -73,11 +74,11 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
                     <h2>Liste des Vendeurs autour de vous </h2>
                     <div class=\"SellerList\">
                         ";
-        // line 39
+        // line 40
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["sellerList"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["seller"]) {
-            // line 40
+            // line 41
             echo "                            <p>";
             echo twig_escape_filter($this->env, (($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 = $context["seller"]) && is_array($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4) || $__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4 instanceof ArrayAccess ? ($__internal_f607aeef2c31a95a7bf963452dff024ffaeb6aafbe4603f9ca3bec57be8633f4["SELL_NAME"] ?? null) : null), "html", null, true);
             echo "</p>
@@ -86,7 +87,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['seller'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 42
+        // line 43
         echo "                    </div>
 
                 </div>
@@ -101,6 +102,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
     <script src=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js\"
             integrity=\"sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==\"
             crossorigin=\"\"></script>
+    <scrip src=\"/assets/js/materialize.js\"></scrip>
     <script src=\"/assets/js/map.js\"></script>
 </html>";
     }
@@ -117,7 +119,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
 
     public function getDebugInfo()
     {
-        return array (  90 => 42,  81 => 40,  77 => 39,  37 => 1,);
+        return array (  91 => 43,  82 => 41,  78 => 40,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -130,6 +132,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
               content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
         <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
         <link rel=\"shortcut icon\" type=\"image/ico\" href=\"/assets/favicon.ico\">
+        <link rel = \"stylesheet\" href = \"/assets/css/materialize.css\" />
         <link rel = \"stylesheet\" href = \"/assets/css/reset.css\" />
         <link rel=\"stylesheet\" href=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.css\"
               integrity=\"sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==\"
@@ -177,6 +180,7 @@ class __TwigTemplate_fccb15240d0e521e2df26c3b4ad7764ca1dfd504f4202dc05d797e22809
     <script src=\"https://unpkg.com/leaflet@1.7.1/dist/leaflet.js\"
             integrity=\"sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==\"
             crossorigin=\"\"></script>
+    <scrip src=\"/assets/js/materialize.js\"></scrip>
     <script src=\"/assets/js/map.js\"></script>
 </html>", "map/mapView.html.twig", "C:\\wamp64\\www\\karotte\\templates\\map\\mapView.html.twig");
     }
