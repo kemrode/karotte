@@ -1,4 +1,6 @@
 <?php
+namespace src\Model;
+use PDO;
 
 class user {
     private String $name;

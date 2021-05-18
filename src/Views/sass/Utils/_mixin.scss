@@ -1,0 +1,52 @@
+@import '../Utils/variables';
+@mixin flexBoxRow {
+  display: flex;
+  flex-direction: row;
+}
+@mixin flexBoxColumn {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flexBoxRowJustifyCentering {
+  @include flexBoxRow;
+  justify-content: center;
+}
+@mixin flexBoxColumnJustifyCentering {
+  @include flexBoxColumn;
+  justify-content: center;
+}
+@mixin flexBoxRowFlexStart {
+  @include flexBoxRow;
+  justify-content: flex-start;
+}
+@mixin flexBoxColumnFlexStart {
+  @include flexBoxColumn;
+  justify-content: flex-start;
+}
+@mixin flexBoxRowSpaceEvenly {
+  @include flexBoxRow;
+  justify-content: space-evenly;
+}
+@mixin flexBoxRowSpaceAround {
+  @include flexBoxRow;
+  justify-content: space-around;
+}
+@mixin flexBoxRowFlexEnd {
+  @include flexBoxRow;
+  justify-content: flex-end;
+}
+///////////////////////
+@mixin borderRadiusQuarter {
+  border-radius: 45px;
+}
+/////////////////////////
+@mixin titleManagement {
+  @include flexBoxRowJustifyCentering;
+  color: black;
+  font-size: $titleSizeHandy;
+}
+///////////////////////
+@mixin fontStyleButton {
+  font-size: $bigButtonFont;
+  font-weight: bold;
+}

@@ -1,6 +1,8 @@
 <?php
 require "../templates/header/header.php";
 require "../vendor/autoload.php";
+require '../src/Model/BDD.php';
+\src\Model\BDD::initInstance();
 
 // Autoloader de Classe
 function chargerClasse($classe){
