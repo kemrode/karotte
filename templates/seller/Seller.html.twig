@@ -1,0 +1,292 @@
+{% extends"layoutMapAndMenu.html.twig" %}
+
+{% block css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block rightContent %}
+    <div class="sellerPage">
+        {#{% for seller in sellerList %}#}
+        <div class="seller-page__name">
+            <h2>Jean-Michel Carotte</h2>
+        </div>
+        <div class="seller-page__resume">
+
+            <div class="seller-page__rate">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span>53 avis</span>
+            </div>
+            <div class="seller-page__tag">
+                <ul class="tags">
+                    <li>Légumes</li>
+                    <li>Bio</li>
+                    <li>Permaculture</li>
+                </ul>
+            </div>
+            <div class="seller-page__info">
+                <ul>
+                    <li><span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span><span>7 rue de la carotte, 76000 Rouen</span></li>
+                    <li><span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span><span>06 12 23 45 56</span></li>
+                    <li><span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span><span>Coucou c'est Jean-Michel, je vends des carottes.</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="seller-page-productList">
+            {#<h2>Liste des produits</h2>#}
+            {#For each tags create category#}
+            <div class="seller-page-product-cards">
+                <h3 class="seller-page-product-cards__category">Catégorie 1</h3>
+                <div class="seller-page-productList-cards">
+                    {#For each product create card#}
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seller-page-product-cards">
+                <h3 class="seller-page-product-cards__category">Catégorie 2</h3>
+                <div class="seller-page-productList-cards">
+                    {#For each product create card#}
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+                    </div>
+                    <div class="seller-page-product-card">
+                        <div class="seller-page-product-card__image">
+                            <img src="/assets/img/img2">
+                        </div>
+                        <div class="seller-page-product-card__info">
+                            <h3>Carotte</h3>
+                            <p class="seller-page-product-description">De belles carottes</p>
+                            <p class="seller-page-product-card__price">1.20€</p>
+                            <div class="seller-page-product-card__quantity">
+                                <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                <span>1</span>
+                                <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                            </div>
+                            <button class="seller-page-product-card__button">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#{% endfor %}#}
+    </div>
+{% endblock %}
+
+{% block leftContent %}
+    {#<h1>Bienvenue sur Karotte</h1>#}
+    <div id="sellerList" class="widgetContainer SellerCarousel">
+        <div class="title-SellerList">
+            <h2>Producteurs près de chez vous</h2>
+        </div>
+        <div class="seller-cards">
+            {% for seller in sellerList %}
+                <div class="seller-card">
+                    <div class="seller-card__image">
+                        <img class="seller-card__thumb" src="/assets/img/img1.jpg">
+                    </div>
+                    <div class="seller-card__resume">
+                        <h3><a href="/?controller=seller&action=sellerPage">{{ seller['SELL_NAME'] }}</a></h3>
+                        <div class="seller-card__rate">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="seller-card__tag">
+                            <ul>
+                                <li>Légumes</li>
+                                <li>Bio</li>
+                                <li>Permaculture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+
+
+{% endblock %}

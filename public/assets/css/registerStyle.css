@@ -1,0 +1,322 @@
+*,
+* before::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.tabBarMenuContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.iconBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 25%;
+}
+
+.iconBox__burgerMenu {
+  margin-left: 5px;
+}
+
+.iconBox__homeMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.iconBox__basketMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.iconBox__myAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.registerContainer {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.registerContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.registerContainer__backgroundColor {
+  background-color: #bb4e0b;
+  width: auto;
+  height: 100vh;
+}
+
+.registerTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  font-size: 1.4em;
+}
+
+.itemsFormContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 45px;
+}
+
+.item input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: auto;
+  color: black;
+  opacity: 0.5;
+  border: none;
+  border-radius: 45px;
+  margin-left: 10px;
+}
+
+.subtitleRegister {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: black;
+  font-size: 1.4em;
+}
+
+.choicesListBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.choiceBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 20%;
+  height: 150px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.choiceBox__border--backgroundColor {
+  background-color: #6B8954;
+}
+
+.choiceBox__border--borderRadius {
+  border-radius: 45px;
+}
+
+.choiceTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.choiceTitle__title--titleSize {
+  font-weight: bold;
+}
+
+.choiceSwitch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cguBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.checkBoxContainer {
+  width: 25%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.labelBox {
+  width: 75%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: auto;
+}
+
+.buttonBox button {
+  width: 100vw;
+  background-color: #6B8954;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .itemBox {
+    height: 50px;
+  }
+
+  .item {
+    width: 85%;
+  }
+
+  .choiceBox {
+    height: 100px;
+    width: 33%;
+  }
+
+  .buttonBox button {
+    height: 50px;
+  }
+
+  .choiceTitle__title--titleSize {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .itemBox {
+    height: 100px;
+  }
+
+  .item {
+    width: 500px;
+  }
+
+  .item input {
+    width: 500px;
+  }
+
+  .choiceBox {
+    height: 150px;
+  }
+
+  /*.choiceBox button {
+    width: $shortScreenButton;
+    height: $mediumScreenSize;
+    font-size: 1.5em;
+  }*/
+  .choiceTitle__title--titleSize {
+    font-size: 1.8em;
+  }
+
+  .cguBox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .checkBoxContainer input {
+    width: 25px;
+    height: 25px;
+  }
+
+  .labelBox {
+    font-size: 1.3em;
+  }
+
+  .buttonBox button {
+    width: 50%;
+    height: 150px;
+    margin-bottom: 50px;
+    border-radius: 45px;
+    font-size: 1.6em;
+  }
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=registerStyle.css.map */
+
+/*# sourceMappingURL=registerStyle.css.map */

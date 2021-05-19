@@ -1,0 +1,12 @@
+{
+  "name": "Karotte",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/public/index.php",
+  "scripts": {
+    "sass": "sass --watch public/assets/sass/:public/assets/css/"
+  },
+  "author": "Kevin Fichou, Pierre Villy, Loïck Brouard",
+  "email": "KarottePKL@gmail.com",
+  "license": "ISC"
+}

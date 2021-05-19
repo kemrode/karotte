@@ -1,0 +1,101 @@
+@import '../Utils/mixin';
+@import '../Utils/variables';
+
+.registerContainer {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.registerContainer::-webkit-scrollbar {
+  display: none;
+}
+.registerContainer__backgroundColor {
+  background-color: #bb4e0b;
+  width: auto;
+  height: 100vh;
+}
+.registerTitle {
+  @include titleManagement;
+}
+.itemsFormContainer {
+  @include flexBoxColumn;
+}
+.itemBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+.item {
+  @include flexBoxRow;
+  background-color: white;
+  @include borderRadiusQuarter;
+}
+.item input{
+  @include flexBoxRowFlexStart;
+  width: auto;
+  color: black;
+  opacity: 0.5;
+  border: none;
+  @include borderRadiusQuarter;
+  margin-left: 10px;
+}
+.subtitleRegister{
+  @include titleManagement;
+}
+.choicesListBox{
+  @include flexBoxRow;
+  justify-content: space-evenly;
+}
+.choiceBox {
+  @include flexBoxColumn;
+  justify-content: space-evenly;
+  width: 20%;
+  height: 150px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  &__border{
+    &--backgroundColor{
+      background-color: #6B8954;
+    }
+    &--borderRadius{
+      @include borderRadiusQuarter;
+    }
+  }
+}
+.choiceTitle {
+  @include flexBoxRowJustifyCentering;
+  &__title{
+    &--titleSize{
+      font-weight: bold;
+    }
+  }
+}
+.choiceSwitch {
+  @include flexBoxRowJustifyCentering;
+}
+.cguBox {
+  @include flexBoxRow;
+  justify-content: space-evenly;
+}
+.checkBoxContainer {
+  width: 25%;
+  height: auto;
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+}
+.labelBox {
+  width: 75%;
+  height: auto;
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+}
+.buttonBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: auto;
+}
+.buttonBox button {
+  width: 100vw;
+  background-color: $secondColor;
+  @include fontStyleButton;
+}
