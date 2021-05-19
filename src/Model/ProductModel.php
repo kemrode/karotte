@@ -121,6 +121,11 @@ class ProductModel{
      */
     public function setPRODOFFER(int $PROD_OFFER): Product
     {
+        if($PROD_OFFER>0)
+            $this->setPRODOFFERTAG(true);
+        else
+            $this->setPRODOFFERTAG(false);
+
         $this->PROD_OFFER = $PROD_OFFER;
         return $this;
     }
@@ -182,13 +187,61 @@ class ProductModel{
 
     #region function CRUD ProductModel
 
-    function GetAllProductFromUserId(\PDO $bdd, int $userId){
+    public static function GetAllProductFromUserId(int $userId){
         try{
+            $bdd = BDD::getInstance();
             $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_USER_ID =:user_ID");
-            $execute = $requete->execute([
+            $requete->execute([
                 "user_ID" => $userId
             ]);
-            return $requete->fetchAll();
+            return $requete->fetchAll(\PDO::FETCH_CLASS, "src\Model\Product");
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+    public static function GetAllProductAndTagGroupedByTagFromUserId(int $userId){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_USER_ID =:user_ID");
+            $requete->execute([
+                "user_ID" => $userId
+            ]);
+            return $requete->fetchAll(\PDO::FETCH_CLASS, "src\Model\Product");
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+    public function AddProductToSellerShop(){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER) VALUES (:PROD_ID, :PROD_USER_ID, :PROD_NAME, :PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER)");
+            $requete->execute([
+                "PROD_ID" => $this->getPRODID(),
+                "PROD_USER_ID" => $this->getPRODUSERID(),
+                "PROD_NAME" => $this->getPRODNAME(),
+                "PROD_QTY" => $this->getPRODQTY(),
+                "PROD_OFFER_TAG" => (int) filter_var($this->isPRODOFFERTAG(), FILTER_VALIDATE_BOOLEAN),
+                "PROD_PRICE" => $this->getPRODPRICE(),
+                "PROD_ORIGIN" => $this->getPRODORIGIN(),
+                "PROD_PICT" => $this->getPRODPICT(),
+                "PROD_OFFER" => $this->getPRODOFFER()
+            ]);
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+    public function UpdateOfferOfOneProduct(){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_OFFER_TAG=:PROD_OFFER_TAG, PROD_OFFER=:PROD_OFFER) WHERE PROD_ID=:PROD_ID");
+            $requete->execute([
+                "PROD_ID" => $this->getPRODID(),
+                "PROD_OFFER_TAG" => (int) filter_var($this->isPRODOFFERTAG(), FILTER_VALIDATE_BOOLEAN),
+                "PROD_OFFER" => $this->getPRODOFFER()
+            ]);
         }catch (\Exception $e){
             throw $e;
         }
