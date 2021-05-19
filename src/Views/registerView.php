@@ -9,6 +9,7 @@ require '../Controller/registerController.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S'inscrire</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/public/assets/css/registerStyle.css">
     <link rel="stylesheet" type="text/css" href="../../public/assets/css/registerStyle.css">
 </head>
@@ -84,11 +85,29 @@ require '../Controller/registerController.php';
                         </div>
                     </div>
                     <div class="choicesListBox">
-                        <div class="choiceBox">
-                            <button name="prodKarotte" value="producer">Productrice</button>
+                        <div class="choiceBox choiceBox__border--backgroundColor choiceBox__border--borderRadius">
+                            <div class="choiceTitle choiceTitle__title--titleSize choice__title--textColor">
+                                <label>Productrice</label>
+                            </div>
+                            <div class="choiceSwitch choiceSwitch__switch--switchColor">
+                                <label class="switch">
+                                    <input type="hidden" class="prodKarott" name="prodKarotte" value="0">
+                                    <input type="checkbox" class="prodKarott" name="prodKarotte" value="1">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="choiceBox">
-                            <button name="citoyKarotte" value="citizen">Citoyenne</button>
+                        <div class="choiceBox choiceBox__border--backgroundColor choiceBox__border--borderRadius">
+                            <div class="choiceTitle choiceTitle__title--titleSize choice__title--textColor">
+                                <label>Citoyenne</label>
+                            </div>
+                            <div class="choiceSwitch choiceSwitch__switch--switchColor">
+                                <label class="switch">
+                                    <input type="hidden" name="userKarotte" value="0">
+                                    <input type="checkbox" name="userKarotte" value="1">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="cguBox">
@@ -104,7 +123,6 @@ require '../Controller/registerController.php';
                     </div>
                     <div class="buttonBox">
                         <button type="submit" name="joinUpBtn">Rejoindre la botte</button>
-                        <!-- <input type="submit" name="joinUpBtn" value="Rejoindre la botte"> -->
                     </div>
                 </form>
             </div>
@@ -112,4 +130,5 @@ require '../Controller/registerController.php';
     </div>
 </div>
 <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+<!-- <script src="../../public/assets/js/register.js"></script> -->
 </body>
