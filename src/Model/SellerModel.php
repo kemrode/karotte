@@ -89,7 +89,7 @@ class SellerModel{
 
     #region function CRUD SellerModel
 
-    function GetAllSellers(){
+    public static function GetAllSellers(){
         try{
             $bdd = BDD::getInstance();
             $requete = $bdd->prepare("SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER");
@@ -113,7 +113,7 @@ class SellerModel{
     public static function GetSellerInformationFromId($id){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT SELL_NAME, SELL_PRES FROM SELLER WHERE SELL_ID=:SELL_ID");
+            $requete = $bdd->prepare("SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER WHERE SELL_ID=:SELL_ID");
             $requete->execute([
                 "SELL_ID" => $id
             ]);
