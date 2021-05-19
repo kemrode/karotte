@@ -8,9 +8,9 @@ class ProductModel{
     private int $PROD_USER_ID;
     private string $PROD_NAME;
     private int $PROD_QTY;
-    private int $PROD_OFFER_TAG;
+    private bool $PROD_OFFER_TAG;
     private ?int $PROD_OFFER;
-    private int $PROD_PRICE;
+    private float $PROD_PRICE;
     private ?string $PROD_ORIGIN;
     private string $PROD_PICT;
     #endregion
@@ -90,22 +90,24 @@ class ProductModel{
     }
 
     /**
-     * @return int
+     * @return bool
      */
-    public function getPRODOFFERTAG(): int
+    public function isPRODOFFERTAG(): bool
     {
         return $this->PROD_OFFER_TAG;
     }
 
     /**
-     * @param int $PROD_OFFER_TAG
+     * @param bool $PROD_OFFER_TAG
      * @return ProductModel
      */
-    public function setPRODOFFERTAG(int $PROD_OFFER_TAG): ProductModel
+    public function setPRODOFFERTAG(bool $PROD_OFFER_TAG): ProductModel
     {
         $this->PROD_OFFER_TAG = $PROD_OFFER_TAG;
         return $this;
     }
+
+
 
     /**
      * @return int
@@ -131,18 +133,18 @@ class ProductModel{
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getPRODPRICE(): int
+    public function getPRODPRICE(): float
     {
         return $this->PROD_PRICE;
     }
 
     /**
-     * @param int $PROD_PRICE
+     * @param float $PROD_PRICE
      * @return ProductModel
      */
-    public function setPRODPRICE(int $PROD_PRICE): ProductModel
+    public function setPRODPRICE(float $PROD_PRICE): ProductModel
     {
         $this->PROD_PRICE = $PROD_PRICE;
         return $this;
@@ -204,11 +206,11 @@ class ProductModel{
         try{
             $bdd = BDD::getInstance();
             $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_ID =:PROD_ID");
+            $requete->setFetchMode(\PDO::FETCH_CLASS, "src\Model\ProductModel");
             $requete->execute([
                 "PROD_ID" => $prodId
             ]);
-            $res = $requete->fetch(\PDO::FETCH_CLASS, "src\Model\ProductModel");
-            return $requete->fetch(\PDO::FETCH_CLASS, "src\Model\ProductModel");
+            return $requete->fetch();
         }catch (\Exception $e){
             throw $e;
         }
@@ -258,7 +260,7 @@ class ProductModel{
         try{
             $this->setPRODOFFER($offerAmount);
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_OFFER_TAG=:PROD_OFFER_TAG, PROD_OFFER=:PROD_OFFER) WHERE PROD_ID=:PROD_ID");
+            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_OFFER_TAG=:PROD_OFFER_TAG, PROD_OFFER=:PROD_OFFER WHERE PROD_ID=:PROD_ID");
             $requete->execute([
                 "PROD_ID" => $this->getPRODID(),
                 "PROD_OFFER_TAG" => (int) filter_var($this->isPRODOFFERTAG(), FILTER_VALIDATE_BOOLEAN),

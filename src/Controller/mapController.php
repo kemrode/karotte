@@ -11,11 +11,6 @@ class MapController extends AbstractController {
         try{
             $seller = new SellerModel();
             $sellerList = $seller->GetAllSellers();
-
-/*            $pdt = ProductModel::GetProductFromProductId(8);
-            $coucou = '';
-            $pdt->UpdateOffer(50);
-            $coucou = '';*/
             return $this->twig->render("seller/Seller.html.twig",[
                 "sellerList" => $sellerList
             ]);
