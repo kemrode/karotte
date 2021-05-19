@@ -19,16 +19,18 @@
 <body>
 <div id ="map"></div>
 <div id="overMapContainer">
-    <header>
-        <a href="/" class="logo">KAROTTE</a>
-        <nav>
-            <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
-            <a href="#"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
-            <a href="#"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
-        </nav>
-    </header>
+
     <div class="main">
-        {% block content %}{% endblock %}
+        <header>
+            <a href="/" class="logo">KAROTTE</a>
+            <nav>
+                <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
+                <a href="#"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
+                <a href="#"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
+            </nav>
+        </header>
+        {% block leftContent %}{% endblock %}
+        {% block rightContent %}{% endblock %}
     </div>
 
 </div>

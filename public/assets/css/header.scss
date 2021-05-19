@@ -1,10 +1,95 @@
-header {
-  display: flex;
-  justify-content: flex-start;
-  max-width: 700px;
-  width: 100vw;
-  align-items: center;
+html,body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, sans-serif;
+  color: #bb4e0b;
 }
+
+/* ------ CONTAINER ------ */
+
+/*
+#overMapContainer{
+  display: grid;
+  grid-template-columns: 480px auto;
+  grid-auto-rows: minmax(80px, auto);
+  grid-template-rows: 80px auto;
+}
+*/
+
+/*.container {
+  display: grid;
+  grid-template-columns: 480px auto;
+  !*grid-auto-rows: minmax(80px, auto);*!
+  grid-template-rows: 80px auto;
+}*/
+
+/* ------ MAIN ------ */
+.main{
+  grid-column: span 2;
+  grid-row: span 2;
+  display: grid;
+  grid-template-columns: 480px auto;
+  grid-template-rows: 80px auto;
+  width: 100vw;
+}
+
+
+/* ------ LEFT CONTAINER ------ */
+
+/* ------ HEADER ------ */
+
+/* Style the header with a grey background and some padding */
+
+header {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #bb4e0b;
+  overflow: hidden;
+
+  a, nav {
+    color: #bb4e0b;
+  }
+
+  a{
+    float: left;
+    /*color: white;*/
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 25px;
+    border-radius: 4px;
+    justify-content: flex-end;
+    letter-spacing: .3em;
+    color: white;
+
+    /*.active{
+      background-color: dodgerblue;
+      color: white;
+    }*/
+  }
+
+  .logo{
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+/*!* ------ MENU ------ *!
 
 .burger-menu-button {
   width: 40px;
@@ -15,7 +100,7 @@ header {
   z-index: 100;
   background: white;
   border: none;
-  /*border: 5px solid #bb4e0b;*/
+  !*border: 5px solid #bb4e0b;*!
   box-sizing: content-box;
   border-radius: 50%;
   text-indent: 100%;
@@ -121,4 +206,141 @@ header {
 
 .main-menu ul li a:hover svg {
   color: white;
+}*/
+
+
+
+/* ------ SELLER LIST ------ */
+
+/*#sellerBlock{
+  !*display: grid;
+  grid-template-columns: 480px auto;
+  grid-auto-rows: minmax(80px, auto);*!
+  grid-column: 1;
+  grid-row: 2;
+}*/
+
+#sellerList{
+  grid-row: span 2;
+  height: max-content;
+  background-color: white;
+  text-align: center;
+  height: 100vh;
+
+  .title-SellerList{
+    margin: 30px 0;
+  }
+
+  h2 {
+    color: #6B8954;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+
+  h3{
+    margin-top: 0;
+    a{
+      text-decoration: none;
+      color: #bb4e0b;
+    }
+  }
+  /* --- SELLER CARD ---*/
+  .seller-cards{
+    display: grid;
+    grid-auto-rows: minmax(80px, auto);
+    row-gap: 2em;
+    margin: 0 20px;
+  }
+
+  .seller-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .seller-card__image, .seller-card__thumb{
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .seller-card__resume{
+
+    }
+
+    .seller-card__rate{
+      margin-top: 30px;
+      color: #6b8954;
+    }
+
+    .seller-card__tag{
+      font-size: 12px;
+      color: #6b8954;
+      position: relative;
+      top: 50px;
+
+      ul{
+        list-style-type: none;
+        padding: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+  }
 }
+
+
+
+
+
+.checked {
+  color: #bb4e0b;
+}
+
+
+/* ------ RIGHT CONTAINER ------ */
+#map{
+  height: 100vh;
+  grid-column: 2;
+}
+
+/* ------ SELLER PAGE ------ */
+
+.sellerPage{
+
+}
+.resume-seller-page{
+
+}
+
+.tag-seller-page{
+
+}
+.info-seller-page{
+  ul{
+    list-style-type: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+/*
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+}*/
