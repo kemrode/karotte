@@ -12,12 +12,6 @@
         <div class="title-SellerList">
             <h2>Producteurs près de chez vous</h2>
         </div>
-        <div>
-            <form method="post" action="/index.php?controller=map&action=addProduct" enctype="multipart/form-data">
-                <input name="PROD_PICT" type="file" required>
-                <input type="submit">
-            </form>
-        </div>
         <div class="seller-cards">
             {% for seller in sellerList %}
                 <div class="seller-card">
