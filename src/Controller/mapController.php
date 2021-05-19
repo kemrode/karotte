@@ -20,6 +20,15 @@ class MapController extends AbstractController {
         }
     }
 
+    public function addProduct(){
+        try{
+            ProductModel::UploadPictureToServer($_FILES);
+        }
+        catch(\Exception $e){
+            return 1;
+        }
+    }
+
 
 
 }

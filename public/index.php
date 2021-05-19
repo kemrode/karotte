@@ -2,6 +2,9 @@
 require "../vendor/autoload.php";
 session_start();
 
+// Redefining root path
+define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
+
 // Autoloader de Classe
 function chargerClasse($classe){
     // Windows = \ Linux/Mac = /

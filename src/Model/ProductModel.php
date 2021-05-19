@@ -1,6 +1,8 @@
 <?php
 namespace src\Model;
 
+use http\Exception;
+
 class ProductModel{
 
     #region Attibutes ProductModel
@@ -182,6 +184,8 @@ class ProductModel{
      */
     public function setPRODPICT(string $PROD_PICT): ProductModel
     {
+
+
         $this->PROD_PICT = $PROD_PICT;
         return $this;
     }
@@ -239,6 +243,7 @@ class ProductModel{
 
     public function AddProductToSellerShop(){
         try{
+            // DB registration
             $bdd = BDD::getInstance();
             $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER) VALUES (:PROD_USER_ID, :PROD_NAME, :PROD_QTY, :PROD_OFFER_TAG, :PROD_PRICE, :PROD_ORIGIN, :PROD_PICT, :PROD_OFFER)");
             $requete->execute([
@@ -268,6 +273,35 @@ class ProductModel{
             ]);
         }catch (\Exception $e){
             throw $e;
+        }
+    }
+
+    public static function UploadPictureToServer($PICT){
+        // treatment before uploading picture
+
+        try {
+            if (empty($PICT["PROD_PICT"]["tmp_name"]))
+                throw new \Exception("Cette image est trop lourde pour être importee");
+            if (!empty($PICT["PROD_PICT"]["name"])) {
+                // Nom de l'image finale
+                $extension = pathinfo($PICT["PROD_PICT"]["name"], PATHINFO_EXTENSION);
+                $nomImage = (uniqid()) . "." . $extension;
+                //Repertoire de stockage
+                $dateNow = new \DateTime();
+                $repositoryName = $dateNow->format("Y/W");
+                $repositoryHdd = ROOT . "../files/img/products/$repositoryName";
+                if (!is_dir($repositoryHdd)) {
+                    mkdir($repositoryHdd, 0700, true);
+                }
+                $finalPath = $repositoryHdd . "/" . $nomImage;
+                move_uploaded_file($PICT["PROD_PICT"]["tmp_name"], $finalPath);
+            }
+            else {
+                throw new \Exception("L'image n'a pas pu etre chargee");
+            }
+        }
+        catch (\Exception $e) {
+            throw new \Exception("Une erreur est survenue lors du chargement de l'image");
         }
     }
 
