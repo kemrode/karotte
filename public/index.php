@@ -1,5 +1,5 @@
-    <?php
-require "../vendor/autoload.php";
+<?php
+require "../../vendor/autoload.php";
 session_start();
 // Autoloader de Classe
 function chargerClasse($classe){

@@ -67,9 +67,9 @@ function GenerateMap(){
 function PopulateMap(map){
     // Add the zoom control to top right position
 
-/*        L.control.zoom({
-            position:'topright'
-        }).addTo(map);*/
+    /*        L.control.zoom({
+                position:'topright'
+            }).addTo(map);*/
 
     let markerIcon = new L.icon({
         sellerId:"",
