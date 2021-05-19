@@ -113,7 +113,7 @@ class SellerModel{
     public static function GetSellerInformationFromId($id){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT SELL_ID, SELL_LOC FROM SELLER");
+            $requete = $bdd->prepare("SELECT SELL_NAME, SELL_PRES FROM SELLER");
             $requete->execute([
                 "SELL_ID" => $id
             ]);

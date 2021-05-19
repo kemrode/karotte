@@ -97,8 +97,22 @@ function PopulateMap(map){
 //*******************************//
 
 function displayMarkerInfo(e){
-    console.log(e);
-    alert(`Id : ${e.target.options.sellerId} | Lattitude : ${e.latlng.lat} | Longitude : ${e.latlng.lng}`);
+    GetSellerInformationFromIdPromise = GetSellerInformationFromId(e.target.options.sellerId);
+    GetSellerInformationFromIdPromise.then((result) => {
+        result =JSON.parse(result);
+        console.log(result);
+        if(result["SELL_NAME"] != 0){
+            sellerName = result["SELL_NAME"];
+            sellerPres = result["SELL_PRES"];
+            alert(`Vendeur : ${sellerName} | Description : ${sellerPres}`);
+        }
+        else{
+            alert('Aucun résultat trouvé pour ce vendeur');
+        }
+    }).catch((error)=>{
+        alert(`Erreur : ${error}`);
+    })
+
     // Searching into DB seller info with this coords
 }
 
@@ -110,6 +124,22 @@ function GetSellerLocation(){
     return new Promise((resolve, reject) => {
         xhr = new XMLHttpRequest()
         xhr.open("GET", "/?controller=Seller&action=GetAllSellersLocationAndId");
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                resolve(xhr.response);
+            } else {
+                reject(xhr.statusText);
+            }
+        };
+        xhr.onerror = () => reject(xhr.statusText);
+        xhr.send();
+    })
+};
+
+function GetSellerInformationFromId(id){
+    return new Promise((resolve, reject) => {
+        xhr = new XMLHttpRequest()
+        xhr.open("GET", `/?controller=Seller&action=GetSellerInformationFromId&param=${id}`);
         xhr.onload = () => {
             if (xhr.status >= 200 && xhr.status < 300) {
                 resolve(xhr.response);
