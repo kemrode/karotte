@@ -37,7 +37,7 @@ class BDD
     {
         if (SELF::$_instance == null) {
             SELF::initInstance();
-            return SELF::$_instance;
         }
+        return SELF::$_instance;
     }
 }

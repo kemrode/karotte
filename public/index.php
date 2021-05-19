@@ -1,6 +1,7 @@
     <?php
 require "../vendor/autoload.php";
 session_start();
+
 // Autoloader de Classe
 function chargerClasse($classe){
     // Windows = \ Linux/Mac = /
@@ -13,6 +14,8 @@ function chargerClasse($classe){
         require_once $file;
 }
 spl_autoload_register("chargerClasse");
+
+\src\Model\BDD::initInstance();
 
 // Router
 $controller = (isset($_GET["controller"])) ? $_GET["controller"] : "";

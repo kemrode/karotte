@@ -8,7 +8,7 @@ class ProductModel{
     private int $PROD_USER_ID;
     private string $PROD_NAME;
     private int $PROD_QTY;
-    private bool $PROD_OFFER_TAG;
+    private int $PROD_OFFER_TAG;
     private ?int $PROD_OFFER;
     private int $PROD_PRICE;
     private ?string $PROD_ORIGIN;
@@ -27,9 +27,9 @@ class ProductModel{
 
     /**
      * @param int $PROD_ID
-     * @return Product
+     * @return ProductModel
      */
-    public function setPRODID(int $PROD_ID): Product
+    public function setPRODID(int $PROD_ID): ProductModel
     {
         $this->PROD_ID = $PROD_ID;
         return $this;
@@ -45,9 +45,9 @@ class ProductModel{
 
     /**
      * @param int $PROD_USER_ID
-     * @return Product
+     * @return ProductModel
      */
-    public function setPRODUSERID(int $PROD_USER_ID): Product
+    public function setPRODUSERID(int $PROD_USER_ID): ProductModel
     {
         $this->PROD_USER_ID = $PROD_USER_ID;
         return $this;
@@ -63,9 +63,9 @@ class ProductModel{
 
     /**
      * @param string $PROD_NAME
-     * @return Product
+     * @return ProductModel
      */
-    public function setPRODNAME(string $PROD_NAME): Product
+    public function setPRODNAME(string $PROD_NAME): ProductModel
     {
         $this->PROD_NAME = $PROD_NAME;
         return $this;
@@ -81,27 +81,27 @@ class ProductModel{
 
     /**
      * @param int $PROD_QTY
-     * @return Product
+     * @return ProductModel
      */
-    public function setPRODQTY(int $PROD_QTY): Product
+    public function setPRODQTY(int $PROD_QTY): ProductModel
     {
         $this->PROD_QTY = $PROD_QTY;
         return $this;
     }
 
     /**
-     * @return bool
+     * @return int
      */
-    public function isPRODOFFERTAG(): bool
+    public function getPRODOFFERTAG(): int
     {
         return $this->PROD_OFFER_TAG;
     }
 
     /**
-     * @param bool $PROD_OFFER_TAG
-     * @return Product
+     * @param int $PROD_OFFER_TAG
+     * @return ProductModel
      */
-    public function setPRODOFFERTAG(bool $PROD_OFFER_TAG): Product
+    public function setPRODOFFERTAG(int $PROD_OFFER_TAG): ProductModel
     {
         $this->PROD_OFFER_TAG = $PROD_OFFER_TAG;
         return $this;
@@ -117,9 +117,9 @@ class ProductModel{
 
     /**
      * @param int $PROD_OFFER
-     * @return Product
+     * @return ProductModel
      */
-    public function setPRODOFFER(int $PROD_OFFER): Product
+    public function setPRODOFFER(int $PROD_OFFER): ProductModel
     {
         if($PROD_OFFER>0)
             $this->setPRODOFFERTAG(true);
@@ -140,9 +140,9 @@ class ProductModel{
 
     /**
      * @param int $PROD_PRICE
-     * @return Product
+     * @return ProductModel
      */
-    public function setPRODPRICE(int $PROD_PRICE): Product
+    public function setPRODPRICE(int $PROD_PRICE): ProductModel
     {
         $this->PROD_PRICE = $PROD_PRICE;
         return $this;
@@ -158,9 +158,9 @@ class ProductModel{
 
     /**
      * @param string $PROD_ORIGIN
-     * @return Product
+     * @return ProductModel
      */
-    public function setPRODORIGIN(string $PROD_ORIGIN): Product
+    public function setPRODORIGIN(string $PROD_ORIGIN): ProductModel
     {
         $this->PROD_ORIGIN = $PROD_ORIGIN;
         return $this;
@@ -176,9 +176,9 @@ class ProductModel{
 
     /**
      * @param string $PROD_PICT
-     * @return Product
+     * @return ProductModel
      */
-    public function setPRODPICT(string $PROD_PICT): Product
+    public function setPRODPICT(string $PROD_PICT): ProductModel
     {
         $this->PROD_PICT = $PROD_PICT;
         return $this;
@@ -194,20 +194,42 @@ class ProductModel{
             $requete->execute([
                 "user_ID" => $userId
             ]);
-            return $requete->fetchAll(\PDO::FETCH_CLASS, "src\Model\Product");
+            return $requete->fetchAll(\PDO::FETCH_CLASS, "src\Model\ProductModel");
         }catch (\Exception $e){
             throw $e;
         }
     }
 
-    public static function GetAllProductAndTagGroupedByTagFromUserId(int $userId){
+    public static function GetProductFromProductId(int $prodId){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_USER_ID =:user_ID");
+            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_ID =:PROD_ID");
             $requete->execute([
-                "user_ID" => $userId
+                "PROD_ID" => $prodId
             ]);
-            return $requete->fetchAll(\PDO::FETCH_CLASS, "src\Model\Product");
+            $res = $requete->fetch(\PDO::FETCH_CLASS, "src\Model\ProductModel");
+            return $requete->fetch(\PDO::FETCH_CLASS, "src\Model\ProductModel");
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+    public static function GetAllProductAndTagGroupedByTagFromSellerId(int $sellerId){
+        try{
+            $result = [];
+            $bdd = BDD::getInstance();
+            $tagList = TagModel::GetAllTagsFromSellerId($sellerId);
+            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_USER_ID =:user_ID AND PROD_ID in (SELECT TP_ID_PRODUCT FROM TAGPRODUCT WHERE TP_TAG =:TP_TAG)");
+
+            /* @var $tag TagModel */
+            foreach ($tagList as $tag){
+                $requete->execute([
+                    "user_ID" => $sellerId,
+                    "TP_TAG" => $tag->getTPTAG()
+                ]);
+                $result[$tag->getTPTAG()] = $requete->fetchAll(\PDO::FETCH_CLASS, "src\Model\ProductModel");
+            }
+            return $result;
         }catch (\Exception $e){
             throw $e;
         }
@@ -216,9 +238,8 @@ class ProductModel{
     public function AddProductToSellerShop(){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER) VALUES (:PROD_ID, :PROD_USER_ID, :PROD_NAME, :PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER)");
+            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER) VALUES (:PROD_USER_ID, :PROD_NAME, :PROD_QTY, :PROD_OFFER_TAG, :PROD_PRICE, :PROD_ORIGIN, :PROD_PICT, :PROD_OFFER)");
             $requete->execute([
-                "PROD_ID" => $this->getPRODID(),
                 "PROD_USER_ID" => $this->getPRODUSERID(),
                 "PROD_NAME" => $this->getPRODNAME(),
                 "PROD_QTY" => $this->getPRODQTY(),
@@ -233,8 +254,9 @@ class ProductModel{
         }
     }
 
-    public function UpdateOfferOfOneProduct(){
+    public function UpdateOffer($offerAmount){
         try{
+            $this->setPRODOFFER($offerAmount);
             $bdd = BDD::getInstance();
             $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_OFFER_TAG=:PROD_OFFER_TAG, PROD_OFFER=:PROD_OFFER) WHERE PROD_ID=:PROD_ID");
             $requete->execute([
