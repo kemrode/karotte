@@ -3,6 +3,9 @@
 #connection string
 configProd.php
 
+#cache twig
+/var/cache
+
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
