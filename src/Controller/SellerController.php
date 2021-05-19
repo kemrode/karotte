@@ -6,10 +6,10 @@ use src\Model\SellerModel;
 class SellerController extends AbstractController {
     public function index(){}
 
-    public function GetAllSellersLocationAndId(){
+    public function GetAllSellerLocationAndIdAndName(){
         try{
             header("Content-Type: application/json");
-            return json_encode(SellerModel::GetAllSellerLocationAndId());
+            return json_encode(SellerModel::GetAllSellerLocationAndIdAndName());
         }catch(\Exception $e){
             return json_encode([
                 "error"=>"Une erreur est survenue lors du chargement des vendeurs"

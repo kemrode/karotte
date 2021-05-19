@@ -67,14 +67,16 @@ function GenerateMap(){
 function PopulateMap(map){
     // Add the zoom control to top right position
 
-        L.control.zoom({
+/*        L.control.zoom({
             position:'topright'
-        }).addTo(map);
+        }).addTo(map);*/
 
-    markerIcon = new L.icon({
-        iconUrl: "/assets/img/carrot.png",
+    let markerIcon = new L.icon({
+        sellerId:"",
         iconSize:[30,40],
+        iconUrl: "/assets/img/carrot.png"
     });
+
 
     // Searching into DB and loop for each seller
     getSellerLoccationPromise = GetSellerLocation();
@@ -83,7 +85,8 @@ function PopulateMap(map){
         for(let i=0; i<result.length; i++){
             loc = result[i]["SELL_LOC"].split(";");
             id = result[i]["SELL_ID"];
-            L.marker([parseFloat(loc[0]), parseFloat(loc[1])], {icon:markerIcon, sellerId:id}).addTo(map).on('click', displayMarkerInfo);
+            sellerName = result[i]["SELL_NAME"];
+            L.marker([parseFloat(loc[0]), parseFloat(loc[1])], {icon:markerIcon, sellerId:id, title:sellerName}).addTo(map).on('click', displayMarkerInfo);
         }
     }).catch((error)=>{
         console.error(error);
@@ -97,10 +100,10 @@ function PopulateMap(map){
 //*******************************//
 
 function displayMarkerInfo(e){
+    console.log(e.target.options.sellerId);
     GetSellerInformationFromIdPromise = GetSellerInformationFromId(e.target.options.sellerId);
     GetSellerInformationFromIdPromise.then((result) => {
         result =JSON.parse(result);
-        console.log(result);
         if(result["SELL_NAME"] != 0){
             sellerName = result["SELL_NAME"];
             sellerPres = result["SELL_PRES"];
@@ -123,7 +126,7 @@ function displayMarkerInfo(e){
 function GetSellerLocation(){
     return new Promise((resolve, reject) => {
         xhr = new XMLHttpRequest()
-        xhr.open("GET", "/?controller=Seller&action=GetAllSellersLocationAndId");
+        xhr.open("GET", "/?controller=Seller&action=GetAllSellerLocationAndIdAndName");
         xhr.onload = () => {
             if (xhr.status >= 200 && xhr.status < 300) {
                 resolve(xhr.response);

@@ -99,10 +99,10 @@ class SellerModel{
             throw $e;
         }
     }
-    public static function GetAllSellerLocationAndId(){
+    public static function GetAllSellerLocationAndIdAndName(){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT SELL_ID, SELL_LOC FROM SELLER");
+            $requete = $bdd->prepare("SELECT SELL_ID, SELL_LOC, SELL_NAME FROM SELLER");
             $requete->execute();
             return $requete->fetchAll();
         }catch (\Exception $e){
@@ -113,7 +113,7 @@ class SellerModel{
     public static function GetSellerInformationFromId($id){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT SELL_NAME, SELL_PRES FROM SELLER");
+            $requete = $bdd->prepare("SELECT SELL_NAME, SELL_PRES FROM SELLER WHERE SELL_ID=:SELL_ID");
             $requete->execute([
                 "SELL_ID" => $id
             ]);
