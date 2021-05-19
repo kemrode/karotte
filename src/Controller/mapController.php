@@ -15,7 +15,6 @@ class MapController extends AbstractController {
             ]);
         }
         catch(\Exception $e){
-            var_dump($e);
         }
     }
 

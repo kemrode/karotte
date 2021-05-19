@@ -7,7 +7,14 @@ use src\Model\BDD;
 class SellerController extends AbstractController
 {
     public function sellerPage() {
-
-        return $this->twig->render("Seller/seller.html.twig");
-    }
+            try{
+                $seller = new SellerModel();
+                $sellerList = $seller->GetAllSellers(BDD::getInstance());
+                return $this->twig->render("Seller/seller.html.twig",[
+                    "sellerList" => $sellerList
+                ]);
+            }
+            catch(\Exception $e){
+            }
+        }
 }
