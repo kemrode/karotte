@@ -20,6 +20,8 @@ let mapOptions = {
     zoomControl: false
 }
 
+
+
 //*******************************//
 //   GEOLOCALIZATION FUNC.       //
 //*******************************//
@@ -43,6 +45,9 @@ function GetLoc(){
     navigator.geolocation.getCurrentPosition(GetLocSuccess, GetLocError);
 }
 
+//*******************************//
+//          MAP FUNC.            //
+//*******************************//
 
 function GenerateMap(){
 
@@ -59,25 +64,6 @@ function GenerateMap(){
     PopulateMap(map);
 }
 
-function GetSellerLocation(){
- return new Promise((resolve, reject) => {
-     xhr = new XMLHttpRequest()
-     xhr.open("GET", "/?controller=Seller&action=GetAllSellersLocationAndId");
-     xhr.onload = () => {
-         if (xhr.status >= 200 && xhr.status < 300) {
-             resolve(xhr.response);
-         } else {
-             reject(xhr.statusText);
-         }
-     };
-     xhr.onerror = () => reject(xhr.statusText);
-     xhr.send();
-    })
-};
-//*******************************//
-//   FONCTIONS INTERAC. MARKER   //
-//*******************************//
-
 function PopulateMap(map){
     // Add the zoom control to top right position
 
@@ -87,7 +73,7 @@ function PopulateMap(map){
 
     markerIcon = new L.icon({
         iconUrl: "/assets/img/carrot.png",
-        iconSize:[30,40]
+        iconSize:[30,40],
     });
 
     // Searching into DB and loop for each seller
@@ -95,9 +81,9 @@ function PopulateMap(map){
     getSellerLoccationPromise.then((result) => {
         result =JSON.parse(result);
         for(let i=0; i<result.length; i++){
-            loc = result[i]["SELL_LOC"].split(";")
-            console.log(loc, parseInt(loc[0]), parseInt(loc[1]));
-            L.marker([parseFloat(loc[0]), parseFloat(loc[1])], {icon:markerIcon}).addTo(map).on('click', displayMarkerInfo);
+            loc = result[i]["SELL_LOC"].split(";");
+            id = result[i]["SELL_ID"];
+            L.marker([parseFloat(loc[0]), parseFloat(loc[1])], {icon:markerIcon, sellerId:id}).addTo(map).on('click', displayMarkerInfo);
         }
     }).catch((error)=>{
         console.error(error);
@@ -106,7 +92,32 @@ function PopulateMap(map){
 
 }
 
+//*******************************//
+//   FONCTIONS INTERAC. MARKER   //
+//*******************************//
+
 function displayMarkerInfo(e){
-    alert(`Lattitude : ${e.latlng.lat} | Longitude : ${e.latlng.lng}`);
+    console.log(e);
+    alert(`Id : ${e.target.options.sellerId} | Lattitude : ${e.latlng.lat} | Longitude : ${e.latlng.lng}`);
     // Searching into DB seller info with this coords
 }
+
+//*******************************//
+//   FONCTIONS INTERAC. BACK     //
+//*******************************//
+
+function GetSellerLocation(){
+    return new Promise((resolve, reject) => {
+        xhr = new XMLHttpRequest()
+        xhr.open("GET", "/?controller=Seller&action=GetAllSellersLocationAndId");
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                resolve(xhr.response);
+            } else {
+                reject(xhr.statusText);
+            }
+        };
+        xhr.onerror = () => reject(xhr.statusText);
+        xhr.send();
+    })
+};

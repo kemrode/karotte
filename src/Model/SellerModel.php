@@ -110,5 +110,18 @@ class SellerModel{
         }
     }
 
+    public static function GetSellerInformationFromId($id){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT SELL_ID, SELL_LOC FROM SELLER");
+            $requete->execute([
+                "SELL_ID" => $id
+            ]);
+            return $requete->fetch();
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
     #endregion
 }
