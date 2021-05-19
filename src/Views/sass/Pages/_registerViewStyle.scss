@@ -47,12 +47,31 @@
   justify-content: space-evenly;
 }
 .choiceBox {
-  @include flexBoxRowJustifyCentering;
+  @include flexBoxColumn;
+  justify-content: space-evenly;
+  width: 20%;
+  height: 150px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  &__border{
+    &--backgroundColor{
+      background-color: #6B8954;
+    }
+    &--borderRadius{
+      @include borderRadiusQuarter;
+    }
+  }
 }
-.choiceBox button {
-  background-color: $secondColor;
-  font-weight: bold;
-  @include borderRadiusQuarter;
+.choiceTitle {
+  @include flexBoxRowJustifyCentering;
+  &__title{
+    &--titleSize{
+      font-weight: bold;
+    }
+  }
+}
+.choiceSwitch {
+  @include flexBoxRowJustifyCentering;
 }
 .cguBox {
   @include flexBoxRow;

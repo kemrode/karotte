@@ -84,11 +84,29 @@ require '../Controller/registerController.php';
                         </div>
                     </div>
                     <div class="choicesListBox">
-                        <div class="choiceBox">
-                            <button class="mdc-button prodButton" name="prodKarotte" value="0">Productrice</button>
+                        <div class="choiceBox choiceBox__border--backgroundColor choiceBox__border--borderRadius">
+                            <div class="choiceTitle choiceTitle__title--titleSize choice__title--textColor">
+                                <label>Productrice</label>
+                            </div>
+                            <div class="choiceSwitch choiceSwitch__switch--switchColor">
+                                <label class="switch">
+                                    <input type="hidden" class="prodKarott" name="prodKarotte" value="0">
+                                    <input type="checkbox" class="prodKarott" name="prodKarotte" value="1">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
-                        <div class="choiceBox">
-                            <button class="mdc-button" name="citoyKarotte" value="1">Citoyenne</button>
+                        <div class="choiceBox choiceBox__border--backgroundColor choiceBox__border--borderRadius">
+                            <div class="choiceTitle choiceTitle__title--titleSize choice__title--textColor">
+                                <label>Citoyenne</label>
+                            </div>
+                            <div class="choiceSwitch choiceSwitch__switch--switchColor">
+                                <label class="switch">
+                                    <input type="hidden" name="userKarotte" value="0">
+                                    <input type="checkbox" name="userKarotte" value="1">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div class="cguBox">
@@ -104,7 +122,6 @@ require '../Controller/registerController.php';
                     </div>
                     <div class="buttonBox">
                         <button type="submit" name="joinUpBtn">Rejoindre la botte</button>
-                        <!-- <input type="submit" name="joinUpBtn" value="Rejoindre la botte"> -->
                     </div>
                 </form>
             </div>
@@ -112,5 +129,5 @@ require '../Controller/registerController.php';
     </div>
 </div>
 <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-<script src="../../public/assets/js/register.js"></script>
+<!-- <script src="../../public/assets/js/register.js"></script> -->
 </body>

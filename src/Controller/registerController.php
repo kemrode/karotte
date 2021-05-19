@@ -10,18 +10,19 @@ require '../Model/userModel.php';
     }
 }*/
 
-function postNewUserRegistering($userArray=array()){
+function postNewKarotte($userArray=array(), $sql){
     try {
         $bdd = \src\Model\BDD::getInstance();
-        $sql = 'INSERT INTO USER(USER_NAME,USER_SURNAME,USER_PSEUDO,USER_EMAIL,USER_ADDRESS,USER_ZIP_CODE,USER_CITY,USER_PHONE,USER_PWD) VALUE (?,?,?,?,?,?,?,?,?)';
         $userInfo = implode(';',$userArray);
         $infoToPost = explode(';',$userInfo);
         $registeringData = $bdd->prepare($sql);
         $registeringData->execute($infoToPost);
+        $id=$bdd->lastInsertID();
     }
     catch(Exception $e) {
         die('Erreur :'.$e->getMessage());
     }
+    return $id;
 }
 function backValuesItemsPost(){
     $userItemsArray= array();
@@ -32,6 +33,10 @@ function backValuesItemsPost(){
             case $valueItem==$_POST['checkCGU']:
                 break;
             case $valueItem==$_POST['joinUpBtn']:
+                break;
+            case $valueItem==$_POST['prodKarotte']:
+                break;
+            case $valueItem==$_POST['userKarotte']:
                 break;
             default:
                 if(!empty($_POST)){
@@ -49,14 +54,29 @@ function passwordVerifying(){
         echo "Error, passwords are not same !";
     }
 }
+function newKarotteUser(){
+    $itemForBDD = backValuesItemsPost();
+    $hashedPassword = password_hash($_POST['itemPasswrd'],PASSWORD_DEFAULT);
+    $itemForBDD[]=$hashedPassword;
+    $sql = 'INSERT INTO USER(USER_NAME,USER_SURNAME,USER_PSEUDO,USER_EMAIL,USER_ADDRESS,USER_ZIP_CODE,USER_CITY,USER_PHONE,USER_PWD) VALUE (?,?,?,?,?,?,?,?,?)';
+    postNewKarotte($itemForBDD, $sql);
+    unset($itemForBDD);
+}
 
 if(isset($_POST['joinUpBtn'])){
-    $itemForBDD = backValuesItemsPost();
     $returnBool = passwordVerifying();
+    $prod = $_POST['prodKarotte'];
     if ($returnBool==true){
-        $hashedPassword = password_hash($_POST['itemPasswrd'],PASSWORD_DEFAULT);
-        $itemForBDD[]=$hashedPassword;
-        postNewUserRegistering($itemForBDD);
-        unset($itemForBDD);
+        if ($prod=="0"){
+            echo 'je suis dedans';
+            newKarotteUser();
+        }
+        else {
+            $id=newKarotteUser();
+            var_dump($id);
+            $sql='INSERT INTO SELLER(SELL_ID,SELL_NAME,SELL_LOC,SELL_PRES) VALUE(?,?,?,?)';
+            //recupere l'ID user
+            //inserer l'id et les infos spéciales dans la table vendeur
+        }
     }
 }
