@@ -278,13 +278,12 @@ class ProductModel{
 
     public static function UploadPictureToServer($PICT){
         // treatment before uploading picture
-
         try {
-            if (empty($PICT["PROD_PICT"]["tmp_name"]))
+            if (empty($PICT["tmp_name"]))
                 throw new \Exception("Cette image est trop lourde pour être importee");
-            if (!empty($PICT["PROD_PICT"]["name"])) {
+            if (!empty($PICT["name"])) {
                 // Nom de l'image finale
-                $extension = pathinfo($PICT["PROD_PICT"]["name"], PATHINFO_EXTENSION);
+                $extension = pathinfo($PICT["name"], PATHINFO_EXTENSION);
                 $nomImage = (uniqid()) . "." . $extension;
                 //Repertoire de stockage
                 $dateNow = new \DateTime();
@@ -294,7 +293,7 @@ class ProductModel{
                     mkdir($repositoryHdd, 0700, true);
                 }
                 $finalPath = $repositoryHdd . "/" . $nomImage;
-                move_uploaded_file($PICT["PROD_PICT"]["tmp_name"], $finalPath);
+                move_uploaded_file($PICT["tmp_name"], $finalPath);
             }
             else {
                 throw new \Exception("L'image n'a pas pu etre chargee");
