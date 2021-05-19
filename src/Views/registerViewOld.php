@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S'inscrire</title>
-    <link rel="stylesheet" href="/public/assets/css/sass/registerStylus.scss">
-    <link rel="stylesheet" href="/public/assets/css/sass/registerStylus.css">
+    <link rel="stylesheet" href="/public/assets/css/registerStylus.css">
+    <link rel="stylesheet" href="../../public/assets/css/registerStylus.css">
 
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
 </head>

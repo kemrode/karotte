@@ -1,9 +1,6 @@
-<?php
-require "../templates/header/header.php";
+    <?php
 require "../vendor/autoload.php";
-require '../src/Model/BDD.php';
-\src\Model\BDD::initInstance();
-
+session_start();
 // Autoloader de Classe
 function chargerClasse($classe){
     // Windows = \ Linux/Mac = /

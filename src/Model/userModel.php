@@ -1,8 +1,5 @@
 <?php
-
-
 namespace src\Model;
-use PDO;
 
 
 class userModel

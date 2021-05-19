@@ -17,5 +17,6 @@ abstract class AbstractController {
             "cache" => $_SERVER["DOCUMENT_ROOT"]."/../var/cache"
         ]);
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
+        $this->twig->addGlobal('session', $_SESSION);
     }
 }

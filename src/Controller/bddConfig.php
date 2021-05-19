@@ -1,5 +1,7 @@
 <?php
 
+require_once('configProd.php');
+
 function configBDD(){
     $hostname="mysql-karotte.alwaysdata.net";
     $username="karotte";
