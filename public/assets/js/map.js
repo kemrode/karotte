@@ -71,8 +71,7 @@ function PopulateMap(map){
             position:'topright'
         }).addTo(map);*/
 
-    let markerIcon = new L.icon({
-        sellerId:"",
+    let markerIcon = L.icon({
         iconSize:[30,40],
         iconUrl: "/assets/img/carrot.png"
     });
