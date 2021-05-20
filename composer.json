@@ -1,12 +1,6 @@
 {
-    "name": "Karotte",
     "require": {
-        "twig/twig": "^3.3"
-    },
-    "authors": [
-        {
-            "name": "Kevin Fichou, Pierre Villy, Loïck Brouard",
-            "email": "KarottePKL@gmail.com"
-        }
-    ]
+        "twig/twig": "^3.3",
+        "ext-pdo": "*"
+    }
 }

@@ -12,6 +12,14 @@
         <div class="title-SellerList">
             <h2>Producteurs près de chez vous</h2>
         </div>
+{#
+        TEST FUNCTION PRODUCTMODEL
+        <div class="form">
+            <form method="post" action="/index.php?controller=Map&action=addProduct" enctype="multipart/form-data">
+                <input name="PROD_PICT" type="file">
+                <input type="submit" value="ok">
+            </form>
+        </div>#}
         <div class="seller-cards">
             {% for seller in sellerList %}
                 <div class="seller-card">

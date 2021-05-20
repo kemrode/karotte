@@ -3,7 +3,6 @@ namespace src\Controller;
 
 use src\Model\ProductModel;
 use src\Model\SellerModel;
-use Twig\Node\Expression\Unary\PosUnary;
 
 class MapController extends AbstractController {
 
@@ -20,14 +19,16 @@ class MapController extends AbstractController {
         }
     }
 
-    public function addProduct(){
+    // Test functions ProductModel
+/*    public function addProduct(){
         try{
-            ProductModel::UploadPictureToServer($_FILES["PROD_PICT"]);
+            $path = ProductModel::UploadPictureToServer($_FILES["PROD_PICT"]);
+            echo $path;
         }
         catch(\Exception $e){
             return 1;
         }
-    }
+    }*/
 
 
 

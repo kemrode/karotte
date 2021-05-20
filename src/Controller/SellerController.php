@@ -35,5 +35,4 @@ class SellerController extends AbstractController {
 
         return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList]);
     }
-
 }
