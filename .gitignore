@@ -4,7 +4,7 @@
 configProd.php
 
 #cache twig
-/var/cache
+/var/*
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
