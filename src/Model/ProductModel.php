@@ -1,8 +1,6 @@
 <?php
 namespace src\Model;
 
-use http\Exception;
-
 class ProductModel{
 
     #region Attibutes ProductModel
@@ -277,33 +275,35 @@ class ProductModel{
     }
 
     public static function UploadPictureToServer($PICT){
-        // treatment before uploading picture
+        // Treatment before uploading picture
         try {
             if (empty($PICT["tmp_name"]))
                 throw new \Exception("Cette image est trop lourde pour être importee");
+
             if (!empty($PICT["name"])) {
-                // Nom de l'image finale
+                // Picture name
                 $extension = pathinfo($PICT["name"], PATHINFO_EXTENSION);
                 $nomImage = (uniqid()) . "." . $extension;
-                //Repertoire de stockage
+
+                // Storage folder
                 $dateNow = new \DateTime();
                 $repositoryName = $dateNow->format("Y/W");
-                $repositoryHdd = ROOT . "../files/img/products/$repositoryName";
-                if (!is_dir($repositoryHdd)) {
-                    mkdir($repositoryHdd, 0700, true);
+                $folderPath = ROOT."../files/img/products/$repositoryName";
+                $relativePath = "../files/img/products/$repositoryName"."/". $nomImage;
+                if (!is_dir($folderPath)) {
+                    mkdir($folderPath, 0700, true);
                 }
-                $finalPath = $repositoryHdd . "/" . $nomImage;
-                move_uploaded_file($PICT["tmp_name"], $finalPath);
-            }
-            else {
+                // Copying pict into server
+                move_uploaded_file($PICT["tmp_name"], ROOT.$relativePath);
+
+                return $relativePath;
+            }else {
                 throw new \Exception("L'image n'a pas pu etre chargee");
             }
-        }
-        catch (\Exception $e) {
+        }catch (\Exception $e) {
             throw new \Exception("Une erreur est survenue lors du chargement de l'image");
         }
     }
-
     #endregion
 
 }

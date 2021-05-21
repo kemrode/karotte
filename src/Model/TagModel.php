@@ -67,6 +67,7 @@ class TagModel
     #endregion
 
     #region function CRUD TagModel
+
     public static function GetAllTagsFromSellerId($sellerId){
         try{
             $bdd = BDD::getInstance();

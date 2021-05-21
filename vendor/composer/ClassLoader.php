@@ -96,7 +96,7 @@ class ClassLoader
     }
 
     /**
-     * @param array $classMap Class to filename seller
+     * @param array $classMap Class to filename map
      */
     public function addClassMap(array $classMap)
     {
@@ -262,7 +262,7 @@ class ClassLoader
 
     /**
      * Turns off searching the prefix and fallback directories for classes
-     * that have not been registered with the class seller.
+     * that have not been registered with the class map.
      *
      * @param bool $classMapAuthoritative
      */
@@ -272,7 +272,7 @@ class ClassLoader
     }
 
     /**
-     * Should class lookup fail if not found in the current class seller?
+     * Should class lookup fail if not found in the current class map?
      *
      * @return bool
      */
@@ -358,7 +358,7 @@ class ClassLoader
      */
     public function findFile($class)
     {
-        // class seller lookup
+        // class map lookup
         if (isset($this->classMap[$class])) {
             return $this->classMap[$class];
         }

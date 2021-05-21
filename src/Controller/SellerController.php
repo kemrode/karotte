@@ -29,4 +29,10 @@ class SellerController extends AbstractController {
         }
     }
 
+    public function GetSellerById($id){
+        $seller = SellerModel::GetSellerInformationFromId($id);
+        $sellerList = SellerModel::GetAllSellers();
+
+        return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList]);
+    }
 }
