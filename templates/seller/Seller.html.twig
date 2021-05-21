@@ -37,18 +37,20 @@
         <div class="seller-page-productList">
             {#<h2>Liste des produits</h2>#}
             {#For each tags create category#}
+            {% for key, category in sellerProduct %}
             <div class="seller-page-product-cards">
-                <h3 class="seller-page-product-cards__category">Catégorie 1</h3>
+                <h3 class="seller-page-product-cards__category">{{ key }}</h3>
                 <div class="seller-page-productList-cards">
                     {#For each product create card#}
+                    {% for product in category %}
                     <div class="seller-page-product-card">
                         <div class="seller-page-product-card__image">
-                            <img src="/assets/img/img1">
+                            <img src="/assets/img{{ product.PROD_PICT }}">
                         </div>
                         <div class="seller-page-product-card__info">
-                            <h3>Carotte</h3>
+                            <h3>{{ product.PROD_NAME }}</h3>
                             <p class="seller-page-product-description">De belles carottes</p>
-                            <p class="seller-page-product-card__price">1.20€</p>
+                            <p class="seller-page-product-card__price">{{ product.PROD_PRICE }}</p>
                             <div class="seller-page-product-card__quantity">
                                 <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
                                 <span>1</span>
@@ -57,8 +59,10 @@
                             <button class="seller-page-product-card__button">Add</button>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
+            {% endfor %}
         </div>
 {% endblock %}
 

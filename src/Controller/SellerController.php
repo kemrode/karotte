@@ -1,6 +1,7 @@
 <?php
 namespace src\Controller;
 
+use src\Model\ProductModel;
 use src\Model\SellerModel;
 
 class SellerController extends AbstractController {
@@ -32,7 +33,8 @@ class SellerController extends AbstractController {
     public function GetSellerById($id){
         $seller = SellerModel::GetSellerInformationFromId($id);
         $sellerList = SellerModel::GetAllSellers();
+        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
 
-        return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList]);
+        return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
     }
 }

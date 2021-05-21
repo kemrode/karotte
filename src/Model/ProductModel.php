@@ -231,7 +231,7 @@ class ProductModel{
                     "user_ID" => $sellerId,
                     "TP_TAG" => $tag->getTPTAG()
                 ]);
-                $result[$tag->getTPTAG()] = $requete->fetchAll(\PDO::FETCH_CLASS, "src\Model\ProductModel");
+                $result[$tag->getTPTAG()] = $requete->fetchAll();
             }
             return $result;
         }catch (\Exception $e){
