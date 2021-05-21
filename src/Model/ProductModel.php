@@ -254,6 +254,7 @@ class ProductModel{
                 "PROD_PICT" => $this->getPRODPICT(),
                 "PROD_OFFER" => $this->getPRODOFFER()
             ]);
+
         }catch (\Exception $e){
             throw $e;
         }

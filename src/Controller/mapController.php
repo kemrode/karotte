@@ -19,6 +19,13 @@ class MapController extends AbstractController {
         }
     }
 
+    public function RegisterMapPos($latLongZoom){
+        $latLongZoom = json_decode($latLongZoom);
+        $_SESSION['currentLatitude'] = $latLongZoom->latitude;
+        $_SESSION['currentLongitude'] = $latLongZoom->longitude;
+        $_SESSION['currentZoomLevel'] = $latLongZoom->zoomLevel;
+    }
+
     // Test functions ProductModel
     public function addProduct(){
         try{
