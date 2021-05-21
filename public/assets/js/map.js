@@ -21,7 +21,6 @@ let mapOptions = {
 }
 
 
-
 //*******************************//
 //   GEOLOCALIZATION FUNC.       //
 //*******************************//
@@ -30,13 +29,22 @@ let mapOptions = {
 // Geolocalisation
 function GetLocSuccess(pos) {
     let crd = pos.coords;
-    mapOptions.center = [crd.latitude,crd.longitude]
+    if(latitude != "" && longitude != "" && zoomLevel != ""){
+        mapOptions.center = [latitude, longitude];
+        mapOptions.zoom = zoomLevel;
+    }else{
+        mapOptions.center = [crd.latitude,crd.longitude];
+    }
     GenerateMap();
 }
 
 // On error on geolocalisation Rouen is aimed
 function GetLocError(err) {
     console.warn(`ERREUR (${err.code}): ${err.message}`);
+    if(latitude != "" && longitude != "" && zoomLevel != ""){
+        mapOptions.center = [latitude,longitude];
+        mapOptions.zoom = zoomLevel;
+    }
     GenerateMap();
 }
 
@@ -62,6 +70,14 @@ function GenerateMap(){
 
     // Adding marker on the seller
     PopulateMap(map);
+
+    // Map event
+    map.on('moveend', function(e){
+        MapChangedHandler(map);
+    });
+    map.on('zoomend', function(e){
+        MapChangedHandler(map);
+    });
 }
 
 function PopulateMap(map){
@@ -90,8 +106,6 @@ function PopulateMap(map){
     }).catch((error)=>{
         console.error(error);
     })
-
-
 }
 
 //*******************************//
@@ -99,7 +113,6 @@ function PopulateMap(map){
 //*******************************//
 
 function displayMarkerInfo(e){
-    console.log(e.target.options.sellerId);
     GetSellerInformationFromIdPromise = GetSellerInformationFromId(e.target.options.sellerId);
     GetSellerInformationFromIdPromise.then((result) => {
         result =JSON.parse(result);
@@ -123,33 +136,39 @@ function displayMarkerInfo(e){
 //*******************************//
 
 function GetSellerLocation(){
-    return new Promise((resolve, reject) => {
-        xhr = new XMLHttpRequest()
-        xhr.open("GET", "/?controller=Seller&action=GetAllSellerLocationAndIdAndName");
-        xhr.onload = () => {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr.response);
-            } else {
-                reject(xhr.statusText);
-            }
-        };
-        xhr.onerror = () => reject(xhr.statusText);
-        xhr.send();
-    })
+    let method = "GET";
+    let url = "/?controller=Seller&action=GetAllSellerLocationAndIdAndName";
+    return SendRequestReturnAPromise(method, url);
+
 };
 
 function GetSellerInformationFromId(id){
-    return new Promise((resolve, reject) => {
-        xhr = new XMLHttpRequest()
-        xhr.open("GET", `/?controller=Seller&action=GetSellerInformationFromId&param=${id}`);
-        xhr.onload = () => {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                resolve(xhr.response);
-            } else {
-                reject(xhr.statusText);
-            }
-        };
-        xhr.onerror = () => reject(xhr.statusText);
-        xhr.send();
-    })
+    let method = "GET";
+    let url = `/?controller=Seller&action=GetSellerInformationFromId&param=${id}`;
+    return SendRequestReturnAPromise(method, url);
+
 };
+
+
+//*******************************//
+//      MAP EVENTS HANDLER       //
+//*******************************//
+
+function MapChangedHandler(map){
+    let pos = {
+        'latitude' : map.getCenter()['lat'],
+        'longitude': map.getCenter()['lng'],
+        'zoomLevel': map.getZoom()
+    };
+    let method = "PUT";
+    let url = `/?controller=map&action=RegisterMapPos&param=${JSON.stringify(pos)}`;
+    let headers = [{'name':'Content-Type', 'value':'application/json'}];
+
+    let result = SendRequestReturnAPromise(method, url, headers);
+
+    result.then((response)=>{
+        console.log(response)
+    }).catch((error)=>{
+        console.error(error)
+    })
+}

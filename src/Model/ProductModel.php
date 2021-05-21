@@ -231,7 +231,7 @@ class ProductModel{
                     "user_ID" => $sellerId,
                     "TP_TAG" => $tag->getTPTAG()
                 ]);
-                $result[$tag->getTPTAG()] = $requete->fetchAll(\PDO::FETCH_CLASS, "src\Model\ProductModel");
+                $result[$tag->getTPTAG()] = $requete->fetchAll();
             }
             return $result;
         }catch (\Exception $e){
@@ -254,6 +254,7 @@ class ProductModel{
                 "PROD_PICT" => $this->getPRODPICT(),
                 "PROD_OFFER" => $this->getPRODOFFER()
             ]);
+
         }catch (\Exception $e){
             throw $e;
         }
@@ -288,8 +289,8 @@ class ProductModel{
                 // Storage folder
                 $dateNow = new \DateTime();
                 $repositoryName = $dateNow->format("Y/W");
-                $folderPath = ROOT."../files/img/products/$repositoryName";
-                $relativePath = "../files/img/products/$repositoryName"."/". $nomImage;
+                $folderPath = ROOT."/assets/img/files/product/$repositoryName";
+                $relativePath = "/assets/img/files/product/$repositoryName"."/". $nomImage;
                 if (!is_dir($folderPath)) {
                     mkdir($folderPath, 0700, true);
                 }

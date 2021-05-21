@@ -19,8 +19,15 @@ class MapController extends AbstractController {
         }
     }
 
+    public function RegisterMapPos($latLongZoom){
+        $latLongZoom = json_decode($latLongZoom);
+        $_SESSION['currentLatitude'] = $latLongZoom->latitude;
+        $_SESSION['currentLongitude'] = $latLongZoom->longitude;
+        $_SESSION['currentZoomLevel'] = $latLongZoom->zoomLevel;
+    }
+
     // Test functions ProductModel
-/*    public function addProduct(){
+    public function addProduct(){
         try{
             $path = ProductModel::UploadPictureToServer($_FILES["PROD_PICT"]);
             echo $path;
@@ -28,7 +35,10 @@ class MapController extends AbstractController {
         catch(\Exception $e){
             return 1;
         }
-    }*/
+    }
+    public function getSellerInfo(){
+        return json_encode(ProductModel::GetAllProductAndTagGroupedByTagFromSellerId(1));
+    }
 
 
 
