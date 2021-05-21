@@ -2,8 +2,8 @@
 session_start();
 
 // Redefining root path
-define('ROOT', str_replace('index.php','',$_SERVER['SCRIPT_FILENAME']));
-require  ROOT."../vendor/autoload.php";
+define('ROOT', str_replace('/index.php','',$_SERVER['SCRIPT_FILENAME']));
+require  ROOT."/../vendor/autoload.php";
 
 // Autoloader de Classe
 function chargerClasse($classe){

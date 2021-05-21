@@ -45,7 +45,7 @@
                     {% for product in category %}
                     <div class="seller-page-product-card">
                         <div class="seller-page-product-card__image">
-                            <img src="/assets/img{{ product.PROD_PICT }}">
+                            <img src="{{ product.PROD_PICT }}">
                         </div>
                         <div class="seller-page-product-card__info">
                             <h3>{{ product.PROD_NAME }}</h3>

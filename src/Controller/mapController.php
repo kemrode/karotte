@@ -20,7 +20,7 @@ class MapController extends AbstractController {
     }
 
     // Test functions ProductModel
-/*    public function addProduct(){
+    public function addProduct(){
         try{
             $path = ProductModel::UploadPictureToServer($_FILES["PROD_PICT"]);
             echo $path;
@@ -28,7 +28,10 @@ class MapController extends AbstractController {
         catch(\Exception $e){
             return 1;
         }
-    }*/
+    }
+    public function getSellerInfo(){
+        return json_encode(ProductModel::GetAllProductAndTagGroupedByTagFromSellerId(1));
+    }
 
 
 

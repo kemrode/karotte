@@ -21,7 +21,6 @@ let mapOptions = {
 }
 
 
-
 //*******************************//
 //   GEOLOCALIZATION FUNC.       //
 //*******************************//
@@ -62,6 +61,18 @@ function GenerateMap(){
 
     // Adding marker on the seller
     PopulateMap(map);
+
+    // Map event
+    map.on('load', function(e){
+        mapLoaderHandler(e);
+    });
+    map.on('viewreset', function(e){
+        mapLoaderHandler(e);
+    });
+    map.on('unload', function(e){
+        mapLoaderHandler(e);
+    });
+
 }
 
 function PopulateMap(map){
@@ -99,7 +110,6 @@ function PopulateMap(map){
 //*******************************//
 
 function displayMarkerInfo(e){
-    console.log(e.target.options.sellerId);
     GetSellerInformationFromIdPromise = GetSellerInformationFromId(e.target.options.sellerId);
     GetSellerInformationFromIdPromise.then((result) => {
         result =JSON.parse(result);
@@ -153,3 +163,12 @@ function GetSellerInformationFromId(id){
         xhr.send();
     })
 };
+
+
+//*******************************//
+//      MAP EVENTS HANDLER       //
+//*******************************//
+
+function mapLoaderHandler(e){
+    console.log(e);
+}

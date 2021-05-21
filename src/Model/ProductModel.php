@@ -288,8 +288,8 @@ class ProductModel{
                 // Storage folder
                 $dateNow = new \DateTime();
                 $repositoryName = $dateNow->format("Y/W");
-                $folderPath = ROOT."../files/img/products/$repositoryName";
-                $relativePath = "../files/img/products/$repositoryName"."/". $nomImage;
+                $folderPath = ROOT."/assets/img/files/product/$repositoryName";
+                $relativePath = "/assets/img/files/product/$repositoryName"."/". $nomImage;
                 if (!is_dir($folderPath)) {
                     mkdir($folderPath, 0700, true);
                 }
