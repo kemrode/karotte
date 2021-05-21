@@ -12,7 +12,6 @@ class userController extends AbstractController {
     public function connectionView(){
         return $this->twig->render("connection\connectionView.html.twig");
     }
-
     public function log(){
             if (isset($_POST['okButton'])){
                 $user = new userModel();
