@@ -1,34 +1,37 @@
 {% extends "layoutMapAndMenu.html.twig" %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/connectionStyle.css">
+{% endblock %}
 
 {% block connectionBlock %}
-
-    <div class="connectionContainer">
-        <div class="connBox">
-            <div class="titleBox">
+    <div class="connectionContainer connectionContainer__backgroundColor--color">
+        <div class="blackBlock blackBlock__backgroundColor--opacity"></div>
+        <div class="connBox connBox__sizingBox--size connBox__backgroundColor--color connBox__border--radius">
+            <div class="titleBox titleBox__fontsize--size titleBox__text--shadow">
                 <h2>Se connecter</h2>
             </div>
             <div class="formBox">
-                <form method="post" action="">
-                    <div class="itemConnBox">
-                        <label>
+                <form class="formInputBox" method="post" action="/?controller=user&action=log">
+                    <div class="itemConnBox itemConnBox__input--fontsize">
+                        <label class="labelBox">
                             <input type="email" name="connMail" placeholder="votre e-mail">
                         </label>
                     </div>
-                    <div class="itemConnBox">
-                        <label>
+                    <div class="itemConnBox itemConnBox__input--fontsize itemConnBox__input--size">
+                        <label class="labelBox">
                             <input type="password" name="connPWD" placeholder="votre mot de passe">
                         </label>
                     </div>
-                    <div class="valBox">
-                        <button type="button" name="okButton">se connecter</button>
+                    <div class="valBox valBox__fontsize--size valBox__input--size">
+                        <button type="submit" class="buttonInput buttonInput__border--radius buttonInput__font--size buttonInput__background--color buttonInput__text--shadow buttonInput__text--color" name="okButton">se connecter</button>
                     </div>
                 </form>
             </div>
             <div class="linkBox">
-                <div class="signUpBox">
+                <div class="signUpBox signUpBox__font--size">
                     <a href="">s'enregistrer</a>
                 </div>
-                <div class="forgetPasswdBox">
+                <div class="forgetPasswdBox forgetPasswdBox__font--size">
                     <a href="">j'ai oublié mon mot de passe</a>
                 </div>
             </div>
