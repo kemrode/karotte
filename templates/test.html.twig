@@ -1,0 +1,26 @@
+{% extends"layoutMapAndMenu.html.twig" %}
+
+{% block rightContent %}
+<h1>Inscription</h1>
+
+<form method="post" action="/?controller=basket&action=addtobasket">
+    <label>BASKET_USER_ID</label>
+    <input type="text" name="BASKET_USER_ID" required>
+
+    <label>BASKET_PRODUCT_ID</label>
+    <input type="text" name="BASKET_PRODUCT_ID" required>
+
+    <label>BASKET_ID</label>
+    <input type="text" name="BASKET_ID" required>
+
+    <label>BASKET_QUANTITY</label>
+    <input type="text" name="BASKET_QUANTITY" required>
+
+    {#<label>Confirmer le mot de passe</label>
+        <input type="password" name="userPwdConfirm" required>#}
+
+    <button class="btn waves-effect waves-light" type="submit" name="action">Add
+        <i class="material-icons right">send</i>
+    </button>
+</form>
+{% endblock %}

@@ -2,36 +2,17 @@
 
 {% block connectionBlock %}
 
-    <div class="connectionContainer">
-        <div class="connBox">
-            <div class="titleBox">
-                <h2>Se connecter</h2>
-            </div>
-            <div class="formBox">
-                <form method="post" action="">
-                    <div class="itemConnBox">
-                        <label>
-                            <input type="email" name="connMail" placeholder="votre e-mail">
-                        </label>
-                    </div>
-                    <div class="itemConnBox">
-                        <label>
-                            <input type="password" name="connPWD" placeholder="votre mot de passe">
-                        </label>
-                    </div>
-                    <div class="valBox">
-                        <button type="button" name="okButton">se connecter</button>
-                    </div>
-                </form>
-            </div>
-            <div class="linkBox">
-                <div class="signUpBox">
-                    <a href="">s'enregistrer</a>
-                </div>
-                <div class="forgetPasswdBox">
-                    <a href="">j'ai oublié mon mot de passe</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <form method="post" action="/?controller=user&action=login">
+        <label>Email</label>
+        <input type="text" name="userEmail" required>
+
+        <label>Password</label>
+        <input type="password" name="userPwd" required>
+
+        {#<label>Role</label>
+        <input type="text" name="txt_role" required>#}
+
+        <button type="submit" name="btn_login">Se connecter</button>
+
+    </form>
 {% endblock %}

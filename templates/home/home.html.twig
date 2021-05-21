@@ -9,6 +9,7 @@
 {% block leftContent %}
     {#<h1>Bienvenue sur Karotte</h1>#}
     <div id="sellerList" class="widgetContainer SellerCarousel">
+        {{ dump(session) }}
         <div class="title-SellerList">
             <h2>Producteurs près de chez vous</h2>
         </div>
@@ -46,6 +47,7 @@
                 </div>
             {% endfor %}
         </div>
+        <a href="/?controller=map&action=logout">Logout</a>
     </div>
 {% endblock %}
 

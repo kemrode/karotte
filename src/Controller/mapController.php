@@ -10,12 +10,13 @@ class MapController extends AbstractController {
         try{
             $seller = new SellerModel();
             $sellerList = $seller->GetAllSellers();
+
             return $this->twig->render("home/home.html.twig",[
                 "sellerList" => $sellerList
             ]);
         }
         catch(\Exception $e){
-            var_dump($e);
+            return $e->getMessage();
         }
     }
 
@@ -31,6 +32,15 @@ class MapController extends AbstractController {
     }
     public function getSellerInfo(){
         return json_encode(ProductModel::GetAllProductAndTagGroupedByTagFromSellerId(1));
+    }
+
+    public function login(){
+        return $this->twig->render("connection/connectionView.html.twig");
+    }
+
+    public function Logout(){
+        header("location:/");
+        session_destroy();
     }
 
 
