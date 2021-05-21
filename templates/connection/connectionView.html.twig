@@ -1,15 +1,17 @@
 {% extends "layoutMapAndMenu.html.twig" %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/connectionStyle.css">
+{% endblock %}
 
 {% block connectionBlock %}
-    <link rel="stylesheet" type="text/css" href="/assets/css/connectionStyle.css">
-    <link rel="stylesheet" type="text/css" href="../../public/assets/css/connectionStyle.css">
     <div class="connectionContainer connectionContainer__backgroundColor--color">
+        <div class="blackBlock blackBlock__backgroundColor--opacity"></div>
         <div class="connBox connBox__sizingBox--size connBox__backgroundColor--color connBox__border--radius">
             <div class="titleBox titleBox__fontsize--size titleBox__text--shadow">
                 <h2>Se connecter</h2>
             </div>
             <div class="formBox">
-                <form class="formInputBox" method="post" action="../../src/Controller/userController.php">
+                <form class="formInputBox" method="post" action="/?controller=user&action=log">
                     <div class="itemConnBox itemConnBox__input--fontsize">
                         <label class="labelBox">
                             <input type="email" name="connMail" placeholder="votre e-mail">

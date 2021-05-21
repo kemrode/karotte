@@ -4,161 +4,21 @@ namespace src\Model;
 
 class userModel
 {
-    public string $userName;
-    public string $userSurname;
-    public string $userPseudo;
-    public string $userPasswd;
-    public string $userMail;
-    public string $userAdress;
-    public int $userZipCode;
-    public string $userCity;
-    public int $userPhoneNumber;
-    public Int $userId;
-
-    //regular expression
 
     /**
      * @return string
      */
-    public function getUserPasswd(): string
+    public function getUserName(): string
     {
-        return $this->userPasswd;
+        return $this->userName;
     }
 
     /**
-     * @param string $userPasswd
-     * @return userModel
+     * @param string $userName
      */
-    public function setUserPasswd(string $userPasswd): userModel
+    public function setUserName(string $userName): void
     {
-        $this->userPasswd = $userPasswd;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserMail(): string
-    {
-        return $this->userMail;
-    }
-
-    /**
-     * @param string $userMail
-     * @return userModel
-     */
-    public function setUserMail(string $userMail): userModel
-    {
-        $this->userMail = $userMail;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserAdress(): string
-    {
-        return $this->userAdress;
-    }
-
-    /**
-     * @param string $userAdress
-     * @return userModel
-     */
-    public function setUserAdress(string $userAdress): userModel
-    {
-        $this->userAdress = $userAdress;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserZipCode(): string
-    {
-        return $this->userZipCode;
-    }
-
-    /**
-     * @param string $userZipCode
-     * @return userModel
-     */
-    public function setUserZipCode(string $userZipCode): userModel
-    {
-        $this->userZipCode = $userZipCode;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserCity(): string
-    {
-        return $this->userCity;
-    }
-
-    /**
-     * @param string $userCity
-     * @return userModel
-     */
-    public function setUserCity(string $userCity): userModel
-    {
-        $this->userCity = $userCity;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserPhoneNumber(): string
-    {
-        return $this->userPhoneNumber;
-    }
-
-    /**
-     * @param string $userPhoneNumber
-     * @return userModel
-     */
-    public function setUserPhoneNumber(string $userPhoneNumber): userModel
-    {
-        $this->userPhoneNumber = $userPhoneNumber;
-        return $this;
-    }
-
-    /**
-     * @return Int
-     */
-    public function getUserId(): int
-    {
-        return $this->userId;
-    }
-
-    /**
-     * @param Int $userId
-     * @return userModel
-     */
-    public function setUserId(int $userId): userModel
-    {
-        $this->userId = $userId;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUserPseudo(): string
-    {
-        return $this->userPseudo;
-    }
-
-    /**
-     * @param string $userPseudo
-     * @return userModel
-     */
-    public function setUserPseudo(string $userPseudo): userModel
-    {
-        $this->userPseudo = $userPseudo;
-        return $this;
+        $this->userName = $userName;
     }
 
     /**
@@ -180,18 +40,143 @@ class userModel
     /**
      * @return string
      */
-    public function getUserName(): string
+    public function getUserPseudo(): string
     {
-        return $this->userName;
+        return $this->userPseudo;
     }
 
     /**
-     * @param string $userName
+     * @param string $userPseudo
      */
-    public function setUserName(string $userName): void
+    public function setUserPseudo(string $userPseudo): void
     {
-        $this->userName = $userName;
+        $this->userPseudo = $userPseudo;
     }
+
+    /**
+     * @return string
+     */
+    public function getUserPasswd(): string
+    {
+        return $this->userPasswd;
+    }
+
+    /**
+     * @param string $userPasswd
+     */
+    public function setUserPasswd(string $userPasswd): void
+    {
+        $this->userPasswd = $userPasswd;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserMail(): string
+    {
+        return $this->userMail;
+    }
+
+    /**
+     * @param string $userMail
+     */
+    public function setUserMail(string $userMail): void
+    {
+        $this->userMail = $userMail;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAdress(): string
+    {
+        return $this->userAdress;
+    }
+
+    /**
+     * @param string $userAdress
+     */
+    public function setUserAdress(string $userAdress): void
+    {
+        $this->userAdress = $userAdress;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserZipCode(): int
+    {
+        return $this->userZipCode;
+    }
+
+    /**
+     * @param int $userZipCode
+     */
+    public function setUserZipCode(int $userZipCode): void
+    {
+        $this->userZipCode = $userZipCode;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserCity(): string
+    {
+        return $this->userCity;
+    }
+
+    /**
+     * @param string $userCity
+     */
+    public function setUserCity(string $userCity): void
+    {
+        $this->userCity = $userCity;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserPhoneNumber(): int
+    {
+        return $this->userPhoneNumber;
+    }
+
+    /**
+     * @param int $userPhoneNumber
+     */
+    public function setUserPhoneNumber(int $userPhoneNumber): void
+    {
+        $this->userPhoneNumber = $userPhoneNumber;
+    }
+
+    /**
+     * @return Int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param Int $userId
+     */
+    public function setUserId(int $userId): void
+    {
+        $this->userId = $userId;
+    }
+    public string $userSurname;
+    public string $userPseudo;
+    public string $userPasswd;
+    public string $userMail;
+    public string $userAdress;
+    public int $userZipCode;
+    public string $userCity;
+    public int $userPhoneNumber;
+    public Int $userId;
+
+    //regular expression
+
+
 
 
     //Function to POST users info
@@ -226,10 +211,11 @@ class userModel
         $mailLog = htmlentities($this->getUserMail());
         $pwdLog = htmlentities($this->getUserPasswd());
         try {
-            $sql = 'SELECT USER_EMAIL, USER_PWD FROM USER WHERE USER_MAIL=:mailLog AND USER_PWD=:pwdLog';
+            $sql = 'SELECT USER_EMAIL, USER_PWD FROM USER WHERE USER_EMAIL=:mailLog AND USER_PWD=:pwdLog';
             $request = $bdd->prepare($sql);
+            $request->setFetchMode(\PDO::FETCH_CLASS, "src\Model\userModel");
             $request->execute(['mailLog'=>$mailLog, 'pwdLog'=>$pwdLog]);
-            return $request->fetch(\PDO::FETCH_CLASS,"src\Model\userModel");
+            return $request->fetch();
         } catch (\Exception $e){
             return $e->getMessage();
         }
@@ -238,10 +224,11 @@ class userModel
     public function fetchUser(\PDO $bdd){
         try {
             $userConnect = $this->getUserMail();
-            $sql = 'SELECT * FROM USER WHERE USER_MAIL=:userConnect';
+            $sql = 'SELECT * FROM USER WHERE USER_EMAIL=:userConnect';
             $request = $bdd->prepare($sql);
+            $request->setFetchMode(\PDO::FETCH_CLASS, "src\Model\userModel");
             $request->execute(['userConnect'=>$userConnect]);
-            return $request->fetch(\PDO::FETCH_CLASS, "src\Model\userModel");
+            return $request->fetch();
         } catch (\Exception $e){
             return $e->getMessage();
         }
