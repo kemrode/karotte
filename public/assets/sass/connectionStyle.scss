@@ -1,2 +1,4 @@
-@import './Utils/mixin';
-@import './Utils/variables';
+@import "./Base/bodyStyle";
+@import "./Base/boxSizingStyle";
+@import "./Pages/connectionViewStyle";
+@import "./Pages/connectionViewMediaQueries";

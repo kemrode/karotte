@@ -1,0 +1,125 @@
+@import '../Utils/mixin';
+@import '../Utils/variables';
+
+.connectionContainer {
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+  &__backgroundColor{
+    opacity: 0.15;
+    &--color{
+      background-color: black;
+    }
+  }
+}
+.connBox {
+  @include flexBoxColumn;
+  justify-content: space-evenly;
+  &__backgroundColor{
+    &--color{
+      background-color: $primaryColor;
+    }
+  }
+  &__border{
+    &--radius{
+      border-radius: $quarterRadius;
+    }
+  }
+}
+.titleBox {
+  @include flexBoxRowJustifyCentering;
+  color: $secondColor;
+  &__text{
+    &--shadow{
+      text-shadow:
+              0 0 7px #fff,
+              0 0 10px #fff,
+              0 0 21px #fff,
+              0 0 42px #0fa,
+              0 0 82px #0fa,
+              0 0 92px #0fa,
+              0 0 102px #0fa,
+              0 0 151px #0fa;
+    }
+  }
+}
+.formBox {
+  @include flexBoxColumn;
+  width: auto;
+  height: 50%;
+}
+.formInputBox{
+  @include flexBoxColumn;
+  justify-content: space-evenly;
+  width: auto;
+  height: 75%;
+}
+.itemConnBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: 40%;
+  &__input {
+    @include borderRadiusQuarter;
+  }
+}
+.labelBox{
+  @include flexBoxRowJustifyCentering;
+  width: 100%;
+  height: 50%;
+}
+.labelBox input {
+  width: 50%;
+  height: 100%;
+}
+.valBox{
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: 20%;
+  &__input {
+    @include borderRadiusQuarter;
+  }
+}
+.buttonInput{
+  width: 50%;
+  height: 100%;
+  &__border{
+    &--radius{
+      @include borderRadiusQuarter;
+    }
+  }
+  &__font{
+    &--size{
+      font-size: $titleSizeHandy;
+    }
+  }
+  &__background{
+    &--color{
+      background-color: $secondColor;
+    }
+  }
+}
+.linkBox {
+  @include flexBoxRow;
+  width: auto;
+  height: 20%;
+  justify-content: space-evenly;
+}
+.signUpBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: 25%;
+  &__font{
+    &--size{
+      font-size: $bigButtonFont;
+    }
+  }
+}
+.forgetPasswdBox {
+  @include flexBoxRowJustifyCentering;
+  &__font{
+    &--size{
+      font-size: $bigButtonFont;
+    }
+  }
+}
