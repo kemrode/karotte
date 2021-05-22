@@ -6,6 +6,12 @@
  *  - headers = tableau de json de type [{'name':'Content-Type', 'value':'application/json'}]
  *
  *  Renvoie une promise
+ *  ex :
+ *     promise.then((response)=>{
+ *      response = résultat si succes
+ *  }).catch((error)=>{
+ *      response = résultat si échec
+ *  })
  */
 
 function SendRequestReturnAPromise(method, url, headers = []){
@@ -17,7 +23,6 @@ function SendRequestReturnAPromise(method, url, headers = []){
             xhr.setRequestHeader(headers['name'], headers['value']);
         }
     }
-
     xhr.onload = () => {
         if (xhr.status >= 200 && xhr.status < 300) {
             resolve(xhr.response);

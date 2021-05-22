@@ -7,6 +7,10 @@ use src\Model\SellerModel;
 class SellerController extends AbstractController {
     public function index(){}
 
+    public function RedirectToSellerPage($sellerId){
+
+    }
+
     public function GetAllSellerLocationAndIdAndName(){
         try{
             header("Content-Type: application/json");

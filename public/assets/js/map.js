@@ -116,10 +116,9 @@ function displayMarkerInfo(e){
     GetSellerInformationFromIdPromise = GetSellerInformationFromId(e.target.options.sellerId);
     GetSellerInformationFromIdPromise.then((result) => {
         result =JSON.parse(result);
-        if(result["SELL_NAME"] != 0){
-            sellerName = result["SELL_NAME"];
-            sellerPres = result["SELL_PRES"];
-            alert(`Vendeur : ${sellerName} | Description : ${sellerPres}`);
+        if(result["SELL_ID"] != 0){
+            sellerId = result["SELL_ID"];
+            window.location.href = `/?controller=seller&action=GetSellerById&param=${sellerId}`;
         }
         else{
             alert('Aucun résultat trouvé pour ce vendeur');
