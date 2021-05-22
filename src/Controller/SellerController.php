@@ -3,13 +3,26 @@ namespace src\Controller;
 
 use src\Model\ProductModel;
 use src\Model\SellerModel;
+use src\Model\userModel;
 
 class SellerController extends AbstractController {
     public function index(){}
 
-    public function RedirectToSellerPage($sellerId){
-
+    public function SellerProfileView($id){
+        $seller = SellerModel::GetSellerInformationFromId($id);
+        $sellerList = SellerModel::GetAllSellers();
+        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
+        return $this->twig->render("profile/ProfileSeller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
     }
+
+    public function GetSellerById($id){
+        $seller = SellerModel::GetSellerInformationFromId($id);
+        $sellerList = SellerModel::GetAllSellers();
+        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
+        return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
+    }
+
+    #region JSON Functions
 
     public function GetAllSellerLocationAndIdAndName(){
         try{
@@ -34,11 +47,5 @@ class SellerController extends AbstractController {
         }
     }
 
-    public function GetSellerById($id){
-        $seller = SellerModel::GetSellerInformationFromId($id);
-        $sellerList = SellerModel::GetAllSellers();
-        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-
-        return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
-    }
+    #endregion
 }

@@ -1,13 +1,14 @@
 {% extends"layoutMapAndMenu.html.twig" %}
 
 {% block css %}
-    <link rel="stylesheet" href="/assets/css/SellerAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/SellerProfile.css">
 {% endblock %}
 
 {% block rightContent %}
 <div class="sellerPage">
     <div class="seller-page__name">
-        <h2>{{ seller.SELL_NAME }}</h2>
+        <h2><input type="text" value="{{ seller.SELL_NAME }}"></h2>
     </div>
     <div class="seller-page__resume">
 
@@ -28,37 +29,41 @@
         </div>
         <div class="seller-page__info">
             <ul>
-                <li><span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span><span>{{ seller.SELL_LOC }}</span></li>
+                <li><span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span><span><input type="text" value="{{ seller.SELL_LOC }}"></span></li>
                 <li><span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span><span>06 12 23 45 56</span></li>
-                <li><span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span><span>{{ seller.SELL_PRES }}</span></li>
+                <li><span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span><span><input type="text" aria-multiline="true" value="{{ seller.SELL_PRES }}"></span></li>
             </ul>
         </div>
     </div>
     <div class="seller-page-productList">
         {#<h2>Liste des produits</h2>#}
         {#For each tags create category#}
-        <div class="seller-page-product-cards">
-            <h3 class="seller-page-product-cards__category">Catégorie 1</h3>
-            <div class="seller-page-productList-cards">
-                {#For each product create card#}
-                <div class="seller-page-product-card">
-                    <div class="seller-page-product-card__image">
-                        <img src="/assets/img/img1">
-                    </div>
-                    <div class="seller-page-product-card__info">
-                        <h3>Carotte</h3>
-                        <p class="seller-page-product-description">De belles carottes</p>
-                        <p class="seller-page-product-card__price">1.20€</p>
-                        <div class="seller-page-product-card__quantity">
-                            <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
-                            <span>1</span>
-                            <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+        {% for key, category in sellerProduct %}
+            <div class="seller-page-product-cards">
+                <h3 class="seller-page-product-cards__category">{{ key }}</h3>
+                <div class="seller-page-productList-cards">
+                    {#For each product create card#}
+                    {% for product in category %}
+                        <div class="seller-page-product-card">
+                            <div class="seller-page-product-card__image">
+                                <img src="{{ product.PROD_PICT }}">
+                            </div>
+                            <div class="seller-page-product-card__info">
+                                <h3>{{ product.PROD_NAME }}</h3>
+                                <p class="seller-page-product-description">De belles carottes</p>
+                                <p class="seller-page-product-card__price">{{ product.PROD_PRICE }}</p>
+                                <div class="seller-page-product-card__quantity">
+                                    <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
+                                    <span>1</span>
+                                    <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                                </div>
+                                <button class="seller-page-product-card__button">Add</button>
+                            </div>
                         </div>
-                        <button class="seller-page-product-card__button">Add</button>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
     {% endblock %}
 
