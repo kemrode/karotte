@@ -22,6 +22,10 @@ class SellerController extends AbstractController {
         return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
     }
 
+    public function UpdateSellerProfileFromForm(){
+
+    }
+
     #region JSON Functions
 
     public function GetAllSellerLocationAndIdAndName(){

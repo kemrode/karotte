@@ -7,8 +7,9 @@
 
 {% block rightContent %}
 <div class="sellerPage">
+    <form method="post" name="UpdateSellerProfileFromForm" action="/?controller=Seller&action=UpdateSellerProfileFromForm"></form>
     <div class="seller-page__name">
-        <h2><input type="text" value="{{ seller.SELL_NAME }}"></h2>
+        <h2><input class="heading h2" type="text" name="SELL_NAME" value="{{ seller.SELL_NAME }}"></h2>
     </div>
     <div class="seller-page__resume">
 
@@ -29,9 +30,9 @@
         </div>
         <div class="seller-page__info">
             <ul>
-                <li><span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span><span><input type="text" value="{{ seller.SELL_LOC }}"></span></li>
+                <li><span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span><span><input type="text" name="SELL_LOC" value="{{ seller.SELL_LOC }}" required></span></li>
                 <li><span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span><span>06 12 23 45 56</span></li>
-                <li><span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span><span><input type="text" aria-multiline="true" value="{{ seller.SELL_PRES }}"></span></li>
+                <li><span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span><span><textarea name="SELL_PRES" form="UpdateSellerProfileFromForm" required>{{ seller.SELL_PRES }}</textarea></span></li>
             </ul>
         </div>
     </div>
@@ -44,14 +45,15 @@
                 <div class="seller-page-productList-cards">
                     {#For each product create card#}
                     {% for product in category %}
+                        <input type="hidden" name="PROD_ID" value="{{ product.PROD_ID }}">
                         <div class="seller-page-product-card">
                             <div class="seller-page-product-card__image">
                                 <img src="{{ product.PROD_PICT }}">
                             </div>
                             <div class="seller-page-product-card__info">
-                                <h3>{{ product.PROD_NAME }}</h3>
+                                <h3><input class="heading h3" type="text" name="PROD_NAME" value="{{ product.PROD_NAME }}" required></h3>
                                 <p class="seller-page-product-description">De belles carottes</p>
-                                <p class="seller-page-product-card__price">{{ product.PROD_PRICE }}</p>
+                                <p><input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" value="{{ product.PROD_PRICE }}" required></p>
                                 <div class="seller-page-product-card__quantity">
                                     <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
                                     <span>1</span>
