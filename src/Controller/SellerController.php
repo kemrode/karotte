@@ -4,22 +4,34 @@ namespace src\Controller;
 use src\Model\ProductModel;
 use src\Model\SellerModel;
 use src\Model\userModel;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 class SellerController extends AbstractController {
-    public function index(){}
-
-    public function SellerProfileView($id){
-        $seller = SellerModel::GetSellerInformationFromId($id);
-        $sellerList = SellerModel::GetAllSellers();
-        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-        return $this->twig->render("profile/ProfileSeller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
+    public function index(){
+        try{
+            $seller = new SellerModel();
+            $sellerList = $seller->GetAllSellers();
+            return $this->twig->render("home/home.html.twig",[
+                "sellerList" => $sellerList
+            ]);
+        }
+        catch(\Exception $e){
+            var_dump($e);
+        }
     }
 
     public function GetSellerById($id){
-        $seller = SellerModel::GetSellerInformationFromId($id);
-        $sellerList = SellerModel::GetAllSellers();
-        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-        return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
+        try {
+            $seller = SellerModel::GetSellerInformationFromId($id);
+            $sellerList = SellerModel::GetAllSellers();
+            $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
+            return $this->twig->render("seller/Seller.html.twig", ["seller" => $seller, "sellerList" => $sellerList, "sellerProduct" => $sellerProduct]);
+        }
+        catch (\Exception $e) {
+            echo $this->index();
+        }
     }
 
     public function UpdateSellerProfileFromForm(){

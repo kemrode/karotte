@@ -4,7 +4,7 @@ namespace src\Model;
 
 class userModel
 {
-
+    #region getters and setters
     /**
      * @return string
      */
@@ -164,6 +164,10 @@ class userModel
     {
         $this->userId = $userId;
     }
+
+    #endregion
+
+    #region attributes
     public string $userSurname;
     public string $userPseudo;
     public string $userPasswd;
@@ -175,8 +179,7 @@ class userModel
     public Int $userId;
 
     //regular expression
-
-
+#endregion
 
 
     //Function to POST users info
@@ -233,6 +236,19 @@ class userModel
             return $e->getMessage();
         }
     }
+
+    public static function fetchUserFromId($userId){
+        try {
+            $bdd = BDD::getInstance();
+            $sql = 'SELECT * FROM USER WHERE USER_ID=:userId';
+            $request = $bdd->prepare($sql);
+            $request->execute(['userId'=>$userId]);
+            return $request->fetch();
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
+
 
     public static function GetCoordinatesFromAdress($address, $zipCode, $city){
         try{

@@ -123,5 +123,19 @@ class SellerModel{
         }
     }
 
+    public static function GetSellerAndUserInformationFromId($id){
+
+        $info = [];
+        try {
+            $info['seller'] = self::GetSellerInformationFromId($id);
+            $info['user'] = userModel::fetchUserFromId($id);
+            return $info;
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
+    }
+
     #endregion
 }

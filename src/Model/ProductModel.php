@@ -218,7 +218,7 @@ class ProductModel{
         }
     }
 
-    public static function GetAllProductAndTagGroupedByTagFromSellerId(int $sellerId){
+    public static function GetAllProductAndTagGroupedByTagFromSellerId($sellerId){
         try{
             $result = [];
             $bdd = BDD::getInstance();

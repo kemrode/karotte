@@ -1,0 +1,12 @@
+RewriteEngine On
+
+#Rewriting
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)/(.+)/(.+)$ index.php?controller=$1&action=$2&param=$3 [QSA,L]
+RewriteRule ^(.+)/(.+)/(.+)/$ index.php?controller=$1&action=$2&param=$3 [QSA,L]
+RewriteRule ^(.+)/(.+)/$ index.php?controller=$1&action=$2 [QSA,L]
+RewriteRule ^(.+)/(.+)$ index.php?controller=$1&action=$2 [QSA,L]
+RewriteRule ^(.+)/(.+)$ index.php?controller=$1&action=$2 [QSA,L]
+RewriteRule ^(.+)/$ index.php?controller=$1 [QSA,L]
+RewriteRule ^(.+)$ index.php?controller=$1 [QSA,L]
+RewriteRule ^(.*)$ index.php?controller=map [QSA,L]

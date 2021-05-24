@@ -1,15 +1,33 @@
+input, textarea {
+  border: none;
+  border-bottom: 2px solid #BB4E0B;
+  font-family: Roboto;
+}
+
+textarea {
+  min-width: 500px;
+  width: auto;
+}
+
+.seller-page__info > ul {
+  flex-flow: column wrap;
+}
+
+.seller-page__info > ul > * {
+  display: flex !important;
+}
+
 .heading {
   display: block;
   margin-left: 0;
   margin-right: 0;
-  font-weight: bold;
 }
-.heading .h2 {
+.heading.h2 {
   font-size: 1.5em;
   margin-top: 0.83em;
   margin-bottom: 0.83em;
 }
-.heading .h3 {
+.heading.h3 {
   font-size: 1.17em;
   margin-top: 1em;
   margin-bottom: 1em;
