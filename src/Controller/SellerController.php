@@ -3,10 +3,6 @@ namespace src\Controller;
 
 use src\Model\ProductModel;
 use src\Model\SellerModel;
-use src\Model\userModel;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 
 class SellerController extends AbstractController {
     public function index(){
