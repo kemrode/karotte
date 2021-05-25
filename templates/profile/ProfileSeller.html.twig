@@ -6,13 +6,14 @@
 {% endblock %}
 
 {% block rightContent %}
-    <form class="sellerPage" method="post" name="UpdateSellerProfileFromForm" action="/Seller/UpdateSellerProfileFromForm">
+    {#/Seller/UpdateSellerProfileFromForm#}
+    <form class="sellerPage" method="post" name="UpdateSellerProfileFromForm" action="#">
         <div class="seller-page__name">
-            <input class="heading h2" type="text" name="SELL_NAME" value="{{ sellerInfo.seller.SELL_NAME }}">
-        </div>
-        <div class="buttons">
-            <input type="button" value="Mettre à jour">
-            <input type="button" value="Annuler" onclick="coucou()">
+            <input class="heading h2" type="text" name="SELL_NAME" value="{{ sellerInfo.seller.SELL_NAME }}" placeholder="Nom de la boutique" required>
+            <div class="buttons">
+                <input type="submit" value="Mettre à jour">
+                <input type="button" value="Annuler" onclick="ReloadPage('/Profile/SellerProfileView/{{ sellerInfo.seller.SELL_ID }}')">
+            </div>
         </div>
         <div class="seller-page__resume">
 
@@ -33,9 +34,20 @@
             </div>
             <div class="seller-page__info">
                 <ul>
-                    <li><span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span><span><input type="text" name="SELL_LOC" value="{{ sellerInfo.user.USER_ADDRESS }}" required></span></li>
-                    <li><span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span><span><input type="tel" value="{{ sellerInfo.user.USER_PHONE }}"></span></li>
-                    <li><span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span><span><textarea name="SELL_PRES" form="UpdateSellerProfileFromForm" required>{{ sellerInfo.seller.SELL_PRES }}</textarea></span></li>
+                    <li>
+                        <span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span>
+                        <span><input type="text" name="USER_ADDRESS" value="{{ sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
+                        <span><input type="text" name="USER_ZIP_CODE" value="{{ sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
+                        <span><input type="text" name="USER_CITY" value="{{ sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
+                    </li>
+                    <li>
+                        <span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span>
+                        <span><input type="tel" value="{{ sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
+                    </li>
+                    <li>
+                        <span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span>
+                        <span><textarea name="SELL_PRES" form="UpdateSellerProfileFromForm" placeholder="Une petite description" required>{{ sellerInfo.seller.SELL_PRES }}</textarea></span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -54,7 +66,7 @@
                                     <img src="{{ product.PROD_PICT }}">
                                 </div>
                                 <div class="seller-page-product-card__info">
-                                    <h3><input class="heading h3" type="text" name="PROD_NAME" value="{{ product.PROD_NAME }}" required></h3>
+                                    <input class="heading h3" type="text" name="PROD_NAME" value="{{ product.PROD_NAME }}" required>
 {#                                    <p class="seller-page-product-description">De belles carottes</p>#}
                                     <p><input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" value="{{ product.PROD_PRICE }}" required></p>
                                     <div class="seller-page-product-card__quantity">
@@ -107,6 +119,6 @@
             </div>
         </div>
     {% endblock %}
-
     {% block javascript %}
+        <script src="/assets/js/sellerProfile.js"></script>
     {% endblock %}

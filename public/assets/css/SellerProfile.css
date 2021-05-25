@@ -1,10 +1,12 @@
 input, textarea {
-  border: none;
-  border-bottom: 2px solid #BB4E0B;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
   font-family: Roboto;
 }
 
 textarea {
+  border-radius: 5px;
   min-width: 500px;
   width: auto;
 }
@@ -23,14 +25,11 @@ textarea {
   margin-right: 0;
 }
 .heading.h2 {
+  height: auto;
   font-size: 1.5em;
-  margin-top: 0.83em;
-  margin-bottom: 0.83em;
 }
 .heading.h3 {
   font-size: 1.17em;
-  margin-top: 1em;
-  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=SellerProfile.css.map */

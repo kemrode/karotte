@@ -34,3 +34,4 @@ function SendRequestReturnAPromise(method, url, headers = []){
     xhr.send();
     });
 }
+
