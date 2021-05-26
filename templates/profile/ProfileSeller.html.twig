@@ -33,22 +33,21 @@
                 </ul>
             </div>
             <div class="seller-page__info">
-                <ul>
-                    <li>
-                        <span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span>
-                        <span><input type="text" name="USER_ADDRESS" value="{{ sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
-                        <span><input type="text" name="USER_ZIP_CODE" value="{{ sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
-                        <span><input type="text" name="USER_CITY" value="{{ sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
-                    </li>
-                    <li>
-                        <span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span>
-                        <span><input type="tel" value="{{ sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
-                    </li>
-                    <li>
-                        <span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span>
-                        <span><textarea name="SELL_PRES" form="UpdateSellerProfileFromForm" placeholder="Une petite description" required>{{ sellerInfo.seller.SELL_PRES }}</textarea></span>
-                    </li>
-                </ul>
+                <div class="seller-page__info-userAddress">
+                    <span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span>
+                    <span><input type="text" name="USER_ADDRESS" value="{{ sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
+                    <span><input type="text" name="USER_ZIP_CODE" value="{{ sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
+                    <span><input type="text" name="USER_CITY" value="{{ sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
+                </div>
+                <div class="seller-page__info-userPhone">
+                    <span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span>
+                    <span><input type="tel" value="{{ sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
+                </div>
+                <div class="seller-page__info-sellerDescription">
+                    <span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span>
+                    <span><textarea name="SELL_PRES" form="UpdateSellerProfileFromForm" placeholder="Une petite description" required>{{ sellerInfo.seller.SELL_PRES }}</textarea></span>
+                </div>
+
             </div>
         </div>
         <div class="seller-page-productList">
@@ -63,12 +62,12 @@
                             <input type="hidden" name="PROD_ID" value="{{ product.PROD_ID }}">
                             <div class="seller-page-product-card">
                                 <div class="seller-page-product-card__image">
-                                    <img src="{{ product.PROD_PICT }}">
+                                    <img class="seller-page-product-card__image" src="{{ product.PROD_PICT }}">
                                 </div>
                                 <div class="seller-page-product-card__info">
                                     <input class="heading h3" type="text" name="PROD_NAME" value="{{ product.PROD_NAME }}" required>
-{#                                    <p class="seller-page-product-description">De belles carottes</p>#}
-                                    <p><input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" value="{{ product.PROD_PRICE }}" required></p>
+                                    <input class="seller-page-product-description" type="text" name="PROD_DESC" name="PROD_NAME" value="{{ product.PROD_DESC }}" required>
+                                    <input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" value="{{ product.PROD_PRICE }}" required>
                                     <div class="seller-page-product-card__quantity">
                                         <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
                                         <span>1</span>

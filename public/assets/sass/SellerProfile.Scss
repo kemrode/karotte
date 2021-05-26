@@ -9,18 +9,13 @@ input, textarea{
 textarea {
   border-radius : 5px;
   min-width: 500px;
-  width: auto;
 }
 .seller-page__info>ul{
   flex-flow: column wrap;
 }
-.seller-page__info>ul>*{
-  display: flex !important;
-}
+
 .heading{
   display: block;
-  margin-left: 0;
-  margin-right: 0;
 
   &.h2{
     height: auto;
@@ -30,3 +25,4 @@ textarea {
     font-size: 1.17em;
   }
 }
+
