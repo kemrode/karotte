@@ -76,39 +76,39 @@ class BasketModel
     }
 
 
-    public function AddToBasket(\PDO $bdd){
+    public function AddToBasket(){
         try {
-        $request = $bdd->prepare("INSERT INTO BASKET(BASKET_USER_ID, BASKET_PRODUCT_ID, BASKET_ID, BASKET_QUANTITY)
-        VALUES (:BASKET_USER_ID, :BASKET_PRODUCT_ID, :BASKET_ID, :BASKET_QUANTITY)");
+            $bdd = BDD::getInstance();
+            $request = $bdd->prepare("INSERT INTO BASKET(BASKET_USER_ID, BASKET_PRODUCT_ID, BASKET_ID, BASKET_QUANTITY)
+            VALUES (:BASKET_USER_ID, :BASKET_PRODUCT_ID, :BASKET_ID, :BASKET_QUANTITY)");
 
-        $execute = $request->execute([
-           'BASKET_USER_ID' => $this->getBASKETUSERID(),
-           'BASKET_PRODUCT_ID' => $this->getBASKETPRODUCTID(),
-           'BASKET_ID' => $this->getBASKETID(),
-            'BASKET_QUANTITY' => $this->getBASKETQUANTITY()
-        ]);
+            $execute = $request->execute([
+               'BASKET_USER_ID' => $this->getBASKETUSERID(),
+               'BASKET_PRODUCT_ID' => $this->getBASKETPRODUCTID(),
+               'BASKET_ID' => $this->getBASKETID(),
+                'BASKET_QUANTITY' => $this->getBASKETQUANTITY()
+            ]);
 
-        $_SESSION['cart'] = "coucou";
-
-        return "added";
+            return "added";
 
         }catch (\Exception $e){
             return $e->getMessage();
         }
     }
 
-    public function GetUserBasket(\PDO $bdd){
-        $id = $_REQUEST['param'];
-
+    public static function GetUserBasket($id){
         try {
-            $request = $bdd->prepare("SELECT BASKET_USER_ID, BASKET_PRODUCT_ID, BASKET_ID, BASKET_QUANTITY 
-            FROM BASKET WHERE BASKET_USER_ID=:$id");
-
-            $execute = $request->execute([
-                'id' => $id
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT BASKET_USER_ID, BASKET_PRODUCT_ID, BASKET_ID, BASKET_QUANTITY 
+            FROM BASKET WHERE BASKET_USER_ID=:BASKET_USER_ID");
+            $requete->execute([
+                'BASKET_USER_ID' => $id
             ]);
 
-            return $request->fetch();
+            //Get productinfo by productId
+            /*$requete2 = $bdd->prepare("SELECT * FROM PRODUCT WHERE PROD_ID=:")*/
+
+            return $requete->fetchAll();
 
         }catch (\Exception $e){
             return $e->getMessage();

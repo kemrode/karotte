@@ -193,60 +193,41 @@ class userModel
         $this->userName = $userName;
     }
 
-    public function Login(\PDO $bdd){
-        $userEmail = $_POST['userEmail'];
-        $userPwd = $_POST['userPwd'];
-        /*$role = $_POST['txt_role'];*/
-        $password_hash = password_hash($_POST['userPwd'], PASSWORD_DEFAULT);
-
+    public function loginUser(\PDO $bdd){
+        $mailLog = htmlentities($this->getUserEMail());
+        $pwdLog = htmlentities($this->getUserPasswd());
         try {
-            $requete = $bdd->prepare("SELECT USER_EMAIL,USER_PWD FROM USER WHERE USER_EMAIL=:userEmail 
-                                              AND USER_PWD=:userPwd");
-            $requete->bindParam(":userEmail", $userEmail);
-            $requete->bindParam(":userPwd", $userPwd);
-            $requete->execute();
+            $sql = 'SELECT USER_EMAIL, USER_PWD FROM USER WHERE USER_EMAIL=:mailLog AND USER_PWD=:pwdLog';
+            $request = $bdd->prepare($sql);
+            $request->setFetchMode(\PDO::FETCH_CLASS, "src\Model\userModel");
+            $request->execute(['mailLog'=>$mailLog, 'pwdLog'=>$pwdLog]);
+            return $request->fetch();
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
 
-            while ($row = $requete->fetch(\PDO::FETCH_ASSOC)){
-                $dbUserEmail = $row["USER_EMAIL"];
-                $dbUserPwd = $row["USER_PWD"];
-            }
-            /*if (password_verify($dbpassword, $password_hash)){
-                echo "coucou";
-            }*/
+    public function fetchUser(\PDO $bdd){
+        try {
+            $userConnect = $this->getUserEMail();
+            $sql = 'SELECT * FROM USER WHERE USER_EMAIL=:userConnect';
+            $request = $bdd->prepare($sql);
+            $request->setFetchMode(\PDO::FETCH_CLASS, "src\Model\userModel");
+            $request->execute(['userConnect'=>$userConnect]);
+            return $request->fetch();
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
 
-            if($userEmail != null AND $userPwd != null){
-                if($requete->rowCount() > 0){
-                    if($userEmail == $dbUserEmail AND $userPwd == $dbUserPwd /*AND $role == $dbrole*/){
-                        $_SESSION["user_login"] = $userEmail;
-                        return "user";
-
-                        /*switch ($dbrole){
-                            case "admin":
-                                $_SESSION["admin_login"] = $login;
-                                $loginMsg = "Admin successfully login !";
-                                return "admin";
-                                break;
-                            case "membre":
-                                $_SESSION["membre_login"] = $login;
-                                $loginMsg = "Membre successfully login !";
-                                return "membre";
-                                break;
-                            default:
-                                $errorMsg[] = "wrong login or password or role";
-                        }*/
-                    }else {
-                        $errorMsg[] = "wrong login or password or role";
-                    }
-                }else {
-                    $errorMsg[] = "wrong login or password or role";
-                }
-            }else {
-                $errorMsg[] = "wrong login or password or role";
-            }
-
-            return $requete->fetch();
-
-        }catch (\Exception $e){
+    public static function fetchUserFromId($userId){
+        try {
+            $bdd = BDD::getInstance();
+            $sql = 'SELECT * FROM USER WHERE USER_ID=:userId';
+            $request = $bdd->prepare($sql);
+            $request->execute(['userId'=>$userId]);
+            return $request->fetch();
+        } catch (\Exception $e){
             return $e->getMessage();
         }
     }
