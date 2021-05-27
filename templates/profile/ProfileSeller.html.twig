@@ -4,10 +4,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/SellerProfile.css">
 {% endblock %}
-
 {% block rightContent %}
-    {#/Seller/UpdateSellerProfileFromForm#}
-    <form class="sellerPage" method="post" name="UpdateSellerProfileFromForm" action="#">
+    <div class="sellerPage">
+    <form class="sellerPage" method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{ sellerInfo.seller.SELL_ID }}">
         <div class="seller-page__name">
             <input class="heading h2" type="text" name="SELL_NAME" value="{{ sellerInfo.seller.SELL_NAME }}" placeholder="Nom de la boutique" required>
             <div class="buttons">
@@ -16,41 +15,41 @@
             </div>
         </div>
         <div class="seller-page__resume">
-
-            <div class="seller-page__rate">
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span>53 avis</span>
-            </div>
-            <div class="seller-page__tag">
-                <ul class="tags">
-                    <li>Légumes</li>
-                    <li>Bio</li>
-                    <li>Permaculture</li>
-                </ul>
-            </div>
-            <div class="seller-page__info">
-                <div class="seller-page__info-userAddress">
-                    <span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span>
-                    <span><input type="text" name="USER_ADDRESS" value="{{ sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
-                    <span><input type="text" name="USER_ZIP_CODE" value="{{ sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
-                    <span><input type="text" name="USER_CITY" value="{{ sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
-                </div>
-                <div class="seller-page__info-userPhone">
-                    <span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span>
-                    <span><input type="tel" value="{{ sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
-                </div>
-                <div class="seller-page__info-sellerDescription">
-                    <span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span>
-                    <span><textarea name="SELL_PRES" form="UpdateSellerProfileFromForm" placeholder="Une petite description" required>{{ sellerInfo.seller.SELL_PRES }}</textarea></span>
-                </div>
-
-            </div>
+        <div class="seller-page__rate">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span>53 avis</span>
         </div>
-        <div class="seller-page-productList">
+        <div class="seller-page__tag">
+            <ul class="tags">
+                <li>Légumes</li>
+                <li>Bio</li>
+                <li>Permaculture</li>
+            </ul>
+        </div>
+        <div class="seller-page__info">
+            <div class="seller-page__info-userAddress">
+                <span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span>
+                <span><input type="text" name="USER_ADDRESS" value="{{ sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
+                <span><input type="text" name="USER_ZIP_CODE" value="{{ sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
+                <span><input type="text" name="USER_CITY" value="{{ sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
+            </div>
+            <div class="seller-page__info-userPhone">
+                <span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span>
+                <span><input type="tel" name="USER_PHONE" value="{{ sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
+            </div>
+            <div class="seller-page__info-sellerDescription">
+                <span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span>
+                <span><textarea name="SELL_PRES" placeholder="Une petite description" required>{{ sellerInfo.seller.SELL_PRES }}</textarea></span>
+            </div>
+
+        </div>
+        </div>
+    </form>
+    <div class="seller-page-productList">
             {#<h2>Liste des produits</h2>#}
             {#For each tags create category#}
             {% for key, category in sellerProduct %}
@@ -81,7 +80,7 @@
                 </div>
             {% endfor %}
         </div>
-    </form>
+    </div>
     {% endblock %}
 
     {% block leftContent %}
@@ -119,5 +118,8 @@
         </div>
     {% endblock %}
     {% block javascript %}
-        <script src="/assets/js/sellerProfile.js"></script>
-    {% endblock %}
+    {% if(session.alerte != "") %}
+        <script>alert("{{ session.alerte }}")</script>
+    {% endif %}
+    <script src="/assets/js/sellerProfile.js"></script>
+{% endblock %}

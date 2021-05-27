@@ -20,4 +20,18 @@ abstract class AbstractController {
         $this->twig->addGlobal('session', $_SESSION);
         $this->twig->addGlobal('root', ROOT);
     }
+
+    public function InputTreatment($input)
+    {
+        $input = trim($input);
+        $input = stripcslashes($input);
+        return htmlspecialchars($input);
+    }
+    public function GetTreatedValueFromPostIfIsset($input)
+    {
+        if(isset($_POST[$input]))
+            return $this->InputTreatment($_POST[$input]);
+        else
+            return null;
+    }
 }

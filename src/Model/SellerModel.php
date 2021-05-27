@@ -1,6 +1,8 @@
 <?php
 namespace src\Model;
 
+use JsonSchema\Exception\ResourceNotFoundException;
+
 class SellerModel{
     #region attributes SellerModel
 
@@ -135,6 +137,9 @@ class SellerModel{
             return $e->getMessage();
         }
 
+    }
+    public static function UpdateSellerInfoFromPost($id){
+        throw new \BadMethodCallException("Fonction à implémenter");
     }
 
     #endregion
