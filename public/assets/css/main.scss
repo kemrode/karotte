@@ -94,7 +94,7 @@
   padding: 50px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: min-content;
+  grid-template-rows: 0fr 0fr 1fr;
   .seller-page__name {
     display: flex;
     flex-flow: row nowrap;
@@ -133,6 +133,7 @@
     grid-column: span 2;
     display: flex;
     flex-flow: column;
+    height: auto;
     span{
       margin : 0 5px;
     }

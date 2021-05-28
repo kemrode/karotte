@@ -6,7 +6,7 @@
 {% endblock %}
 {% block rightContent %}
     <div class="sellerPage">
-    <form class="sellerPage" method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{sellerInfo.seller.SELL_ID }}">
+    <form method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{sellerInfo.seller.SELL_ID }}">
         <div class="seller-page__name">
             <input type="hidden" name="SELL_ID" value="{{sellerInfo.seller.SELL_ID }}" required>
             <input class="heading h2" type="text" name="SELL_NAME" value="{{session.SELL_NAME??  sellerInfo.seller.SELL_NAME }}" placeholder="Nom de la boutique" required>
