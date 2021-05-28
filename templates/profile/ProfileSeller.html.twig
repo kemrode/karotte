@@ -6,12 +6,13 @@
 {% endblock %}
 {% block rightContent %}
     <div class="sellerPage">
-    <form class="sellerPage" method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{ sellerInfo.seller.SELL_ID }}">
+    <form class="sellerPage" method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{sellerInfo.seller.SELL_ID }}">
         <div class="seller-page__name">
-            <input class="heading h2" type="text" name="SELL_NAME" value="{{ sellerInfo.seller.SELL_NAME }}" placeholder="Nom de la boutique" required>
+            <input type="hidden" name="SELL_ID" value="{{sellerInfo.seller.SELL_ID }}" required>
+            <input class="heading h2" type="text" name="SELL_NAME" value="{{session.SELL_NAME??  sellerInfo.seller.SELL_NAME }}" placeholder="Nom de la boutique" required>
             <div class="buttons">
                 <input type="submit" value="Mettre à jour">
-                <input type="button" value="Annuler" onclick="ReloadPage('/Profile/SellerProfileView/{{ sellerInfo.seller.SELL_ID }}')">
+                <input type="reset" value="Annuler" onclick="ReloadPage({{ sellerInfo.seller.SELL_ID }})">
             </div>
         </div>
         <div class="seller-page__resume">
@@ -33,17 +34,17 @@
         <div class="seller-page__info">
             <div class="seller-page__info-userAddress">
                 <span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span>
-                <span><input type="text" name="USER_ADDRESS" value="{{ sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
-                <span><input type="text" name="USER_ZIP_CODE" value="{{ sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
-                <span><input type="text" name="USER_CITY" value="{{ sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
+                <span><input type="text" name="USER_ADDRESS" value="{{ session.USER_ADDRESS??  sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
+                <span><input type="text" name="USER_ZIP_CODE" value="{{ session.USER_ZIP_CODE??  sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
+                <span><input type="text" name="USER_CITY" value="{{ session.USER_CITY?? sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
             </div>
             <div class="seller-page__info-userPhone">
                 <span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span>
-                <span><input type="tel" name="USER_PHONE" value="{{ sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
+                <span><input type="tel" name="USER_PHONE" value="{{ session.USER_PHONE?? sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
             </div>
             <div class="seller-page__info-sellerDescription">
                 <span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span>
-                <span><textarea name="SELL_PRES" placeholder="Une petite description" required>{{ sellerInfo.seller.SELL_PRES }}</textarea></span>
+                <span><textarea name="SELL_PRES" placeholder="Une petite description" required>{{ session.SELL_PRES?? sellerInfo.seller.SELL_PRES }}</textarea></span>
             </div>
 
         </div>
@@ -118,8 +119,11 @@
         </div>
     {% endblock %}
     {% block javascript %}
-    {% if(session.alerte != "") %}
-        <script>alert("{{ session.alerte }}")</script>
+    {% if(alerte) %}
+        <script>alert("{{ alerte }}")</script>
+    {% endif %}
+        {% if(message) %}
+        <script>alert("{{ message }}")</script>
     {% endif %}
     <script src="/assets/js/sellerProfile.js"></script>
 {% endblock %}

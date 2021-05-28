@@ -5,6 +5,12 @@ namespace src\Model;
 class userModel
 {
     #region getters and setters
+
+    public function __set($name, $value)
+    {
+        $this->$name = $value;
+    }
+
     /**
      * @return string
      */

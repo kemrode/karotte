@@ -7,6 +7,19 @@ use src\Model\SellerModel;
 use src\Model\userModel;
 
 Class ProfileController extends AbstractController{
+
+    public function getValueExpected(){
+        return [
+            "SELL_ID" => "Contacter l'administrateur réseau",
+            "SELL_NAME" => "Nom boutique",
+            "SELL_PRES" => "présentation vendeur",
+            "USER_ADDRESS" => "Adresse",
+            "USER_ZIP_CODE" => "Code postal",
+            "USER_CITY" => "Ville",
+            "USER_PHONE" => "téléphone"];
+
+    }
+
     function index(){
         $sellerList = SellerModel::GetAllSellers();
         return $this->twig->render("profile/ProfileSeller.html.twig",["sellerList"=>$sellerList]);
@@ -16,21 +29,32 @@ Class ProfileController extends AbstractController{
         $seller = SellerModel::GetSellerAndUserInformationFromId($id);
         $sellerList = SellerModel::GetAllSellers();
         $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-        return $this->twig->render("profile/ProfileSeller.html.twig",["sellerInfo"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
+        return $this->twig->render("profile/ProfileSeller.html.twig",[
+            "sellerInfo"=>$seller,
+            "sellerList"=>$sellerList,
+            "sellerProduct"=>$sellerProduct,
+            "message"=> $this->getFlashMessage("message"),
+            "alerte"=> $this->getFlashMessage("alerte")]);
+    }
+
+    public function CancelCurrentModification($id){
+        $valueExpected = $this->getValueExpected();
+        // Unsetting all stored variable from post
+        foreach ($valueExpected as $field=>$error){
+            unset($_SESSION[$field]);
+        }
+        header("location:/Profile/SellerProfileView/$id");
+        exit;
     }
 
     public function UpdateSellerProfile($id){
         try {
             unset($_SESSION['alerte']);
-
+            unset($_SESSION['message']);
             $user = new userModel();
             $seller = new SellerModel();
-            $valueExpected = [
-                "SELL_NAME" => "Nom boutique",
-                "SELL_PRES" => "présentation vendeur",
-                "USER_ADDRESS" => "Adresse",
-                "USER_ZIP_CODE" => "Code postal",
-                "USER_PHONE" => "téléphone"];
+
+            $valueExpected = $this->getValueExpected();
 
             // Storing all $_POST variable into session to avoid rewriting them in the form in case of error
             foreach ($valueExpected as $field=>$error){
@@ -41,16 +65,21 @@ Class ProfileController extends AbstractController{
             foreach ($valueExpected as $field=>$error){
                 if($this->GetTreatedValueFromPostIfIsset($field) == null)
                     throw new \InvalidArgumentException("Veuillez renseigner le champs ".$error);
-                $_POST[$field] = $this->GetTreatedValueFromPostIfIsset($field);
+                if(property_exists($user, $field))
+                    $user[$field] = $this->GetTreatedValueFromPostIfIsset($field);
+                if(property_exists($seller, $field))
+                    $seller->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
 
             // Update database
-            SellerModel::UpdateSellerInfoFromPost($id);
+            $seller->UpdateSellerInfo();
 
             // Unsetting all stored variable from post
             foreach ($valueExpected as $field=>$error){
-                unset($_SESSION[$field]);
+                if(isset($_SESSION[$field]))
+                    unset($_SESSION[$field]);
             }
+            $_SESSION["message"] = "Profil mis à jour";
         }
         catch (\InvalidArgumentException $arg) {
             $_SESSION["alerte"] = $arg->getMessage();
@@ -62,7 +91,8 @@ Class ProfileController extends AbstractController{
             $_SESSION["alerte"] = "Une ereur s est produite : ".$e->getMessage();
         }
         finally {
-            echo $this->SellerProfileView($id);
+            header("location:/Profile/SellerProfileView/$id");
+            exit;
         }
     }
 }

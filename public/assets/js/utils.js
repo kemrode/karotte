@@ -2,7 +2,7 @@
  * Fonction permettant d'envoyer une requête au controller
  * S'utilise en passant en argument :
  *  - method = "PUT", "POST", "DELETE", "GET", ...
- *  - url = url complete avec les paramètres si besoin ex : `/?controller=map&action=RegisterMapPos&param=${JSON.stringify(pos)}`
+ *  - url = url complete avec les paramètres si besoin ex : `/map/RegisterMapPos/${JSON.stringify(pos)}`
  *  - headers = tableau de json de type [{'name':'Content-Type', 'value':'application/json'}]
  *
  *  Renvoie une promise

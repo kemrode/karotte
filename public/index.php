@@ -1,5 +1,8 @@
 <?php
-session_start();
+
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
 // Redefining root path
 define('ROOT', str_replace('/index.php','',$_SERVER['SCRIPT_FILENAME']));

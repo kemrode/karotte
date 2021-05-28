@@ -15,6 +15,11 @@ class SellerModel{
 
     #region getters and setters ProductModel
 
+    public function __set($name, $value)
+    {
+        $this->$name = $value;
+    }
+
     /**
      * @return int
      */
@@ -138,8 +143,18 @@ class SellerModel{
         }
 
     }
-    public static function UpdateSellerInfoFromPost($id){
-        throw new \BadMethodCallException("Fonction à implémenter");
+    public function UpdateSellerInfo(){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("UPDATE SELLER SET SELL_NAME=:sellName, SELL_PRES=:sellPres WHERE SELL_ID=:sellId");
+            return  $requete->execute([
+                "sellName" => $this->getSELLNAME(),
+                "sellPres" => $this->getSELLPRES(),
+                "sellId" => $this->getSELLID(),
+            ]);
+        }catch (\Exception $e){
+            throw $e;
+        }
     }
 
     #endregion

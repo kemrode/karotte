@@ -34,4 +34,12 @@ abstract class AbstractController {
         else
             return null;
     }
+
+    public function getFlashMessage(string $key, $default = null) {
+        $_SESSION[$key] = isset($_SESSION[$key]) ? $_SESSION[$key] : $default;
+        $message = $_SESSION[$key];
+        unset($_SESSION[$key]);
+        return $message;
+    }
+
 }
