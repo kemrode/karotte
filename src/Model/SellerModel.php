@@ -1,6 +1,8 @@
 <?php
 namespace src\Model;
 
+use JsonSchema\Exception\ResourceNotFoundException;
+
 class SellerModel{
     #region attributes SellerModel
 
@@ -12,6 +14,11 @@ class SellerModel{
     #endregion
 
     #region getters and setters ProductModel
+
+    public function __set($name, $value)
+    {
+        $this->$name = $value;
+    }
 
     /**
      * @return int
@@ -118,6 +125,33 @@ class SellerModel{
                 "SELL_ID" => $id
             ]);
             return $requete->fetch();
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+    public static function GetSellerAndUserInformationFromId($id){
+
+        $info = [];
+        try {
+            $info['seller'] = self::GetSellerInformationFromId($id);
+            $info['user'] = userModel::fetchUserFromId($id);
+            return $info;
+        }
+        catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
+    }
+    public function UpdateSellerInfo(){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("UPDATE SELLER SET SELL_NAME=:sellName, SELL_PRES=:sellPres WHERE SELL_ID=:sellId");
+            return  $requete->execute([
+                "sellName" => $this->getSELLNAME(),
+                "sellPres" => $this->getSELLPRES(),
+                "sellId" => $this->getSELLID(),
+            ]);
         }catch (\Exception $e){
             throw $e;
         }

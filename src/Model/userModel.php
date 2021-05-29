@@ -4,6 +4,12 @@ namespace src\Model;
 
 class userModel
 {
+    #region getters and setters
+
+    public function __set($name, $value)
+    {
+        $this->$name = $value;
+    }
 
     /**
      * @return string
@@ -164,6 +170,10 @@ class userModel
     {
         $this->userId = $userId;
     }
+
+    #endregion
+
+    #region attributes
     public string $userSurname;
     public string $userPseudo;
     public string $userPasswd;
@@ -175,8 +185,7 @@ class userModel
     public Int $userId;
 
     //regular expression
-
-
+#endregion
 
 
     //Function to POST users info
@@ -231,6 +240,52 @@ class userModel
             return $request->fetch();
         } catch (\Exception $e){
             return $e->getMessage();
+        }
+    }
+
+    public static function fetchUserFromId($userId){
+        try {
+            $bdd = BDD::getInstance();
+            $sql = 'SELECT * FROM USER WHERE USER_ID=:userId';
+            $request = $bdd->prepare($sql);
+            $request->execute(['userId'=>$userId]);
+            return $request->fetch();
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+
+    public static function GetCoordinatesFromAdress($address, $zipCode, $city){
+        try{
+            // query construction using global variable of the api key
+            $buildQuery = http_build_query([
+            'access_key' => positionstackApiKey,
+            'query' => "${address}+${zipCode}+${city}",
+            'fields' => 'results.latitude',
+            'limit' => 1
+        ]);
+        $baseUrl= "http://api.positionstack.com/v1/forward";
+
+        $curl = curl_init(sprintf('%s?%s', $baseUrl, $buildQuery));
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $responseData = json_decode(curl_exec($curl),true);
+        curl_close($curl);
+
+        // If the response is not null, contains a field 'data' and the latitude is not null
+        if($responseData != null){
+            if(count($responseData['data'])>0){
+                if(array_key_exists('latitude', $responseData['data'][0])){
+                    return $responseData['data'][0]["latitude"].";".$responseData['data'][0]["longitude"];
+                }
+            }
+        }
+        // Else throw an exception
+        throw new \Exception("L'adresse renseignée n'est pas valide");
+
+        }catch(\Exception $e) {
+            throw $e;
         }
     }
 }

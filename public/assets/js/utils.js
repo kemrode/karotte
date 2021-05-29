@@ -2,10 +2,16 @@
  * Fonction permettant d'envoyer une requête au controller
  * S'utilise en passant en argument :
  *  - method = "PUT", "POST", "DELETE", "GET", ...
- *  - url = url complete avec les paramètres si besoin ex : `/?controller=map&action=RegisterMapPos&param=${JSON.stringify(pos)}`
+ *  - url = url complete avec les paramètres si besoin ex : `/map/RegisterMapPos/${JSON.stringify(pos)}`
  *  - headers = tableau de json de type [{'name':'Content-Type', 'value':'application/json'}]
  *
  *  Renvoie une promise
+ *  ex :
+ *     promise.then((response)=>{
+ *      response = résultat si succes
+ *  }).catch((error)=>{
+ *      response = résultat si échec
+ *  })
  */
 
 function SendRequestReturnAPromise(method, url, headers = []){
@@ -17,7 +23,6 @@ function SendRequestReturnAPromise(method, url, headers = []){
             xhr.setRequestHeader(headers['name'], headers['value']);
         }
     }
-
     xhr.onload = () => {
         if (xhr.status >= 200 && xhr.status < 300) {
             resolve(xhr.response);
@@ -29,3 +34,4 @@ function SendRequestReturnAPromise(method, url, headers = []){
     xhr.send();
     });
 }
+

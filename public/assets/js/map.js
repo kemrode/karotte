@@ -116,10 +116,9 @@ function displayMarkerInfo(e){
     GetSellerInformationFromIdPromise = GetSellerInformationFromId(e.target.options.sellerId);
     GetSellerInformationFromIdPromise.then((result) => {
         result =JSON.parse(result);
-        if(result["SELL_NAME"] != 0){
-            sellerName = result["SELL_NAME"];
-            sellerPres = result["SELL_PRES"];
-            alert(`Vendeur : ${sellerName} | Description : ${sellerPres}`);
+        if(result["SELL_ID"] != 0){
+            sellerId = result["SELL_ID"];
+            window.location.href = `/Seller/GetSellerById/${sellerId}`;
         }
         else{
             alert('Aucun résultat trouvé pour ce vendeur');
@@ -137,14 +136,14 @@ function displayMarkerInfo(e){
 
 function GetSellerLocation(){
     let method = "GET";
-    let url = "/?controller=Seller&action=GetAllSellerLocationAndIdAndName";
+    let url = "/Seller/GetAllSellerLocationAndIdAndName";
     return SendRequestReturnAPromise(method, url);
 
 };
 
 function GetSellerInformationFromId(id){
     let method = "GET";
-    let url = `/?controller=Seller&action=GetSellerInformationFromId&param=${id}`;
+    let url = `/Seller/GetSellerInformationFromId/${id}`;
     return SendRequestReturnAPromise(method, url);
 
 };
@@ -161,7 +160,7 @@ function MapChangedHandler(map){
         'zoomLevel': map.getZoom()
     };
     let method = "PUT";
-    let url = `/?controller=map&action=RegisterMapPos&param=${JSON.stringify(pos)}`;
+    let url = `/map/RegisterMapPos/${JSON.stringify(pos)}`;
     let headers = [{'name':'Content-Type', 'value':'application/json'}];
 
     let result = SendRequestReturnAPromise(method, url, headers);

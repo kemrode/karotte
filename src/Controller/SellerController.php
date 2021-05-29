@@ -5,7 +5,36 @@ use src\Model\ProductModel;
 use src\Model\SellerModel;
 
 class SellerController extends AbstractController {
-    public function index(){}
+    public function index(){
+        try{
+            $seller = new SellerModel();
+            $sellerList = $seller->GetAllSellers();
+            return $this->twig->render("home/home.html.twig",[
+                "sellerList" => $sellerList
+            ]);
+        }
+        catch(\Exception $e){
+            var_dump($e);
+        }
+    }
+
+    public function GetSellerById($id){
+        try {
+            $seller = SellerModel::GetSellerInformationFromId($id);
+            $sellerList = SellerModel::GetAllSellers();
+            $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
+            return $this->twig->render("seller/Seller.html.twig", ["seller" => $seller, "sellerList" => $sellerList, "sellerProduct" => $sellerProduct]);
+        }
+        catch (\Exception $e) {
+            echo $this->index();
+        }
+    }
+
+    public function UpdateSellerProfileFromForm(){
+
+    }
+
+    #region JSON Functions
 
     public function GetAllSellerLocationAndIdAndName(){
         try{
@@ -30,11 +59,5 @@ class SellerController extends AbstractController {
         }
     }
 
-    public function GetSellerById($id){
-        $seller = SellerModel::GetSellerInformationFromId($id);
-        $sellerList = SellerModel::GetAllSellers();
-        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-
-        return $this->twig->render("seller/Seller.html.twig",["seller"=>$seller, "sellerList"=>$sellerList, "sellerProduct"=>$sellerProduct]);
-    }
+    #endregion
 }

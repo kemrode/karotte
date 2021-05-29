@@ -26,6 +26,7 @@ class MapController extends AbstractController {
         $_SESSION['currentZoomLevel'] = $latLongZoom->zoomLevel;
     }
 
+    #region functions for test
     // Test functions ProductModel
     public function addProduct(){
         try{
@@ -39,7 +40,7 @@ class MapController extends AbstractController {
     public function getSellerInfo(){
         return json_encode(ProductModel::GetAllProductAndTagGroupedByTagFromSellerId(1));
     }
-
-
+    // End test functions
+    #endregion
 
 }

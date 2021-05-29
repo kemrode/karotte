@@ -1,0 +1,20 @@
+RewriteEngine On
+
+#Rewriting
+
+# if it is a file (-f) ...
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+# ... Or a directory (-d)...
+RewriteCond %{REQUEST_FILENAME} -d
+# ... The 8 following rules are skiped
+RewriteRule .* - [S=8]
+
+# Rewriting Rules
+RewriteRule ^(.+)/(.+)/(.+)$ index.php?controller=$1&action=$2&param=$3 [QSA,L]
+RewriteRule ^(.+)/(.+)/(.+)/$ index.php?controller=$1&action=$2&param=$3 [QSA,L]
+RewriteRule ^(.+)/(.+)/$ index.php?controller=$1&action=$2 [QSA,L]
+RewriteRule ^(.+)/(.+)$ index.php?controller=$1&action=$2 [QSA,L]
+RewriteRule ^(.+)/(.+)$ index.php?controller=$1&action=$2 [QSA,L]
+RewriteRule ^(.+)/$ index.php?controller=$1 [QSA,L]
+RewriteRule ^(.+)$ index.php?controller=$1 [QSA,L]
+RewriteRule ^(.*)$ index.php?controller=map [QSA,L]

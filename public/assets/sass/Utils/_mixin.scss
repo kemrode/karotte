@@ -11,6 +11,10 @@
   @include flexBoxRow;
   justify-content: center;
 }
+@mixin flexBoxRowAlignItemsCentering {
+  @include flexBoxRow;
+  align-items: center;
+}
 @mixin flexBoxColumnJustifyCentering {
   @include flexBoxColumn;
   justify-content: center;
