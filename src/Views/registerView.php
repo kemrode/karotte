@@ -1,5 +1,5 @@
 <?php
-require '../Controller/registerController.php';
+require '../Controller/oldregisterController.php';
 ?>
 
 <!DOCTYPE html>
