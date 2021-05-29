@@ -6,10 +6,7 @@ use src\Model\ProductModel;
 use src\Model\SellerModel;
 use src\Model\userModel;
 
-<<<<<<< HEAD
-Class
-ProfileController extends AbstractController{
-=======
+
 Class ProfileController extends AbstractController{
 
     public function getValueExpected(){
@@ -24,7 +21,6 @@ Class ProfileController extends AbstractController{
 
     }
 
->>>>>>> 095bfde66a82e57b2b0864bd5b763bdccc312253
     function index(){
         $sellerList = SellerModel::GetAllSellers();
         return $this->twig->render("profile/ProfileSeller.html.twig",["sellerList"=>$sellerList]);
