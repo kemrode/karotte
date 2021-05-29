@@ -6,7 +6,6 @@ use src\Model\ProductModel;
 use src\Model\SellerModel;
 use src\Model\userModel;
 
-
 Class ProfileController extends AbstractController{
 
     public function getValueExpected(){
