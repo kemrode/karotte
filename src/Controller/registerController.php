@@ -4,7 +4,9 @@
 namespace src\Controller;
 
 use src\Model\BDD;
+use src\Model\SellerModel;
 use src\Model\userModel;
+use src\Controller\registerSellerController;
 
 
 class registerController extends AbstractController
@@ -28,25 +30,40 @@ class registerController extends AbstractController
                     $newKarrotte->setUserZipCode($_POST['itemPostCode']);
                     $newKarrotte->setUserCity($_POST['itemCity']);
                     $newKarrotte->setUserPhoneNumber($_POST['itemPhone']);
-                    //$sql = "INSERT INTO USER (USER_NAME, USER_SURNAME, USER_PSEUDO, USER_PWD, USER_EMAIL, USER_ADDRESS, USER_ZIP_CODE, USER_CITY, USER_PHONE) VALUES (:name, :surname, :pseudo, :password, :email, :address, :zipPost, :city, :phoneNumber)";
                     $newKarrotteToPost = $newKarrotte->postUser(BDD::getInstance());
-                    var_dump($newKarrotteToPost);
-                    header('Location:/');
+                    //$this->typeKarotte($_POST['prodKarotte'], $_POST['userKarotte']);
+                    //header('Location:/');
                     break;
                 case false :
                     //redirect to error passwd page
-                    return $this->twig->render('error/error404View.html.twig');
+                    $this->twig->render('error/error404View.html.twig');
                     break;
                 default :
                     //redirect to error location page
                     $this->twig->render('error/error404View.html.twig');
                     break;
             }
+            $this->typeKarotte($_POST['prodKarotte'], $_POST['userKarotte']);
         }
-
     }
+    //function to switch case by checkbox in registerView
+    private function typeKarotte($seller, $user) {
+        switch ($seller){
+            case ($seller == "1" && $user == "0") :
+                $newSeller = new registerSellerController();
+                echo $newSeller->sellerView();
+                //return $this.registerSellerController::sellerView();
+                break;
+            case ($seller == "0" && $user == "1"):
+                header('Location:/');
+                break;
+            case ($seller == $user):
+                return $this->twig->render('error/error404View.html.twig');
+        }
+    }
+
     //function to verifying passwords are the same
-    public function passwordVerifying(){
+    private function passwordVerifying(){
         if(isset($_POST['itemPasswrd'])){
             $passwd = $_POST['itemPasswrd'];
         }

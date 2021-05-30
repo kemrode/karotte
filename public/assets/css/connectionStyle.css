@@ -85,10 +85,18 @@ body {
   width: 100%;
   height: 50%;
 }
-
 .labelBox input {
   width: 50%;
   height: 100%;
+  transition: background-color 500ms;
+}
+.labelBox input:focus {
+  border: 2px solid darkblue;
+}
+.labelBox input:not(:focus):invalid {
+  background-color: red;
+  color: white;
+  border: 2px solid darkred;
 }
 
 .valBox {
@@ -98,13 +106,15 @@ body {
   width: auto;
   height: 20%;
 }
-.valBox__input {
+.valBox input {
   border-radius: 45px;
 }
 
 .buttonInput {
   width: 50%;
   height: 100%;
+  transition-property: transform;
+  transition-duration: 400ms;
 }
 .buttonInput__border--radius {
   border-radius: 45px;
@@ -114,6 +124,9 @@ body {
 }
 .buttonInput__background--color {
   background-color: #6B8954;
+}
+.buttonInput:hover {
+  transform: scale(1.5);
 }
 
 .linkBox {
