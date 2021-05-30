@@ -140,20 +140,21 @@ class userModel
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getUserPhoneNumber(): int
+    public function getUserPhoneNumber(): string
     {
         return $this->userPhoneNumber;
     }
 
     /**
-     * @param int $userPhoneNumber
+     * @param string $userPhoneNumber
      */
-    public function setUserPhoneNumber(int $userPhoneNumber): void
+    public function setUserPhoneNumber(string $userPhoneNumber): void
     {
         $this->userPhoneNumber = $userPhoneNumber;
     }
+
 
     /**
      * @return Int
@@ -181,7 +182,7 @@ class userModel
     public string $userAdress;
     public int $userZipCode;
     public string $userCity;
-    public int $userPhoneNumber;
+    public string $userPhoneNumber;
     public Int $userId;
 
     //regular expression
