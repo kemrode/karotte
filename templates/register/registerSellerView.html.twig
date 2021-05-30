@@ -1,31 +1,39 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S'inscrire</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!--link rel="stylesheet" type="text/css" href="/assets/css/registerStyle.css"-->
-    <!--link rel="stylesheet" type="text/css" href="../../public/assets/css/registerStyle.css"-->
-    <title>ENREGISTREMENT - Mon Magasin</title>
-</head>
-<body>
+{% extends "layoutMapAndMenu.html.twig" %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/sellerRegisterStyle.css">
+{% endblock %}
+{% block registerSellerBlock %}
     <div class="primaryContainer">
-        <div class="headerBox">
-            {% include 'header/headerView.html.twig' %}
-        </div>
-        <div class="infoContainer">
-            {% for itemSeller in sellerItems %}
-            <div class="itemBox">
-                <div class="labelBox">
-                    <label>Votre {{ itemSeller }}</label>
-                </div>
-                <div class="inputBox">
-                    <input class="inputField" name={{ itemSeller }} required>
-                </div>
+        <div class="blackBlock blackBlock__backgroundColor--opacity"></div>
+        <div class="mainContainer mainContainer__background--backgroundColor">
+            <div class="titleBox titleBox__border--bottom titleBox__background--color">
+                <h2>producteur de Karotte</h2>
             </div>
-            {% endfor %}
+            <div class="infoContainer">
+                <form name="formBox" method="post" action="/?controller=registerSeller&action=" class="formBoxClass">
+                    {% for itemSeller in sellerItems %}
+                        <div class="itemBox">
+                            <div class="labelBox">
+                                <label>Votre {{ itemSeller }}</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="text" required class="inputField" name={{ itemSeller }}>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="itemBox itemBox__presentation--height">
+                        <div class="labelBox">
+                            <label>Votre présentation</label>
+                        </div>
+                        <div class="txtAreaBox">
+                            <textarea class="textAreaField" name="presentation" placeholder="Et si vous vous présentiez votre activité..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="okButton">
+                        <button type="submit" name="okButton">Je produis de la Karotte</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</body>
+{% endblock %}

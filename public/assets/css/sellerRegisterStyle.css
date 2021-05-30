@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+}
+
+*,
+* before::after {
+  box-sizing: border-box;
+}
+
+.primaryContainer {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.primaryContainer::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+.primaryContainer {
+  width: auto;
+  height: 100vh;
+  @include flexBoxColumnJustifyCentering;
+  position: absolute;
+  z-index: 3;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+ */
+.blackBlock {
+  position: absolute;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+
+.blackBlock__backgroundColor--opacity {
+  background-color: black;
+  opacity: 0.5;
+}
+
+.mainContainer {
+  position: absolute;
+  z-index: 3;
+  width: 75%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.mainContainer__background--backgroundColor {
+  background-color: #BB4E0B;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 45px;
+}
+
+.titleBox h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: white;
+}
+
+.titleBox__border--bottom {
+  border-bottom: 1px solid black;
+}
+
+.titleBox__background--color {
+  background-color: #6B8954;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 100vh;
+  padding-top: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.infoContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.formBoxClass {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: auto;
+  height: 100%;
+  margin-top: 35px;
+}
+
+.okButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  padding-bottom: 35px;
+}
+
+.okButton button {
+  width: 50%;
+  height: 50px;
+  background-color: #6B8954;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: white;
+  border: 1px solid black;
+  border-radius: 45px;
+}
+
+.itemBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: auto;
+  height: 10vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.itemBox__presentation--height {
+  height: auto;
+}
+
+.labelBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 65%;
+  padding-bottom: 5px;
+}
+
+.labelBox label {
+  font-weight: bold;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 65%;
+}
+
+.inputBox input {
+  border: 1px solid darkblue;
+  border-radius: 45px;
+  height: 6vh;
+  width: 65%;
+}
+
+.inputBox input:focus {
+  border: 2px solid #6B8954;
+}
+
+.txtAreaBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 65%;
+  height: 50vh;
+}
+
+.txtAreaBox textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  overflow: hidden;
+  font-style: italic;
+  margin-bottom: 25px;
+}
+
+.txtAreaBox textarea placeholder {
+  color: grey;
+}
+
+/*# sourceMappingURL=sellerRegisterStyle.css.map */
+
+/*# sourceMappingURL=sellerRegisterStyle.css.map */
