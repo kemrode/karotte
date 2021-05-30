@@ -207,8 +207,7 @@ class ProductModel{
     public static function GetProductFromProductId(int $prodId){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_ID =:PROD_ID");
-            $requete->setFetchMode(\PDO::FETCH_CLASS, "src\Model\ProductModel");
+        $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_ID =:PROD_ID");
             $requete->execute([
                 "PROD_ID" => $prodId
             ]);

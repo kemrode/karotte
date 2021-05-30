@@ -43,4 +43,9 @@ class MapController extends AbstractController {
     // End test functions
     #endregion
 
+    public function Logout(){
+        header("location:/");
+        session_destroy();
+    }
+
 }
