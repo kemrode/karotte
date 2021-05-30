@@ -62,6 +62,7 @@
         <div>
             <table class="pure-table">
                 <thead>
+                <th>Code</th>
                 <th>Produit</th>
                 <th>Producteur</th>
                 <th>Quantité</th>
@@ -72,17 +73,21 @@
                 {% for key, item in session.basket %}
                     {% set totalPrice = totalPrice + (item.productPrice * item.productQuantity) %}
                     <tr>
+                        <td>{{ key }}</td>
                         <td>{{ item.productName }}</td>
                         <td>{{ item.productSeller }}</td>
                         <td>{{ item.productQuantity }}</td>
                         <td>{{ item.productPrice }}€</td>
                         <td> {{ item.productQuantity * item.productPrice }}€</td>
+                        <td><a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a></td>
                     </tr>
                 {% endfor %}
             </table>
             <h2>Total = {{ totalPrice }}€ </h2>
 
-            <a type="submit" href="/basket/createorder">Valider</a>
+            <a type="submit" href="/order/createorder">Valider</a>
+
+            <a href="/order/GetAllOrdersFromUserId/{{ session.USER_ID }}">Mes commandes</a>
 
 
             {#{% for session["cart_item"] as item %}

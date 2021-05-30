@@ -13,7 +13,24 @@ class OrderModel
     private int $ORDER_PROD_QTY;
     private int $PROD_PRICE;
     private int $PROD_TOTAL_PRICE;
-    private int $ORDER_TOTAL_PRICE;
+    private string $ORDER_DATE;
+
+    /**
+     * @return string
+     */
+    public function getORDERDATE(): string
+    {
+        return $this->ORDER_DATE;
+    }
+
+    /**
+     * @param string $ORDER_DATE
+     */
+    public function setORDERDATE(string $ORDER_DATE): void
+    {
+        $this->ORDER_DATE = $ORDER_DATE;
+    }
+    /*private int $ORDER_TOTAL_PRICE;*/
 
     /**
      * @return int
@@ -127,45 +144,51 @@ class OrderModel
         $this->PROD_TOTAL_PRICE = $PROD_TOTAL_PRICE;
     }
 
-    /**
-     * @return int
-     */
-    public function getORDERTOTALPRICE(): int
-    {
-        return $this->ORDER_TOTAL_PRICE;
-    }
-
-    /**
-     * @param int $ORDER_TOTAL_PRICE
-     */
-    public function setORDERTOTALPRICE(int $ORDER_TOTAL_PRICE): void
-    {
-        $this->ORDER_TOTAL_PRICE = $ORDER_TOTAL_PRICE;
-    }
-
 
 
     public function CreateOrder(\PDO $bdd){
         try{
-            $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("INSERT INTO ORDER(ORDER_ID,USER_ID, SELL_ID, PROD_ID, ORDER_PROD_QTY, PROD_PRICE, PROD_TOTAL_PRICE, ORDER_TOTAL_PRICE) VALUES(:ORDER_ID, :USER_ID, :SELL_ID, :PROD_ID, :ORDER_PROD_QTY, :PROD_PRICE, :PROD_TOTAL_PRICE, :ORDER_TOTAL_PRICE)");
+            $requete = $bdd->prepare("INSERT INTO `ORDER`( USER_ID, SELL_ID, PROD_ID, 
+                    ORDER_PROD_QTY, PROD_PRICE, PROD_TOTAL_PRICE) 
+            VALUES(:USER_ID, :SELL_ID, :PROD_ID, :ORDER_PROD_QTY, :PROD_PRICE, :PROD_TOTAL_PRICE)");
             $execute = $requete->execute([
-                "ORDER_ID"=>$this->getORDERID(),
-                "USER_ID"=>$this->getUSERID(),
-                "SELL_ID"=>$this->getUSERID(),
-                "PROD_ID"=>$this->getPRODID(),
-                "ORDER_PROD_QTY"=>$this->getORDERPRODQTY(),
-                "PROD_PRICE"=>$this->getPRODPRICE(),
-                "PROD_TOTAL_PRICE"=>$this->getPRODTOTALPRICE(),
-                "ORDER_TOTAL_PRICE"=>$this->getORDERTOTALPRICE()
-                ]);
+                "USER_ID" => $this->getUSERID(),
+                "SELL_ID" => $this->getSELLID(),
+                "PROD_ID" => $this->getPRODID(),
+                "ORDER_PROD_QTY" => $this->getORDERPRODQTY(),
+                "PROD_PRICE" => $this->getPRODPRICE(),
+                "PROD_TOTAL_PRICE" => $this->getPRODTOTALPRICE()
+            ]);
             return "ok";
+
         }catch (\Exception $e){
-            throw $e;
+           return $e->getMessage();
         }
     }
 
+    public static function GetOrdersFromUserId($id){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT ORDER_ID, USER_ID,
+            ORDER_PROD_QTY, PROD_TOTAL_PRICE, PRODUCT.PROD_ID, PROD_NAME, SELL_NAME, SELLER.SELL_ID
+            FROM `ORDER`
+            INNER JOIN PRODUCT ON `ORDER`.PROD_ID = PRODUCT.PROD_ID
+            INNER JOIN SELLER ON `ORDER`.SELL_ID = SELLER.SELL_ID 
+            WHERE USER_ID=:USER_ID");
 
+            /*$requete = $bdd->prepare("SELECT ORDER_ID, USER_ID,
+            (SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER WHERE SELL_ID=:SELL_ID),
+            (SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_ID =:PROD_ID),
+            ORDER_PROD_QTY, PROD_PRICE, PROD_TOTAL_PRICE FROM `ORDER` WHERE USER_ID=:USER_ID");*/
+
+            $requete->execute([
+                "USER_ID" => $id
+            ]);
+            return $requete->fetchAll();
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
 
 
 }

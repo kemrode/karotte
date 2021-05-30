@@ -1,0 +1,89 @@
+{% extends"layoutMapAndMenu.html.twig" %}
+
+
+{% block rightContent %}
+    <div class="sellerPage">
+        <h1>Mes commandes</h1>
+        <div>
+            <table class="pure-table">
+                <thead>
+                <th>Code</th>
+                <th>Produit</th>
+                <th>Producteur</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                <th>Total</th>
+                </thead>
+                {% set totalPrice = 0 %}
+                {% for key, item in orderList %}
+                    {% set totalPrice = totalPrice + (item.productPrice * item.productQuantity) %}
+                    <tr>
+                        <td>{{ item.ORDER_ID }}</td>
+                        <td>{{ item.PROD_ID }}</td>
+                        <td>{{ item.PROD_NAME }}</td>
+                        <td>{{ item.ORDER_PROD_QTY }}</td>
+                        <td>{{ item.PROD_PRICE }}</td>
+                        <td>{{ item.PROD_TOTAL_PRICE }}€</td>
+                        <td><a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <h2>Total = {{ totalPrice }}€ </h2>
+
+            <a type="submit" href="/order/createorder">Valider</a>
+
+            <a href="/order/GetAllOrdersFromUserId/{{ session.USER_ID }}">Mes commandes</a>
+
+
+            {#{% for session["cart_item"] as item %}
+                <tr>
+                    <td><img src="{{ item.PROD_PICT }}"></td>
+                    <td>{{ item.PROD_ID }}</td>
+                    <td>{{ item.PROD_QTY }}</td>
+                    <td>{{ item.PROD_PRICE }}</td>
+                    <td><a href="/basket/remove/{{ item.PROD_ID }}" class="btnRemoveAction"></a> </td>
+                </tr>
+                <p>Produit : {{ product.BASKET_PRODUCT_ID }} </p>
+                <p>Quantité : {{ product.BASKET_QUANTITY }} </p>
+                <p></p>
+            {% endfor %}#}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block leftContent %}
+    <h1>Bienvenue sur Karotte</h1>
+
+    <div id="sellerList" class="widgetContainer SellerCarousel">
+        <div class="title-SellerList">
+            <h2>Producteurs près de chez vous</h2>
+        </div>
+        <div class="seller-cards">
+            {% for seller in sellerList %}
+                <div class="seller-card">
+                    <div class="seller-card__image">
+                        <img class="seller-card__thumb" src="/assets/img/img1.jpg">
+                    </div>
+                    <div class="seller-card__resume">
+                        <h3><a href=/?controller=seller&action=GetSellerById&param={{ seller.SELL_ID }}>{{ seller['SELL_NAME'] }}</a></h3>
+                        <div class="seller-card__rate">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="seller-card__tag">
+                            <ul>
+                                <li>Légumes</li>
+                                <li>Bio</li>
+                                <li>Permaculture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

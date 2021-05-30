@@ -2,6 +2,7 @@
 
 
 namespace src\Controller;
+use src\Model\BDD;
 use src\Model\OrderModel;
 use src\Model\ProductModel;
 use src\Model\BasketModel;
@@ -20,7 +21,6 @@ class BasketController extends AbstractController
 
 
 
-
         return $this->twig->render("user/basket.html.twig",["basket"=>$basket, "sellerList"=>$sellerList]);
     }
 
@@ -34,6 +34,7 @@ class BasketController extends AbstractController
             var_dump($sellerById);
             $_SESSION['basket'][$productById["PROD_ID"]] = array("productName"=>$productById["PROD_NAME"],
                                                                 "productSeller"=>$sellerById["SELL_NAME"],
+                                                                "productId"=>$productById["PROD_ID"],
                                                                 "productSellerId"=>$sellerById["SELL_ID"],
                                                                 "productQuantity"=>$_POST["BASKET_QUANTITY"],
                                                                 "productPrice"=>$productById["PROD_PRICE"]);
@@ -42,20 +43,18 @@ class BasketController extends AbstractController
         header("location:/");
     }
 
-    public function CreateOrder(){
-        var_dump($_SESSION['basket']);
-        $_SESSION["USER_ID"];
 
-        for( $i = 0; $i< $_SESSION["basket"]; $i++){
-            $order = new OrderModel();
-            $order->setUSERID($_SESSION["USER_ID"]);
-            $order->setPRODID($_SESSION["basket"][$i]);
-            $order->setSELLID($_SESSION['basket'][$i]["productSellerId"]);
-            $order->setORDERPRODQTY($_SESSION['basket'][$i]["productQuantity"]);
-            $order->setPRODPRICE($_SESSION['basket'][$i]["productPrice"]);
-            $order->setPRODTOTALPRICE(($_SESSION['basket'][$i]["productQuantity"]) * ($_SESSION['basket'][$i]["productPrice"]));
-            $order->setORDERTOTALPRICE();
+
+    public function Remove($productId){
+        var_dump($_REQUEST['param']);
+        foreach ($_SESSION["basket"] as $k => $v){
+            echo $k;
+            echo $v;
+            if($_REQUEST['param'] == $k){
+                unset($_SESSION["basket"][$k]);
+            }
         }
+        header('location:/basket/GetUserBasket/$_SESSION["USER_ID"]');
     }
 
     public function AddToBasketUser(int $userId){
