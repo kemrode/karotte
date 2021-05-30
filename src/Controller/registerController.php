@@ -1,74 +1,79 @@
 <?php
-require '../Model/BDD.php';
-require '../Model/userModel.php';
 
-//namespace src\Controller;
-/*class registerController extends AbstractController {
 
-    public function index(){
-        return $this->twig->render("register/registerView.html.twig");
-    }
-}*/
+namespace src\Controller;
 
-function postNewKarotte($userArray=array(), $sql){
-    try {
-        $bdd = \src\Model\BDD::getInstance();
-        $userInfo = implode(';',$userArray);
-        $infoToPost = explode(';',$userInfo);
-        $registeringData = $bdd->prepare($sql);
-        $registeringData->execute($infoToPost);
-        //$id=$bdd->lastInsertID();
+use src\Model\BDD;
+use src\Model\SellerModel;
+use src\Model\userModel;
+use src\Controller\registerSellerController;
+
+
+class registerController extends AbstractController
+{
+    public function registerView(){
+        return $this->twig->render('register/registerView.html.twig');
     }
-    catch(Exception $e) {
-        die('Erreur :'.$e->getMessage());
-    }
-}
-function backValuesItemsPost(){
-    $userItemsArray= array();
-    foreach ($_POST as $valueItem){
-        switch ($_POST){
-            case $valueItem==$_POST['itemVerifPasswrd']:
-                break;
-            case $valueItem==$_POST['checkCGU']:
-                break;
-            case $valueItem==$_POST['joinUpBtn']:
-                break;
-            case $valueItem==$_POST['prodKarotte']:
-                break;
-            case $valueItem==$_POST['userKarotte']:
-                break;
-            default:
-                if(!empty($_POST)){
-                    $newUserItem= htmlentities($valueItem);
-                    $userItemsArray[]=$newUserItem;
-                }
+
+    public function postNewUser(){
+        if(isset($_POST['joinUpBtn'])){
+            $passVerif = $this->passwordVerifying();
+            $newKarrotte = new userModel();
+            switch ($passVerif){
+                case true :
+                    $newKarrotte->setUserName($_POST['itemName']);
+                    $newKarrotte->setUserSurname($_POST['itemSurname']);
+                    $newKarrotte->setUserPseudo($_POST['itemPseudo']);
+                    $newKarrotte->setUserPasswd(password_hash($_POST['itemPasswrd'], PASSWORD_DEFAULT));
+                    $newKarrotte->setUserMail($_POST['itemMail']);
+                    $newKarrotte->setUserAdress($_POST['itemAdress']);
+                    $newKarrotte->setUserZipCode($_POST['itemPostCode']);
+                    $newKarrotte->setUserCity($_POST['itemCity']);
+                    $newKarrotte->setUserPhoneNumber($_POST['itemPhone']);
+                    $newKarrotteToPost = $newKarrotte->postUser(BDD::getInstance());
+                    //$this->typeKarotte($_POST['prodKarotte'], $_POST['userKarotte']);
+                    //header('Location:/');
+                    break;
+                case false :
+                    //redirect to error passwd page
+                    $this->twig->render('error/error404View.html.twig');
+                    break;
+                default :
+                    //redirect to error location page
+                    $this->twig->render('error/error404View.html.twig');
+                    break;
+            }
+            $this->typeKarotte($_POST['prodKarotte'], $_POST['userKarotte']);
         }
     }
-    return $userItemsArray;
-}
-function passwordVerifying(){
-    if(isset($_POST['itemPasswrd']) == isset($_POST['itemVerifPasswrd'])){
-        return true;
-    } else {
-        echo "Error, passwords are not same !";
+    //function to switch case by checkbox in registerView
+    private function typeKarotte($seller, $user) {
+        switch ($seller){
+            case ($seller == "1" && $user == "0") :
+                $newSeller = new registerSellerController();
+                echo $newSeller->sellerView();
+                //return $this.registerSellerController::sellerView();
+                break;
+            case ($seller == "0" && $user == "1"):
+                header('Location:/');
+                break;
+            case ($seller == $user):
+                return $this->twig->render('error/error404View.html.twig');
+        }
     }
-}
-function newKarotteUser($sql){
-    $itemForBDD = backValuesItemsPost();
-    $hashedPassword = password_hash($_POST['itemPasswrd'],PASSWORD_DEFAULT);
-    $itemForBDD[]=$hashedPassword;
-    postNewKarotte($itemForBDD, $sql);
-    unset($itemForBDD);
-}
 
-if(isset($_POST['joinUpBtn'])){
-    $returnBool = passwordVerifying();
-    $prod = $_POST['prodKarotte'];
-    if ($returnBool==true){
-        $sql = 'INSERT INTO USER(USER_NAME,USER_SURNAME,USER_PSEUDO,USER_EMAIL,USER_ADDRESS,USER_ZIP_CODE,USER_CITY,USER_PHONE,USER_PWD) VALUE (?,?,?,?,?,?,?,?,?)';
-        newKarotteUser($sql);
-        if ($prod=="1"){
-            header('Location');
+    //function to verifying passwords are the same
+    private function passwordVerifying(){
+        if(isset($_POST['itemPasswrd'])){
+            $passwd = $_POST['itemPasswrd'];
+        }
+        if(isset($_POST['itemVerifPasswrd'])){
+            $passwdVerif = $_POST['itemVerifPasswrd'];
+        }
+        if($passwd == $passwdVerif){
+            return true;
+        } else {
+            return false;
         }
     }
 }

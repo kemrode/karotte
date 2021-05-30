@@ -20,19 +20,23 @@ body {
   justify-content: flex-start;
   width: 25%;
 }
+
 .iconBox__burgerMenu {
   margin-left: 5px;
 }
+
 .iconBox__homeMenu {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
 .iconBox__basketMenu {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
+
 .iconBox__myAccount {
   display: flex;
   flex-direction: row;
@@ -119,9 +123,11 @@ body {
   margin-top: 15px;
   margin-bottom: 15px;
 }
+
 .choiceBox__border--backgroundColor {
   background-color: #6B8954;
 }
+
 .choiceBox__border--borderRadius {
   border-radius: 45px;
 }
@@ -131,6 +137,7 @@ body {
   flex-direction: row;
   justify-content: center;
 }
+
 .choiceTitle__title--titleSize {
   font-weight: bold;
 }
@@ -309,5 +316,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/*# sourceMappingURL=registerStyle.css.map */
 
 /*# sourceMappingURL=registerStyle.css.map */

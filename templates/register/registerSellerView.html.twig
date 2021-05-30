@@ -1,0 +1,39 @@
+{% extends "layoutMapAndMenu.html.twig" %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/sellerRegisterStyle.css">
+{% endblock %}
+{% block registerSellerBlock %}
+    <div class="primaryContainer">
+        <div class="blackBlock blackBlock__backgroundColor--opacity"></div>
+        <div class="mainContainer mainContainer__background--backgroundColor">
+            <div class="titleBox titleBox__border--bottom titleBox__background--color">
+                <h2>producteur de Karotte</h2>
+            </div>
+            <div class="infoContainer">
+                <form name="formBox" method="post" action="/?controller=registerSeller&action=" class="formBoxClass">
+                    {% for itemSeller in sellerItems %}
+                        <div class="itemBox">
+                            <div class="labelBox">
+                                <label>Votre {{ itemSeller }}</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="text" required class="inputField" name={{ itemSeller }}>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="itemBox itemBox__presentation--height">
+                        <div class="labelBox">
+                            <label>Votre présentation</label>
+                        </div>
+                        <div class="txtAreaBox">
+                            <textarea class="textAreaField" name="presentation" placeholder="Et si vous vous présentiez votre activité..." required></textarea>
+                        </div>
+                    </div>
+                    <div class="okButton">
+                        <button type="submit" name="okButton">Je produis de la Karotte</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -83,22 +83,38 @@
   @include flexBoxRowJustifyCentering;
   width: 100%;
   height: 50%;
+  & input {
+    width: 50%;
+    height: 100%;
+    transition: background-color 500ms;
+    &:focus {
+      border: 2px solid darkblue;
+    }
+    &:not(:focus):invalid {
+      background-color: red;
+      color: white;
+      border: 2px solid darkred;
+
+    }
+  }
 }
-.labelBox input {
-  width: 50%;
-  height: 100%;
-}
+//.labelBox input {
+//  width: 50%;
+//  height: 100%;
+//}
 .valBox{
   @include flexBoxRowJustifyCentering;
   width: auto;
   height: 20%;
-  &__input {
+  & input {
     @include borderRadiusQuarter;
   }
 }
 .buttonInput{
   width: 50%;
   height: 100%;
+  transition-property: transform;
+  transition-duration: 400ms;
   &__border{
     &--radius{
       @include borderRadiusQuarter;
@@ -113,6 +129,9 @@
     &--color{
       background-color: $secondColor;
     }
+  }
+  &:hover {
+    transform: scale(1.5);
   }
 }
 .linkBox {

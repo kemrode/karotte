@@ -78,7 +78,7 @@
   padding: 50px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: min-content;
+  grid-template-rows: 0fr 0fr 1fr;
 }
 .sellerPage .seller-page__name {
   display: flex;
