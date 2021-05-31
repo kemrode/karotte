@@ -24,7 +24,6 @@ body {
   width: 70%;
   height: 75vh;
 }
-
 .errorContainer__image--backgroundImage {
   background-image: url("/assets/img/carrot404.jpg");
   background-repeat: no-repeat;
@@ -45,7 +44,5 @@ body {
   flex-direction: row;
   justify-content: center;
 }
-
-/*# sourceMappingURL=errorStylus.css.map */
 
 /*# sourceMappingURL=errorStylus.css.map */
