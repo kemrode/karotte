@@ -54,3 +54,8 @@
   font-size: $bigButtonFont;
   font-weight: bold;
 }
+////////////////////////
+@mixin marginTopBottomTen {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

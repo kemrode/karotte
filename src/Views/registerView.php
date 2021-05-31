@@ -1,5 +1,5 @@
 <?php
-require '../Controller/registerController.php';
+require '../Controller/oldregisterController.php';
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ require '../Controller/registerController.php';
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemPostCode" placeholder="Code Postal" required>
+                                <input type="text" name="itemPostCode" placeholder="Code Postal" maxlength="5" required>
                             </div>
                         </div>
                         <div class="itemBox">
@@ -65,7 +65,7 @@ require '../Controller/registerController.php';
                         </div>
                         <div class="itemBox">
                             <div class="item">
-                                <input type="text" name="itemPhone" placeholder="téléphone" required>
+                                <input type="text" name="itemPhone" placeholder="téléphone" maxlength="10" required>
                             </div>
                         </div>
                         <div class="itemBox">

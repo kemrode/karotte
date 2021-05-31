@@ -8,7 +8,7 @@ class SellerModel{
 
     private int $SELL_ID;
     private string $SELL_NAME;
-    private array $SELL_LOC;
+    private string $SELL_LOC;
     private string $SELL_PRES;
 
     #endregion
@@ -57,18 +57,18 @@ class SellerModel{
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function getSELLLOC(): array
+    public function getSELLLOC(): string
     {
         return $this->SELL_LOC;
     }
 
     /**
-     * @param array $SELL_LOC
+     * @param string $SELL_LOC
      * @return SellerModel
      */
-    public function setSELLLOC(array $SELL_LOC): SellerModel
+    public function setSELLLOC(string $SELL_LOC): SellerModel
     {
         $this->SELL_LOC = $SELL_LOC;
         return $this;
@@ -95,6 +95,26 @@ class SellerModel{
     #endregion
 
     #region function CRUD SellerModel
+
+    public function postNewSeller(\PDO $bdd){
+        try {
+            //$loctoImplode = $this->getSELLLOC();
+            //$locToInsert = implode(';',$loctoImplode);
+            var_dump($this);
+            $sql = 'INSERT INTO SELLER (SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES) VALUES (:SELL_ID,:SELL_NAME,:SELL_LOC,:SELL_PRES)';
+            $request = $bdd->prepare($sql);
+            $request->execute([
+                "SELL_ID" => $this->getSELLID(),
+               "SELL_NAME" => $this->getSELLNAME(),
+               "SELL_LOC" => $this->getSELLLOC(),
+               "SELL_PRES" => $this->getSELLPRES()
+            ]);
+            return "ok";
+
+        } catch (\Exception $e){
+            throw $e;
+        }
+    }
 
     public static function GetAllSellers(){
         try{
