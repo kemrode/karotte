@@ -49,6 +49,8 @@ Class ProfileController extends AbstractController{
 
     public function UpdateSellerProfile($id){
         try {
+            unset($_SESSION['alerte']);
+            unset($_SESSION['message']);
             $user = new userModel();
             $seller = new SellerModel();
 
@@ -81,6 +83,9 @@ Class ProfileController extends AbstractController{
         }
         catch (\InvalidArgumentException $arg) {
             $_SESSION["alerte"] = $arg->getMessage();
+        }
+        catch(\BadMethodCallException $e){
+            $_SESSION["alerte"] = "Une ereur s est produite : ".$e->getMessage();
         }
         catch (\Exception $e) {
             $_SESSION["alerte"] = "Une ereur s est produite : ".$e->getMessage();

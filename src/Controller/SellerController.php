@@ -5,6 +5,7 @@ use src\Model\ProductModel;
 use src\Model\SellerModel;
 
 class SellerController extends AbstractController {
+
     public function index(){
         try{
             $seller = new SellerModel();
