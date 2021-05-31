@@ -10,14 +10,18 @@
                 <h2>producteur de Karotte</h2>
             </div>
             <div class="infoContainer">
-                <form name="formBox" method="post" action="/?controller=registerSeller&action=" class="formBoxClass">
+                <form name="formBox" method="post" action="/?controller=registerSeller&action=addNewSeller" class="formBoxClass">
                     {% for itemSeller in sellerItems %}
                         <div class="itemBox">
                             <div class="labelBox">
                                 <label>Votre {{ itemSeller }}</label>
                             </div>
                             <div class="inputBox">
-                                <input type="text" required class="inputField" name={{ itemSeller }}>
+                                {% if itemSeller == 'code postale' %}
+                                    <input type="text" required class="inputField" name="zipCode">
+                                {% else %}
+                                    <input type="text" required class="inputField" name={{ itemSeller }}>
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}

@@ -191,11 +191,9 @@ class userModel
 
     public function postUser(\PDO $bdd){
         try {
-            //$sql = "INSERT INTO USER (USER_ID, USER_NAME, USER_SURNAME, USER_PSEUDO, USER_PWD, USER_EMAIL, USER_ADDRESS, USER_ZIP_CODE, USER_CITY, USER_PHONE) VALUES (:id, :name, :surname, :pseudo, :password, :email, :address, :zipPost, :city, :phoneNumber)";
             $sql = "INSERT INTO USER (USER_NAME, USER_SURNAME, USER_PSEUDO, USER_PWD, USER_EMAIL, USER_ADDRESS, USER_ZIP_CODE, USER_CITY, USER_PHONE) VALUES (:USER_NAME, :USER_SURNAME, :USER_PSEUDO, :USER_PWD, :USER_EMAIL, :USER_ADDRESS, :USER_ZIP_CODE, :USER_CITY, :USER_PHONE)";
             $requete = $bdd->prepare($sql);
             $execute = $requete->execute([
-                //"USER_ID" => $this->getId(),
                 "USER_NAME" => $this->getUserName(),
                 "USER_SURNAME" => $this->getUserSurname(),
                 "USER_PSEUDO" => $this->getUserPseudo(),
@@ -206,6 +204,9 @@ class userModel
                 "USER_CITY" => $this->getUserCity(),
                 "USER_PHONE" => $this->getUserPhoneNumber()
             ]);
+            $id = $bdd->lastInsertId();
+            $this->setUserId($id);
+            $_SESSION['userId'] = $id;
             return "ok";
         } catch (\Exception $e){
             return $e->getMessage();
