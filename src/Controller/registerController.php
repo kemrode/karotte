@@ -48,16 +48,16 @@ class registerController extends AbstractController
     }
     //function to switch case by checkbox in registerView
     private function typeKarotte($seller, $user) {
-        switch ($seller){
-            case ($seller == "1" && $user == "0") :
+        switch (true){
+            case $seller == "1" AND $user == "0":
                 $newSeller = new registerSellerController();
                 echo $newSeller->sellerView();
                 //return $this.registerSellerController::sellerView();
                 break;
-            case ($seller == "0" && $user == "1"):
+            case $seller == "0" AND $user == "1" :
                 header('Location:/');
                 break;
-            case ($seller == $user):
+            case $seller == $user :
                 return $this->twig->render('error/error404View.html.twig');
         }
     }

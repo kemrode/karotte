@@ -15,4 +15,8 @@ class registerSellerController extends AbstractController {
         return $this->twig->render('register/registerSellerView.html.twig', ['sellerItems'=>$sellerItems]);
     }
 
+    public function addNewSeller(\PDO $bdd){
+
+    }
+
 }
