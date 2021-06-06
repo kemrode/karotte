@@ -4,20 +4,40 @@
 .registerContainer {
   overflow-x: hidden;
   overflow-y: auto;
-}
-.registerContainer::-webkit-scrollbar {
-  display: none;
-}
-.registerContainer__backgroundColor {
-  background-color: #bb4e0b;
   width: auto;
-  height: 100vh;
+  height: max-content;
+  @include flexBoxColumn;
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}
+.registerTitleBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: 7vh;
 }
 .registerTitle {
   @include titleManagement;
+  width: auto;
+  height: 100%;
+  :hover{
+    color: $secondColor;
+  }
+}
+.formContainer {
+  @include flexBoxRow;
+  width: auto;
+  height: 100%;
 }
 .itemsFormContainer {
   @include flexBoxColumn;
+  width: auto;
+  height: 100%;
+}
+.itemsListBox {
+  width: auto;
+  height: 75%;
+  @include flexBoxColumnJustifyCentering;
 }
 .itemBox {
   @include flexBoxRowJustifyCentering;
@@ -25,22 +45,33 @@
   margin-bottom: 30px;
   margin-top: 10px;
 }
-.item {
+.item{
   @include flexBoxRow;
-  background-color: white;
-  @include borderRadiusQuarter;
-}
-.item input{
-  @include flexBoxRowFlexStart;
-  width: auto;
-  color: black;
-  opacity: 0.5;
-  border: none;
-  @include borderRadiusQuarter;
-  margin-left: 10px;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  & input {
+    //background-color: white;
+    width: 85%;
+    color: grey;
+    @include borderRadiusQuarter;
+    transition: background-color 500ms;
+    &:focus {
+      background-color: $thirdColor;
+      border: 2px solid darkblue;
+    }/*
+    &:not(:focus):invalid {
+      background-color: red;
+      color: white;
+      border: 2px solid darkred;
+
+    }*/
+  }
 }
 .subtitleRegister{
   @include titleManagement;
+  width: auto;
+  height: 100%;
 }
 .choicesListBox{
   @include flexBoxRow;
@@ -49,7 +80,7 @@
 .choiceBox {
   @include flexBoxColumn;
   justify-content: space-evenly;
-  width: 20%;
+  width: 45%;
   height: 150px;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -91,11 +122,24 @@
 }
 .buttonBox {
   @include flexBoxRowJustifyCentering;
-  width: auto;
+  width: 90%;
   height: auto;
 }
-.buttonBox button {
-  width: 100vw;
-  background-color: $secondColor;
-  @include fontStyleButton;
+.buttonBox {
+  @include flexBoxRowJustifyCentering;
+  transition-property: transform;
+  transition-duration: 400ms;
+  & button {
+    width: 100vw;
+    background-color: $secondColor;
+    @include fontStyleButton;
+    border: 1px solid black;
+    &:focus{
+      border: 1px solid red;
+    }
+    &:hover {
+      transform: scale(1.1);
+      background-color: $thirdColor;
+    }
+  }
 }

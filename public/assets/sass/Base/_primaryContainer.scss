@@ -1,0 +1,17 @@
+@import '../Utils/mixin';
+@import '../Utils/variables';
+
+.primaryContainer {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: auto;
+  height: 100vh;
+  &__background{
+    &--color{
+      background-color: $primaryColor;
+    }
+  }
+  &::-webkit-scrollbar{
+    display: none;
+  }
+}

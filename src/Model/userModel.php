@@ -4,204 +4,188 @@ namespace src\Model;
 
 class userModel
 {
-
     #region getters and setters
 
-    /**
-     * @return Int
-     */
-    public function getUSERID(): int
+    public function __set($name, $value)
     {
-        return $this->USER_ID;
-    }
-
-    /**
-     * @param Int $USER_ID
-     * @return userModel
-     */
-    public function setUSERID(int $USER_ID): userModel
-    {
-        $this->USER_ID = $USER_ID;
-        return $this;
+        $this->$name = $value;
     }
 
     /**
      * @return string
      */
-    public function getUSERNAME(): string
+    public function getUserName(): string
     {
-        return $this->USER_NAME;
+        return $this->userName;
     }
 
     /**
-     * @param string $USER_NAME
-     * @return userModel
+     * @param string $userName
      */
-    public function setUSERNAME(string $USER_NAME): userModel
+    public function setUserName(string $userName): void
     {
-        $this->USER_NAME = $USER_NAME;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUSERSURNAME(): string
-    {
-        return $this->USER_SURNAME;
-    }
-
-    /**
-     * @param string $USER_SURNAME
-     * @return userModel
-     */
-    public function setUSERSURNAME(string $USER_SURNAME): userModel
-    {
-        $this->USER_SURNAME = $USER_SURNAME;
-        return $this;
+        $this->userName = $userName;
     }
 
     /**
      * @return string
      */
-    public function getUSERPSEUDO(): string
+    public function getUserSurname(): string
     {
-        return $this->USER_PSEUDO;
+        return $this->userSurname;
     }
 
     /**
-     * @param string $USER_PSEUDO
-     * @return userModel
+     * @param string $userSurname
      */
-    public function setUSERPSEUDO(string $USER_PSEUDO): userModel
+    public function setUserSurname(string $userSurname): void
     {
-        $this->USER_PSEUDO = $USER_PSEUDO;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUSERPWD(): string
-    {
-        return $this->USER_PWD;
-    }
-
-    /**
-     * @param string $USER_PWD
-     * @return userModel
-     */
-    public function setUSERPWD(string $USER_PWD): userModel
-    {
-        $this->USER_PWD = $USER_PWD;
-        return $this;
+        $this->userSurname = $userSurname;
     }
 
     /**
      * @return string
      */
-    public function getUSEREMAIL(): string
+    public function getUserPseudo(): string
     {
-        return $this->USER_EMAIL;
+        return $this->userPseudo;
     }
 
     /**
-     * @param string $USER_EMAIL
-     * @return userModel
+     * @param string $userPseudo
      */
-    public function setUSEREMAIL(string $USER_EMAIL): userModel
+    public function setUserPseudo(string $userPseudo): void
     {
-        $this->USER_EMAIL = $USER_EMAIL;
-        return $this;
+        $this->userPseudo = $userPseudo;
     }
 
     /**
      * @return string
      */
-    public function getUSERADDRESS(): string
+    public function getUserPasswd(): string
     {
-        return $this->USER_ADDRESS;
+        return $this->userPasswd;
     }
 
     /**
-     * @param string $USER_ADDRESS
-     * @return userModel
+     * @param string $userPasswd
      */
-    public function setUSERADDRESS(string $USER_ADDRESS): userModel
+    public function setUserPasswd(string $userPasswd): void
     {
-        $this->USER_ADDRESS = $USER_ADDRESS;
-        return $this;
+        $this->userPasswd = $userPasswd;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserMail(): string
+    {
+        return $this->userMail;
+    }
+
+    /**
+     * @param string $userMail
+     */
+    public function setUserMail(string $userMail): void
+    {
+        $this->userMail = $userMail;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAdress(): string
+    {
+        return $this->userAdress;
+    }
+
+    /**
+     * @param string $userAdress
+     */
+    public function setUserAdress(string $userAdress): void
+    {
+        $this->userAdress = $userAdress;
     }
 
     /**
      * @return int
      */
-    public function getUSERZIPCODE(): int
+    public function getUserZipCode(): int
     {
-        return $this->USER_ZIP_CODE;
+        return $this->userZipCode;
     }
 
     /**
-     * @param int $USER_ZIP_CODE
-     * @return userModel
+     * @param int $userZipCode
      */
-    public function setUSERZIPCODE(int $USER_ZIP_CODE): userModel
+    public function setUserZipCode(int $userZipCode): void
     {
-        $this->USER_ZIP_CODE = $USER_ZIP_CODE;
-        return $this;
+        $this->userZipCode = $userZipCode;
     }
 
     /**
      * @return string
      */
-    public function getUSERCITY(): string
+    public function getUserCity(): string
     {
-        return $this->USER_CITY;
+        return $this->userCity;
     }
 
     /**
-     * @param string $USER_CITY
-     * @return userModel
+     * @param string $userCity
      */
-    public function setUSERCITY(string $USER_CITY): userModel
+    public function setUserCity(string $userCity): void
     {
-        $this->USER_CITY = $USER_CITY;
-        return $this;
+        $this->userCity = $userCity;
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getUSERPHONE(): ?string
+    public function getUserPhoneNumber(): string
     {
-        return $this->USER_PHONE;
+        return $this->userPhoneNumber;
     }
 
     /**
-     * @param string|null $USER_PHONE
-     * @return userModel
+     * @param string $userPhoneNumber
      */
-    public function setUSERPHONE(?string $USER_PHONE): userModel
+    public function setUserPhoneNumber(string $userPhoneNumber): void
     {
-        $this->USER_PHONE = $USER_PHONE;
-        return $this;
+        $this->userPhoneNumber = $userPhoneNumber;
     }
 
+
+    /**
+     * @return Int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param Int $userId
+     */
+    public function setUserId(int $userId): void
+    {
+        $this->userId = $userId;
+    }
 
     #endregion
 
     #region attributes
-    public Int $USER_ID;
-    public string $USER_NAME;
-    public string $USER_SURNAME;
-    public string $USER_PSEUDO;
-    public string $USER_PWD;
-    public string $USER_EMAIL;
-    public string $USER_ADDRESS;
-    public int $USER_ZIP_CODE;
-    public string $USER_CITY;
-    public ?string $USER_PHONE;
+    public string $userSurname;
+    public string $userPseudo;
+    public string $userPasswd;
+    public string $userMail;
+    public string $userAdress;
+    public int $userZipCode;
+    public string $userCity;
+    public string $userPhoneNumber;
+    public Int $userId;
 
+    //regular expression
 #endregion
 
 
@@ -210,18 +194,18 @@ class userModel
             $sql = "INSERT INTO USER (USER_NAME, USER_SURNAME, USER_PSEUDO, USER_PWD, USER_EMAIL, USER_ADDRESS, USER_ZIP_CODE, USER_CITY, USER_PHONE) VALUES (:USER_NAME, :USER_SURNAME, :USER_PSEUDO, :USER_PWD, :USER_EMAIL, :USER_ADDRESS, :USER_ZIP_CODE, :USER_CITY, :USER_PHONE)";
             $requete = $bdd->prepare($sql);
             $execute = $requete->execute([
-                "USER_NAME" => $this->getUSERNAME(),
-                "USER_SURNAME" => $this->getUSERSURNAME(),
-                "USER_PSEUDO" => $this->getUSERPSEUDO(),
-                "USER_PWD" => $this->getUSERPWD(),
-                "USER_EMAIL" => $this->getUSEREMAIL(),
-                "USER_ADDRESS" => $this->getUSERADDRESS(),
-                "USER_ZIP_CODE" => $this->getUSERZIPCODE(),
-                "USER_CITY" => $this->getUSERCITY(),
-                "USER_PHONE" => $this->getUSERPHONE()
+                "USER_NAME" => $this->getUserName(),
+                "USER_SURNAME" => $this->getUserSurname(),
+                "USER_PSEUDO" => $this->getUserPseudo(),
+                "USER_PWD" => $this->getUserPasswd(),
+                "USER_EMAIL" => $this->getUserMail(),
+                "USER_ADDRESS" => $this->getUserAdress(),
+                "USER_ZIP_CODE" => $this->getUserZipCode(),
+                "USER_CITY" => $this->getUserCity(),
+                "USER_PHONE" => $this->getUserPhoneNumber()
             ]);
             $id = $bdd->lastInsertId();
-            $this->setUSERID($id);
+            $this->setUserId($id);
             $_SESSION['userId'] = $id;
             return "ok";
         } catch (\Exception $e){
@@ -237,8 +221,8 @@ class userModel
     }
 
     public function loginUser(\PDO $bdd){
-        $mailLog = htmlentities($this->getUSEREMAIL());
-        $pwdLog = htmlentities($this->getUSERPWD());
+        $mailLog = htmlentities($this->getUserMail());
+        $pwdLog = htmlentities($this->getUserPasswd());
         try {
             $sql = 'SELECT USER_EMAIL, USER_PWD FROM USER WHERE USER_EMAIL=:mailLog AND USER_PWD=:pwdLog';
             $request = $bdd->prepare($sql);
@@ -252,7 +236,7 @@ class userModel
 
     public function fetchUser(\PDO $bdd){
         try {
-            $userConnect = $this->getUSEREMAIL();
+            $userConnect = $this->getUserMail();
             $sql = 'SELECT * FROM USER WHERE USER_EMAIL=:userConnect';
             $request = $bdd->prepare($sql);
             $request->setFetchMode(\PDO::FETCH_CLASS, "src\Model\userModel");
@@ -281,9 +265,8 @@ class userModel
             // query construction using global variable of the api key
             $buildQuery = http_build_query([
             'access_key' => positionstackApiKey,
-            'query' => "${address} ${zipCode} ${city}",
+            'query' => "${address}+${zipCode}+${city}",
             'fields' => 'results.latitude',
-            'country'=> 'FR',
             'limit' => 1
         ]);
         $baseUrl= "http://api.positionstack.com/v1/forward";
@@ -309,21 +292,10 @@ class userModel
             throw $e;
         }
     }
-
-    public function UpdateUserInfo(){
-        try {
-            $bdd = BDD::getInstance();
-            $sql = "UPDATE USER set USER_ADDRESS=:userAddress, USER_ZIP_CODE=:userZip, USER_CITY=:userCity, USER_PHONE=:userPhone WHERE USER_ID=:userId";
-            $requete = $bdd->prepare($sql);
-            $requete->execute([
-                "userAddress" => $this->getUSERADDRESS(),
-                "userZip" => $this->getUSERZIPCODE(),
-                "userCity" => $this->getUSERCITY(),
-                "userPhone" => $this->getUSERPHONE(),
-                "userId" => $this->getUSERID(),
-            ]);
-        } catch (\Exception $e){
-            return $e->getMessage();
-        }
+    public static function logout(){
+        session_start();
+        $_SESSION = array();
+        session_destroy();
+        header('Location:/');
     }
 }
