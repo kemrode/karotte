@@ -3,13 +3,9 @@
 
 namespace src\Controller;
 
-
 use src\Model\BDD;
 use src\Model\SellerModel;
-use src\Model\user;
 use src\Model\userModel;
-
-
 
 class registerSellerController extends AbstractController {
 
@@ -36,6 +32,4 @@ class registerSellerController extends AbstractController {
             throw $e;
         }
     }
-
-
 }
