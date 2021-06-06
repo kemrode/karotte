@@ -283,8 +283,15 @@ body {
     width: 33%;
   }
 
+  .buttonBox {
+    margin-top: 25px;
+    width: 100%;
+  }
+
   .buttonBox button {
     height: 50px;
+    width: 85%;
+    border-radius: 45px;
   }
 
   .choiceTitle__title--titleSize {
@@ -296,13 +303,6 @@ body {
     height: 100px;
   }
 
-  /*
-  .item{
-    //width: $ultraHighScreenWidthSize;
-  }
-  .item input {
-    width: $ultraHighScreenWidthSize;
-  }*/
   .choiceBox {
     height: 150px;
   }
