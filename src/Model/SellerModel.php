@@ -166,10 +166,11 @@ class SellerModel{
     public function UpdateSellerInfo(){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("UPDATE SELLER SET SELL_NAME=:sellName, SELL_PRES=:sellPres WHERE SELL_ID=:sellId");
+            $requete = $bdd->prepare("UPDATE SELLER SET SELL_NAME=:sellName, SELL_PRES=:sellPres, SELL_LOC=:sellLoc WHERE SELL_ID=:sellId");
             return  $requete->execute([
                 "sellName" => $this->getSELLNAME(),
                 "sellPres" => $this->getSELLPRES(),
+                "sellLoc" => $this->getSELLLOC(),
                 "sellId" => $this->getSELLID(),
             ]);
         }catch (\Exception $e){

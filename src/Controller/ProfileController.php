@@ -66,12 +66,15 @@ Class ProfileController extends AbstractController{
                 if($this->GetTreatedValueFromPostIfIsset($field) == null)
                     throw new \InvalidArgumentException("Veuillez renseigner le champs ".$error);
                 if(property_exists($user, $field))
-                    $user[$field] = $this->GetTreatedValueFromPostIfIsset($field);
+                    $user->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
                 if(property_exists($seller, $field))
                     $seller->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
 
             // Update database
+            $user->setUserId($seller->getSELLID());
+            $user->UpdateUserInfo();
+            $seller->setSELLLOC($user::GetCoordinatesFromAdress($user->getUSERADDRESS(), $user->getUSERZIPCODE(), $user->getUSERCITY()));
             $seller->UpdateSellerInfo();
 
             // Unsetting all stored variable from post

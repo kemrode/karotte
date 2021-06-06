@@ -189,8 +189,8 @@ class ProductModel{
     }
     #endregion
 
-    #region function CRUD ProductModel
 
+    #region GET
     public static function GetAllProductFromUserId(int $userId){
         try{
             $bdd = BDD::getInstance();
@@ -203,7 +203,6 @@ class ProductModel{
             throw $e;
         }
     }
-
     public static function GetProductFromProductId(int $prodId){
         try{
             $bdd = BDD::getInstance();
@@ -217,7 +216,6 @@ class ProductModel{
             throw $e;
         }
     }
-
     public static function GetAllProductAndTagGroupedByTagFromSellerId($sellerId){
         try{
             $result = [];
@@ -239,6 +237,9 @@ class ProductModel{
         }
     }
 
+    #endregion
+
+    #region POST
     public function AddProductToSellerShop(){
         try{
             // DB registration
@@ -255,21 +256,6 @@ class ProductModel{
                 "PROD_OFFER" => $this->getPRODOFFER()
             ]);
 
-        }catch (\Exception $e){
-            throw $e;
-        }
-    }
-
-    public function UpdateOffer($offerAmount){
-        try{
-            $this->setPRODOFFER($offerAmount);
-            $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_OFFER_TAG=:PROD_OFFER_TAG, PROD_OFFER=:PROD_OFFER WHERE PROD_ID=:PROD_ID");
-            $requete->execute([
-                "PROD_ID" => $this->getPRODID(),
-                "PROD_OFFER_TAG" => (int) filter_var($this->isPRODOFFERTAG(), FILTER_VALIDATE_BOOLEAN),
-                "PROD_OFFER" => $this->getPRODOFFER()
-            ]);
         }catch (\Exception $e){
             throw $e;
         }
@@ -305,7 +291,40 @@ class ProductModel{
             throw new \Exception("Une erreur est survenue lors du chargement de l'image");
         }
     }
+
     #endregion
+
+    #region PUT
+
+    public function UpdateOffer($offerAmount){
+        try{
+            $this->setPRODOFFER($offerAmount);
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_OFFER_TAG=:PROD_OFFER_TAG, PROD_OFFER=:PROD_OFFER WHERE PROD_ID=:PROD_ID");
+            $requete->execute([
+                "PROD_ID" => $this->getPRODID(),
+                "PROD_OFFER_TAG" => (int) filter_var($this->isPRODOFFERTAG(), FILTER_VALIDATE_BOOLEAN),
+                "PROD_OFFER" => $this->getPRODOFFER()
+            ]);
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+#endregion
+
+#region DELETE
+    public static function DeleteProduct(int $productID){
+        try{
+            $bdd = BDD::getInstance();
+            $query = $bdd->prepare("DELETE FROM PRODUCT WHERE PROD_ID =:productID");
+            $query->execute([
+                "productID" => $productID
+            ]);
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+#endregion
 
 }
 

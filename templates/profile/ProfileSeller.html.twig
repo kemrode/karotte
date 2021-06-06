@@ -56,6 +56,7 @@
             {% for key, category in sellerProduct %}
                 <div class="seller-page-product-cards">
                     <h3 class="seller-page-product-cards__category">{{ key }}</h3>
+                    <button>Add</button>
                     <div class="seller-page-productList-cards">
                         {#For each product create card#}
                         {% for product in category %}
@@ -65,15 +66,14 @@
                                     <img class="seller-page-product-card__image" src="{{ product.PROD_PICT }}">
                                 </div>
                                 <div class="seller-page-product-card__info">
-                                    <input class="heading h3" type="text" name="PROD_NAME" value="{{ product.PROD_NAME }}" required>
-                                    <input class="seller-page-product-description" type="text" name="PROD_DESC" name="PROD_NAME" value="{{ product.PROD_DESC }}" required>
-                                    <input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" value="{{ product.PROD_PRICE }}" required>
+                                    <input class="heading h3" type="text" name="PROD_NAME" placeholder="Nom du Produit" value="{{ product.PROD_NAME }}" required>
+                                    <input class="seller-page-product-description" type="text" name="PROD_DESC" name="PROD_NAME" placeholder="Description du produit" value="{{ product.PROD_DESC }}" required>
+                                    <input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" placeholder="Prix" value="{{ product.PROD_PRICE }}" required>
                                     <div class="seller-page-product-card__quantity">
-                                        <span class="iconify" data-inline="false" data-icon="ant-design:minus-square-filled" style="color: #6b8954; font-size: 25px;"></span>
-                                        <span>1</span>
-                                        <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>
+                                        <button>MàJ</button>
+                                        <button>Del</button>
                                     </div>
-                                    <button class="seller-page-product-card__button">Add</button>
+
                                 </div>
                             </div>
                         {% endfor %}
