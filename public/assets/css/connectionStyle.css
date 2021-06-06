@@ -17,12 +17,14 @@ body {
   width: 100vw;
   height: 100vh;
 }
+
 .blackBlock {
   position: absolute;
   z-index: 2;
   width: 100vw;
   height: 100vh;
 }
+
 .blackBlock__backgroundColor--opacity {
   background-color: black;
   opacity: 0.5;
@@ -35,9 +37,11 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 .connBox__backgroundColor--color {
   background-color: #BB4E0B;
 }
+
 .connBox__border--radius {
   border-radius: 45px;
 }
@@ -48,6 +52,7 @@ body {
   justify-content: center;
   color: #6B8954;
 }
+
 .titleBox__text--shadow {
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
 }
@@ -74,6 +79,7 @@ body {
   width: auto;
   height: 40%;
 }
+
 .itemConnBox__input {
   border-radius: 45px;
 }
@@ -85,14 +91,17 @@ body {
   width: 100%;
   height: 50%;
 }
+
 .labelBox input {
   width: 50%;
   height: 100%;
   transition: background-color 500ms;
 }
+
 .labelBox input:focus {
   border: 2px solid darkblue;
 }
+
 .labelBox input:not(:focus):invalid {
   background-color: red;
   color: white;
@@ -106,6 +115,7 @@ body {
   width: auto;
   height: 20%;
 }
+
 .valBox input {
   border-radius: 45px;
 }
@@ -116,15 +126,19 @@ body {
   transition-property: transform;
   transition-duration: 400ms;
 }
+
 .buttonInput__border--radius {
   border-radius: 45px;
 }
+
 .buttonInput__font--size {
   font-size: 1.4em;
 }
+
 .buttonInput__background--color {
   background-color: #6B8954;
 }
+
 .buttonInput:hover {
   transform: scale(1.5);
 }
@@ -144,6 +158,7 @@ body {
   width: auto;
   height: 25%;
 }
+
 .signUpBox__font--size {
   font-size: 1.2em;
 }
@@ -153,6 +168,7 @@ body {
   flex-direction: row;
   justify-content: center;
 }
+
 .forgetPasswdBox__font--size {
   font-size: 1.2em;
 }
@@ -187,5 +203,6 @@ body {
     font-size: 1.8em;
   }
 }
+/*# sourceMappingURL=connectionStyle.css.map */
 
 /*# sourceMappingURL=connectionStyle.css.map */

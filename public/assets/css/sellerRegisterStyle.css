@@ -19,6 +19,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .primaryContainer::-webkit-scrollbar {
   display: none;
 }
@@ -43,6 +44,7 @@ body {
   width: 100vw;
   height: 100vh;
 }
+
 .blackBlock__backgroundColor--opacity {
   background-color: black;
   opacity: 0.5;
@@ -57,6 +59,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 .mainContainer__background--backgroundColor {
   background-color: #BB4E0B;
 }
@@ -69,14 +72,17 @@ body {
   padding-top: 25px;
   padding-bottom: 45px;
 }
+
 .titleBox h2 {
   font-size: 1.8em;
   font-weight: bold;
   color: white;
 }
+
 .titleBox__border--bottom {
   border-bottom: 1px solid black;
 }
+
 .titleBox__background--color {
   background-color: #6B8954;
 }
@@ -90,6 +96,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .infoContainer::-webkit-scrollbar {
   display: none;
 }
@@ -110,6 +117,7 @@ body {
   width: auto;
   padding-bottom: 35px;
 }
+
 .okButton button {
   width: 50%;
   height: 50px;
@@ -131,6 +139,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .itemBox__presentation--height {
   height: auto;
 }
@@ -142,6 +151,7 @@ body {
   width: 65%;
   padding-bottom: 5px;
 }
+
 .labelBox label {
   font-weight: bold;
 }
@@ -152,12 +162,14 @@ body {
   justify-content: flex-start;
   width: 65%;
 }
+
 .inputBox input {
   border: 1px solid darkblue;
   border-radius: 45px;
   height: 6vh;
   width: 65%;
 }
+
 .inputBox input:focus {
   border: 2px solid #6B8954;
 }
@@ -169,6 +181,7 @@ body {
   width: 65%;
   height: 50vh;
 }
+
 .txtAreaBox textarea {
   width: 100%;
   height: 100%;
@@ -177,8 +190,11 @@ body {
   font-style: italic;
   margin-bottom: 25px;
 }
+
 .txtAreaBox textarea placeholder {
   color: grey;
 }
+
+/*# sourceMappingURL=sellerRegisterStyle.css.map */
 
 /*# sourceMappingURL=sellerRegisterStyle.css.map */
