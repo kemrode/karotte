@@ -250,6 +250,24 @@
   }
 }
 
+.orderPage {
+  padding-left: 3em;
+  border-left: #bb4e0b solid thick;
+  background-color: white;
+  display: grid;
+  grid-row-gap: 3em;
+
+  table{
+    width: 40%;
+  }
+}
+
+.order-card {
+  display: grid;
+  grid-row-gap: 2em;
+}
+
+
 /* Extra large devices (large laptops and desktops, 1500px and up) */
 @media only screen and (min-width: 1200px) {
   .seller-page__info-userAddress{

@@ -173,6 +173,19 @@ class OrderModel
         $this->PROD_TOTAL_PRICE = $PROD_TOTAL_PRICE;
     }
 
+    public static function GetLastOrderNumber(){
+        try {
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT MAX(ORDER_NUMBER), USER_ID FROM `ORDER`");
+            $requete->execute();
+
+            return $requete->fetch();
+
+        } catch (\Exception $e){
+            throw $e;
+        }
+    }
+
 
 
     public function CreateOrder(\PDO $bdd){

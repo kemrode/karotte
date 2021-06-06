@@ -9,14 +9,24 @@ use src\Model\SellerModel;
 
 class OrderController extends AbstractController
 {
+    public function LastOrder(){
+        $lastOrder = OrderModel::GetLastOrderNumber();
+        var_dump($lastOrder);
+        $newOrder = (int)$lastOrder[0] + 1;
+        var_dump($newOrder);
+        return $newOrder;
+    }
+
     public function CreateOrder(){
         var_dump(count($_SESSION["basket"]));
         if(count($_SESSION["basket"]) > 0){
+            $newOrder = self::LastOrder();
+
             /*for( $i = 0; $i< count($_SESSION["basket"]); $i++) {*/
             foreach($_SESSION["basket"] as $product=>$value) {
                 $_SESSION["basket"][$product] = $value;
                 $order = new OrderModel();
-                $order->setORDERNUMBER(3);
+                $order->setORDERNUMBER($newOrder);
                 $order->setUSERID($_SESSION["USER_ID"]);
                 $order->setPRODID($product);
                 $order->setSELLID($_SESSION['basket'][$product]["productSellerId"]);

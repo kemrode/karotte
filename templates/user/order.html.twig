@@ -2,12 +2,11 @@
 
 
 {% block rightContent %}
-    <div class="sellerPage">
+    <div class="orderPage">
         <h1>Mes commandes</h1>
-        {#{{ dump(orderArray) }}#}
         {% for key, order in orderArray %}
-        <div>
-            <h3>Numéro de commande {{ order[0]["ORDER_NUMBER"] }} :</h3>
+        <div class="order-card">
+            <h3>Commande n°{{ order[0]["ORDER_NUMBER"] }} :</h3>
             <table class="pure-table">
                 <thead>
                 <th>Produit</th>
@@ -16,21 +15,20 @@
                 <th>Prix</th>
                 <th>Total</th>
                 </thead>
-
+                {% set totalPrice = 0 %}
                 {% for item in order %}
-                    {#{% set totalPrice = 0 %}
-                    {% set totalPrice = totalPrice + (item.productPrice * item.productQuantity) %}#}
+                    {% set totalPrice = totalPrice + (item.PROD_PRICE * item.ORDER_PROD_QTY) %}
                     <tr>
                         <td>{{ item.PROD_ID }}</td>
                         <td>{{ item.PROD_NAME }}</td>
                         <td>{{ item.ORDER_PROD_QTY }}</td>
                         <td>{{ item.PROD_PRICE }}</td>
                         <td>{{ item.PROD_TOTAL_PRICE }}€</td>
-                        <td>{{ item.PROD_TOTAL_PRICE }}€</td>
                         {#<td><a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a></td>#}
                     </tr>
                 {% endfor %}
             </table>
+            <h3>Prix total = {{ totalPrice }}€</h3>
         </div>
         {% endfor %}
     </div>
