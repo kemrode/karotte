@@ -13,6 +13,12 @@ class userController extends AbstractController {
         return $this->twig->render("connection\connectionView.html.twig");
     }
 
+    public function myAccount(){
+        $memberId = $_GET['id'];
+        $memberDatas = userModel::fetchUserFromId(BDD::getInstance(), $memberId);
+        return $this->twig->render("profile\userProfil.html.twig",["member"=>$memberDatas]);
+    }
+
     public function log(){
             if (isset($_POST['okButton'])){
                 $user = new userModel();
@@ -30,5 +36,8 @@ class userController extends AbstractController {
                     return;
                 }
             }
+    }
+    public function logout(){
+        userModel::logout();
     }
 }

@@ -1,0 +1,42 @@
+{% extends "layoutMapAndMenu.html.twig" %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="">
+{% endblock %}
+{% block userProfil %}
+    <div class="primaryContainer">
+        <div class="myAccountBox">
+            <div class="titleBox">
+                <h2>compte de {{ member.userName+' '+member.userFirstname }}</h2>
+            </div>
+        </div>
+        <div class="formBox">
+            <form name="updtaeForm" method="post" class="formContainer" action="">
+                {% for member in members %}
+                    <div class="itemBox">
+                        <label class="labelBox">Changez votre pseudonyme: </label>
+                        <input class="inputBox" type="text" value="{{  }}" name="userPseudo">
+                    </div>
+                    <div class="itemBox">
+                        <label class="labelBox">Changez votre adresse: </label>
+                        <input class="inputBox" type="text" value="{{  }}" name="userAdress">
+                    </div>
+                    <div class="itemBox">
+                        <label class="labelBox">Changez votre mot de passe: </label>
+                        <input class="inputBox" type="text" value="{{  }}" name="userPasswd">
+                    </div>
+                    <div class="itemBox">
+                        <label class="labelBox">Changez votre numéro de téléphone: </label>
+                        <input class="inputBox" type="text" value="{{  }}" name="userPhone">
+                    </div>
+                    <div class="itemBox">
+                        <label class="labelBox">Changez votre e-mail: </label>
+                        <input class="inputBox" type="text" value="{{  }}" name="userMail">
+                    </div>
+                {% endfor %}
+                <div class="buttonBox">
+                    <button type="submit" name="okBtn">Je valide</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
