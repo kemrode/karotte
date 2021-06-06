@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S'inscrire</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/assets/css/registerStyle.css">
-    <link rel="stylesheet" type="text/css" href="../../public/assets/css/registerStyle.css">
-</head>
-<body>
-<div class="primaryContainer primaryContainer__backgroundColor">
-    <div class="headerContainer">
-        {% include 'header/headerView.html.twig' %}
-    </div>
-    <div class="registerContainer registerContainer__backgroundColor">
-        <div class="registerTitleBox registerTitleBox__font">
+{% extends "layoutMapAndMenu.html.twig" %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/assets/css/registerStyle.css">
+<link rel="stylesheet" type="text/css" href="../../public/assets/css/registerStyle.css">
+{% endblock %}
+{% block registerUserBlock %}
+<div class="primaryContainer primaryContainer__background--color">
+    <div class="registerContainer">
+        <div class="registerTitleBox">
             <div class="registerTitle">
                 <h2>Inscription</h2>
             </div>
@@ -75,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="subtitleRegisterBox">
+                    <div class="registerTitleBox">
                         <div class="subtitleRegister">
                             <h5>Quelle karotte êtes-vous ?</h5>
                         </div>
@@ -126,5 +117,4 @@
     </div>
 </div>
 <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-<!-- <script src="../../public/assets/js/register.js"></script> -->
-</body>
+{% endblock %}
