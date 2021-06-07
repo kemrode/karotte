@@ -23,6 +23,7 @@ class userController extends AbstractController {
                     $userConnected = $user->fetchUser(BDD::getInstance());
                     foreach ($userConnected as $key=>$value){
                         $_SESSION[$key]=$value;
+                        $_SESSION["basket"] = array();
                     }
                     header('Location:/');
                     return;
