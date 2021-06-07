@@ -32,4 +32,9 @@ class userController extends AbstractController {
                 }
             }
     }
+
+    public function Logout(){
+        header("location:/");
+        session_destroy();
+    }
 }

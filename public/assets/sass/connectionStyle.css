@@ -1,3 +1,208 @@
+body {
+  margin: 0;
+}
 
+*,
+* before::after {
+  box-sizing: border-box;
+}
+
+.connectionContainer {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.blackBlock {
+  position: absolute;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+.blackBlock__backgroundColor--opacity {
+  background-color: black;
+  opacity: 0.5;
+}
+
+.connBox {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.connBox__backgroundColor--color {
+  background-color: #BB4E0B;
+}
+.connBox__border--radius {
+  border-radius: 45px;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #6B8954;
+}
+.titleBox__text--shadow {
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 50%;
+}
+
+.formInputBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: auto;
+  height: 75%;
+}
+
+.itemConnBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: 40%;
+}
+.itemConnBox__input {
+  border-radius: 45px;
+}
+
+.labelBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+}
+<<<<<<< HEAD
+.labelBox input {
+  width: 50%;
+  height: 100%;
+  transition: background-color 500ms;
+}
+.labelBox input:focus {
+  border: 2px solid darkblue;
+}
+.labelBox input:not(:focus):invalid {
+  background-color: red;
+  color: white;
+  border: 2px solid darkred;
+=======
+
+.labelBox input {
+  width: 50%;
+  height: 100%;
+>>>>>>> origin/local/pv/order
+}
+
+.valBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: 20%;
+}
+<<<<<<< HEAD
+.valBox input {
+=======
+.valBox__input {
+>>>>>>> origin/local/pv/order
+  border-radius: 45px;
+}
+
+.buttonInput {
+  width: 50%;
+  height: 100%;
+<<<<<<< HEAD
+  transition-property: transform;
+  transition-duration: 400ms;
+=======
+>>>>>>> origin/local/pv/order
+}
+.buttonInput__border--radius {
+  border-radius: 45px;
+}
+.buttonInput__font--size {
+  font-size: 1.4em;
+}
+.buttonInput__background--color {
+  background-color: #6B8954;
+}
+<<<<<<< HEAD
+.buttonInput:hover {
+  transform: scale(1.5);
+}
+=======
+>>>>>>> origin/local/pv/order
+
+.linkBox {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: 20%;
+  justify-content: space-evenly;
+}
+
+.signUpBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: 25%;
+}
+.signUpBox__font--size {
+  font-size: 1.2em;
+}
+
+.forgetPasswdBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.forgetPasswdBox__font--size {
+  font-size: 1.2em;
+}
+
+@media only screen and (max-width: 600px) {
+  .connBox__sizingBox--size {
+    width: 75%;
+    height: 30vh;
+  }
+
+  .titleBox__fontsize--size {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .connBox__sizingBox--size {
+    width: 75%;
+    height: 30vh;
+  }
+
+  .titleBox__fontsize--size {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .connBox__sizingBox--size {
+    width: 600px;
+    height: 600px;
+  }
+
+  .titleBox__fontsize--size {
+    font-size: 1.8em;
+  }
+}
 
 /*# sourceMappingURL=connectionStyle.css.map */
