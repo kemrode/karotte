@@ -67,4 +67,9 @@ Class ProductController extends AbstractController
             exit;
         }
     }
+
+    public function AddProduct(){
+        var_dump($_POST);
+        die();
+    }
 }

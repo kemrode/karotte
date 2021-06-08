@@ -1,3 +1,10 @@
+let addProductButton = document.querySelector("#addProductButton");
+let addProductPopUp = document.querySelector("#addProductPopUp");
+
+addProductButton.addEventListener("click", (e)=>{
+    LoadPopup(addProductPopUp);
+})
+
 function ReloadPage(id){
     let method = "POST";
     let url = `/Profile/CancelCurrentModification/${id}`;

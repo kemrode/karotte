@@ -1,0 +1,29 @@
+<!-- Modal -->
+<div class="modal-wrapper" id="modal">
+    <div class="modal-body card">
+        <div class="modal-header">
+            <h2 class="heading">Ajouter un produit</h2>
+            <a href="#!" role="button" class="close" aria-label="Fermer le popup">
+                <svg viewBox="0 0 24 24">
+                    <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" />
+                </svg>
+            </a>
+        </div>
+        <div>
+            <form class="modal-body-content" action="/Product/AddProduct" method="post">
+                <div><label for="PROD_PICT">Image : </label><input type="file" name="PROD_PICT"></div>
+                <div><label for="TP_TAG">Type : </label><select name="TP_TAG">
+                        <option value="LEGUMES">LEGUMES</option>
+                        <option value="FRUITS">FRUITS</option>
+                    </select>
+                </div>
+                <input type="text" placeholder="Nom produit" name="PROD_NAME" required aria-required="Un joli petit nom bien vendeur exemple 'De magnifique carottes !'">
+                <input type="text" placeholder="Quantité" name="PROD_QTY" required aria-required="Vous ajouter un produit... metter au moins 1 !">
+                <input type="text" placeholder="Prix" name="PROD_PRICE" required aria-required="Si vous ne mettez rien on va penser que c'est gratuit...">
+                <input type="text" placeholder="Description" name="PROD_DESC" required aria-required="Aller une tout petite description de rien du tout">
+                <input type="submit" value="Ajouter le produit">
+            </form>
+        </div>
+    </div>
+    <a href="#!" class="outside-trigger"></a>
+</div>
