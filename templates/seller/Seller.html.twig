@@ -51,7 +51,7 @@
                             <form method="post" action="/basket/addtobasket/{{ product.PROD_ID }}">
                                 <input name="BASKET_PRODUCT_ID" type="hidden" value="{{ product.PROD_ID }}">
                                 <h3>{{ product.PROD_NAME }}</h3>
-                                <p class="seller-page-product-description">De belles carottes</p>
+                                <p class="seller-page-product-description">{{ product.PROD_DESC }}</p>
                                 <label class="seller-page-product-card__price">{{ product.PROD_PRICE }}</label>
                                 <div class="seller-page-product-card__quantity">
                                     <label>Quantité <input name="BASKET_QUANTITY"></label>

@@ -63,7 +63,7 @@
                     <div class="seller-page-productList-cards">
                         {#For each product create card#}
                         {% for product in category %}
-                        <form action="">
+                        <form method="POST" action="/Product/UpdateProductInfo">
                             <input type="hidden" name="PROD_ID" value="{{ product.PROD_ID }}">
                             <div class="seller-page-product-card" id="{{ product.PROD_ID }}">
 

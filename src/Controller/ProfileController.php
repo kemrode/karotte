@@ -86,9 +86,6 @@ Class ProfileController extends AbstractController{
         catch (\InvalidArgumentException $arg) {
             $_SESSION["alert"] = $arg->getMessage();
         }
-        catch(\BadMethodCallException $e){
-            $_SESSION["alert"] = "Une ereur s est produite : ".$e->getMessage();
-        }
         catch (\Exception $e) {
             $_SESSION["alert"] = "Une ereur s est produite : ".$e->getMessage();
         }

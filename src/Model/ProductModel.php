@@ -4,15 +4,18 @@ namespace src\Model;
 class ProductModel{
 
     #region Attibutes ProductModel
-    private int $PROD_ID;
-    private int $PROD_USER_ID;
-    private string $PROD_NAME;
-    private int $PROD_QTY;
-    private bool $PROD_OFFER_TAG;
-    private ?int $PROD_OFFER;
-    private float $PROD_PRICE;
-    private ?string $PROD_ORIGIN;
-    private string $PROD_PICT;
+    public int $PROD_ID;
+    public int $PROD_USER_ID;
+    public string $PROD_NAME;
+    public int $PROD_QTY;
+    public bool $PROD_OFFER_TAG;
+    public ?int $PROD_OFFER;
+    public float $PROD_PRICE;
+    public ?string $PROD_ORIGIN;
+    public string $PROD_PICT;
+    public ?string $PROD_DESC;
+
+
     #endregion
 
     #region getters and setters ProductModel
@@ -187,6 +190,25 @@ class ProductModel{
         $this->PROD_PICT = $PROD_PICT;
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getPRODDESC(): ?string
+    {
+        return $this->PROD_DESC;
+    }
+
+    /**
+     * @param string|null $PROD_DESC
+     * @return ProductModel
+     */
+    public function setPRODDESC(?string $PROD_DESC): ProductModel
+    {
+        $this->PROD_DESC = $PROD_DESC;
+        return $this;
+    }
+
     #endregion
 
 
@@ -194,7 +216,7 @@ class ProductModel{
     public static function GetAllProductFromUserId(int $userId){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_USER_ID =:user_ID");
+            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC FROM PRODUCT WHERE PROD_USER_ID =:user_ID");
             $requete->execute([
                 "user_ID" => $userId
             ]);
@@ -206,7 +228,7 @@ class ProductModel{
     public static function GetProductFromProductId(int $prodId){
         try{
             $bdd = BDD::getInstance();
-        $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_ID =:PROD_ID");
+        $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC FROM PRODUCT WHERE PROD_ID =:PROD_ID");
             $requete->execute([
                 "PROD_ID" => $prodId
             ]);
@@ -220,7 +242,7 @@ class ProductModel{
             $result = [];
             $bdd = BDD::getInstance();
             $tagList = TagModel::GetAllTagsFromSellerId($sellerId);
-            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_USER_ID =:user_ID AND PROD_ID in (SELECT TP_ID_PRODUCT FROM TAGPRODUCT WHERE TP_TAG =:TP_TAG)");
+            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC FROM PRODUCT WHERE PROD_USER_ID =:user_ID AND PROD_ID in (SELECT TP_ID_PRODUCT FROM TAGPRODUCT WHERE TP_TAG =:TP_TAG)");
 
             /* @var $tag TagModel */
             foreach ($tagList as $tag){
@@ -263,7 +285,7 @@ class ProductModel{
         try{
             // DB registration
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER) VALUES (:PROD_USER_ID, :PROD_NAME, :PROD_QTY, :PROD_OFFER_TAG, :PROD_PRICE, :PROD_ORIGIN, :PROD_PICT, :PROD_OFFER)");
+            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC) VALUES (:PROD_USER_ID, :PROD_NAME, :PROD_QTY, :PROD_OFFER_TAG, :PROD_PRICE, :PROD_ORIGIN, :PROD_PICT, :PROD_OFFER)");
             $requete->execute([
                 "PROD_USER_ID" => $this->getPRODUSERID(),
                 "PROD_NAME" => $this->getPRODNAME(),
@@ -272,7 +294,8 @@ class ProductModel{
                 "PROD_PRICE" => $this->getPRODPRICE(),
                 "PROD_ORIGIN" => $this->getPRODORIGIN(),
                 "PROD_PICT" => $this->getPRODPICT(),
-                "PROD_OFFER" => $this->getPRODOFFER()
+                "PROD_OFFER" => $this->getPRODOFFER(),
+                "PROD_DESC" => $this->getPRODDESC()
             ]);
 
         }catch (\Exception $e){
@@ -315,6 +338,23 @@ class ProductModel{
 
     #region PUT
 
+    public function UpdateProduct(){
+        try{
+            // DB registration
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_NAME=:PROD_NAME, PROD_PRICE=:PROD_PRICE, PROD_DESC=:PROD_DESC WHERE PROD_USER_ID=:PROD_USER_ID");
+            $requete->execute([
+                "PROD_NAME" => $this->getPRODNAME(),
+                "PROD_PRICE" => $this->getPRODPRICE(),
+                "PROD_DESC" => $this->getPRODDESC(),
+                "PROD_USER_ID" => $this->getPRODUSERID(),
+            ]);
+
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
     public function UpdateOffer($offerAmount){
         try{
             $this->setPRODOFFER($offerAmount);
@@ -329,6 +369,8 @@ class ProductModel{
             throw $e;
         }
     }
+
+
 #endregion
 
     #region DELETE
