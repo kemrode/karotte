@@ -23,6 +23,7 @@ class userController extends AbstractController {
                     $userConnected = $user->fetchUser(BDD::getInstance());
                     foreach ($userConnected as $key=>$value){
                         $_SESSION[$key]=$value;
+                        $_SESSION["basket"] = array();
                     }
                     header('Location:/');
                     return;
@@ -30,5 +31,10 @@ class userController extends AbstractController {
                     return;
                 }
             }
+    }
+
+    public function Logout(){
+        header("location:/");
+        session_destroy();
     }
 }

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
           crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
     {% block css %}{% endblock %}
     <title>Karotte</title>
 </head>
@@ -25,7 +26,7 @@
             <a href="/" class="logo">KAROTTE</a>
             <nav>
                 <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
-                <a href="#"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
+                <a href="/basket/getuserbasket/{{ session.USER_ID }}"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
                 <a href="/user/connectionView"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
             </nav>
         </header>
