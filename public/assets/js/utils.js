@@ -7,10 +7,11 @@
  *
  *  Renvoie une promise
  *  ex :
- *     promise.then((response)=>{
+ * resultatRequete = SendRequestReturnAPromise("POST", url, headers? )
+ *     resultatRequete.then((response)=>{
  *      response = résultat si succes
  *  }).catch((error)=>{
- *      response = résultat si échec
+ *      resultatRequete = résultat si échec
  *  })
  */
 

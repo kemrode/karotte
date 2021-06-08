@@ -237,6 +237,26 @@ class ProductModel{
         }
     }
 
+    public static function IsThisProductBelongToSeller($userId, $productId){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT PROD_USER_ID FROM PRODUCT WHERE PROD_ID=:productId");
+            $requete->execute([
+                "productId" => $productId
+            ]);
+            $result = $requete->fetch();
+            if($result)
+                return $result["PROD_USER_ID"] == $userId;
+            else{
+             throw new \Exception("Ce produit n'a pas été trouvé dans la base de donnée");
+            }
+
+        }
+        catch(\Exception $e) {
+            throw $e;
+        }
+    }
+
     #endregion
 
     #region POST
@@ -312,7 +332,7 @@ class ProductModel{
     }
 #endregion
 
-#region DELETE
+    #region DELETE
     public static function DeleteProduct(int $productID){
         try{
             $bdd = BDD::getInstance();

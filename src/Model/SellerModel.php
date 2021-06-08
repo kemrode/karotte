@@ -4,7 +4,7 @@ namespace src\Model;
 use JsonSchema\Exception\ResourceNotFoundException;
 
 class SellerModel{
-    #region attributes SellerModel
+    #region properties SellerModel
 
     private int $SELL_ID;
     private string $SELL_NAME;
@@ -94,7 +94,8 @@ class SellerModel{
 
     #endregion
 
-    #region function CRUD SellerModel
+
+    #region POST
 
     public function postNewSeller(\PDO $bdd){
         try {
@@ -115,6 +116,9 @@ class SellerModel{
             throw $e;
         }
     }
+    #endregion
+
+    #region GET
 
     public static function GetAllSellers(){
         try{
@@ -136,7 +140,6 @@ class SellerModel{
             throw $e;
         }
     }
-
     public static function GetSellerInformationFromId($id){
         try{
             $bdd = BDD::getInstance();
@@ -163,6 +166,10 @@ class SellerModel{
         }
 
     }
+
+    #endregion
+
+    #region PUT
     public function UpdateSellerInfo(){
         try{
             $bdd = BDD::getInstance();

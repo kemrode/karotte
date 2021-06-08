@@ -3,6 +3,7 @@
 {% block css %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/SellerProfile.css">
+
 {% endblock %}
 {% block rightContent %}
     <div class="sellerPage">
@@ -51,17 +52,21 @@
         </div>
     </form>
     <div class="seller-page-productList">
+        <button><span class="iconify" data-icon="gridicons:add" data-inline="false"></span>Ajouter un produit</button>
+
             {#<h2>Liste des produits</h2>#}
             {#For each tags create category#}
             {% for key, category in sellerProduct %}
                 <div class="seller-page-product-cards">
                     <h3 class="seller-page-product-cards__category">{{ key }}</h3>
-                    <button>Add</button>
+
                     <div class="seller-page-productList-cards">
                         {#For each product create card#}
                         {% for product in category %}
+                        <form action="">
                             <input type="hidden" name="PROD_ID" value="{{ product.PROD_ID }}">
-                            <div class="seller-page-product-card">
+                            <div class="seller-page-product-card" id="{{ product.PROD_ID }}">
+
                                 <div class="seller-page-product-card__image">
                                     <img class="seller-page-product-card__image" src="{{ product.PROD_PICT }}">
                                 </div>
@@ -69,13 +74,13 @@
                                     <input class="heading h3" type="text" name="PROD_NAME" placeholder="Nom du Produit" value="{{ product.PROD_NAME }}" required>
                                     <input class="seller-page-product-description" type="text" name="PROD_DESC" name="PROD_NAME" placeholder="Description du produit" value="{{ product.PROD_DESC }}" required>
                                     <input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" placeholder="Prix" value="{{ product.PROD_PRICE }}" required>
-                                    <div class="seller-page-product-card__quantity">
-                                        <button>MàJ</button>
-                                        <button>Del</button>
-                                    </div>
-
+                                </div>
+                                <div class="seller-page-product-card__quantity">
+                                    <input type="submit"><span class="iconify" data-icon="dashicons:update-alt" data-inline="false"></span></input>
+                                    <button class="deleteProductButton"><span class="iconify" data-icon="ic:baseline-delete-forever" data-inline="false"></span>Supprimer</button>
                                 </div>
                             </div>
+                        </form>
                         {% endfor %}
                     </div>
                 </div>
@@ -119,11 +124,12 @@
         </div>
     {% endblock %}
     {% block javascript %}
-    {% if(alerte) %}
-        <script>alert("{{ alerte }}")</script>
+    {% if(alert) %}
+        <script>alert("{{ alert }}")</script>
     {% endif %}
         {% if(message) %}
         <script>alert("{{ message }}")</script>
     {% endif %}
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="/assets/js/sellerProfile.js"></script>
 {% endblock %}

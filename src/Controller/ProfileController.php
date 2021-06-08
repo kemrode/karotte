@@ -34,7 +34,8 @@ Class ProfileController extends AbstractController{
             "sellerList"=>$sellerList,
             "sellerProduct"=>$sellerProduct,
             "message"=> $this->getFlashMessage("message"),
-            "alerte"=> $this->getFlashMessage("alerte")]);
+            "alert"=> $this->getFlashMessage("alert")
+        ]);
     }
 
     public function CancelCurrentModification($id){
@@ -49,8 +50,6 @@ Class ProfileController extends AbstractController{
 
     public function UpdateSellerProfile($id){
         try {
-            unset($_SESSION['alerte']);
-            unset($_SESSION['message']);
             $user = new userModel();
             $seller = new SellerModel();
 
@@ -85,13 +84,13 @@ Class ProfileController extends AbstractController{
             $_SESSION["message"] = "Profil mis à jour";
         }
         catch (\InvalidArgumentException $arg) {
-            $_SESSION["alerte"] = $arg->getMessage();
+            $_SESSION["alert"] = $arg->getMessage();
         }
         catch(\BadMethodCallException $e){
-            $_SESSION["alerte"] = "Une ereur s est produite : ".$e->getMessage();
+            $_SESSION["alert"] = "Une ereur s est produite : ".$e->getMessage();
         }
         catch (\Exception $e) {
-            $_SESSION["alerte"] = "Une ereur s est produite : ".$e->getMessage();
+            $_SESSION["alert"] = "Une ereur s est produite : ".$e->getMessage();
         }
         finally {
             header("location:/Profile/SellerProfileView/$id");
