@@ -12,6 +12,11 @@
   grid-column: 1;
   background-color: white;
   text-align: center;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  overflow: scroll;
   /* --- SELLER CARD ---*/
 }
 #sellerList .title-SellerList {
@@ -61,6 +66,12 @@
   justify-content: space-evenly;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+#sellerList::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
 .checked {
   color: #bb4e0b;
 }
