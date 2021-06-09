@@ -27,26 +27,41 @@ class BasketController extends AbstractController
     //Global var basket : initialize with session_start(). Basket_user_id -> user_id
 
     public function AddToBasket(){
-        var_dump($_POST);
         if(isset($_POST["BASKET_PRODUCT_ID"])){
             $productById = ProductModel::GetProductFromProductId($_POST["BASKET_PRODUCT_ID"]);
             $sellerById = SellerModel::GetSellerInformationFromId($productById["PROD_USER_ID"]);
-            var_dump($sellerById);
-            $_SESSION['basket'][$productById["PROD_ID"]] = array("productName"=>$productById["PROD_NAME"],
-                                                                "productSeller"=>$sellerById["SELL_NAME"],
-                                                                "productId"=>$productById["PROD_ID"],
-                                                                "productSellerId"=>$sellerById["SELL_ID"],
-                                                                "productQuantity"=>$_POST["BASKET_QUANTITY"],
-                                                                "productPrice"=>$productById["PROD_PRICE"]);
+            $sell_id = $sellerById['SELL_ID'];
+
+            // Check if product already in basket. If true, add the quantity
+            if(isset($_SESSION['basket'][$productById["PROD_ID"]]))
+            {
+                $_SESSION['basket'][$productById["PROD_ID"]]["productQuantity"] += $_POST["BASKET_QUANTITY"];
+            } else{
+                $_SESSION['basket'][$productById["PROD_ID"]] = array("productName"=>$productById["PROD_NAME"],
+                    "productSeller"=>$sellerById["SELL_NAME"],
+                    "productId"=>$productById["PROD_ID"],
+                    "productSellerId"=>$sellerById["SELL_ID"],
+                    "productQuantity"=>$_POST["BASKET_QUANTITY"],
+                    "productPrice"=>$productById["PROD_PRICE"]);
+            }
         }
 
-        header("location:/");
+        header("location:/Seller/GetSellerById/$sell_id");
+    }
+
+    public function UpdateBasket(){
+        var_dump($_REQUEST);
+        if(isset($_REQUEST["productQuantity"],$_REQUEST["param"])){
+            $_SESSION['basket'][$_REQUEST["param"]]["productQuantity"] = $_REQUEST["productQuantity"];
+        } else {
+            header("location:/basket/getuserbasket/{$_SESSION["USER_ID"]}");
+        }
+        header("location:/basket/getuserbasket/{$_SESSION["USER_ID"]}");
+
     }
 
 
-
     public function Remove($productId){
-        var_dump($_REQUEST['param']);
         foreach ($_SESSION["basket"] as $k => $v){
             echo $k;
             echo $v;
@@ -54,7 +69,7 @@ class BasketController extends AbstractController
                 unset($_SESSION["basket"][$k]);
             }
         }
-        header('location:/basket/GetUserBasket/$_SESSION["USER_ID"]');
+        header("location:/basket/GetUserBasket/{$_SESSION["USER_ID"]}");
     }
 
     public function AddToBasketUser(int $userId){

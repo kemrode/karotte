@@ -21,7 +21,11 @@
                         <td>{{ key }}</td>
                         <td>{{ item.productName }}</td>
                         <td>{{ item.productSeller }}</td>
-                        <td>{{ item.productQuantity }}</td>
+                        <td>
+                            <form method="post" action="/basket/updatebasket/{{ key }}">
+                                <input type="number" name="productQuantity" value="{{ item.productQuantity }}"><input type="submit" value="Modifier">
+                            </form>
+                        </td>
                         <td>{{ item.productPrice }}€</td>
                         <td> {{ item.productQuantity * item.productPrice }}€</td>
                         <td><a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a></td>
@@ -30,7 +34,7 @@
             </table>
             <h2>Total = {{ totalPrice }}€ </h2>
 
-            <a type="submit" href="/order/createorder">Valider</a>
+            <a type="submit" class="btn" href="/order/createorder">Valider</a>
 
             <a href="/order/GetAllOrdersByUserId/{{ session.USER_ID }}">Mes commandes</a>
 
