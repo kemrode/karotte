@@ -23,7 +23,7 @@
                         <td>{{ item.productSeller }}</td>
                         <td>
                             <form method="post" action="/basket/updatebasket/{{ key }}">
-                                <input type="number" name="productQuantity" value="{{ item.productQuantity }}"><input type="submit" value="Modifier">
+                                <input type="number" min="0" name="productQuantity" value="{{ item.productQuantity }}"><input type="submit" value="Modifier">
                             </form>
                         </td>
                         <td>{{ item.productPrice }}€</td>

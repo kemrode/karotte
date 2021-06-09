@@ -52,7 +52,11 @@ class BasketController extends AbstractController
     public function UpdateBasket(){
         var_dump($_REQUEST);
         if(isset($_REQUEST["productQuantity"],$_REQUEST["param"])){
-            $_SESSION['basket'][$_REQUEST["param"]]["productQuantity"] = $_REQUEST["productQuantity"];
+            if($_REQUEST["productQuantity"] == 0){
+                unset($_SESSION['basket'][$_REQUEST["param"]]);
+            } else {
+                $_SESSION['basket'][$_REQUEST["param"]]["productQuantity"] = $_REQUEST["productQuantity"];
+            }
         } else {
             header("location:/basket/getuserbasket/{$_SESSION["USER_ID"]}");
         }
