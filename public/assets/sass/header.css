@@ -31,12 +31,28 @@
   margin-right: 10px;
 }
 
+.myAccountBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  position: relative;
+  display: inline-block;
+}
+
+.myAccountBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 header {
   grid-column: span 2;
   display: grid;
   justify-content: space-between;
   background-color: #bb4e0b;
-  overflow: hidden;
 }
 header a, header nav {
   color: #bb4e0b;
@@ -72,6 +88,36 @@ header nav {
 /* Float the link section to the right */
 .header-right {
   float: right;
+}
+
+.dropContent {
+  display: none;
+  position: absolute;
+  height: auto;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  right: 0;
+}
+.dropContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  z-index: 5;
+  font-size: 1.2em;
+}
+.dropContent a:hover {
+  background-color: #ddd;
+}
+
+.myAccountBox:hover .dropContent {
+  display: block;
+}
+
+.myAccountBox:hover .myAccountBtn {
+  background-color: #3e8e41;
 }
 
 /*# sourceMappingURL=header.css.map */

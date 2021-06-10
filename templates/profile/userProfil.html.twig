@@ -2,11 +2,11 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="">
 {% endblock %}
-{% block userProfil %}
+{% block leftContent %}
     <div class="primaryContainer">
         <div class="myAccountBox">
             <div class="titleBox">
-                <h2>compte de {{ member['USER_NAME']+' '+member['USER_SURNAME'] }}</h2>
+                <h2>compte de {{ member['USER_NAME']}} {{ member['USER_SURNAME'] }}</h2>
             </div>
         </div>
         <div class="formBox">

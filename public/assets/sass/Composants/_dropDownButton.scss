@@ -1,87 +1,29 @@
 @import '../Utils/mixin';
 @import '../Utils/variables';
-
-
-
-/*
-.navbar {
-  overflow: hidden;
-  & a:hover {
-    & myAccountBox:hover {
-      & .dropBtnBox {
-        background-color: red;
-      }
-    }
-  }
-}
-.myAccountBox{
-  float: left;
-  overflow: hidden;
-}
-.dropBtnBox:hover .dropContent {
-  display: block;
-}
-
-
-.dropBtnBox {
-  position: relative;
-  display: inline-block;
-  & a:hover {
-    .dropContent {
-      display: block;
-    }
-  }
-}
 .dropContent {
   display: none;
   position: absolute;
+  height: auto;
   background-color: #f1f1f1;
-  min-width: 160px;
+  min-width: 100px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 5;
+  right: 0;
   & a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    z-index: 5;
+    font-size: 1.2em;
   }
   & a:hover {
     background-color: #ddd;
   }
 }
-
-
-.dropBtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  &:hover {
-    background-color: #3e8e41;
-  }
+.myAccountBox:hover .dropContent{
+  display: block;
 }
-.dropBtnBox {
-  position: relative;
-  display: inline-block;
-  &:hover {
-    display: block;
-  }
+.myAccountBox:hover .myAccountBtn {
+  background-color: #3e8e41;
 }
-.buttonContent {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  & a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  & a:hover {
-    background-color: #ddd;
-  }
-}*/

@@ -23,19 +23,26 @@
     margin-right: 10px;
   }
 }
-
-
+.myAccountBox{
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: auto;
+  position: relative;
+  display: inline-block;
+  //z-index: 2;
+}
+.myAccountBtn {
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+}
 header {
   grid-column: span 2;
   display: grid;
   justify-content: space-between;
   background-color: #bb4e0b;
-  overflow: hidden;
-
   a, nav {
     color: #bb4e0b;
   }
-
   a{
     grid-column: 2;
     /*color: white;*/
@@ -54,20 +61,17 @@ header {
       color: white;
     }*/
   }
-
   .logo{
     font-size: 35px;
     font-weight: bold;
     padding: 25px 0;
   }
-
   nav {
     grid-column: 4;
     display: flex;
     justify-content: space-evenly;
   }
 }
-
 /* Float the link section to the right */
 .header-right {
   float: right;

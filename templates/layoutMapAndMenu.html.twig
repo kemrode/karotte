@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -22,37 +22,21 @@
 <div id="overMapContainer">
     <div class="main">
         <header>
-            <a href="/" class="logo">KAROTTE</a>
+            {% include 'header/headerView.html.twig' %}
+            <!-- <a href="/" class="logo">KAROTTE</a>
             <nav class="navbar">
                 <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
                 <a href="#"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
-              <!--  <div class="myAccountBox">
-                    <a href="/user/connectionView" class="dropBtnBox"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
-                    <div class="dropContent">
-                        <a href="/?controller=user&action=connectionView">Me connecter</a>
-                        <a href="/?controller=register&action=registerView">M'enregistrer</a>
-                        <a href="/?controller=user&action=myAccount"Mon compte></a>
-                    </div>
-                </div> -->
                 <div class="myAccountBox">
-                    <a href="/user/connectionView" class="dropBtnBox"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
+                    <a href="/user/connectionView" class="myAccountBtn"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
                     <div class="dropContent">
                         <a href="/?controller=user&action=connectionView">Me connecter</a>
                         <a href="/?controller=register&action=registerView">M'enregistrer</a>
                         <a href="/?controller=user&action=myAccount"Mon compte></a>
                     </div>
                 </div>
-               <!-- <div class="dropBtnBox">
-                    <button class="dropBtn"><a href="/user/connectionView"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a></button>
-                    <div class="buttonContent">
-                        <a href="/?controller=user&action=connectionView">Me connecter</a>
-                        <a href="/?controller=register&action=registerView">M'enregistrer</a>
-                        <a href="/?controller=user&action=myAccount"Mon compte></a>
-                    </div>
-                </div> -->
-                <!--<a href="/user/connectionView" class="dropBtnBox"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>-->
                 <a href="/?controller=user&action=logout"><span class="iconify" data-icon="bx:bx-log-out-circle" data-inline="false"></span></a>
-             </nav>
+             </nav> -->
         </header>
         {% block connectionBlock %}{% endblock %}
         {% block registerSellerBlock %}{% endblock %}

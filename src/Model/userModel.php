@@ -247,7 +247,7 @@ class userModel
         }
     }
 
-    public static function fetchUserFromId($userId){
+    public static function fetchUserFromId(\PDO $bdd, $userId){
         try {
             $bdd = BDD::getInstance();
             $sql = 'SELECT * FROM USER WHERE USER_ID=:userId';

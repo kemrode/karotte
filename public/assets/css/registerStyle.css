@@ -59,12 +59,28 @@ body {
   margin-right: 10px;
 }
 
+.myAccountBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  position: relative;
+  display: inline-block;
+}
+
+.myAccountBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 header {
   grid-column: span 2;
   display: grid;
   justify-content: space-between;
   background-color: #bb4e0b;
-  overflow: hidden;
 }
 
 header a, header nav {
