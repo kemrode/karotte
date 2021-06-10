@@ -66,7 +66,7 @@ class TagModel
     }
     #endregion
 
-    #region function CRUD TagModel
+    #region GET
 
     public static function GetAllTagsFromSellerId($sellerId){
         try{
@@ -81,5 +81,20 @@ class TagModel
         }
     }
 
+    #endregion
+
+    #region POST
+    public function PostTag(){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("INSERT INTO TAGPRODUCT (TP_ID_PRODUCT, TP_TAG) VALUES (:idProduct, :tpTag)");
+            $requete->execute([
+                "idProduct" => $this->getTPIDPRODUCT(),
+                "tpTag" => $this->getTPTAG()
+            ]);
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
     #endregion
 }
