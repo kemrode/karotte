@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+}
+
+*,
+* before::after {
+  box-sizing: border-box;
+}
+
+.primaryContainer {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: auto;
+  height: 100vh;
+}
+
+.primaryContainer__background--color {
+  background-color: #BB4E0B;
+}
+
+.primaryContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 15px;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mainContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.accountContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background-color: #FBFCFC;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 85%;
+  height: 100px;
+  align-items: center;
+  border-bottom: 3px solid #BB4E0B;
+}
+
+.titleBox h2 {
+  font-size: 1.8em;
+}
+
+.titleBox h2 span {
+  font-style: italic;
+  color: #BB4E0B;
+}
+
+.formBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 25px;
+}
+
+/*# sourceMappingURL=userProfilStylus.css.map */
+
+/*# sourceMappingURL=userProfilStylus.css.map */
