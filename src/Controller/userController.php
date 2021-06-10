@@ -15,8 +15,16 @@ class userController extends AbstractController {
 
     public function myAccount(){
         $memberId = $_GET['id'];
+        $memberToSegue = [];
         $memberDatas = userModel::fetchUserFromId(BDD::getInstance(), $memberId);
-        return $this->twig->render("profile\userProfil.html.twig",["member"=>$memberDatas]);
+        foreach ($memberDatas as $key=>$value){
+            if($key != "USER_PWD"){
+                $memberToSegue[$key]=html_entity_decode($value);
+            } else {
+                $memberToSegue[$key]=$value;
+            }
+        }
+        return $this->twig->render("profile\userProfil.html.twig",["member"=>$memberToSegue]);
     }
 
     public function log(){

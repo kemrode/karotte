@@ -6,33 +6,35 @@
     <div class="primaryContainer">
         <div class="myAccountBox">
             <div class="titleBox">
-                <h2>compte de {{ member.userName+' '+member.userFirstname }}</h2>
+                <h2>compte de {{ member['USER_NAME']+' '+member['USER_SURNAME'] }}</h2>
             </div>
         </div>
         <div class="formBox">
             <form name="updtaeForm" method="post" class="formContainer" action="">
-                {% for member in members %}
                     <div class="itemBox">
                         <label class="labelBox">Changez votre pseudonyme: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userPseudo">
+                        <input class="inputBox" type="text" value="{{ member['USER_PSEUDO'] }}" name="userPseudo">
                     </div>
                     <div class="itemBox">
                         <label class="labelBox">Changez votre adresse: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userAdress">
+                        <input class="inputBox" type="text" value="{{ member['USER_ADDRESS'] }}" name="userAdress">
                     </div>
+                <div class="itemBox">
+                    <label class="labelBox">Changez votre code postal: </label>
+                    <input class="inputBox" type="text" value="{{ member['USER_ZIP_CODE'] }}" name="userAdress">
+                </div>
                     <div class="itemBox">
                         <label class="labelBox">Changez votre mot de passe: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userPasswd">
+                        <input class="inputBox" type="text" value="{{ member['USER_PWD'] }}" name="userPasswd">
                     </div>
                     <div class="itemBox">
                         <label class="labelBox">Changez votre numéro de téléphone: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userPhone">
+                        <input class="inputBox" type="text" value="{{ member['USER_PHONE'] }}" name="userPhone">
                     </div>
                     <div class="itemBox">
                         <label class="labelBox">Changez votre e-mail: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userMail">
+                        <input class="inputBox" type="text" value="{{ member['USER_EMAIL'] }}" name="userMail">
                     </div>
-                {% endfor %}
                 <div class="buttonBox">
                     <button type="submit" name="okBtn">Je valide</button>
                 </div>

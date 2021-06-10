@@ -11,23 +11,19 @@
   justify-content: flex-start;
   width: 25%;
 }
-
 .iconBox__burgerMenu {
   margin-left: 5px;
 }
-
 .iconBox__homeMenu {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-
 .iconBox__basketMenu {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-
 .iconBox__myAccount {
   display: flex;
   flex-direction: row;
@@ -42,11 +38,9 @@ header {
   background-color: #bb4e0b;
   overflow: hidden;
 }
-
 header a, header nav {
   color: #bb4e0b;
 }
-
 header a {
   grid-column: 2;
   /*color: white;*/
@@ -64,13 +58,11 @@ header a {
     color: white;
   }*/
 }
-
 header .logo {
   font-size: 35px;
   font-weight: bold;
   padding: 25px 0;
 }
-
 header nav {
   grid-column: 4;
   display: flex;
@@ -81,7 +73,5 @@ header nav {
 .header-right {
   float: right;
 }
-
-/*# sourceMappingURL=header.css.map */
 
 /*# sourceMappingURL=header.css.map */

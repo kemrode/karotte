@@ -1,6 +1,9 @@
 @import '../Utils/mixin';
 @import '../Utils/variables';
 
+
+
+/*
 .navbar {
   overflow: hidden;
   & a:hover {
@@ -20,7 +23,7 @@
 }
 
 
-/*.dropBtnBox {
+.dropBtnBox {
   position: relative;
   display: inline-block;
   & a:hover {
@@ -28,7 +31,7 @@
       display: block;
     }
   }
-}*/
+}
 .dropContent {
   display: none;
   position: absolute;
@@ -36,7 +39,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  /*& a {
+  & a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -44,10 +47,10 @@
   }
   & a:hover {
     background-color: #ddd;
-  }*/
+  }
 }
 
-/*
+
 .dropBtn {
   background-color: #04AA6D;
   color: white;
