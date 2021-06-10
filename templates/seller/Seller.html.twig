@@ -59,7 +59,7 @@
                                 <span>1</span>
                                 <span class="iconify" data-inline="false" data-icon="eva:plus-square-fill" style="color: #6b8954; font-size: 25px;"></span>#}
                                 </div>
-                                <button class="seller-page-product-card__button" name="addToCartBtn">Add</button>
+                                <button class="seller-page-product-card__button" name="addToCartBtn" onclick="toast()">Add</button>
                             </form>
 
                         </div>
@@ -68,6 +68,7 @@
                 </div>
             </div>
             {% endfor %}
+            <div id="snackbar">Produit ajouté au panier !</div>
         </div>
     </div>
 {% endblock %}
