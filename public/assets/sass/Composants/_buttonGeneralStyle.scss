@@ -1,0 +1,26 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+.buttonBox {
+  width: 100%;
+  height: 25%;
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+  & button {
+    @include flexBoxRowJustifyCentering;
+    align-items: center;
+    width: 75%;
+    height: 50%;
+    border: 1px solid $primaryColor;
+    border-radius:$quarterRadius;
+    font-weight: bold;
+    font-size:$bigButtonFont;
+    background-color:$breakingPrimary;
+    &:hover {
+      border:2px solid $secondColor;
+      background-color:$primaryColor;
+      color:$breakingWhite;
+      box-shadow: 2px 8px 25px grey;
+    }
+  }
+}
