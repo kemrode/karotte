@@ -8,10 +8,10 @@ class ProductModel{
     public int $PROD_USER_ID;
     public string $PROD_NAME;
     public int $PROD_QTY;
-    public bool $PROD_OFFER_TAG;
-    public ?int $PROD_OFFER;
+    public bool $PROD_OFFER_TAG = false;
+    public ?int $PROD_OFFER = 0;
     public float $PROD_PRICE;
-    public ?string $PROD_ORIGIN;
+    public ?string $PROD_ORIGIN = "";
     public string $PROD_PICT;
     public ?string $PROD_DESC;
 
@@ -285,7 +285,7 @@ class ProductModel{
         try{
             // DB registration
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC) VALUES (:PROD_USER_ID, :PROD_NAME, :PROD_QTY, :PROD_OFFER_TAG, :PROD_PRICE, :PROD_ORIGIN, :PROD_PICT, :PROD_OFFER)");
+            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC) VALUES (:PROD_USER_ID, :PROD_NAME, :PROD_QTY, :PROD_OFFER_TAG, :PROD_PRICE, :PROD_ORIGIN, :PROD_PICT, :PROD_OFFER, :PROD_DESC)");
             $requete->execute([
                 "PROD_USER_ID" => $this->getPRODUSERID(),
                 "PROD_NAME" => $this->getPRODNAME(),
@@ -297,7 +297,7 @@ class ProductModel{
                 "PROD_OFFER" => $this->getPRODOFFER(),
                 "PROD_DESC" => $this->getPRODDESC()
             ]);
-
+            return $bdd->lastInsertId();
         }catch (\Exception $e){
             throw $e;
         }
@@ -307,7 +307,7 @@ class ProductModel{
         // Treatment before uploading picture
         try {
             if (empty($PICT["tmp_name"]))
-                throw new \Exception("Cette image est trop lourde pour être importee");
+                throw new \OverflowException("Cette image est trop lourde pour être importee");
 
             if (!empty($PICT["name"])) {
                 // Picture name
@@ -317,8 +317,8 @@ class ProductModel{
                 // Storage folder
                 $dateNow = new \DateTime();
                 $repositoryName = $dateNow->format("Y/W");
-                $folderPath = ROOT."/assets/img/files/product/$repositoryName";
-                $relativePath = "/assets/img/files/product/$repositoryName"."/". $nomImage;
+                $folderPath = ROOT."/assets/img/files/products/$repositoryName";
+                $relativePath = "/assets/img/files/products/$repositoryName"."/". $nomImage;
                 if (!is_dir($folderPath)) {
                     mkdir($folderPath, 0700, true);
                 }
@@ -327,9 +327,12 @@ class ProductModel{
 
                 return $relativePath;
             }else {
-                throw new \Exception("L'image n'a pas pu etre chargee");
+                throw new \Exception();
             }
-        }catch (\Exception $e) {
+        }catch (\OverflowException $e) {
+            throw $e;
+        }
+        catch(\Exception $e){
             throw new \Exception("Une erreur est survenue lors du chargement de l'image");
         }
     }

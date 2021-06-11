@@ -48,6 +48,7 @@ Class ProductController extends AbstractController
                     $product->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
             $product->setPRODUSERID($_SESSION["USER_ID"]);
+
             $product->UpdateProduct();
 
             // Unsetting all stored variable from post
@@ -79,7 +80,8 @@ Class ProductController extends AbstractController
                 "PROD_NAME" => "Nom du produit",
                 "PROD_PRICE" => "Prix",
                 "PROD_QTY" => "Quantité",
-                "PROD_DESC" => "Description"
+                "PROD_DESC" => "Description",
+                "TP_TAG" => "Catégorie"
             ];
 
             // Storing all $_POST variable into session to avoid rewriting them in the form in case of error
@@ -93,18 +95,33 @@ Class ProductController extends AbstractController
                     throw new \InvalidArgumentException("Veuillez renseigner le champs ".$error);
                 if(property_exists($newProduct, $field))
                     $newProduct->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
+                if(property_exists($tag, $field))
+                    $tag->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
+            $newProduct->setPRODUSERID($_SESSION["USER_ID"]);
 
-            var_dump($_POST);
-            if($this->GetTreatedValueFromPostIfIsset("pict") != null)
-            $pictPath = ProductModel::UploadPictureToServer($_POST["pict"]);
+            // Get the picture path and save the file if set.
+            if($_FILES["PROD_PICT"]["name"] != "")
+                $pictPath = ProductModel::UploadPictureToServer($_FILES["PROD_PICT"]);
+            // Else put a default picture
+            else
+                $pictPath = "/assets/img/files/products/default.jpg";
+
             $newProduct->setPRODPICT($pictPath);
-            $tag->PostTag();
-            $newProduct->AddProductToSellerShop();
 
+            // Saving the product and put the Id inserted into $tag
+            $tag->setTPIDPRODUCT($newProduct->AddProductToSellerShop());
+
+            // Saving the category of product
+            $tag->PostTag();
+
+            // Return feedback
             $_SESSION["message"] = "Produit ajouté";
         }
         catch(\InvalidArgumentException $e){
+            $_SESSION["alert"] = $e->getMessage();
+        }
+        catch(\OverflowException $e){
             $_SESSION["alert"] = $e->getMessage();
         }
         catch(\Exception $e){

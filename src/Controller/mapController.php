@@ -26,23 +26,6 @@ class MapController extends AbstractController {
         $_SESSION['currentZoomLevel'] = $latLongZoom->zoomLevel;
     }
 
-    #region functions for test
-    // Test functions ProductModel
-    public function addProduct(){
-        try{
-            $path = ProductModel::UploadPictureToServer($_FILES["PROD_PICT"]);
-            echo $path;
-        }
-        catch(\Exception $e){
-            return 1;
-        }
-    }
-    public function getSellerInfo(){
-        return json_encode(ProductModel::GetAllProductAndTagGroupedByTagFromSellerId(1));
-    }
-    // End test functions
-    #endregion
-
     public function Logout(){
         header("location:/");
         session_destroy();
