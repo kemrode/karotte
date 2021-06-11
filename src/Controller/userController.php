@@ -13,12 +13,6 @@ class userController extends AbstractController {
         return $this->twig->render("connection\connectionView.html.twig");
     }
 
-    public function myAccount(){
-        $memberId = $_GET['id'];
-        $memberDatas = userModel::fetchUserFromId(BDD::getInstance(), $memberId);
-        return $this->twig->render("profile\userProfil.html.twig",["member"=>$memberDatas]);
-    }
-
     public function log(){
             if (isset($_POST['okButton'])){
                 $user = new userModel();
@@ -29,6 +23,7 @@ class userController extends AbstractController {
                     $userConnected = $user->fetchUser(BDD::getInstance());
                     foreach ($userConnected as $key=>$value){
                         $_SESSION[$key]=$value;
+                        $_SESSION["basket"] = array();
                     }
                     header('Location:/');
                     return;
@@ -37,7 +32,9 @@ class userController extends AbstractController {
                 }
             }
     }
-    public function logout(){
-        userModel::logout();
+
+    public function Logout(){
+        header("location:/");
+        session_destroy();
     }
 }

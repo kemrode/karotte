@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block leftContent %}
-    {#<h1>Bienvenue sur Karotte</h1>#}
     <div id="sellerList" class="widgetContainer SellerCarousel">
         <div class="title-SellerList">
             <h2>Producteurs près de chez vous</h2>
@@ -46,6 +45,7 @@
                 </div>
             {% endfor %}
         </div>
+        <a href="/?controller=map&action=logout">Logout</a>
     </div>
 {% endblock %}
 
