@@ -1,6 +1,7 @@
 <?php
 namespace src\Controller;
 
+use http\Exception\InvalidArgumentException;
 use src\Model\BDD;
 use src\Model\ProductModel;
 use src\Model\SellerModel;
@@ -72,7 +73,7 @@ Class ProfileController extends AbstractController{
 
             // Update database
             $user->setUserId($seller->getSELLID());
-            $user->updateMember(BDD::getInstance(),$seller->getSELLID());
+            $user->updateMemberAddress(BDD::getInstance(),$seller->getSELLID());
             $seller->setSELLLOC($user::GetCoordinatesFromAdress($user->getUserAdress(), $user->getUserZipCode(), $user->getUserCity()));
             $seller->UpdateSellerInfo();
 

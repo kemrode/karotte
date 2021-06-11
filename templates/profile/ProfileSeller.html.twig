@@ -36,13 +36,13 @@
         <div class="seller-page__info">
             <div class="seller-page__info-userAddress">
                 <span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span>
-                <span><input type="text" name="userAdress" value="{{ session.userAdress??  sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
-                <span><input type="text" name="userZipCode" value="{{ session.userZipCode??  sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
-                <span><input type="text" name="userCity" value="{{ session.userCity?? sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
+                <span><input type="text" name="userAdress" value="{{ session.USER_ADDRESS??  sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
+                <span><input type="text" name="userZipCode" value="{{ session.USER_ZIP_CODE??  sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
+                <span><input type="text" name="userCity" value="{{ session.USER_CITY?? sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
             </div>
             <div class="seller-page__info-userPhone">
                 <span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span>
-                <span><input type="tel" name="userPhoneNumber" value="{{ session.userPhoneNumber?? sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
+                <span><input type="tel" name="userPhoneNumber" value="{{ session.USER_PHONE?? sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
             </div>
             <div class="seller-page__info-sellerDescription">
                 <span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span>
