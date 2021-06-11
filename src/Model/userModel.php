@@ -225,10 +225,11 @@ class userModel
         try {
             $mailLog = htmlentities($this->getUserMail());
             $pwdLog = htmlentities($this->getUserPasswd());
-            $sql = 'SELECT USER_EMAIL, USER_PWD FROM USER WHERE USER_EMAIL=:mailLog AND USER_PWD=:pwdLog';
+            $sql = 'SELECT USER_EMAIL, USER_PWD FROM USER WHERE USER_EMAIL=:mailLog LIMIT 1';
+            sleep(1);
             $request = $bdd->prepare($sql);
             $request->setFetchMode(\PDO::FETCH_CLASS, "src\Model\userModel");
-            $request->execute(['mailLog'=>$mailLog, 'pwdLog'=>$pwdLog]);
+            $request->execute(['mailLog'=>$mailLog]);
             return $request->fetch();
         } catch (\Exception $e){
             return $e->getMessage();
@@ -317,5 +318,18 @@ class userModel
         $_SESSION = array();
         session_destroy();
         header('Location:/');
+    }
+
+    //function to get the hash
+    public static function getHash(\PDO $bdd, $userMail){
+        try {
+            $sql = 'SELECT USER_PWD from USER WHERE USER_EMAIL=:userMail LIMIT 1';
+            $request = $bdd->prepare($sql);
+            $request->setFetchMode(\PDO::FETCH_CLASS, 'src\Model\userModel');
+            $request->execute(["userMail"=>$userMail]);
+            return $request->fetch();
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
     }
 }
