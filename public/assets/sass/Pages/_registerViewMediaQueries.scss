@@ -2,18 +2,26 @@
 @import '../Utils/variables';
 
 @media only screen and (max-width:600px){
+  .primaryContainer {
+    @include flexBoxColumnJustifyCentering;
+    width: auto;
+    height: 100vh;
+  }
   .itemBox{
     height: $highHandySize;
-  }
-  .item{
-    width: $highWidthSize;
   }
   .choiceBox{
     height: $mediumScreenSize;
     width: 33%;
   }
-  .buttonBox button{
-    height: $veryHighWidthSizePX;
+  .buttonBox{
+    margin-top: 25px;
+    width: 100%;
+    & button {
+      height: $veryHighWidthSizePX;
+      width: 85%;
+      @include borderRadiusQuarter;
+    }
   }
   .choiceTitle {
     &__title{
@@ -33,20 +41,9 @@
   .itemBox {
     height: $mediumScreenSize;
   }
-  .item{
-    width: $ultraHighScreenWidthSize;
-  }
-  .item input {
-    width: $ultraHighScreenWidthSize;
-  }
   .choiceBox {
     height: $superHighScreenSize;
   }
-  /*.choiceBox button {
-    width: $shortScreenButton;
-    height: $mediumScreenSize;
-    font-size: 1.5em;
-  }*/
   .choiceTitle {
     &__title{
       &--titleSize{
@@ -67,7 +64,7 @@
     font-size: 1.3em;
   }
   .buttonBox button{
-    width: 50%;
+    width: 85%;
     height: $smallScreenWidthSize;
     margin-bottom: 50px;
     @include borderRadiusQuarter;

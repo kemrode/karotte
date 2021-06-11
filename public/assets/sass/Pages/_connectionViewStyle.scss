@@ -45,6 +45,7 @@
 }
 .titleBox {
   @include flexBoxRowJustifyCentering;
+  width: 80%;
   color: $secondColor;
   &__text{
     &--shadow{
@@ -94,14 +95,9 @@
       background-color: red;
       color: white;
       border: 2px solid darkred;
-
     }
   }
 }
-//.labelBox input {
-//  width: 50%;
-//  height: 100%;
-//}
 .valBox{
   @include flexBoxRowJustifyCentering;
   width: auto;
@@ -131,7 +127,7 @@
     }
   }
   &:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
   }
 }
 .linkBox {
@@ -157,4 +153,15 @@
       font-size: $bigButtonFont;
     }
   }
+}
+.headConnection {
+  @include flexBoxRow;
+  width: auto;
+  height: auto;
+}
+.crossCloseBox {
+  @include flexBoxRowJustifyCentering;
+  align-items: start;
+  width: 20%;
+  height: auto;
 }

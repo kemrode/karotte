@@ -23,4 +23,59 @@
     margin-right: 10px;
   }
 }
+.myAccountBox{
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: auto;
+  position: relative;
+  display: inline-block;
+  //z-index: 2;
+}
+.myAccountBtn {
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+}
+header {
+  grid-column: span 2;
+  display: grid;
+  justify-content: space-between;
+  background-color: #bb4e0b;
+  a, nav {
+    color: #bb4e0b;
+  }
+  a{
+    grid-column: 2;
+    /*color: white;*/
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 40px;
+    line-height: 25px;
+    border-radius: 4px;
+    justify-content: flex-end;
+    letter-spacing: .3em;
+    color: white;
+
+    /*.active{
+      background-color: dodgerblue;
+      color: white;
+    }*/
+  }
+  .logo{
+    font-size: 35px;
+    font-weight: bold;
+    padding: 25px 0;
+  }
+  nav {
+    grid-column: 4;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+
 

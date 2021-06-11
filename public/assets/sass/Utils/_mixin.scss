@@ -46,8 +46,11 @@
 /////////////////////////
 @mixin titleManagement {
   @include flexBoxRowJustifyCentering;
+  align-items: center;
   color: black;
-  font-size: $titleSizeHandy;
+  font-size: $veryHighTextSize;
+  font-weight: bold;
+  font-style: italic;
 }
 ///////////////////////
 @mixin fontStyleButton {
