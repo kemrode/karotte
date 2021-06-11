@@ -7,13 +7,19 @@
   grid-template-rows: 80px auto;
   height: 100vh;
 }
-
-
 .checked {
   color: $primaryColor;
 }
 
-
+@media only screen and (max-width: 768px) {
+  .main {
+    @include flexBoxColumn;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+}
 /* Extra large devices (large laptops and desktops, 1500px and up) */
 @media only screen and (min-width: 1200px) {
   .seller-page__info-userAddress{

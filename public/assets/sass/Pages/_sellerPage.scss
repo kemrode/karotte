@@ -1,69 +1,70 @@
 @import "../Utils/mixin";
 @import "../Utils/variables";
 
-/* ------ SELLER PAGE ------ */
-.sellerPage{
+.sellerPage {
   background-color: white;
   border-left: $primaryColor solid thick ;
   padding: 50px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 0fr 0fr 1fr;
-  .seller-page__name {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-content: center;
-    padding: 5px;
-    h2 {
-      font-size: 1.5em;
-    }
-  }
-  .seller-page__resume{
-    grid-row: 2;
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: repeat(1, auto);
-    grid-template-rows: 3em auto;
-    padding: 5px;
-  }
-  .seller-page__rate{
-    color: $secondColor;
-    grid-column: 1;
-  }
-  .seller-page__tag{
-    grid-column: 2;
-    color: $secondColor;
-    ul{
+  &-page {
+    &__name {
       display: flex;
-      column-gap: 1em;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-content: center;
+      padding: 5px;
+      & h2 {
+        font-size: 1.5em;
+      }
+    }
+    &__resume {
+      grid-row: 2;
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: repeat(1, auto);
+      grid-template-rows: 3em auto;
+      padding: 5px;
+    }
+    &__rate {
+      color: $secondColor;
+      grid-column: 1;
+    }
+    &__tag{
+      grid-column: 2;
+      color: $secondColor;
+      & ul {
+        display: flex;
+        column-gap: 1em;
+      }
+    }
+    &__info {
+      grid-column: span 2;
+      display: flex;
+      flex-flow: column;
+      height: auto;
+      & span {
+        margin : 0 5px;
+      }
+      &-userAdress {
+        @include flexBoxColumn;
+        margin : 0 5px;
+      }
+      &-userPhone {
+        @include flexBoxRowAlignItemsCentering;
+        margin : 0 5px;
+      }
+      &-sellerDescription {
+        @include flexBoxRowAlignItemsCentering;
+        margin : 0 5px;
+      }
     }
   }
-  .seller-page__info{
-    grid-column: span 2;
-    display: flex;
-    flex-flow: column;
-    height: auto;
-    span{
-      margin : 0 5px;
-    }
-    .iconify{
-      font-size: 1.5em;
-      margin: 0 5px 0 0;
-    }
-    .seller-page__info-userAddress {
-      @include flexBoxColumn;
-      margin : 0 5px;
-    }
-    .seller-page__info-userPhone{
-      @include flexBoxRowAlignItemsCentering;
-      margin : 0 5px;
-    }
-    .seller-page__info-sellerDescription{
-      @include flexBoxRowAlignItemsCentering;
-      margin : 0 5px;
-    }
-  }
+}
+.iconify{
+  font-size: 1.5em;
+  margin: 0 5px 0 0;
 }
 .seller-page-productList{
   grid-row: 3;
@@ -82,4 +83,35 @@
 .seller-page-product-cards__category{
   font-size: 25px;
   margin-bottom: 20px;
+}
+
+/*.sellerPage{
+  .seller-page__name {
+    h2 {
+    }
+  }
+  .seller-page__resume{
+  }
+  .seller-page__rate{
+  }
+  .seller-page__tag{
+    ul{
+    }
+  }
+  .seller-page__info{
+    span{
+    }
+    .iconify{
+    }
+    .seller-page__info-userPhone{
+    }
+    .seller-page__info-sellerDescription{
+    }
+  }
+}*/
+
+@media only screen and (max-width: 768px) {
+  .sellerPage{
+
+  }
 }

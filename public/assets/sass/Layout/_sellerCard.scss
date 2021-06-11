@@ -1,0 +1,85 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+
+/* --- SELLER CARD ---*/
+@media only screen and (max-width: 768px){
+
+  .seller-cards {
+    @include flexBoxRow;
+    width: auto;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .seller-card {
+    @include flexBoxColumnJustifyCentering;
+    width: 100%;
+    height: 45vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &__image:nth-child(1){
+      order: 2;
+      width: 100%;
+      height: auto;
+      & img {
+        width: 250px;
+        height: 150px;
+      }
+    }
+    &__resume:nth-child(2) {
+      order: 1;
+      @include flexBoxColumnJustifyCentering;
+      align-items: center;
+      width: 100%;
+      height: 50%;
+      & h3 {
+        font-size:$veryHighTextSize;
+        text-decoration-line: underline;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .seller-cards{
+    display: grid;
+    grid-auto-rows: minmax(80px, auto);
+    row-gap: 2em;
+    margin: 0 20px;
+  }
+  .seller-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .seller-card__image, .seller-card__thumb{
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .seller-card__resume{
+    }
+    .seller-card__rate{
+      margin-top: 30px;
+      color: $secondColor;
+    }
+    .seller-card__tag{
+      font-size: 12px;
+      color: $secondColor;
+      position: relative;
+      top: 50px;
+      ul{
+        list-style-type: none;
+        padding: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+  }
+}

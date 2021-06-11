@@ -3,20 +3,13 @@
 
 /* ------ SELLER LIST ------ */
 #sellerList{
-  grid-row: 2;
-  grid-column: 1;
-  background-color: $breakingWhite;
+  background-color:$breakingWhite;
   text-align: center;
   padding-bottom: 25px;
-  overflow-y: auto;
-  overflow-x: hidden;
   &::-webkit-scrollbar {
     display: none;
   }
   .title-SellerList{
-    @include flexBoxRowJustifyCentering;
-    align-items: center;
-    margin: 30px 0;
     & h2 {
       border-bottom:3px solid $primaryColor;
     }
@@ -33,37 +26,50 @@
       color: $primaryColor;
     }
   }
-  /* --- SELLER CARD ---*/
-  .seller-cards{
-    display: grid;
-    grid-auto-rows: minmax(80px, auto);
-    row-gap: 2em;
-    margin: 0 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  #sellerList {
+    @include flexBoxColumn;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: auto;
+    height: 25vh;
+    padding-bottom: 5px;
   }
-  .seller-card {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    .seller-card__image, .seller-card__thumb{
-      max-width: 100%;
-      max-height: 100%;
+}
+
+@media only screen and (min-width: 992px) {
+  #sellerList{
+    grid-row: 2;
+    grid-column: 1;
+    background-color: $breakingWhite;
+    text-align: center;
+    padding-bottom: 25px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      display: none;
     }
-    .seller-card__resume{
+    .title-SellerList{
+      @include flexBoxRowJustifyCentering;
+      align-items: center;
+      margin: 30px 0;
+      & h2 {
+        border-bottom:3px solid $primaryColor;
+      }
     }
-    .seller-card__rate{
-      margin-top: 30px;
+    h2 {
       color: $secondColor;
+      font-size: 1.3em;
+      font-weight: bold;
     }
-    .seller-card__tag{
-      font-size: 12px;
-      color: $secondColor;
-      position: relative;
-      top: 50px;
-      ul{
-        list-style-type: none;
-        padding: 0;
-        bottom: 0;
-        display: flex;
-        justify-content: space-evenly;
+    h3{
+      margin-top: 0;
+      a{
+        text-decoration: none;
+        color: $primaryColor;
       }
     }
   }
