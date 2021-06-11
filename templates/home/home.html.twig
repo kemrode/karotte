@@ -1,24 +1,12 @@
 {% extends "layoutMapAndMenu.html.twig" %}
-
-{#{% block title %}Home {{ parent() }}{% endblock %}#}
-
 {% block css %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
-
 {% block leftContent %}
     <div id="sellerList" class="widgetContainer SellerCarousel">
         <div class="title-SellerList">
             <h2>Producteurs près de chez vous</h2>
         </div>
-{#
-        TEST FUNCTION PRODUCTMODEL
-        <div class="form">
-            <form method="post" action="/map/addProduct" enctype="multipart/form-data">
-                <input name="PROD_PICT" type="file">
-                <input type="submit" value="ok">
-            </form>
-        </div>#}
         <div class="seller-cards">
             {% for seller in sellerList %}
                 <div class="seller-card">
@@ -45,12 +33,9 @@
                 </div>
             {% endfor %}
         </div>
-        <a href="/?controller=map&action=logout">Logout</a>
     </div>
 {% endblock %}
-
 {% block rightContent %}
 {% endblock %}
-
 {% block javascript %}
 {% endblock %}

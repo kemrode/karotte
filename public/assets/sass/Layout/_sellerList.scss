@@ -1,0 +1,70 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+/* ------ SELLER LIST ------ */
+#sellerList{
+  grid-row: 2;
+  grid-column: 1;
+  background-color: $breakingWhite;
+  text-align: center;
+  padding-bottom: 25px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .title-SellerList{
+    @include flexBoxRowJustifyCentering;
+    align-items: center;
+    margin: 30px 0;
+    & h2 {
+      border-bottom:3px solid $primaryColor;
+    }
+  }
+  h2 {
+    color: $secondColor;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  h3{
+    margin-top: 0;
+    a{
+      text-decoration: none;
+      color: $primaryColor;
+    }
+  }
+  /* --- SELLER CARD ---*/
+  .seller-cards{
+    display: grid;
+    grid-auto-rows: minmax(80px, auto);
+    row-gap: 2em;
+    margin: 0 20px;
+  }
+  .seller-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .seller-card__image, .seller-card__thumb{
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .seller-card__resume{
+    }
+    .seller-card__rate{
+      margin-top: 30px;
+      color: $secondColor;
+    }
+    .seller-card__tag{
+      font-size: 12px;
+      color: $secondColor;
+      position: relative;
+      top: 50px;
+      ul{
+        list-style-type: none;
+        padding: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+  }
+}

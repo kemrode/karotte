@@ -6,6 +6,23 @@
   height: 100vh;
 }
 
+.checked {
+  color: #BB4E0B;
+}
+
+/* Extra large devices (large laptops and desktops, 1500px and up) */
+@media only screen and (min-width: 1200px) {
+  .seller-page__info-userAddress {
+    flex-direction: row !important;
+    align-items: center;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1500px and up) */
+@media only screen and (min-width: 1500px) {
+  .seller-page-productList-cards {
+    grid-template-columns: repeat(2, min-content);
+  }
+}
 /* ------ SELLER LIST ------ */
 #sellerList {
   grid-row: 2;
@@ -72,10 +89,6 @@
   bottom: 0;
   display: flex;
   justify-content: space-evenly;
-}
-
-.checked {
-  color: #BB4E0B;
 }
 
 /* ------ RIGHT CONTAINER ------ */
@@ -236,20 +249,6 @@
   min-height: 30px;
   width: 50%;
   height: 50%;
-}
-
-/* Extra large devices (large laptops and desktops, 1500px and up) */
-@media only screen and (min-width: 1200px) {
-  .seller-page__info-userAddress {
-    flex-direction: row !important;
-    align-items: center;
-  }
-}
-/* Extra large devices (large laptops and desktops, 1500px and up) */
-@media only screen and (min-width: 1500px) {
-  .seller-page-productList-cards {
-    grid-template-columns: repeat(2, min-content);
-  }
 }
 
 /*# sourceMappingURL=main.css.map */
