@@ -2,6 +2,7 @@
 namespace src\Controller;
 
 use http\Exception\InvalidArgumentException;
+use src\Model\BDD;
 use src\Model\ProductModel;
 use src\Model\SellerModel;
 use src\Model\userModel;
@@ -96,6 +97,29 @@ Class ProfileController extends AbstractController{
         finally {
             header("location:/Profile/SellerProfileView/$id");
             exit;
+        }
+    }
+
+    //function to update user profile
+    public function updateUser(){
+        try {
+            $memberId = $_GET['param'];
+            $zipCodeStringyfying = strval($_POST['userZipCode']);
+            $memberToUpdate = new userModel();
+            if(isset($_POST['okBtn'])){
+                $memberToUpdate->setUserPseudo(htmlentities($_POST['userPseudo']));
+                $memberToUpdate->setUserPasswd(password_hash(htmlentities($_POST['userPasswd']),PASSWORD_DEFAULT) );
+                $memberToUpdate->setUserMail(htmlentities($_POST['userMail']));
+                $memberToUpdate->setUserAdress(htmlentities($_POST['userAdress']));
+                $memberToUpdate->setUserZipCode(htmlentities($zipCodeStringyfying));
+                $memberToUpdate->setUserCity(htmlentities($_POST['userCity']));
+                $memberToUpdate->setUserPhoneNumber(htmlentities($_POST['userPhone']));
+                $memberToUpdate->updateMember(BDD::getInstance(), $memberId);
+                $view = new userController();
+                echo $view->myAccount();
+            }
+        } catch (\Exception $e){
+            return $e->getMessage();
         }
     }
 }

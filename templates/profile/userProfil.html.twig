@@ -1,42 +1,50 @@
 {% extends "layoutMapAndMenu.html.twig" %}
 {% block css %}
-<link rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" type="text/css" href="/assets/css/userProfilStylus.css">
 {% endblock %}
-{% block userProfil %}
-    <div class="primaryContainer">
-        <div class="myAccountBox">
-            <div class="titleBox">
-                <h2>compte de {{ member.userName+' '+member.userFirstname }}</h2>
-            </div>
-        </div>
-        <div class="formBox">
-            <form name="updtaeForm" method="post" class="formContainer" action="">
-                {% for member in members %}
-                    <div class="itemBox">
-                        <label class="labelBox">Changez votre pseudonyme: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userPseudo">
-                    </div>
-                    <div class="itemBox">
-                        <label class="labelBox">Changez votre adresse: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userAdress">
-                    </div>
-                    <div class="itemBox">
-                        <label class="labelBox">Changez votre mot de passe: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userPasswd">
-                    </div>
-                    <div class="itemBox">
-                        <label class="labelBox">Changez votre numéro de téléphone: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userPhone">
-                    </div>
-                    <div class="itemBox">
-                        <label class="labelBox">Changez votre e-mail: </label>
-                        <input class="inputBox" type="text" value="{{  }}" name="userMail">
-                    </div>
-                {% endfor %}
-                <div class="buttonBox">
-                    <button type="submit" name="okBtn">Je valide</button>
+{% block leftContent %}
+    <div class="primaryContainer primaryContainer__background--color">
+        <div class="mainContainer">
+            <div class="accountContainer">
+                <div class="titleBox">
+                    <h2>compte de <span>{{ member['USER_NAME']}} {{ member['USER_SURNAME'] }}</span></h2>
                 </div>
-            </form>
+                <div class="formBox">
+                    <form name="updateForm" method="post" class="formContainer" action="/?controller=Profile&action=updateUser&param={{ member['USER_ID'] }}">
+                        <div class="itemBox itemUserProfile">
+                            <label class="labelBox">Changez votre pseudonyme: </label>
+                            <input class="inputBox" type="text" value="{{ member['USER_PSEUDO'] }}" name="userPseudo">
+                        </div>
+                        <div class="itemBox itemUserProfile">
+                            <label class="labelBox">Changez votre adresse: </label>
+                            <input class="inputBox" type="text" value="{{ member['USER_ADDRESS'] }}" name="userAdress">
+                        </div>
+                        <div class="itemBox itemUserProfile">
+                            <label class="labelBox">Changez votre code postal: </label>
+                            <input class="inputBox" type="number" value="{{ member['USER_ZIP_CODE'] }}" name="userZipCode">
+                        </div>
+                        <div class="itemBox itemUserProfile">
+                            <label class="labelBox">Changez votre ville: </label>
+                            <input class="inputBox" type="text" value="{{ member['USER_CITY'] }}" name="userCity">
+                        </div>
+                        <div class="itemBox itemUserProfile">
+                            <label class="labelBox">Changez votre mot de passe: </label>
+                            <input class="inputBox" type="password" placeholder="Votre nouveau mot de passe..." name="userPasswd">
+                        </div>
+                        <div class="itemBox itemUserProfile">
+                            <label class="labelBox">Changez votre numéro de téléphone: </label>
+                            <input class="inputBox" type="text" value="{{ member['USER_PHONE'] }}" name="userPhone">
+                        </div>
+                        <div class="itemBox itemUserProfile">
+                            <label class="labelBox">Changez votre e-mail: </label>
+                            <input class="inputBox" type="text" value="{{ member['USER_EMAIL'] }}" name="userMail">
+                        </div>
+                        <div class="buttonBox">
+                            <button type="submit" name="okBtn">Je valide</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

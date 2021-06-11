@@ -14,6 +14,44 @@
     }
   }
 }
+.itemUserProfile {
+  width: 85%;
+  justify-content: normal;
+  & label {
+    @include flexBoxRow;
+    justify-content: center;
+    align-items: center;
+    font-size:$bigButtonFont;
+    background-color:$secondColor;
+    color:$breakingWhite;
+    height: 50%;
+    width: 100%;
+    border-top: black solid 1px;
+    border-left:black solid 1px ;
+    border-right:black solid 1px ;
+    border-bottom: none;
+    border-top-left-radius:45px;
+    border-top-right-radius:45px;
+  }
+  & input {
+    @include flexBoxRow;
+    padding-left: 25px;
+    width: 100%;
+    height: 50%;
+    font-weight: bold;
+    border-top: none;
+    border-left:black solid 1px ;
+    border-right:black solid 1px ;
+    border-bottom: black solid 1px;
+    border-bottom-left-radius: 45px;
+    border-bottom-right-radius: 45px;
+  }
+  & input:hover {
+    background-color:$primaryColor;
+    color:$breakingWhite;
+    font-weight: bold;
+  }
+}
 .labelBox {
   @include flexBoxRow;
   justify-content: flex-start;
