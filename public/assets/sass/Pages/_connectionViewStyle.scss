@@ -45,6 +45,7 @@
 }
 .titleBox {
   @include flexBoxRowJustifyCentering;
+  width: 80%;
   color: $secondColor;
   &__text{
     &--shadow{
@@ -152,4 +153,15 @@
       font-size: $bigButtonFont;
     }
   }
+}
+.headConnection {
+  @include flexBoxRow;
+  width: auto;
+  height: auto;
+}
+.crossCloseBox {
+  @include flexBoxRowJustifyCentering;
+  align-items: start;
+  width: 20%;
+  height: auto;
 }
