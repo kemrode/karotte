@@ -99,9 +99,6 @@ class SellerModel{
 
     public function postNewSeller(\PDO $bdd){
         try {
-            //$loctoImplode = $this->getSELLLOC();
-            //$locToInsert = implode(';',$loctoImplode);
-            var_dump($this);
             $sql = 'INSERT INTO SELLER (SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES) VALUES (:SELL_ID,:SELL_NAME,:SELL_LOC,:SELL_PRES)';
             $request = $bdd->prepare($sql);
             $request->execute([
@@ -158,7 +155,7 @@ class SellerModel{
         $info = [];
         try {
             $info['seller'] = self::GetSellerInformationFromId($id);
-            $info['user'] = userModel::fetchUserFromId($id);
+            $info['user'] = userModel::fetchUserFromId(BDD::getInstance(),$id);
             return $info;
         }
         catch (\Exception $e) {
@@ -179,6 +176,19 @@ class SellerModel{
                 "sellPres" => $this->getSELLPRES(),
                 "sellLoc" => $this->getSELLLOC(),
                 "sellId" => $this->getSELLID(),
+            ]);
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+    public function UpdateSellerLocInfo(){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("UPDATE SELLER SET SELL_LOC=:sellLoc WHERE SELL_ID=:sellId");
+            return  $requete->execute([
+                "sellLoc" => $this->getSELLLOC(),
+                "sellId" => $this->getSELLID()
             ]);
         }catch (\Exception $e){
             throw $e;

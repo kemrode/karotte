@@ -186,7 +186,6 @@ class userModel
     public string $userPhoneNumber;
     public Int $userId;
 
-    //regular expression
 #endregion
 
 

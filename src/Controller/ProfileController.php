@@ -1,7 +1,6 @@
 <?php
 namespace src\Controller;
 
-use http\Exception\InvalidArgumentException;
 use src\Model\BDD;
 use src\Model\ProductModel;
 use src\Model\SellerModel;
@@ -14,10 +13,10 @@ Class ProfileController extends AbstractController{
             "SELL_ID" => "Contacter l'administrateur réseau",
             "SELL_NAME" => "Nom boutique",
             "SELL_PRES" => "présentation vendeur",
-            "USER_ADDRESS" => "Adresse",
-            "USER_ZIP_CODE" => "Code postal",
-            "USER_CITY" => "Ville",
-            "USER_PHONE" => "téléphone"];
+            "userAdress" => "Adresse",
+            "userZipCode" => "Code postal",
+            "userCity" => "Ville",
+            "userPhoneNumber" => "téléphone"];
 
     }
 
@@ -73,8 +72,8 @@ Class ProfileController extends AbstractController{
 
             // Update database
             $user->setUserId($seller->getSELLID());
-            $user->UpdateUserInfo();
-            $seller->setSELLLOC($user::GetCoordinatesFromAdress($user->getUSERADDRESS(), $user->getUSERZIPCODE(), $user->getUSERCITY()));
+            $user->updateMember(BDD::getInstance(),$seller->getSELLID());
+            $seller->setSELLLOC($user::GetCoordinatesFromAdress($user->getUserAdress(), $user->getUserZipCode(), $user->getUserCity()));
             $seller->UpdateSellerInfo();
 
             // Unsetting all stored variable from post
@@ -102,6 +101,7 @@ Class ProfileController extends AbstractController{
             $memberId = $_GET['param'];
             $zipCodeStringyfying = strval($_POST['userZipCode']);
             $memberToUpdate = new userModel();
+            $sellerToUpdate = new SellerModel();
             if(isset($_POST['okBtn'])){
                 $memberToUpdate->setUserPseudo(htmlentities($_POST['userPseudo']));
                 $memberToUpdate->setUserPasswd(password_hash(htmlentities($_POST['userPasswd']),PASSWORD_DEFAULT) );
@@ -111,6 +111,10 @@ Class ProfileController extends AbstractController{
                 $memberToUpdate->setUserCity(htmlentities($_POST['userCity']));
                 $memberToUpdate->setUserPhoneNumber(htmlentities($_POST['userPhone']));
                 $memberToUpdate->updateMember(BDD::getInstance(), $memberId);
+
+                $sellerToUpdate->setSELLLOC($memberToUpdate::GetCoordinatesFromAdress($memberToUpdate->getUserAdress(), $memberToUpdate->getUserZipCode(), $memberToUpdate->getUserCity()));
+                $sellerToUpdate->setSELLID($memberId);
+                $sellerToUpdate->UpdateSellerLocInfo();
                 $view = new userController();
                 echo $view->myAccount();
             }
