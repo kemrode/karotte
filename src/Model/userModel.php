@@ -107,21 +107,6 @@ class userModel
         $this->userAdress = $userAdress;
     }
 
-    /**
-     * @return int
-     */
-    public function getUserZipCode(): int
-    {
-        return $this->userZipCode;
-    }
-
-    /**
-     * @param int $userZipCode
-     */
-    public function setUserZipCode(int $userZipCode): void
-    {
-        $this->userZipCode = $userZipCode;
-    }
 
     /**
      * @return string
@@ -170,6 +155,22 @@ class userModel
     public function setUserId(int $userId): void
     {
         $this->userId = $userId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserZipCode(): int
+    {
+        return $this->userZipCode;
+    }
+
+    /**
+     * @param int $userZipCode
+     */
+    public function setUserZipCode(int $userZipCode): void
+    {
+        $this->userZipCode = $userZipCode;
     }
 
     #endregion
@@ -221,9 +222,9 @@ class userModel
     }
 
     public function loginUser(\PDO $bdd){
-        $mailLog = htmlentities($this->getUserMail());
-        $pwdLog = htmlentities($this->getUserPasswd());
         try {
+            $mailLog = htmlentities($this->getUserMail());
+            $pwdLog = htmlentities($this->getUserPasswd());
             $sql = 'SELECT USER_EMAIL, USER_PWD FROM USER WHERE USER_EMAIL=:mailLog AND USER_PWD=:pwdLog';
             $request = $bdd->prepare($sql);
             $request->setFetchMode(\PDO::FETCH_CLASS, "src\Model\userModel");
@@ -290,6 +291,25 @@ class userModel
 
         }catch(\Exception $e) {
             throw $e;
+        }
+    }
+    public function updateMember(\PDO $bdd, $id){
+        try {
+            $sql = 'UPDATE USER SET USER_EMAIL=:userMail, USER_PSEUDO=:userNickname, USER_PWD=:userPwd, USER_ADDRESS=:userAddress, USER_ZIP_CODE=:userZipCode, USER_CITY=:userCity, USER_PHONE=:userPhone WHERE USER_ID=:userId';
+            $request = $bdd->prepare($sql);
+            $request->execute([
+                "userMail"=> $this->getUserMail(),
+                "userNickname"=>$this->getUserPseudo(),
+                "userPwd"=>$this->getUserPasswd(),
+                "userAddress"=>$this->getUserAdress(),
+                "userZipCode"=>$this->getUserZipCode(),
+                "userCity"=>$this->getUserCity(),
+                "userPhone"=>$this->getUserPhoneNumber(),
+                "userId"=>$id
+            ]);
+            return true;
+        } catch (\Exception $e){
+            return $e->getMessage();
         }
     }
     public static function logout(){

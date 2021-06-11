@@ -37,6 +37,7 @@ class userController extends AbstractController {
                 $user->setUserMail($_POST['connMail']);
                 $user->setUserPasswd($_POST['connPWD']);
                 $result = $user->loginUser(BDD::getInstance());
+                var_dump($result);
                 if($result==true){
                     $userConnected = $user->fetchUser(BDD::getInstance());
                     foreach ($userConnected as $key=>$value){
@@ -52,4 +53,24 @@ class userController extends AbstractController {
     public function logout(){
         userModel::logout();
     }
+
+    //function to verify the hash -- to complete for Karotte
+    /*private function verifyHash($userMail, $userPasswd){
+        try {
+            if(isset($_POST['pwdToPost'])){
+                $hash = '';
+                $arrayHash = userModel::getHash(BDDconfig::getInstance(), $userMail);
+                foreach ($arrayHash as $key=>$value){
+                    $hash = $value ;
+                }
+                if (password_verify($userPasswd, $hash)){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }*/
 }
