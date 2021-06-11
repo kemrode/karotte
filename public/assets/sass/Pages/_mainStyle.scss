@@ -1,4 +1,5 @@
-@import "../sass/Utils/mixin";
+@import "../Utils/mixin";
+@import "../Utils/variables";
 
 .main{
   display: grid;
@@ -6,30 +7,36 @@
   grid-template-rows: 80px auto;
   height: 100vh;
 }
-
 /* ------ SELLER LIST ------ */
-
 #sellerList{
   grid-row: 2;
   grid-column: 1;
-  background-color: white;
+  background-color: $breakingWhite;
   text-align: center;
-
-  .title-SellerList{
-    margin: 30px 0;
+  padding-bottom: 25px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
   }
-
+  .title-SellerList{
+    @include flexBoxRowJustifyCentering;
+    align-items: center;
+    margin: 30px 0;
+    & h2 {
+      border-bottom:3px solid $primaryColor;
+    }
+  }
   h2 {
-    color: #6B8954;
+    color: $secondColor;
     font-size: 1.3em;
     font-weight: bold;
   }
-
   h3{
     margin-top: 0;
     a{
       text-decoration: none;
-      color: #bb4e0b;
+      color: $primaryColor;
     }
   }
   /* --- SELLER CARD ---*/
@@ -39,31 +46,24 @@
     row-gap: 2em;
     margin: 0 20px;
   }
-
   .seller-card {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-
     .seller-card__image, .seller-card__thumb{
       max-width: 100%;
       max-height: 100%;
     }
-
     .seller-card__resume{
-
     }
-
     .seller-card__rate{
       margin-top: 30px;
-      color: #6b8954;
+      color: $secondColor;
     }
-
     .seller-card__tag{
       font-size: 12px;
-      color: #6b8954;
+      color: $secondColor;
       position: relative;
       top: 50px;
-
       ul{
         list-style-type: none;
         padding: 0;
@@ -76,21 +76,17 @@
 }
 
 .checked {
-  color: #bb4e0b;
+  color: $primaryColor;
 }
-
-
 /* ------ RIGHT CONTAINER ------ */
 #map{
   height: 100vh;
   grid-column: 2;
 }
-
 /* ------ SELLER PAGE ------ */
-
 .sellerPage{
   background-color: white;
-  border-left: #bb4e0b solid thick ;
+  border-left: $primaryColor solid thick ;
   padding: 50px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -105,7 +101,6 @@
       font-size: 1.5em;
     }
   }
-
   .seller-page__resume{
     grid-row: 2;
     grid-column: span 2;
@@ -114,21 +109,18 @@
     grid-template-rows: 3em auto;
     padding: 5px;
   }
-
   .seller-page__rate{
-    color: #6b8954;
+    color: $secondColor;
     grid-column: 1;
   }
-
   .seller-page__tag{
     grid-column: 2;
-    color: #6b8954;
+    color: $secondColor;
     ul{
       display: flex;
       column-gap: 1em;
     }
   }
-
   .seller-page__info{
     grid-column: span 2;
     display: flex;
@@ -141,7 +133,6 @@
       font-size: 1.5em;
       margin: 0 5px 0 0;
     }
-
     .seller-page__info-userAddress {
       @include flexBoxColumn;
       margin : 0 5px;
@@ -149,14 +140,13 @@
     .seller-page__info-userPhone{
       @include flexBoxRowAlignItemsCentering;
       margin : 0 5px;
-      }
+    }
     .seller-page__info-sellerDescription{
       @include flexBoxRowAlignItemsCentering;
       margin : 0 5px;
     }
   }
 }
-
 .seller-page-productList{
   grid-row: 3;
   grid-column: span 5;
@@ -164,7 +154,6 @@
   row-gap: 5em;
   padding: 20px 0;
 }
-
 .seller-page-productList-cards{
   display: grid;
   grid-template-columns: repeat(1,min-content);
@@ -172,32 +161,25 @@
   column-gap: 1em;
   row-gap: 1em;
 }
-
 .seller-page-product-cards__category{
   font-size: 25px;
   margin-bottom: 20px;
 }
-
 /* ------ PRODUCT CARD ------ */
-
 .seller-page-product-card{
-  /*border: solid 0.2em black;*/
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2,1fr);
   grid-template-rows: 165px;
-
   .seller-page-product-card__image{
     width: auto;
     height: 100%;
     margin-right: 10px;
-
     img{
       width: auto;
       height: 100%;
     }
   }
-
   .seller-page-product-card__info{
     display: grid;
     align-content: center;
@@ -205,19 +187,17 @@
     grid-template-columns: 130px auto;
     column-gap: 1em;
     row-gap: 1em;
-   input{
+    input{
       width: 100%;
-   }
+    }
     h3{
       font-size: 2em;
       grid-row: 1;
     }
-
     .seller-page-product-description{
       grid-row: 2;
       grid-column: span 2;
     }
-
     .seller-page-product-card__price{
       font-size: 1.2em;
       font-weight: bold;
@@ -227,19 +207,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
       &::after{
         content: "€";
       }
     }
-
     .seller-page-product-card__quantity{
       grid-row: 3;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
     .seller-page-product-card__button{
       grid-column: 2;
       grid-row: 3;
@@ -250,7 +227,6 @@
     }
   }
 }
-
 /* Extra large devices (large laptops and desktops, 1500px and up) */
 @media only screen and (min-width: 1200px) {
   .seller-page__info-userAddress{
