@@ -1,0 +1,91 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+.sellerPage {
+  background-color: white;
+  border-left: $primaryColor solid thick ;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 0fr 0fr 1fr;
+  &-page {
+    &__name {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-content: center;
+      padding: 5px;
+      & h2 {
+        font-size: 1.5em;
+      }
+    }
+    &__resume {
+      grid-row: 2;
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: repeat(1, auto);
+      grid-template-rows: 3em auto;
+      padding: 5px;
+    }
+    &__rate {
+      color: $secondColor;
+      grid-column: 1;
+    }
+    &__tag{
+      grid-column: 2;
+      color: $secondColor;
+      & ul {
+        display: flex;
+        column-gap: 1em;
+      }
+    }
+    &__info {
+      grid-column: span 2;
+      display: flex;
+      flex-flow: column;
+      height: auto;
+      & span {
+        margin : 0 5px;
+      }
+      &-userAdress {
+        @include flexBoxColumn;
+        margin : 0 5px;
+      }
+      &-userPhone {
+        @include flexBoxRowAlignItemsCentering;
+        margin : 0 5px;
+      }
+      &-sellerDescription {
+        @include flexBoxRowAlignItemsCentering;
+        margin : 0 5px;
+      }
+    }
+  }
+}
+.iconify{
+  font-size: 1.5em;
+  margin: 0 5px 0 0;
+}
+.seller-page-productList{
+  grid-row: 3;
+  grid-column: span 5;
+  display: grid;
+  row-gap: 5em;
+  padding: 20px 0;
+}
+.seller-page-productList-cards{
+  display: grid;
+  grid-template-columns: repeat(1,min-content);
+  grid-auto-rows: auto;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+.seller-page-product-cards__category{
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 768px) {
+  .sellerPage{
+
+  }
+}

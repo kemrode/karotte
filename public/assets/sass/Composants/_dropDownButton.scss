@@ -21,9 +21,13 @@
     background-color: #ddd;
   }
 }
-.myAccountBox:hover .dropContent{
-  display: block;
+@media only screen and (max-width:768px) {
 }
-.myAccountBox:hover .myAccountBtn {
-  background-color: #3e8e41;
+@media only screen and (min-width: 992px) {
+  .myAccountBox:hover .dropContent{
+    display: block;
+  }
+  .myAccountBox:hover .myAccountBtn {
+    background-color: #3e8e41;
+  }
 }

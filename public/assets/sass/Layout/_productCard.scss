@@ -1,0 +1,65 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+/* ------ PRODUCT CARD ------ */
+.seller-page-product-card{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: 165px;
+  .seller-page-product-card__image{
+    width: auto;
+    height: 100%;
+    margin-right: 10px;
+    img{
+      width: auto;
+      height: 100%;
+    }
+  }
+  .seller-page-product-card__info{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    grid-template-columns: 130px auto;
+    column-gap: 1em;
+    row-gap: 1em;
+    input{
+      width: 100%;
+    }
+    h3{
+      font-size: 2em;
+      grid-row: 1;
+    }
+    .seller-page-product-description{
+      grid-row: 2;
+      grid-column: span 2;
+    }
+    .seller-page-product-card__price{
+      font-size: 1.2em;
+      font-weight: bold;
+      grid-row: 1;
+      width:65px;
+      grid-column: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &::after{
+        content: "€";
+      }
+    }
+    .seller-page-product-card__quantity{
+      grid-row: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .seller-page-product-card__button{
+      grid-column: 2;
+      grid-row: 3;
+      min-width: 50px;
+      min-height: 30px;
+      width: 50%;
+      height: 50%;
+    }
+  }
+}
