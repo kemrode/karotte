@@ -11,23 +11,19 @@
   justify-content: flex-start;
   width: 25%;
 }
-
 .iconBox__burgerMenu {
   margin-left: 5px;
 }
-
 .iconBox__homeMenu {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-
 .iconBox__basketMenu {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-
 .iconBox__myAccount {
   display: flex;
   flex-direction: row;
@@ -41,11 +37,9 @@ header {
   justify-content: space-between;
   background-color: #BB4E0B;
 }
-
 header a, header nav {
   color: #BB4E0B;
 }
-
 header a {
   grid-column: 2;
   text-align: center;
@@ -58,7 +52,6 @@ header a {
   letter-spacing: 0.3em;
   color: #FBFCFC;
 }
-
 header nav {
   grid-column: 4;
   display: flex;
@@ -83,7 +76,6 @@ header nav {
     width: 100%;
     height: auto;
   }
-
   header a {
     font-size: 25px;
   }
@@ -100,7 +92,6 @@ header nav {
   .logo {
     padding-left: 5px;
   }
-
   .logo a {
     font-size: 20px;
   }
@@ -145,7 +136,6 @@ header nav {
   z-index: 5;
   right: 0;
 }
-
 .dropContent a {
   color: black;
   padding: 12px 16px;
@@ -154,7 +144,6 @@ header nav {
   z-index: 5;
   font-size: 1.2em;
 }
-
 .dropContent a:hover {
   background-color: #ddd;
 }
@@ -195,6 +184,5 @@ header nav {
     height: 100%;
   }
 }
-/*# sourceMappingURL=header.css.map */
 
 /*# sourceMappingURL=header.css.map */
