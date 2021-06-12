@@ -225,30 +225,6 @@
   margin-bottom: 20px;
 }
 
-/*.sellerPage{
-  .seller-page__name {
-    h2 {
-    }
-  }
-  .seller-page__resume{
-  }
-  .seller-page__rate{
-  }
-  .seller-page__tag{
-    ul{
-    }
-  }
-  .seller-page__info{
-    span{
-    }
-    .iconify{
-    }
-    .seller-page__info-userPhone{
-    }
-    .seller-page__info-sellerDescription{
-    }
-  }
-}*/
 /* ------ PRODUCT CARD ------ */
 .seller-page-product-card {
   display: grid;
