@@ -20,6 +20,7 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 #overMapContainer::-webkit-scrollbar {
   display: none;
 }
@@ -43,5 +44,6 @@
 /* Medium devices (landscape tablets, 768px and up) */
 /* Large devices (laptops/desktops, 992px and up) */
 /* Extra large devices (large laptops and desktops, 1200px and up) */
+/*# sourceMappingURL=map.css.map */
 
 /*# sourceMappingURL=map.css.map */
