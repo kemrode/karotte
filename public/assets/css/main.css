@@ -17,9 +17,11 @@
   overflow-x: hidden;
   /* --- SELLER CARD ---*/
 }
+
 #sellerList::-webkit-scrollbar {
   display: none;
 }
+
 #sellerList .title-SellerList {
   display: flex;
   flex-direction: row;
@@ -27,45 +29,55 @@
   align-items: center;
   margin: 30px 0;
 }
+
 #sellerList .title-SellerList h2 {
   border-bottom: 3px solid #BB4E0B;
 }
+
 #sellerList h2 {
   color: #6B8954;
   font-size: 1.3em;
   font-weight: bold;
 }
+
 #sellerList h3 {
   margin-top: 0;
 }
+
 #sellerList h3 a {
   text-decoration: none;
   color: #BB4E0B;
 }
+
 #sellerList .seller-cards {
   display: grid;
   grid-auto-rows: minmax(80px, auto);
   row-gap: 2em;
   margin: 0 20px;
 }
+
 #sellerList .seller-card {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
+
 #sellerList .seller-card .seller-card__image, #sellerList .seller-card .seller-card__thumb {
   max-width: 100%;
   max-height: 100%;
 }
+
 #sellerList .seller-card .seller-card__rate {
   margin-top: 30px;
   color: #6B8954;
 }
+
 #sellerList .seller-card .seller-card__tag {
   font-size: 12px;
   color: #6B8954;
   position: relative;
   top: 50px;
 }
+
 #sellerList .seller-card .seller-card__tag ul {
   list-style-type: none;
   padding: 0;
@@ -93,6 +105,7 @@
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 0fr 0fr 1fr;
 }
+
 .sellerPage .seller-page__name {
   display: flex;
   flex-flow: row nowrap;
@@ -100,9 +113,11 @@
   align-content: center;
   padding: 5px;
 }
+
 .sellerPage .seller-page__name h2 {
   font-size: 1.5em;
 }
+
 .sellerPage .seller-page__resume {
   grid-row: 2;
   grid-column: span 2;
@@ -111,42 +126,51 @@
   grid-template-rows: 3em auto;
   padding: 5px;
 }
+
 .sellerPage .seller-page__rate {
   color: #6B8954;
   grid-column: 1;
 }
+
 .sellerPage .seller-page__tag {
   grid-column: 2;
   color: #6B8954;
 }
+
 .sellerPage .seller-page__tag ul {
   display: flex;
   column-gap: 1em;
 }
+
 .sellerPage .seller-page__info {
   grid-column: span 2;
   display: flex;
   flex-flow: column;
   height: auto;
 }
+
 .sellerPage .seller-page__info span {
   margin: 0 5px;
 }
+
 .sellerPage .seller-page__info .iconify {
   font-size: 1.5em;
   margin: 0 5px 0 0;
 }
+
 .sellerPage .seller-page__info .seller-page__info-userAddress {
   display: flex;
   flex-direction: column;
   margin: 0 5px;
 }
+
 .sellerPage .seller-page__info .seller-page__info-userPhone {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 0 5px;
 }
+
 .sellerPage .seller-page__info .seller-page__info-sellerDescription {
   display: flex;
   flex-direction: row;
@@ -182,15 +206,18 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 165px;
 }
+
 .seller-page-product-card .seller-page-product-card__image {
   width: auto;
   height: 100%;
   margin-right: 10px;
 }
+
 .seller-page-product-card .seller-page-product-card__image img {
   width: auto;
   height: 100%;
 }
+
 .seller-page-product-card .seller-page-product-card__info {
   display: grid;
   align-content: center;
@@ -199,17 +226,21 @@
   column-gap: 1em;
   row-gap: 1em;
 }
+
 .seller-page-product-card .seller-page-product-card__info input {
   width: 100%;
 }
+
 .seller-page-product-card .seller-page-product-card__info h3 {
   font-size: 2em;
   grid-row: 1;
 }
+
 .seller-page-product-card .seller-page-product-card__info .seller-page-product-description {
   grid-row: 2;
   grid-column: span 2;
 }
+
 .seller-page-product-card .seller-page-product-card__info .seller-page-product-card__price {
   font-size: 1.2em;
   font-weight: bold;
@@ -220,15 +251,18 @@
   justify-content: center;
   align-items: center;
 }
+
 .seller-page-product-card .seller-page-product-card__info .seller-page-product-card__price::after {
   content: "€";
 }
+
 .seller-page-product-card .seller-page-product-card__info .seller-page-product-card__quantity {
   grid-row: 3;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .seller-page-product-card .seller-page-product-card__info .seller-page-product-card__button {
   grid-column: 2;
   grid-row: 3;
@@ -251,5 +285,6 @@
     grid-template-columns: repeat(2, min-content);
   }
 }
+/*# sourceMappingURL=main.css.map */
 
 /*# sourceMappingURL=main.css.map */
