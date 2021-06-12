@@ -4,15 +4,18 @@ namespace src\Model;
 class ProductModel{
 
     #region Attibutes ProductModel
-    private int $PROD_ID;
-    private int $PROD_USER_ID;
-    private string $PROD_NAME;
-    private int $PROD_QTY;
-    private bool $PROD_OFFER_TAG;
-    private ?int $PROD_OFFER;
-    private float $PROD_PRICE;
-    private ?string $PROD_ORIGIN;
-    private string $PROD_PICT;
+    public int $PROD_ID;
+    public int $PROD_USER_ID;
+    public string $PROD_NAME;
+    public int $PROD_QTY;
+    public bool $PROD_OFFER_TAG = false;
+    public ?int $PROD_OFFER = 0;
+    public float $PROD_PRICE;
+    public ?string $PROD_ORIGIN = "";
+    public string $PROD_PICT;
+    public ?string $PROD_DESC;
+
+
     #endregion
 
     #region getters and setters ProductModel
@@ -187,6 +190,25 @@ class ProductModel{
         $this->PROD_PICT = $PROD_PICT;
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getPRODDESC(): ?string
+    {
+        return $this->PROD_DESC;
+    }
+
+    /**
+     * @param string|null $PROD_DESC
+     * @return ProductModel
+     */
+    public function setPRODDESC(?string $PROD_DESC): ProductModel
+    {
+        $this->PROD_DESC = $PROD_DESC;
+        return $this;
+    }
+
     #endregion
 
 
@@ -194,7 +216,7 @@ class ProductModel{
     public static function GetAllProductFromUserId(int $userId){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_USER_ID =:user_ID");
+            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC FROM PRODUCT WHERE PROD_USER_ID =:user_ID");
             $requete->execute([
                 "user_ID" => $userId
             ]);
@@ -206,7 +228,7 @@ class ProductModel{
     public static function GetProductFromProductId(int $prodId){
         try{
             $bdd = BDD::getInstance();
-        $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_ID =:PROD_ID");
+        $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC FROM PRODUCT WHERE PROD_ID =:PROD_ID");
             $requete->execute([
                 "PROD_ID" => $prodId
             ]);
@@ -220,7 +242,7 @@ class ProductModel{
             $result = [];
             $bdd = BDD::getInstance();
             $tagList = TagModel::GetAllTagsFromSellerId($sellerId);
-            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER FROM PRODUCT WHERE PROD_USER_ID =:user_ID AND PROD_ID in (SELECT TP_ID_PRODUCT FROM TAGPRODUCT WHERE TP_TAG =:TP_TAG)");
+            $requete = $bdd->prepare("SELECT PROD_ID, PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC FROM PRODUCT WHERE PROD_USER_ID =:user_ID AND PROD_ID in (SELECT TP_ID_PRODUCT FROM TAGPRODUCT WHERE TP_TAG =:TP_TAG)");
 
             /* @var $tag TagModel */
             foreach ($tagList as $tag){
@@ -236,6 +258,26 @@ class ProductModel{
         }
     }
 
+    public static function IsThisProductBelongToSeller($userId, $productId){
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT PROD_USER_ID FROM PRODUCT WHERE PROD_ID=:productId");
+            $requete->execute([
+                "productId" => $productId
+            ]);
+            $result = $requete->fetch();
+            if($result)
+                return $result["PROD_USER_ID"] == $userId;
+            else{
+             throw new \Exception("Ce produit n'a pas été trouvé dans la base de donnée");
+            }
+
+        }
+        catch(\Exception $e) {
+            throw $e;
+        }
+    }
+
     #endregion
 
     #region POST
@@ -243,7 +285,7 @@ class ProductModel{
         try{
             // DB registration
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER) VALUES (:PROD_USER_ID, :PROD_NAME, :PROD_QTY, :PROD_OFFER_TAG, :PROD_PRICE, :PROD_ORIGIN, :PROD_PICT, :PROD_OFFER)");
+            $requete = $bdd->prepare("INSERT INTO PRODUCT (PROD_USER_ID, PROD_NAME, PROD_QTY, PROD_OFFER_TAG, PROD_PRICE, PROD_ORIGIN, PROD_PICT, PROD_OFFER, PROD_DESC) VALUES (:PROD_USER_ID, :PROD_NAME, :PROD_QTY, :PROD_OFFER_TAG, :PROD_PRICE, :PROD_ORIGIN, :PROD_PICT, :PROD_OFFER, :PROD_DESC)");
             $requete->execute([
                 "PROD_USER_ID" => $this->getPRODUSERID(),
                 "PROD_NAME" => $this->getPRODNAME(),
@@ -252,9 +294,10 @@ class ProductModel{
                 "PROD_PRICE" => $this->getPRODPRICE(),
                 "PROD_ORIGIN" => $this->getPRODORIGIN(),
                 "PROD_PICT" => $this->getPRODPICT(),
-                "PROD_OFFER" => $this->getPRODOFFER()
+                "PROD_OFFER" => $this->getPRODOFFER(),
+                "PROD_DESC" => $this->getPRODDESC()
             ]);
-
+            return $bdd->lastInsertId();
         }catch (\Exception $e){
             throw $e;
         }
@@ -264,7 +307,7 @@ class ProductModel{
         // Treatment before uploading picture
         try {
             if (empty($PICT["tmp_name"]))
-                throw new \Exception("Cette image est trop lourde pour être importee");
+                throw new \OverflowException("Cette image est trop lourde pour être importee");
 
             if (!empty($PICT["name"])) {
                 // Picture name
@@ -274,8 +317,8 @@ class ProductModel{
                 // Storage folder
                 $dateNow = new \DateTime();
                 $repositoryName = $dateNow->format("Y/W");
-                $folderPath = ROOT."/assets/img/files/product/$repositoryName";
-                $relativePath = "/assets/img/files/product/$repositoryName"."/". $nomImage;
+                $folderPath = ROOT."/assets/img/files/products/$repositoryName";
+                $relativePath = "/assets/img/files/products/$repositoryName"."/". $nomImage;
                 if (!is_dir($folderPath)) {
                     mkdir($folderPath, 0700, true);
                 }
@@ -284,9 +327,12 @@ class ProductModel{
 
                 return $relativePath;
             }else {
-                throw new \Exception("L'image n'a pas pu etre chargee");
+                throw new \Exception();
             }
-        }catch (\Exception $e) {
+        }catch (\OverflowException $e) {
+            throw $e;
+        }
+        catch(\Exception $e){
             throw new \Exception("Une erreur est survenue lors du chargement de l'image");
         }
     }
@@ -294,6 +340,23 @@ class ProductModel{
     #endregion
 
     #region PUT
+
+    public function UpdateProduct(){
+        try{
+            // DB registration
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_NAME=:PROD_NAME, PROD_PRICE=:PROD_PRICE, PROD_DESC=:PROD_DESC WHERE PROD_USER_ID=:PROD_USER_ID");
+            $requete->execute([
+                "PROD_NAME" => $this->getPRODNAME(),
+                "PROD_PRICE" => $this->getPRODPRICE(),
+                "PROD_DESC" => $this->getPRODDESC(),
+                "PROD_USER_ID" => $this->getPRODUSERID(),
+            ]);
+
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
 
     public function UpdateOffer($offerAmount){
         try{
@@ -309,9 +372,11 @@ class ProductModel{
             throw $e;
         }
     }
+
+
 #endregion
 
-#region DELETE
+    #region DELETE
     public static function DeleteProduct(int $productID){
         try{
             $bdd = BDD::getInstance();

@@ -14,10 +14,10 @@ Class ProfileController extends AbstractController{
             "SELL_ID" => "Contacter l'administrateur réseau",
             "SELL_NAME" => "Nom boutique",
             "SELL_PRES" => "présentation vendeur",
-            "USER_ADDRESS" => "Adresse",
-            "USER_ZIP_CODE" => "Code postal",
-            "USER_CITY" => "Ville",
-            "USER_PHONE" => "téléphone"];
+            "userAdress" => "Adresse",
+            "userZipCode" => "Code postal",
+            "userCity" => "Ville",
+            "userPhoneNumber" => "téléphone"];
 
     }
 
@@ -35,7 +35,8 @@ Class ProfileController extends AbstractController{
             "sellerList"=>$sellerList,
             "sellerProduct"=>$sellerProduct,
             "message"=> $this->getFlashMessage("message"),
-            "alerte"=> $this->getFlashMessage("alerte")]);
+            "alert"=> $this->getFlashMessage("alert")
+        ]);
     }
 
     public function CancelCurrentModification($id){
@@ -50,8 +51,6 @@ Class ProfileController extends AbstractController{
 
     public function UpdateSellerProfile($id){
         try {
-            unset($_SESSION['alerte']);
-            unset($_SESSION['message']);
             $user = new userModel();
             $seller = new SellerModel();
 
@@ -74,8 +73,8 @@ Class ProfileController extends AbstractController{
 
             // Update database
             $user->setUserId($seller->getSELLID());
-            $user->UpdateUserInfo();
-            $seller->setSELLLOC($user::GetCoordinatesFromAdress($user->getUSERADDRESS(), $user->getUSERZIPCODE(), $user->getUSERCITY()));
+            $user->updateMemberAddress(BDD::getInstance(),$seller->getSELLID());
+            $seller->setSELLLOC($user::GetCoordinatesFromAdress($user->getUserAdress(), $user->getUserZipCode(), $user->getUserCity()));
             $seller->UpdateSellerInfo();
 
             // Unsetting all stored variable from post
@@ -86,13 +85,10 @@ Class ProfileController extends AbstractController{
             $_SESSION["message"] = "Profil mis à jour";
         }
         catch (\InvalidArgumentException $arg) {
-            $_SESSION["alerte"] = $arg->getMessage();
-        }
-        catch(\BadMethodCallException $e){
-            $_SESSION["alerte"] = "Une ereur s est produite : ".$e->getMessage();
+            $_SESSION["alert"] = $arg->getMessage();
         }
         catch (\Exception $e) {
-            $_SESSION["alerte"] = "Une ereur s est produite : ".$e->getMessage();
+            $_SESSION["alert"] = "Une ereur s est produite : ".$e->getMessage();
         }
         finally {
             header("location:/Profile/SellerProfileView/$id");
@@ -106,6 +102,7 @@ Class ProfileController extends AbstractController{
             $memberId = $_GET['param'];
             $zipCodeStringyfying = strval($_POST['userZipCode']);
             $memberToUpdate = new userModel();
+            $sellerToUpdate = new SellerModel();
             if(isset($_POST['okBtn'])){
                 $memberToUpdate->setUserPseudo(htmlentities($_POST['userPseudo']));
                 $memberToUpdate->setUserPasswd(password_hash(htmlentities($_POST['userPasswd']),PASSWORD_DEFAULT) );
@@ -115,6 +112,10 @@ Class ProfileController extends AbstractController{
                 $memberToUpdate->setUserCity(htmlentities($_POST['userCity']));
                 $memberToUpdate->setUserPhoneNumber(htmlentities($_POST['userPhone']));
                 $memberToUpdate->updateMember(BDD::getInstance(), $memberId);
+
+                $sellerToUpdate->setSELLLOC($memberToUpdate::GetCoordinatesFromAdress($memberToUpdate->getUserAdress(), $memberToUpdate->getUserZipCode(), $memberToUpdate->getUserCity()));
+                $sellerToUpdate->setSELLID($memberId);
+                $sellerToUpdate->UpdateSellerLocInfo();
                 $view = new userController();
                 echo $view->myAccount();
             }

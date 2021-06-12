@@ -186,7 +186,6 @@ class userModel
     public string $userPhoneNumber;
     public Int $userId;
 
-    //regular expression
 #endregion
 
 
@@ -302,6 +301,23 @@ class userModel
                 "userMail"=> $this->getUserMail(),
                 "userNickname"=>$this->getUserPseudo(),
                 "userPwd"=>$this->getUserPasswd(),
+                "userAddress"=>$this->getUserAdress(),
+                "userZipCode"=>$this->getUserZipCode(),
+                "userCity"=>$this->getUserCity(),
+                "userPhone"=>$this->getUserPhoneNumber(),
+                "userId"=>$id
+            ]);
+            return true;
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    public function updateMemberAddress(\PDO $bdd, $id){
+        try {
+            $sql = 'UPDATE USER SET USER_ADDRESS=:userAddress, USER_ZIP_CODE=:userZipCode, USER_CITY=:userCity, USER_PHONE=:userPhone WHERE USER_ID=:userId';
+            $request = $bdd->prepare($sql);
+            $request->execute([
                 "userAddress"=>$this->getUserAdress(),
                 "userZipCode"=>$this->getUserZipCode(),
                 "userCity"=>$this->getUserCity(),
