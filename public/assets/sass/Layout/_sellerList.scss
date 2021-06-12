@@ -6,9 +6,6 @@
   background-color:$breakingWhite;
   text-align: center;
   padding-bottom: 25px;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   .title-SellerList{
     & h2 {
       border-bottom:3px solid $primaryColor;
@@ -29,14 +26,18 @@
 }
 
 @media only screen and (max-width: 768px) {
+
   #sellerList {
-    @include flexBoxColumn;
-    align-items: center;
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: auto;
+    @include flexBoxColumnJustifyCentering;
+    align-items: baseline;
+    overflow: auto;
+    width: 100%;
     height: 25vh;
     padding-bottom: 5px;
+    white-space: nowrap;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 
@@ -47,8 +48,7 @@
     background-color: $breakingWhite;
     text-align: center;
     padding-bottom: 25px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: auto;
     &::-webkit-scrollbar {
       display: none;
     }

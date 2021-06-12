@@ -7,18 +7,20 @@
 
   .seller-cards {
     @include flexBoxRow;
+    justify-content: space-evenly;
     width: auto;
-    height: 100vh;
+    min-height:min-content;
+    overflow-x: auto;
     overflow-y: auto;
-    overflow-x: hidden;
     &::-webkit-scrollbar {
       display: none;
     }
   }
   .seller-card {
-    @include flexBoxColumnJustifyCentering;
+    @include flexBoxColumn;
     width: 100%;
-    height: 45vh;
+    height: auto;
+    border-right: 1px solid $primaryColor;
     overflow-x: hidden;
     overflow-y: auto;
     &::-webkit-scrollbar {
@@ -38,13 +40,26 @@
       @include flexBoxColumnJustifyCentering;
       align-items: center;
       width: 100%;
-      height: 50%;
+      height: 100%;
       & h3 {
         font-size:$veryHighTextSize;
         text-decoration-line: underline;
         margin-bottom: 15px;
       }
     }
+    &__tag {
+      @include flexBoxColumnJustifyCentering;
+      align-items: center;
+      padding-top: 5px;
+      & ul {
+        & li {
+          font-size:$bigButtonFont ;
+        }
+      }
+    }
+  }
+  .title-SellerList {
+    display: none;
   }
 }
 
