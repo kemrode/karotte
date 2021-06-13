@@ -1,0 +1,138 @@
+{% extends"layoutMapAndMenu.html.twig" %}
+
+{% block css %}
+    <link rel="stylesheet" href="/assets/css/SellerProfile.css">
+    <link rel="stylesheet" href="/assets/css/PopUp.css">
+{% endblock %}
+
+{% block rightContent %}
+
+    <div class="sellerPage">
+        <form method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{sellerInfo.seller.SELL_ID }}">
+        <div class="seller-page__name">
+            <input type="hidden" name="SELL_ID" value="{{sellerInfo.seller.SELL_ID }}" required>
+            <input class="heading h2" type="text" name="SELL_NAME" value="{{session.SELL_NAME??  sellerInfo.seller.SELL_NAME }}" placeholder="Nom de la boutique" required>
+            <div class="buttons">
+                <input type="submit" value="Mettre à jour">
+                <input type="reset" value="Annuler" onclick="ReloadPage({{ sellerInfo.seller.SELL_ID }})">
+            </div>
+        </div>
+        <div class="seller-page__resume">
+        <div class="seller-page__rate">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span>53 avis</span>
+        </div>
+        <div class="seller-page__tag">
+            <ul class="tags">
+                <li>Légumes</li>
+                <li>Bio</li>
+                <li>Permaculture</li>
+            </ul>
+        </div>
+        <div class="seller-page__info">
+            <div class="seller-page__info-userAddress">
+                <span class="iconify" data-inline="false" data-icon="clarity:map-marker-line"></span>
+                <span><input type="text" name="userAdress" value="{{ session.USER_ADDRESS??  sellerInfo.user.USER_ADDRESS }}" placeholder="Adresse" required></span>
+                <span><input type="text" name="userZipCode" value="{{ session.USER_ZIP_CODE??  sellerInfo.user.USER_ZIP_CODE }}" placeholder="Code postal" required></span>
+                <span><input type="text" name="userCity" value="{{ session.USER_CITY?? sellerInfo.user.USER_CITY }}" placeholder="Ville" required></span>
+            </div>
+            <div class="seller-page__info-userPhone">
+                <span class="iconify" data-inline="false" data-icon="clarity:phone-handset-line"></span>
+                <span><input type="tel" name="userPhoneNumber" value="{{ session.USER_PHONE?? sellerInfo.user.USER_PHONE }}" placeholder="Téléphone"></span>
+            </div>
+            <div class="seller-page__info-sellerDescription">
+                <span class="iconify" data-inline="false" data-icon="ant-design:file-text-outlined"></span>
+                <span><textarea name="SELL_PRES" placeholder="Une petite description" required>{{ session.SELL_PRES?? sellerInfo.seller.SELL_PRES }}</textarea></span>
+            </div>
+
+        </div>
+        </div>
+    </form>
+    <div class="seller-page-productList">
+        <a href="#modal" role="button" class="button button__link"><span  class="iconify" data-icon="gridicons:add" data-inline="false"style="font-size: 30px"></span>Ajouter un produit</a>
+
+            {#<h2>Liste des produits</h2>#}
+            {#For each tags create category#}
+            {% for key, category in sellerProduct %}
+                <div class="seller-page-product-cards">
+                    <h3 class="seller-page-product-cards__category">{{ key }}</h3>
+
+                    <div class="seller-page-productList-cards">
+                        {#For each product create card#}
+                        {% for product in category %}
+                        <form method="POST" action="/Product/UpdateProductInfo">
+                            <input type="hidden" name="PROD_ID" value="{{ product.PROD_ID }}">
+                            <div class="seller-page-product-card" id="{{ product.PROD_ID }}">
+
+                                <div class="seller-page-product-card__image">
+                                    <img class="seller-page-product-card__image" src="{{ product.PROD_PICT }}">
+                                </div>
+                                <div class="seller-page-product-card__info">
+                                    <input class="heading h3" type="text" name="PROD_NAME" placeholder="Nom du Produit" value="{{ product.PROD_NAME }}" required>
+                                    <input class="seller-page-product-description" type="text" name="PROD_DESC" name="PROD_NAME" placeholder="Description du produit" value="{{ product.PROD_DESC }}" required>
+                                    <input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" placeholder="Prix" value="{{ product.PROD_PRICE }}" required>
+                                </div>
+                                <div class="seller-page-product-card__quantity">
+                                    <button type="submit" value=""><span class="iconify" data-icon="dashicons:update-alt" data-inline="false" style="font-size: 30px"></span>Mettre à jour</button>
+                                    <button class="deleteProductButton"><span class="iconify" data-icon="ic:baseline-delete-forever" data-inline="false" style="font-size: 30px"></span>Supprimer</button>
+                                </div>
+                            </div>
+                        </form>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include "profile/AddProductPopUp.html.twig" %}
+    {% endblock %}
+
+    {% block leftContent %}
+
+        {#<h1>Bienvenue sur Karotte</h1>#}
+        <div id="sellerList" class="widgetContainer SellerCarousel">
+            <div class="title-SellerList">
+                <h2>Producteurs près de chez vous</h2>
+            </div>
+            <div class="seller-cards">
+                {% for seller in sellerList %}
+                    <div class="seller-card">
+                        <div class="seller-card__image">
+                            <img class="seller-card__thumb" src="/assets/img/img1.jpg">
+                        </div>
+                        <div class="seller-card__resume">
+                            <h3><a href=/Seller/GetSellerById/{{ seller.SELL_ID }}>{{ seller['SELL_NAME'] }}</a></h3>
+                            <div class="seller-card__rate">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <div class="seller-card__tag">
+                                <ul>
+                                    <li>Légumes</li>
+                                    <li>Bio</li>
+                                    <li>Permaculture</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+    {% block javascript %}
+    {% if(alert) %}
+        <script>alert("{{ alert }}")</script>
+    {% endif %}
+        {% if(message) %}
+        <script>alert("{{ message }}")</script>
+    {% endif %}
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="/assets/js/sellerProfile.js"></script>
+{% endblock %}

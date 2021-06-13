@@ -1,10 +1,11 @@
 <?php
 namespace src\Model;
 use PDO;
+//require_once ROOT."./../configProd.php";
+require_once ROOT."/configProd.php";
 
 class BDD
 {
-    //private static $_instance = null;
     private static $_instance = null;
 
     protected function __construct()
@@ -19,12 +20,8 @@ class BDD
     public static function initInstance()
     {
         try {
-            $hostname = "mysql-karotte.alwaysdata.net";
-            $username = "karotte";
-            $password = "KarotteDu76";
-            $dbname = "karotte_db";
 
-            SELF::$_instance = new PDO('mysql:host=' . $hostname . ';dbname=' . $dbname . ';charset=utf8', $username, $password);
+            SELF::$_instance = new PDO('mysql:host='.hostname.';dbname='.dbname.';charset=utf8', username, password);
             SELF::$_instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         } catch (\Exception $e) {

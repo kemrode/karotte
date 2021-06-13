@@ -1,0 +1,33 @@
+@import '../Utils/mixin';
+@import '../Utils/variables';
+.dropContent {
+  display: none;
+  position: absolute;
+  height: auto;
+  background-color: #f1f1f1;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 5;
+  right: 0;
+  & a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    z-index: 5;
+    font-size: 1.2em;
+  }
+  & a:hover {
+    background-color: #ddd;
+  }
+}
+@media only screen and (max-width:768px) {
+}
+@media only screen and (min-width: 992px) {
+  .myAccountBox:hover .dropContent{
+    display: block;
+  }
+  .myAccountBox:hover .myAccountBtn {
+    background-color: #3e8e41;
+  }
+}

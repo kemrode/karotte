@@ -1,3 +1,42 @@
+.SellerCarousel {
+  padding: 10px;
+  align-self: flex-end;
+  text-align: center;
+  width: 100%;
+}
 
+.widgetContainer {
+  background-color: white;
+}
+
+.SellerList {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.main {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .main {
+    justify-content: flex-start;
+  }
+
+  .SellerCarousel {
+    align-self: flex-start;
+    height: 100%;
+    width: 30%;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/*# sourceMappingURL=seller.css.map */
 
 /*# sourceMappingURL=seller.css.map */

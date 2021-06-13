@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href = "/assets/css/main.css" />
     <link rel="stylesheet" href = "/assets/css/map.css" />
-    <link rel="stylesheet" href = "/assets/css/header.css" />
     <link rel="shortcut icon" type="image/ico" href="/assets/favicon.ico">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -19,32 +18,38 @@
 
 <body>
 <div id ="map"></div>
-<div class="connectionBox">
-    {%  block connectionBlock %}{% endblock %}
-</div>
 <div id="overMapContainer">
     <div class="main">
         <header>
-            <a href="/" class="logo">KAROTTE</a>
-            <nav>
-                <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
-                <a href="#"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
-                <a href="#"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
-            </nav>
+            {% include 'header/headerView.html.twig' %}
         </header>
-        {% block leftContent %}{% endblock %}
+        {% block connectionBlock %}{% endblock %}
+        {% block registerSellerBlock %}{% endblock %}
+        {% block registerUserBlock %}{% endblock %}
         {% block rightContent %}{% endblock %}
+        {% block leftContent %}{% endblock %}
     </div>
-
 </div>
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
-{#<script type="text/javascript" src="/assets/js/header.js"></script>#}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
+<script src="/assets/js/utils.js"></script>
+<script>
+{% if ('currentLatitude' in session|keys and 'currentLongitude' in session|keys and 'currentZoomLevel' in session|keys) %}
+let latitude = {{ session.currentLatitude}};
+let longitude = {{ session.currentLongitude}};
+let zoomLevel = {{ session.currentZoomLevel}};
+{% else %}
+let latitude = "";
+let longitude = "";
+let zoomLevel = "";
+{% endif %}
+</script>
 <script src="/assets/js/map.js"></script>
-{% block js %}{% endblock %}
+<script src="/assets/js/utils.js"></script>
+{% block javascript %}{% endblock %}
 </html>

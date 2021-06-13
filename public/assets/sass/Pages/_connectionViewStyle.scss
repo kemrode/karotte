@@ -1,0 +1,167 @@
+@import '../Utils/mixin';
+@import '../Utils/variables';
+
+.connectionContainer {
+  position: absolute;
+  z-index: 1;
+  @include flexBoxRowJustifyCentering;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  &__backgroundColor{
+    &--color{
+      //opacity: 0.5;
+      //background-color: black;
+    }
+  }
+}
+.blackBlock{
+  position: absolute;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  &__backgroundColor{
+    &--opacity{
+      background-color: black;
+      opacity: 0.5;
+    }
+  }
+}
+.connBox {
+  position: absolute;
+  z-index: 3;
+  @include flexBoxColumn;
+  justify-content: space-evenly;
+  &__backgroundColor{
+    &--color{
+      background-color: $primaryColor;
+    }
+  }
+  &__border{
+    &--radius{
+      border-radius: $quarterRadius;
+    }
+  }
+}
+.titleBox {
+  @include flexBoxRowJustifyCentering;
+  width: 80%;
+  color: $secondColor;
+  &__text{
+    &--shadow{
+      text-shadow:
+              0 0 7px #fff,
+              0 0 10px #fff,
+              0 0 21px #fff,
+              0 0 42px #0fa,
+              0 0 82px #0fa,
+              0 0 92px #0fa,
+              0 0 102px #0fa,
+              0 0 151px #0fa;
+    }
+  }
+}
+.formBox {
+  @include flexBoxColumn;
+  width: auto;
+  height: 50%;
+}
+.formInputBox{
+  @include flexBoxColumn;
+  justify-content: space-evenly;
+  width: auto;
+  height: 75%;
+}
+.itemConnBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: 40%;
+  &__input {
+    @include borderRadiusQuarter;
+  }
+}
+.labelBox{
+  @include flexBoxRowJustifyCentering;
+  width: 100%;
+  height: 50%;
+  & input {
+    width: 50%;
+    height: 100%;
+    transition: background-color 500ms;
+    &:focus {
+      border: 2px solid darkblue;
+    }
+    &:not(:focus):invalid {
+      background-color: red;
+      color: white;
+      border: 2px solid darkred;
+    }
+  }
+}
+.valBox{
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: 20%;
+  & input {
+    @include borderRadiusQuarter;
+  }
+}
+.buttonInput{
+  width: 50%;
+  height: 100%;
+  transition-property: transform;
+  transition-duration: 400ms;
+  &__border{
+    &--radius{
+      @include borderRadiusQuarter;
+    }
+  }
+  &__font{
+    &--size{
+      font-size: $titleSizeHandy;
+    }
+  }
+  &__background{
+    &--color{
+      background-color: $secondColor;
+    }
+  }
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+.linkBox {
+  @include flexBoxRow;
+  width: auto;
+  height: 20%;
+  justify-content: space-evenly;
+}
+.signUpBox {
+  @include flexBoxRowJustifyCentering;
+  width: auto;
+  height: 25%;
+  &__font{
+    &--size{
+      font-size: $bigButtonFont;
+    }
+  }
+}
+.forgetPasswdBox {
+  @include flexBoxRowJustifyCentering;
+  &__font{
+    &--size{
+      font-size: $bigButtonFont;
+    }
+  }
+}
+.headConnection {
+  @include flexBoxRow;
+  width: auto;
+  height: auto;
+}
+.crossCloseBox {
+  @include flexBoxRowJustifyCentering;
+  align-items: start;
+  width: 20%;
+  height: auto;
+}

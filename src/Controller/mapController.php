@@ -3,7 +3,6 @@ namespace src\Controller;
 
 use src\Model\ProductModel;
 use src\Model\SellerModel;
-use Twig\Node\Expression\Unary\PosUnary;
 
 class MapController extends AbstractController {
 
@@ -20,15 +19,16 @@ class MapController extends AbstractController {
         }
     }
 
-    public function addProduct(){
-        try{
-            ProductModel::UploadPictureToServer($_FILES);
-        }
-        catch(\Exception $e){
-            return 1;
-        }
+    public function RegisterMapPos($latLongZoom){
+        $latLongZoom = json_decode($latLongZoom);
+        $_SESSION['currentLatitude'] = $latLongZoom->latitude;
+        $_SESSION['currentLongitude'] = $latLongZoom->longitude;
+        $_SESSION['currentZoomLevel'] = $latLongZoom->zoomLevel;
     }
 
-
+    public function Logout(){
+        header("location:/");
+        session_destroy();
+    }
 
 }

@@ -1,0 +1,64 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+
+@media only screen and (max-width: 600px) {
+  .connBox{
+    &__sizingBox{
+      &--size{
+        width: 75%;
+        height: 30vh;
+      }
+    }
+  }
+  .titleBox {
+    &__fontsize {
+      &--size{
+        font-size: $bigButtonFont;
+      }
+    }
+  }
+
+}
+@media only screen and (min-width: 600px){
+  .connBox{
+    &__sizingBox{
+      &--size{
+        width: 75%;
+        height: 30vh;
+      }
+    }
+  }
+  .titleBox {
+    &__fontsize {
+      &--size{
+        font-size: $bigButtonFont;
+      }
+    }
+  }
+
+}
+@media only screen and (min-width: 768px){
+
+}
+@media only screen and (min-width: 992px) {
+  .connBox {
+    &__sizingBox{
+      &--size {
+        width: 600px;
+        height: 600px;
+      }
+    }
+  }
+  .titleBox {
+    &__fontsize {
+      &--size{
+        font-size: $veryHighTextSize;
+      }
+    }
+  }
+
+}
+@media only screen and (min-width: 1200px) {
+
+}

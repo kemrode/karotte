@@ -1,0 +1,447 @@
+@charset "UTF-8";
+.main {
+  display: grid;
+  grid-template-columns: 480px auto;
+  grid-template-rows: 80px auto;
+  height: 100vh;
+}
+
+.checked {
+  color: #BB4E0B;
+}
+
+#snackbar {
+  visibility: hidden;
+  /* Hidden by default. Visible on click */
+  min-width: 250px;
+  /* Set a default minimum width */
+  margin-left: -125px;
+  /* Divide value of min-width by 2 */
+  background-color: #333;
+  /* Black background color */
+  color: #fff;
+  /* White text color */
+  text-align: center;
+  /* Centered text */
+  border-radius: 2px;
+  /* Rounded borders */
+  padding: 16px;
+  /* Padding */
+  position: fixed;
+  /* Sit on top of the screen */
+  z-index: 1;
+  /* Add a z-index if needed */
+  left: 50%;
+  /* Center the snackbar */
+  bottom: 30px;
+  /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible;
+  /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1500px and up) */
+@media only screen and (min-width: 1200px) {
+  .seller-page__info-userAddress {
+    flex-direction: row !important;
+    align-items: center;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1500px and up) */
+@media only screen and (min-width: 1500px) {
+  .seller-page-productList-cards {
+    grid-template-columns: repeat(2, min-content);
+  }
+}
+/* ------ SELLER LIST ------ */
+#sellerList {
+  background-color: #FBFCFC;
+  text-align: center;
+  padding-bottom: 25px;
+}
+#sellerList .title-SellerList h2 {
+  border-bottom: 3px solid #BB4E0B;
+}
+#sellerList h2 {
+  color: #6B8954;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+#sellerList h3 {
+  margin-top: 0;
+}
+#sellerList h3 a {
+  text-decoration: none;
+  color: #BB4E0B;
+}
+
+@media only screen and (max-width: 768px) {
+  #sellerList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    overflow: auto;
+    width: 100%;
+    height: 25vh;
+    padding-bottom: 5px;
+    white-space: nowrap;
+  }
+  #sellerList::-webkit-scrollbar {
+    display: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+  #sellerList {
+    grid-row: 2;
+    grid-column: 1;
+    background-color: #FBFCFC;
+    text-align: center;
+    padding-bottom: 25px;
+    overflow: auto;
+  }
+  #sellerList::-webkit-scrollbar {
+    display: none;
+  }
+  #sellerList .title-SellerList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+  }
+  #sellerList .title-SellerList h2 {
+    border-bottom: 3px solid #BB4E0B;
+  }
+  #sellerList h2 {
+    color: #6B8954;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  #sellerList h3 {
+    margin-top: 0;
+  }
+  #sellerList h3 a {
+    text-decoration: none;
+    color: #BB4E0B;
+  }
+}
+/* ------ RIGHT CONTAINER ------ */
+#map {
+  height: 100vh;
+  grid-column: 2;
+}
+
+.sellerPage {
+  background-color: white;
+  border-left: #BB4E0B solid thick;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 0fr 0fr 1fr;
+}
+.sellerPage-page__name {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-content: center;
+  padding: 5px;
+}
+.sellerPage-page__name h2 {
+  font-size: 1.5em;
+}
+.sellerPage-page__resume {
+  grid-row: 2;
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  grid-template-rows: 3em auto;
+  padding: 5px;
+}
+.sellerPage-page__rate {
+  color: #6B8954;
+  grid-column: 1;
+}
+.sellerPage-page__tag {
+  grid-column: 2;
+  color: #6B8954;
+}
+.sellerPage-page__tag ul {
+  display: flex;
+  column-gap: 1em;
+}
+.sellerPage-page__info {
+  grid-column: span 2;
+  display: flex;
+  flex-flow: column;
+  height: auto;
+}
+.sellerPage-page__info span {
+  margin: 0 5px;
+}
+.sellerPage-page__info-userAdress {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5px;
+}
+.sellerPage-page__info-userPhone {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 5px;
+}
+.sellerPage-page__info-sellerDescription {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.iconify {
+  font-size: 1.5em;
+  margin: 0 5px 0 0;
+}
+
+.seller-page-productList {
+  grid-row: 3;
+  grid-column: span 5;
+  display: grid;
+  row-gap: 5em;
+  padding: 20px 0;
+}
+
+.seller-page-productList-cards {
+  display: grid;
+  grid-template-columns: repeat(1, min-content);
+  grid-auto-rows: auto;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+.seller-page-product-cards__category {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+/* ------ PRODUCT CARD ------ */
+.seller-page-product-card {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 165px;
+}
+.seller-page-product-card .seller-page-product-card__image {
+  width: auto;
+  height: 100%;
+  margin-right: 10px;
+}
+.seller-page-product-card .seller-page-product-card__image img {
+  width: auto;
+  height: 100%;
+}
+.seller-page-product-card .seller-page-product-card__info {
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-template-columns: 130px auto;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+.seller-page-product-card .seller-page-product-card__info input {
+  width: 100%;
+}
+.seller-page-product-card .seller-page-product-card__info h3 {
+  font-size: 2em;
+  grid-row: 1;
+}
+.seller-page-product-card .seller-page-product-card__info .seller-page-product-description {
+  grid-row: 2;
+  grid-column: span 2;
+}
+.seller-page-product-card .seller-page-product-card__info .seller-page-product-card__price {
+  font-size: 1.2em;
+  font-weight: bold;
+  grid-row: 1;
+  width: 65px;
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seller-page-product-card .seller-page-product-card__info .seller-page-product-card__price::after {
+  content: "€";
+}
+.seller-page-product-card .seller-page-product-card__info .seller-page-product-card__quantity {
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.seller-page-product-card .seller-page-product-card__info .seller-page-product-card__button {
+  grid-column: 2;
+  grid-row: 3;
+  min-width: 50px;
+  min-height: 30px;
+  width: 50%;
+  height: 50%;
+}
+
+/* --- SELLER CARD ---*/
+@media only screen and (max-width: 768px) {
+  .seller-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: auto;
+    min-height: min-content;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+  .seller-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .seller-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    border-right: 1px solid #BB4E0B;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .seller-card::-webkit-scrollbar {
+    display: none;
+  }
+  .seller-card__image:nth-child(1) {
+    order: 2;
+    width: 100%;
+    height: auto;
+  }
+  .seller-card__image:nth-child(1) img {
+    width: 250px;
+    height: 150px;
+  }
+  .seller-card__resume:nth-child(2) {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .seller-card__resume:nth-child(2) h3 {
+    font-size: 1.8em;
+    text-decoration-line: underline;
+    margin-bottom: 15px;
+  }
+  .seller-card__tag {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+  }
+  .seller-card__tag ul li {
+    font-size: 1.2em;
+  }
+
+  .title-SellerList {
+    display: none;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .seller-cards {
+    display: grid;
+    grid-auto-rows: minmax(80px, auto);
+    row-gap: 2em;
+    margin: 0 20px;
+  }
+
+  .seller-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .seller-card .seller-card__image, .seller-card .seller-card__thumb {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .seller-card .seller-card__rate {
+    margin-top: 30px;
+    color: #6B8954;
+  }
+  .seller-card .seller-card__tag {
+    font-size: 12px;
+    color: #6B8954;
+    position: relative;
+    top: 50px;
+  }
+  .seller-card .seller-card__tag ul {
+    list-style-type: none;
+    padding: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

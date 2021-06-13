@@ -11,6 +11,10 @@
   @include flexBoxRow;
   justify-content: center;
 }
+@mixin flexBoxRowAlignItemsCentering {
+  @include flexBoxRow;
+  align-items: center;
+}
 @mixin flexBoxColumnJustifyCentering {
   @include flexBoxColumn;
   justify-content: center;
@@ -42,11 +46,19 @@
 /////////////////////////
 @mixin titleManagement {
   @include flexBoxRowJustifyCentering;
+  align-items: center;
   color: black;
-  font-size: $titleSizeHandy;
+  font-size: $veryHighTextSize;
+  font-weight: bold;
+  font-style: italic;
 }
 ///////////////////////
 @mixin fontStyleButton {
   font-size: $bigButtonFont;
   font-weight: bold;
+}
+////////////////////////
+@mixin marginTopBottomTen {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

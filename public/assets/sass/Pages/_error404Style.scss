@@ -1,0 +1,31 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+.primaryContainer {
+  @include flexBoxColumnJustifyCentering;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+}
+.errorContainer {
+  @include flexBoxColumnJustifyCentering;
+  margin: 0;
+  width: 70%;
+  height: 75vh;
+  &__image {
+    &--backgroundImage {
+      background-image: url("/assets/img/carrot404.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+.imgContainer .msgContainer {
+  @include flexBoxRowJustifyCentering;
+}
+.imgBox .msgBox {
+  @include flexBoxRowJustifyCentering;
+}

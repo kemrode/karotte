@@ -1,0 +1,51 @@
+*,
+* before::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.primaryContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  width: 70%;
+  height: 75vh;
+}
+
+.errorContainer__image--backgroundImage {
+  background-image: url("/assets/img/carrot404.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  width: auto;
+  height: 100%;
+}
+
+.imgContainer .msgContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.imgBox .msgBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=errorStylus.css.map */
+
+/*# sourceMappingURL=errorStylus.css.map */
