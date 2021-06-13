@@ -105,6 +105,7 @@
   border-left: #bb4e0b solid thick ;
   padding: 50px;
   display: grid;
+  overflow: auto;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 0fr 0fr 1fr;
   .seller-page__name {
