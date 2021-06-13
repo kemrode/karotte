@@ -9,6 +9,7 @@
         <div class="seller-page__name">
             <h2>{{ seller.SELL_NAME }}</h2>
         </div>
+        <div class="ProfileAccess"><button onclick="accessToProfilePage({{ seller.SELL_ID }})">Modifier mon magasin</button></div>
         <div class="seller-page__resume">
 
             <div class="seller-page__rate">
@@ -109,6 +110,5 @@
 {% endblock %}
 
 {% block javascript %}
-
-
+<script src="/assets/js/sellerProfile.js"></script>
 {% endblock %}

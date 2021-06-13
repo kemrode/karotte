@@ -26,17 +26,29 @@ Class ProfileController extends AbstractController{
     }
 
     public function SellerProfileView($id){
-        $id = ($id!="")?$id:$_SESSION["USER_ID"];
-        $seller = SellerModel::GetSellerAndUserInformationFromId($id);
-        $sellerList = SellerModel::GetAllSellers();
-        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-        return $this->twig->render("profile/ProfileSeller.html.twig",[
-            "sellerInfo"=>$seller,
-            "sellerList"=>$sellerList,
-            "sellerProduct"=>$sellerProduct,
-            "message"=> $this->getFlashMessage("message"),
-            "alert"=> $this->getFlashMessage("alert")
-        ]);
+        try {
+            $id = ($id!="")?$id:$_SESSION["USER_ID"];
+            if($id != $_SESSION["USER_ID"] || $id == "")
+                throw new \Exception("Vous n'avez pas le droit d'accéder à cette page vendeur");
+            $seller = SellerModel::GetSellerAndUserInformationFromId($id);
+            $sellerList = SellerModel::GetAllSellers();
+            $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
+
+        }
+        catch(\Exception $e){
+            $_SESSION["alerte"] = $e->getMessage();
+            header("location:/");
+            exit;
+        }
+        finally{
+            return $this->twig->render("profile/ProfileSeller.html.twig",[
+                "sellerInfo"=>$seller,
+                "sellerList"=>$sellerList,
+                "sellerProduct"=>$sellerProduct,
+                "message"=> $this->getFlashMessage("message"),
+                "alert"=> $this->getFlashMessage("alert")
+            ]);
+        }
     }
 
     public function CancelCurrentModification($id){
