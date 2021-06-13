@@ -496,6 +496,24 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.blackBlock {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.blackBlock__register {
+  position: absolute;
+  z-index: 2;
+}
+
+.blackBlock__basket {
+  position: absolute;
+  grid-area: 1/1/12/12;
+  z-index: 2;
+}
+
 /*# sourceMappingURL=registerStyle.css.map */
 
 /*# sourceMappingURL=registerStyle.css.map */

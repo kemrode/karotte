@@ -7,6 +7,162 @@ body {
   box-sizing: border-box;
 }
 
+.basketGrid {
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(10, 10%);
+}
+
+.basketContainer {
+  grid-area: 2/2/11/11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.basketContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.basketBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FBFCFC;
+  width: 85%;
+  height: 85%;
+  z-index: 3;
+  border: 1px solid #BB4E0B;
+  border-radius: 45px;
+}
+
+.basketTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 100%;
+  height: 25%;
+  margin-left: 15%;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 85%;
+  height: 100px;
+  align-items: center;
+  border-bottom: 3px solid #BB4E0B;
+}
+
+.titleBox h2 {
+  font-size: 1.3em;
+}
+
+.titleBox h2 span {
+  font-style: italic;
+  color: #BB4E0B;
+}
+
+@media only screen and (max-width: 768px) {
+  .titleBox h1 {
+    font-size: 1.1em;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .titleBox h2 h1 {
+    font-size: 1.8em;
+  }
+}
+.basketContentBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  height: auto;
+  background-color: #FBFCFC;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.tabBasket {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 20px;
+}
+
+.basketTitleTab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.basketTitleTab thead {
+  width: 100%;
+  height: auto;
+}
+
+.basketTitleTab thead th {
+  width: 15%;
+}
+
+.odd {
+  background-color: #BB4E0B;
+}
+
+.even {
+  background-color: #FBBB6E;
+}
+
+.getInfoBasket {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.infoBasket {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+}
+
+.blackBlock {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.blackBlock__register {
+  position: absolute;
+  z-index: 2;
+}
+
+.blackBlock__basket {
+  position: absolute;
+  grid-area: 1/1/12/12;
+  z-index: 2;
+}
+
 /*# sourceMappingURL=basketStylus.css.map */
 
 /*# sourceMappingURL=basketStylus.css.map */
