@@ -8,10 +8,21 @@
   align-items: center;
   border-bottom: 3px solid $primaryColor;
     & h2 {
-      font-size:$veryHighTextSize;
+      font-size: 1.3em;
       & span {
         font-style: italic;
         color:$primaryColor;
       }
     }
+}
+
+@media only scree and(max-width:768px) {
+
+}
+@media only screen and(min-width: 768px) {
+  .titleBox {
+    & h2 {
+      font-size:$veryHighTextSize ;
+    }
+  }
 }

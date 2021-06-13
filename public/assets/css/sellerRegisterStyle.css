@@ -135,7 +135,6 @@ body {
   justify-content: space-evenly;
   align-items: center;
   width: auto;
-  height: 10vh;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -154,7 +153,6 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 1.2em;
   background-color: #6B8954;
   color: #FBFCFC;
   height: 50%;
@@ -238,6 +236,26 @@ body {
 .txtAreaBox textarea placeholder {
   color: grey;
 }
+
+@media only screen and (max-width: 768px) {
+  .itemUserProfile label {
+    font-size: 0.9em;
+  }
+
+  .itemBox {
+    height: 30vh;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .itemUserProfile label {
+    font-size: 1.2em;
+  }
+
+  .itemBox {
+    height: 10vh;
+  }
+}
+/*# sourceMappingURL=sellerRegisterStyle.css.map */
 
 /*# sourceMappingURL=sellerRegisterStyle.css.map */
 

@@ -1,7 +1,12 @@
 <?php
 namespace src\Model;
 use PDO;
+<<<<<<< HEAD
 require_once ROOT."/../configProd.php";
+=======
+//require_once ROOT."./../configProd.php";
+require_once ROOT."./configProd.php";
+>>>>>>> eaca602506e2ece5dd6c5e43026c927a001ecab4
 
 class BDD
 {

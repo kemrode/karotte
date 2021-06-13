@@ -20,6 +20,11 @@ body {
   display: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .primaryContainer {
+    width: 100%;
+  }
+}
 .tabBarMenuContainer {
   display: flex;
   flex-direction: row;
