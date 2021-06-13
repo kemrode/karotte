@@ -237,17 +237,11 @@ header nav {
 }
 
 .item input {
+  border: 1px solid black;
   width: 85%;
   color: grey;
   border-radius: 45px;
   transition: background-color 500ms;
-  /*
-  &:not(:focus):invalid {
-    background-color: red;
-    color: white;
-    border: 2px solid darkred;
-
-  }*/
 }
 
 .item input:focus {
@@ -365,13 +359,17 @@ header nav {
   background-color: #B0FBD0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .primaryContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: auto;
+    width: 100%;
     height: 100vh;
+  }
+
+  .registerContainer {
+    width: 100%;
   }
 
   .itemBox {

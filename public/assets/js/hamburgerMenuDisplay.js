@@ -2,7 +2,6 @@
 //let contentDrop = document.getElementsByClassName(".dropContent");
 let blockToDisplay = document.querySelectorAll(".minSize");
 let contentDrop = document.querySelectorAll(".dropMinSize");
-console.log(blockToDisplay);
 //function to display hamburgerMenu when media max-width 768px
 //member icone:
 blockToDisplay[1].addEventListener('click', ()=>{

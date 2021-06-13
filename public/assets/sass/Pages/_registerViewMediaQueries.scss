@@ -1,11 +1,14 @@
 @import '../Utils/mixin';
 @import '../Utils/variables';
 
-@media only screen and (max-width:600px){
+@media only screen and (max-width:768px){
   .primaryContainer {
     @include flexBoxColumnJustifyCentering;
-    width: auto;
+    width: 100%;
     height: 100vh;
+  }
+  .registerContainer {
+    width: 100%;
   }
   .itemBox{
     height: $highHandySize;
@@ -30,12 +33,6 @@
       }
     }
   }
-}
-@media only screen and (min-width:600px){
-
-}
-@media only screen and (min-width:768px){
-
 }
 @media only screen and (min-width:992px){
   .itemBox {

@@ -51,7 +51,7 @@
   width: 100%;
   height: 100%;
   & input {
-    //background-color: white;
+    border: 1px solid black;
     width: 85%;
     color: grey;
     @include borderRadiusQuarter;
@@ -59,13 +59,7 @@
     &:focus {
       background-color: $thirdColor;
       border: 2px solid darkblue;
-    }/*
-    &:not(:focus):invalid {
-      background-color: red;
-      color: white;
-      border: 2px solid darkred;
-
-    }*/
+    }
   }
 }
 .subtitleRegister{
