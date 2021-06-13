@@ -3,7 +3,6 @@
 
 .buttonBox {
   width: 100%;
-  height: 25%;
   @include flexBoxRowJustifyCentering;
   align-items: center;
   & button {
@@ -22,5 +21,15 @@
       color:$breakingWhite;
       box-shadow: 2px 8px 25px grey;
     }
+  }
+}
+@media only screen and(max-width: 768px) {
+  .buttonBox {
+    height: 50%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .buttonBox {
+    height: 25%;
   }
 }

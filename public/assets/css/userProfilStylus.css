@@ -13,13 +13,20 @@ body {
   width: auto;
   height: 100vh;
 }
+
 .primaryContainer__background--color {
   background-color: #BB4E0B;
 }
+
 .primaryContainer::-webkit-scrollbar {
   display: none;
 }
 
+@media only screen and (max-width: 768px) {
+  .primaryContainer {
+    width: 100%;
+  }
+}
 .mainContainer {
   display: flex;
   flex-direction: column;
@@ -31,6 +38,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .mainContainer::-webkit-scrollbar {
   display: none;
 }
@@ -45,6 +53,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .accountContainer::-webkit-scrollbar {
   display: none;
 }
@@ -58,14 +67,21 @@ body {
   align-items: center;
   border-bottom: 3px solid #BB4E0B;
 }
+
 .titleBox h2 {
-  font-size: 1.8em;
+  font-size: 1.3em;
 }
+
 .titleBox h2 span {
   font-style: italic;
   color: #BB4E0B;
 }
 
+@media only screen and (min-width: 768px) {
+  .titleBox h2 {
+    font-size: 1.8em;
+  }
+}
 .formBox {
   display: flex;
   flex-direction: column;
@@ -76,6 +92,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .formBox::-webkit-scrollbar {
   display: none;
 }
@@ -83,22 +100,31 @@ body {
 .formContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 100%;
 }
 
+@media only screen and (max-width: 768px) {
+  .formContainer {
+    height: 100vh;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .formContainer {
+    height: 100%;
+    justify-content: space-evenly;
+  }
+}
 .itemBox {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: auto;
-  height: 10vh;
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .itemBox__presentation--height {
   height: auto;
 }
@@ -107,12 +133,12 @@ body {
   width: 85%;
   justify-content: normal;
 }
+
 .itemUserProfile label {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 1.2em;
   background-color: #6B8954;
   color: #FBFCFC;
   height: 50%;
@@ -124,6 +150,7 @@ body {
   border-top-left-radius: 45px;
   border-top-right-radius: 45px;
 }
+
 .itemUserProfile input {
   display: flex;
   flex-direction: row;
@@ -138,6 +165,7 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
 }
+
 .itemUserProfile input:hover {
   background-color: #BB4E0B;
   color: #FBFCFC;
@@ -151,6 +179,7 @@ body {
   width: 65%;
   padding-bottom: 5px;
 }
+
 .labelBox label {
   font-weight: bold;
 }
@@ -161,12 +190,14 @@ body {
   justify-content: flex-start;
   width: 65%;
 }
+
 .inputBox input {
   border: 1px solid darkblue;
   border-radius: 45px;
   height: 6vh;
   width: 65%;
 }
+
 .inputBox input:focus {
   border: 2px solid #6B8954;
 }
@@ -178,6 +209,7 @@ body {
   width: 65%;
   height: 50vh;
 }
+
 .txtAreaBox textarea {
   width: 100%;
   height: 100%;
@@ -186,18 +218,37 @@ body {
   font-style: italic;
   margin-bottom: 25px;
 }
+
 .txtAreaBox textarea placeholder {
   color: grey;
 }
 
+@media only screen and (max-width: 768px) {
+  .itemUserProfile label {
+    font-size: 0.9em;
+  }
+
+  .itemBox {
+    height: 30vh;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .itemUserProfile label {
+    font-size: 1.2em;
+  }
+
+  .itemBox {
+    height: 10vh;
+  }
+}
 .buttonBox {
   width: 100%;
-  height: 25%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
+
 .buttonBox button {
   display: flex;
   flex-direction: row;
@@ -211,11 +262,24 @@ body {
   font-size: 1.2em;
   background-color: #FBBB6E;
 }
+
 .buttonBox button:hover {
   border: 2px solid #6B8954;
   background-color: #BB4E0B;
   color: #FBFCFC;
   box-shadow: 2px 8px 25px grey;
 }
+
+@media only screen and (max-width: 768px) {
+  .buttonBox {
+    height: 50%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .buttonBox {
+    height: 25%;
+  }
+}
+/*# sourceMappingURL=userProfilStylus.css.map */
 
 /*# sourceMappingURL=userProfilStylus.css.map */
