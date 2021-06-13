@@ -22,11 +22,11 @@ Class ProfileController extends AbstractController{
     }
 
     function index(){
-        $sellerList = SellerModel::GetAllSellers();
-        return $this->twig->render("profile/ProfileSeller.html.twig",["sellerList"=>$sellerList]);
+        header("location:/Profile/SellerProfileView".$_SESSION["USER_ID"]);
     }
 
     public function SellerProfileView($id){
+        $id = ($id!="")?$id:$_SESSION["USER_ID"];
         $seller = SellerModel::GetSellerAndUserInformationFromId($id);
         $sellerList = SellerModel::GetAllSellers();
         $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);

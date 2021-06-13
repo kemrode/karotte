@@ -5,9 +5,9 @@ class TagModel
 {
 
     #region Attibutes TagModel
-    private int $TP_ID_PRODUCT;
-    private string $TP_TAG;
-    private int $TP_ID;
+    public int $TP_ID_PRODUCT;
+    public string $TP_TAG;
+    public int $TP_ID;
     #endregion
 
     #region getters and setters TagModel
