@@ -61,7 +61,7 @@ body {
 .titleBox {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   width: 85%;
   height: 100px;
   align-items: center;
@@ -77,8 +77,13 @@ body {
   color: #BB4E0B;
 }
 
+@media only screen and (max-width: 768px) {
+  .titleBox h1 {
+    font-size: 1.1em;
+  }
+}
 @media only screen and (min-width: 768px) {
-  .titleBox h2 {
+  .titleBox h2 h1 {
     font-size: 1.8em;
   }
 }

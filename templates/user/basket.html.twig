@@ -1,45 +1,142 @@
 {% extends"layoutMapAndMenu.html.twig" %}
 
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/basketStylus.css">
+{% endblock %}
+
 
 {% block rightContent %}
-    <div class="sellerPage">
-        <h1>Mon panier</h1>
-        <div>
-            <table class="pure-table">
-                <thead>
-                <th>Code</th>
-                <th>Produit</th>
-                <th>Producteur</th>
-                <th>Quantité</th>
-                <th>Prix</th>
-                <th>Total</th>
-                </thead>
-                {% set totalPrice = 0 %}
-                {% for key, item in session.basket %}
-                    {% set totalPrice = totalPrice + (item.productPrice * item.productQuantity) %}
-                    <tr>
-                        <td>{{ key }}</td>
-                        <td>{{ item.productName }}</td>
-                        <td>{{ item.productSeller }}</td>
-                        <td>
-                            <form method="post" action="/basket/updatebasket/{{ key }}">
-                                <input type="number" min="0" name="productQuantity" value="{{ item.productQuantity }}"><input type="submit" value="Modifier">
-                            </form>
-                        </td>
-                        <td>{{ item.productPrice }}€</td>
-                        <td> {{ item.productQuantity * item.productPrice }}€</td>
-                        <td><a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a></td>
-                    </tr>
-                {% endfor %}
-            </table>
-            <h2>Total = {{ totalPrice }}€ </h2>
+    <div class="basketGrid">
+        <div class="blackBlock blackBlock__basket"></div>
+        <div class="basketContainer">
+            <div class="basketBox">
+                <div class="basketTitle">
+                    <div class="titleBox">
+                        <h1>Mon panier</h1>
+                    </div>
+                </div>
+                <div class="basketContentBox">
+                    <div class="productInfo">
+                        <div class="tabBasket">
+                           <table class="basketTitleTab">
+                                <thead>
+                                <th class="odd">Code</th>
+                                <th class="even">Produit</th>
+                                <th class="odd">Producteur</th>
+                                <th class="even">Quantité</th>
+                                <th class="odd">Prix</th>
+                                <th class="even">Total</th>
+                                <!--  <div class="code even">
+                                     <th>Code</th>
+                                 </div>
+                                 <div class="Product odd">
+                                     <th>Produit</th>
+                                 </div>
+                                 <div class="Porducer even">
+                                     <th>Producteur</th>
+                                 </div>
+                                 <div class="Quantity odd">
+                                     <th>Quantité</th>
+                                 </div>
+                                 <div class="Price even">
+                                     <th>Prix</th>
+                                 </div>
+                                 <div class="TotalProductPrice odd">
+                                     <th>Total</th>
+                                 </div> -->
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="getInfoBasket">
+                            <div class="infoBasket">
+                                {% set totalPrice = 0 %}
+                                {% for key, item in session.basket %}
+                                    {% set totalPrice = totalPrice + (item.productPrice * item.productQuantity) %}
+                                    <div class="infoBasket">
+                                        <div class="productCode">
+                                            <p>{{ key }}</p>
+                                        </div>
+                                        <div class="productBox">
+                                            <div class="infoProduct">
+                                                <div class="productName">
+                                                    <p>{{ item.productName }}</p>
+                                                </div>
+                                                <div class="productSeller">
+                                                    <p>{{ item.productSeller }}</p>
+                                                </div>
+                                                <div class="productSinglePrice">
+                                                    <p>{{ item.productPrice }}€</p>
+                                                </div>
+                                                <div class="productBasketTotalPrice">
+                                                    <p>{{ item.productQuantity * item.productPrice }}€</p>
+                                                </div>
+                                            </div>
+                                            <div class="quantityBox">
+                                                <form class="formProductBox" method="post" action="/basket/updatebasket/{{ key }}">
+                                                    <input type="number" min="0" name="productQuantity" value="{{ item.productQuantity }}">
+                                                </form>
+                                                <div class="addButton">
+                                                    <button type="submit" name="modifBtn">Modifier</button>
+                                                </div>
+                                            </div>
+                                            <div class="trashProduct">
+                                                <a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a>
+                                            </div>
+                                        </div>
 
-            <a type="submit" class="btn" href="/order/createorder">Valider</a>
+                                    </div>
+                                    {# <!-- <tr>
+                                        <td>{{ key }}</td>
+                                        <td>{{ item.productName }}</td>
+                                        <td>{{ item.productSeller }}</td>
+                                        <td>
+                                            <form method="post" action="/basket/updatebasket/{{ key }}">
+                                                <input type="number" min="0" name="productQuantity" value="{{ item.productQuantity }}"><input type="submit" value="Modifier">
+                                            </form>
+                                        </td>
+                                        <td>{{ item.productPrice }}€</td>
+                                        <td> {{ item.productQuantity * item.productPrice }}€</td>
+                                        <td><a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a></td>
+                                    </tr> --> #}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {# <!--
+                    <table class="pure-table">
+                        <thead>
+                        <th>Code</th>
+                        <th>Produit</th>
+                        <th>Producteur</th>
+                        <th>Quantité</th>
+                        <th>Prix</th>
+                        <th>Total</th>
+                        </thead>
+                        {% set totalPrice = 0 %}
+                        {% for key, item in session.basket %}
+                            {% set totalPrice = totalPrice + (item.productPrice * item.productQuantity) %}
+                            <tr>
+                                <td>{{ key }}</td>
+                                <td>{{ item.productName }}</td>
+                                <td>{{ item.productSeller }}</td>
+                                <td>
+                                    <form method="post" action="/basket/updatebasket/{{ key }}">
+                                        <input type="number" min="0" name="productQuantity" value="{{ item.productQuantity }}"><input type="submit" value="Modifier">
+                                    </form>
+                                </td>
+                                <td>{{ item.productPrice }}€</td>
+                                <td> {{ item.productQuantity * item.productPrice }}€</td>
+                                <td><a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    --> #}
+                    {# <!-- <h2>Total = {{ totalPrice }}€ </h2> --> #}
+                    {# <!-- <a type="submit" class="btn" href="/order/createorder">Valider</a> --> #}
+                    {# <!-- <a href="/order/GetAllOrdersByUserId/{{ session.USER_ID }}">Mes commandes</a> --> #}
 
-            <a href="/order/GetAllOrdersByUserId/{{ session.USER_ID }}">Mes commandes</a>
 
-
-            {#{% for session["cart_item"] as item %}
+                    {#{% for session["cart_item"] as item %}
                 <tr>
                     <td><img src="{{ item.PROD_PICT }}"></td>
                     <td>{{ item.PROD_ID }}</td>
@@ -51,6 +148,24 @@
                 <p>Quantité : {{ product.BASKET_QUANTITY }} </p>
                 <p></p>
             {% endfor %}#}
+                </div>
+                <div class="totalBasketBox">
+                    <div class="totalTitle">
+                        <p>Total :</p>
+                    </div>
+                    <div class="totalPrice">
+                        <p>{{ totalPrice }}€</p>
+                    </div>
+                </div>
+                <div class="basketInfo">
+                    <div class="validateBtn">
+                        <a type="submit" class="btn" href="/order/createorder">Valider</a>
+                    </div>
+                    <div class="orderBasket">
+                        <a href="/order/GetAllOrdersByUserId/{{ session.USER_ID }}">Mes commandes</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
