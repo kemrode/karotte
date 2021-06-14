@@ -11,7 +11,9 @@ class MapController extends AbstractController {
             $seller = new SellerModel();
             $sellerList = $seller->GetAllSellers();
             return $this->twig->render("home/home.html.twig",[
-                "sellerList" => $sellerList
+                "sellerList" => $sellerList,
+                "alert" => $this->getFlashMessage("alert"),
+                "message" => $this->getFlashMessage("message")
             ]);
         }
         catch(\Exception $e){

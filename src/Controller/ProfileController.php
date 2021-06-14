@@ -22,21 +22,21 @@ Class ProfileController extends AbstractController{
     }
 
     function index(){
-        header("location:/Profile/SellerProfileView".$_SESSION["USER_ID"]);
+        header("location:/Profile/SellerProfileView".$_SESSION["userId"]);
     }
 
     public function SellerProfileView($id){
         try {
-/*            $id = ($id!="")?$id:$_SESSION["USER_ID"];
-            if($id != $_SESSION["USER_ID"] || $id == "")
-                throw new \Exception("Vous n'avez pas le droit d'accéder à cette page vendeur");*/
+            $id = ($id!="")?$id:$_SESSION["userId"];
+            if($id != $_SESSION["userId"] || $id == "")
+                throw new \Exception("Vous n'avez pas le droit d'accéder à cette page vendeur");
             $seller = SellerModel::GetSellerAndUserInformationFromId($id);
             $sellerList = SellerModel::GetAllSellers();
             $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
 
         }
         catch(\Exception $e){
-            $_SESSION["alerte"] = $e->getMessage();
+            $_SESSION["alert"] = $e->getMessage();
             header("location:/");
             exit;
         }

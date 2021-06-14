@@ -7,7 +7,7 @@
 
 {% block rightContent %}
 
-    <div class="sellerPage">
+    <div class="seller">
         <form method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{sellerInfo.seller.SELL_ID }}">
         <div class="seller-page__name">
             <input type="hidden" name="SELL_ID" value="{{sellerInfo.seller.SELL_ID }}" required>
@@ -127,12 +127,6 @@
         </div>
     {% endblock %}
     {% block javascript %}
-    {% if(alert) %}
-        <script>alert("{{ alert }}")</script>
-    {% endif %}
-        {% if(message) %}
-        <script>alert("{{ message }}")</script>
-    {% endif %}
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="/assets/js/sellerProfile.js"></script>
 {% endblock %}

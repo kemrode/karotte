@@ -2,16 +2,14 @@
 namespace src\Controller;
 
 use src\Model\ProductModel;
-use src\Model\SellerModel;
 use src\Model\TagModel;
-use Symfony\Component\Debug\Exception\ClassNotFoundException;
 
 Class ProductController extends AbstractController
 {
 
     public function DeleteProduct(int $productId){
         try {
-            if(!ProductModel::IsThisProductBelongToSeller($_SESSION["USER_ID"], $productId ))
+            if(!ProductModel::IsThisProductBelongToSeller($_SESSION["userId"], $productId ))
                 throw new \Exception("Vous ne pouvez pas supprimer un produit qui n'est pas dans votre boutique");
             ProductModel::DeleteProduct($productId);
             $_SESSION["message"] = "Produit supprimé";
@@ -20,7 +18,7 @@ Class ProductController extends AbstractController
             $_SESSION["alert"] = $ex->getMessage();
         }
         finally{
-            return $_SESSION['USER_ID'];
+            return $_SESSION['userId'];
         }
 
     }
@@ -47,7 +45,7 @@ Class ProductController extends AbstractController
                 if(property_exists($product, $field))
                     $product->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
-            $product->setPRODUSERID($_SESSION["USER_ID"]);
+            $product->setPRODUSERID($_SESSION["userId"]);
 
             $product->UpdateProduct();
 
@@ -64,7 +62,7 @@ Class ProductController extends AbstractController
         catch(\Exception $e){
             $_SESSION["alert"] = "une erreur interne s'est produite veuillez nous excuser pour la gêne occasionée";
         }        finally {
-            $id = $_SESSION['USER_ID'];
+            $id = $_SESSION['userId'];
             header("location:/Profile/SellerProfileView/$id");
             exit;
         }
@@ -98,7 +96,7 @@ Class ProductController extends AbstractController
                 if(property_exists($tag, $field))
                     $tag->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
-            $newProduct->setPRODUSERID($_SESSION["USER_ID"]);
+            $newProduct->setPRODUSERID($_SESSION["userId"]);
 
             // Get the picture path and save the file if set.
             if($_FILES["PROD_PICT"]["name"] != "")
@@ -127,7 +125,7 @@ Class ProductController extends AbstractController
         catch(\Exception $e){
             $_SESSION["alert"] = "une erreur interne s'est produite veuillez nous excuser pour la gêne occasionée";
         }        finally {
-            $id = $_SESSION['USER_ID'];
+            $id = $_SESSION['userId'];
             header("location:/Profile/SellerProfileView/$id");
             exit;
         }

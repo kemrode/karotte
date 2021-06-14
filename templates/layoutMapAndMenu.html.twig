@@ -1,4 +1,4 @@
-!doctype html>
+<!doctype html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -49,6 +49,12 @@ let zoomLevel = {{ session.currentZoomLevel}};
 let latitude = "";
 let longitude = "";
 let zoomLevel = "";
+{% endif %}
+{% if(alert) %}
+alert("{{ alert }}");
+{% endif %}
+{% if(message) %}
+    alert("{{ message }}");
 {% endif %}
 </script>
 <script src="/assets/js/map.js"></script>
