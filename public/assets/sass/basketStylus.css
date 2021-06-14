@@ -62,12 +62,6 @@ body {
   text-decoration: 2px solid #BB4E0B;
 }
 
-.basketGrid {
-  display: grid;
-  grid-template-columns: repeat(10, 10%);
-  grid-template-rows: repeat(10, 10%);
-}
-
 .basketContainer {
   grid-area: 2/2/11/11;
   display: flex;
@@ -86,8 +80,6 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #FBFCFC;
-  width: 85%;
-  height: 85%;
   z-index: 3;
   border: 1px solid #BB4E0B;
   border-radius: 45px;
@@ -99,16 +91,52 @@ body {
   justify-content: flex-start;
   align-items: baseline;
   width: 100%;
-  height: 25%;
   margin-left: 15%;
 }
 
+@media only screen and (max-width: 768px) {
+  .basketContainer {
+    width: 100%;
+    height: 100%;
+  }
+
+  .basketGrid {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100vh;
+  }
+
+  .basketBox {
+    width: 100%;
+    height: 85%;
+  }
+
+  .basketTitle {
+    height: 15%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .basketGrid {
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 10%);
+  }
+
+  .basketBox {
+    width: 85%;
+    height: 85%;
+  }
+
+  .basketTitle {
+    height: 25%;
+  }
+}
 .titleBox {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   width: 85%;
-  height: 100px;
   align-items: center;
   border-bottom: 3px solid #BB4E0B;
 }
@@ -121,11 +149,21 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+  .titleBox {
+    height: auto;
+  }
   .titleBox h1 {
     font-size: 1.1em;
+    font-weight: bold;
   }
 }
 @media only screen and (min-width: 768px) {
+  .titleBox {
+    height: 100px;
+  }
+  .titleBox h1 {
+    font-weight: bold;
+  }
   .titleBox h2 h1 {
     font-size: 1.8em;
   }
@@ -134,7 +172,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 90%;
   height: auto;
   background-color: #FBFCFC;
   overflow-x: hidden;
@@ -197,6 +234,16 @@ body {
   height: 50px;
 }
 
+@media only screen and (max-width: 768px) {
+  .basketContentBox {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .basketContentBox {
+    width: 90%;
+  }
+}
 .blackBlock {
   width: 100%;
   height: 100vh;
@@ -205,20 +252,17 @@ body {
   position: absolute;
   z-index: 2;
 }
-.blackBlock__basket {
-  grid-area: 1/1/12/12;
-}
 
-/*
-.blackBlock__register {
-  position: absolute;
-  z-index: 2;
+@media only screen and (max-width: 768px) {
+  .blackBlock__basket {
+    width: 100%;
+  }
 }
-.blackBlock__basket {
-  position: absolute;
-  grid-area: 1/1/12/12;
-  z-index: 2;
-}*/
+@media only screen and (min-width: 768px) {
+  .blackBlock__basket {
+    grid-area: 1/1/12/12;
+  }
+}
 .productCode {
   display: flex;
   flex-direction: column;
@@ -228,18 +272,15 @@ body {
   height: 100%;
 }
 .productCode p {
-  font-size: 1.4em;
   font-weight: bold;
 }
 
 .productName p {
-  font-size: 1.4em;
   font-weight: bold;
   color: black;
 }
 
 .productSeller p {
-  font-size: 1.4em;
   font-weight: bold;
   font-style: italic;
   color: #6B8954;
@@ -247,17 +288,25 @@ body {
 }
 
 .productSinglePrice p {
-  font-size: 1.4em;
   font-style: italic;
   color: #BB4E0B;
 }
 
 .productBasketTotalPrice p {
-  font-size: 1.4em;
   font-weight: bold;
   text-decoration: 2px underline #BB4E0B;
 }
 
+@media only screen and (max-width: 768px) {
+  p {
+    font-size: 1.1em;
+  }
+}
+@media only screen and (min-width: 768px) {
+  p {
+    font-size: 1.4em;
+  }
+}
 .tabBasket {
   display: flex;
   flex-direction: row;

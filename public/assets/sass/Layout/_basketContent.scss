@@ -4,7 +4,6 @@
 .basketContentBox {
   @include flexBoxRow;
   justify-content: space-evenly;
-  width: 90%;
   height: auto;
   background-color:$breakingWhite;
   overflow-x: hidden;
@@ -53,4 +52,15 @@
   align-items: center;
   width: 100%;
   height: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .basketContentBox {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px){
+  .basketContentBox {
+    width: 90%;
+  }
 }

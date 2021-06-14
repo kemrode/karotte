@@ -59,7 +59,6 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   width: 85%;
-  height: 100px;
   align-items: center;
   border-bottom: 3px solid #BB4E0B;
 }
@@ -72,11 +71,21 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+  .titleBox {
+    height: auto;
+  }
   .titleBox h1 {
     font-size: 1.1em;
+    font-weight: bold;
   }
 }
 @media only screen and (min-width: 768px) {
+  .titleBox {
+    height: 100px;
+  }
+  .titleBox h1 {
+    font-weight: bold;
+  }
   .titleBox h2 h1 {
     font-size: 1.8em;
   }

@@ -3,11 +3,6 @@
 @import "../Layout/totalBasket";
 @import "../Layout/basketInfo";
 
-.basketGrid {
-  display: grid;
-  grid-template-columns: repeat(10,10%);
-  grid-template-rows: repeat(10,10%);
-}
 .basketContainer {
   grid-area: 2/2/11/11;
   @include flexBoxColumnJustifyCentering;
@@ -22,18 +17,46 @@
   @include flexBoxColumn;
   align-items: center;
   background-color:$breakingWhite;
-  width: 85%;
-  height: 85%;
   z-index: 3;
   border: 1px solid $primaryColor;
   border-radius:$quarterRadius;
-
 }
 .basketTitle {
   @include flexBoxRow;
   justify-content: flex-start;
   align-items: baseline;
   width: 100%;
-  height: 25%;
   margin-left: 15%;
+}
+@media only screen and (max-width: 768px) {
+  .basketContainer {
+    width: 100%;
+    height: 100%;
+  }
+  .basketGrid {
+    @include flexBoxColumn;
+    width: auto;
+    height: 100vh;
+  }
+  .basketBox {
+    width: 100%;
+    height: 85%;
+  }
+  .basketTitle{
+    height: 15%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .basketGrid {
+    display: grid;
+    grid-template-columns: repeat(10,10%);
+    grid-template-rows: repeat(10,10%);
+  }
+  .basketBox {
+    width: 85%;
+    height: 85%;
+  }
+  .basketTitle {
+    height: 25%;
+  }
 }

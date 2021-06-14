@@ -505,20 +505,16 @@ input:checked + .slider:before {
   z-index: 2;
 }
 
-.blackBlock__basket {
-  grid-area: 1/1/12/12;
+@media only screen and (max-width: 768px) {
+  .blackBlock__basket {
+    width: 100%;
+  }
 }
-
-/*
-.blackBlock__register {
-  position: absolute;
-  z-index: 2;
+@media only screen and (min-width: 768px) {
+  .blackBlock__basket {
+    grid-area: 1/1/12/12;
+  }
 }
-.blackBlock__basket {
-  position: absolute;
-  grid-area: 1/1/12/12;
-  z-index: 2;
-}*/
 /*# sourceMappingURL=registerStyle.css.map */
 
 /*# sourceMappingURL=registerStyle.css.map */

@@ -35,13 +35,15 @@
     height: 25vh;
     padding-bottom: 5px;
     white-space: nowrap;
+    position: relative;
+    z-index: 2;
     &::-webkit-scrollbar {
       display: none;
     }
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
   #sellerList{
     grid-row: 2;
     grid-column: 1;
