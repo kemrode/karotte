@@ -1,0 +1,110 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+.seller{
+  overflow-x: auto;
+  padding: 25px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &-page {
+    &__name {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-content: center;
+      padding: 5px;
+      & h2 {
+        font-size: 1.5em;
+      }
+    }
+    &__resume {
+      grid-row: 2;
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: repeat(1, auto);
+      grid-template-rows: 3em auto;
+      padding: 5px;
+    }
+    &__rate {
+      color: $secondColor;
+      grid-column: 1;
+    }
+    &__tag{
+      grid-column: 2;
+      color: $secondColor;
+      & ul {
+        display: flex;
+        column-gap: 1em;
+      }
+    }
+    &__info{
+      &-userAddress {
+        @include flexBoxColumn;
+        margin : 0 5px;
+      }
+      &-userPhone {
+        @include flexBoxColumn;
+        margin : 0 5px;
+      }
+      &-sellerDescription {
+        @include flexBoxColumn;
+        margin : 0 5px;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1410px) {
+  .seller{
+    &-page {
+      &__name {
+        & h2 {
+        }
+      }
+      &__resume {
+      }
+      &__rate {
+      }
+      &__tag{
+        & ul {
+        }
+      }
+      &__info {
+        max-width :100%;
+        & span {
+        }
+        &-userAddress {
+          @include flexBoxRow;
+        }
+        &-userPhone {
+          @include flexBoxRowAlignItemsCentering;
+        }
+        &-sellerDescription {
+          max-width :100%;
+
+        }
+      }
+    }
+  }
+
+}

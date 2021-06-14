@@ -20,3 +20,7 @@ deleteProductButton.forEach(x=> x.addEventListener("click", (e)=>{
     }
     })
 );
+
+function accessToProfilePage(userId){
+    window.location = `/Profile/SellerProfileView/${userId}`;
+}

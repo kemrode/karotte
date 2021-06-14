@@ -345,12 +345,13 @@ class ProductModel{
         try{
             // DB registration
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_NAME=:PROD_NAME, PROD_PRICE=:PROD_PRICE, PROD_DESC=:PROD_DESC WHERE PROD_USER_ID=:PROD_USER_ID");
+            $requete = $bdd->prepare("UPDATE PRODUCT SET PROD_NAME=:PROD_NAME, PROD_PRICE=:PROD_PRICE, PROD_DESC=:PROD_DESC WHERE PROD_USER_ID=:PROD_USER_ID AND PROD_ID=:PROD_ID");
             $requete->execute([
                 "PROD_NAME" => $this->getPRODNAME(),
                 "PROD_PRICE" => $this->getPRODPRICE(),
                 "PROD_DESC" => $this->getPRODDESC(),
                 "PROD_USER_ID" => $this->getPRODUSERID(),
+                "PROD_ID" => $this->getPRODID()
             ]);
 
         }catch (\Exception $e){
@@ -380,6 +381,15 @@ class ProductModel{
     public static function DeleteProduct(int $productID){
         try{
             $bdd = BDD::getInstance();
+            $queryFilePath = $bdd->prepare("SELECT PROD_PICT FROM PRODUCT WHERE PROD_ID =:productID");
+            $queryFilePath->execute([
+
+            ]);
+            $result = $queryFilePath->fetch();
+            // Removal of the picture if it is not the default picture
+            if($result["PROD_PICT"] != "/assets/img/files/products/default.jpg")
+                unlink($result["PROD_PICT"]);
+
             $query = $bdd->prepare("DELETE FROM PRODUCT WHERE PROD_ID =:productID");
             $query->execute([
                 "productID" => $productID

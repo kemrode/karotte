@@ -69,17 +69,5 @@
     height: 100vh;
   }
 }
-/* Extra large devices (large laptops and desktops, 1500px and up) */
-@media only screen and (min-width: 1200px) {
-  .seller-page__info-userAddress{
-    flex-direction: row !important;
-    align-items: center;
-  }
-}
-/* Extra large devices (large laptops and desktops, 1500px and up) */
-@media only screen and (min-width: 1500px) {
-  .seller-page-productList-cards{
-    grid-template-columns: repeat(2,min-content);
-  }
-}
+
 

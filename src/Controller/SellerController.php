@@ -21,10 +21,17 @@ class SellerController extends AbstractController {
 
     public function GetSellerById($id){
         try {
+            if($id == $_SESSION["userId"] && $id != "")
+                $_SESSION["accessProfile"] = true;
             $seller = SellerModel::GetSellerInformationFromId($id);
             $sellerList = SellerModel::GetAllSellers();
             $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-            return $this->twig->render("seller/Seller.html.twig", ["seller" => $seller, "sellerList" => $sellerList, "sellerProduct" => $sellerProduct]);
+            return $this->twig->render("seller/Seller.html.twig", [
+                "seller" => $seller,
+                "sellerList" => $sellerList,
+                "sellerProduct" => $sellerProduct,
+                "accessProfile"=>$this->getFlashMessage("accessProfile")
+            ]);
         }
         catch (\Exception $e) {
             echo $this->index();

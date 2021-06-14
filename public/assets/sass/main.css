@@ -190,25 +190,26 @@
   grid-column: 2;
 }
 
-.sellerPage {
+.seller {
   background-color: white;
   border-left: #BB4E0B solid thick;
   padding: 50px;
   display: grid;
+  overflow-x: auto;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 0fr 0fr 1fr;
 }
-.sellerPage-page__name {
+.seller-page__name {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-content: center;
   padding: 5px;
 }
-.sellerPage-page__name h2 {
+.seller-page__name h2 {
   font-size: 1.5em;
 }
-.sellerPage-page__resume {
+.seller-page__resume {
   grid-row: 2;
   grid-column: span 2;
   display: grid;
@@ -216,39 +217,39 @@
   grid-template-rows: 3em auto;
   padding: 5px;
 }
-.sellerPage-page__rate {
+.seller-page__rate {
   color: #6B8954;
   grid-column: 1;
 }
-.sellerPage-page__tag {
+.seller-page__tag {
   grid-column: 2;
   color: #6B8954;
 }
-.sellerPage-page__tag ul {
+.seller-page__tag ul {
   display: flex;
   column-gap: 1em;
 }
-.sellerPage-page__info {
+.seller-page__info {
   grid-column: span 2;
   display: flex;
   flex-flow: column;
   height: auto;
 }
-.sellerPage-page__info span {
+.seller-page__info span {
   margin: 0 5px;
 }
-.sellerPage-page__info-userAdress {
+.seller-page__info-userAdress {
   display: flex;
   flex-direction: column;
   margin: 0 5px;
 }
-.sellerPage-page__info-userPhone {
+.seller-page__info-userPhone {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 0 5px;
 }
-.sellerPage-page__info-sellerDescription {
+.seller-page__info-sellerDescription {
   display: flex;
   flex-direction: row;
   align-items: center;

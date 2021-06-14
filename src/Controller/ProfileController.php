@@ -22,21 +22,36 @@ Class ProfileController extends AbstractController{
     }
 
     function index(){
-        $sellerList = SellerModel::GetAllSellers();
-        return $this->twig->render("profile/ProfileSeller.html.twig",["sellerList"=>$sellerList]);
+        header("location:/Profile/SellerProfileView".$_SESSION["userId"]);
     }
 
     public function SellerProfileView($id){
-        $seller = SellerModel::GetSellerAndUserInformationFromId($id);
-        $sellerList = SellerModel::GetAllSellers();
-        $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-        return $this->twig->render("profile/ProfileSeller.html.twig",[
-            "sellerInfo"=>$seller,
-            "sellerList"=>$sellerList,
-            "sellerProduct"=>$sellerProduct,
-            "message"=> $this->getFlashMessage("message"),
-            "alert"=> $this->getFlashMessage("alert")
-        ]);
+        try {
+            $id = ($id!="")?$id:$_SESSION["userId"];
+            if($id != $_SESSION["userId"] || $id == ""){
+                header("location:/Seller/GetSellerById".$id);
+                exit;
+            }
+
+            $seller = SellerModel::GetSellerAndUserInformationFromId($id);
+            $sellerList = SellerModel::GetAllSellers();
+            $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
+
+        }
+        catch(\Exception $e){
+            $_SESSION["alert"] = $e->getMessage();
+            header("location:/");
+            exit;
+        }
+        finally{
+            return $this->twig->render("profile/ProfileSeller.html.twig",[
+                "sellerInfo"=>$seller,
+                "sellerList"=>$sellerList,
+                "sellerProduct"=>$sellerProduct,
+                "message"=> $this->getFlashMessage("message"),
+                "alert"=> $this->getFlashMessage("alert")
+            ]);
+        }
     }
 
     public function CancelCurrentModification($id){

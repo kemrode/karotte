@@ -24,32 +24,6 @@ body {
   display: none;
 }
 
-/*
-.primaryContainer {
-  width: auto;
-  height: 100vh;
-  @include flexBoxColumnJustifyCentering;
-  position: absolute;
-  z-index: 3;
-  overflow-y: auto;
-  overflow-x: hidden;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
- */
-.blackBlock {
-  position: absolute;
-  z-index: 2;
-  width: 100vw;
-  height: 100vh;
-}
-
-.blackBlock__backgroundColor--opacity {
-  background-color: black;
-  opacity: 0.5;
-}
-
 .mainContainer {
   position: absolute;
   z-index: 3;

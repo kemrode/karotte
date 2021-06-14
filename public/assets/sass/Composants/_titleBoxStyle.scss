@@ -2,7 +2,8 @@
 @import "../Utils/variables";
 
 .titleBox {
-  @include flexBoxRowJustifyCentering;
+  @include flexBoxRow;
+  justify-content: flex-start;
   width: 85%;
   height: 100px;
   align-items: center;
@@ -16,12 +17,17 @@
     }
 }
 
-@media only scree and(max-width:768px) {
+@media only screen and(max-width:768px) {
+  .titleBox {
+    & h1 {
+      font-size:1.1em;
+    }
+  }
 
 }
 @media only screen and(min-width: 768px) {
   .titleBox {
-    & h2 {
+    & h2 h1 {
       font-size:$veryHighTextSize ;
     }
   }

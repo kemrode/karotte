@@ -22,7 +22,6 @@ h2 {
   text-decoration: none;
   width: 16px;
 }
-
 .close svg {
   width: 16px;
   fill: white;
@@ -45,17 +44,14 @@ h2 {
   transition: opacity 0.3s ease-in-out;
   visibility: hidden;
 }
-
 #modal:target {
   opacity: 1;
   visibility: visible;
 }
-
 #modal:target .modal-body {
   opacity: 1;
   transform: translateY(1);
 }
-
 #modal .modal-body {
   border-radius: 10px;
   max-width: 500px;
@@ -67,13 +63,11 @@ h2 {
   z-index: 1;
   padding: 20px;
 }
-
 #modal .modal-body-content {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
-
 #modal .modal-body-content > * {
   width: 80%;
   margin: 10px 0px 10px 0px;
@@ -90,8 +84,8 @@ h2 {
 
 .button__link {
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
-
-/*# sourceMappingURL=PopUp.css.map */
 
 /*# sourceMappingURL=PopUp.css.map */
