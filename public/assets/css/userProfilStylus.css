@@ -13,9 +13,11 @@ body {
   width: auto;
   height: 100vh;
 }
+
 .primaryContainer__background--color {
   background-color: #BB4E0B;
 }
+
 .primaryContainer::-webkit-scrollbar {
   display: none;
 }
@@ -36,6 +38,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .mainContainer::-webkit-scrollbar {
   display: none;
 }
@@ -50,6 +53,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
+
 .accountContainer::-webkit-scrollbar {
   display: none;
 }
@@ -59,24 +63,38 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   width: 85%;
-  height: 100px;
   align-items: center;
   border-bottom: 3px solid #BB4E0B;
 }
+
 .titleBox h2 {
   font-size: 1.3em;
 }
+
 .titleBox h2 span {
   font-style: italic;
   color: #BB4E0B;
 }
 
 @media only screen and (max-width: 768px) {
+  .titleBox {
+    height: auto;
+  }
+
   .titleBox h1 {
     font-size: 1.1em;
+    font-weight: bold;
   }
 }
 @media only screen and (min-width: 768px) {
+  .titleBox {
+    height: 100px;
+  }
+
+  .titleBox h1 {
+    font-weight: bold;
+  }
+
   .titleBox h2 h1 {
     font-size: 1.8em;
   }
@@ -91,6 +109,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+
 .formBox::-webkit-scrollbar {
   display: none;
 }
@@ -122,6 +141,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 .itemBox__presentation--height {
   height: auto;
 }
@@ -130,6 +150,7 @@ body {
   width: 85%;
   justify-content: normal;
 }
+
 .itemUserProfile label {
   display: flex;
   flex-direction: row;
@@ -146,6 +167,7 @@ body {
   border-top-left-radius: 45px;
   border-top-right-radius: 45px;
 }
+
 .itemUserProfile input {
   display: flex;
   flex-direction: row;
@@ -160,6 +182,7 @@ body {
   border-bottom-left-radius: 45px;
   border-bottom-right-radius: 45px;
 }
+
 .itemUserProfile input:hover {
   background-color: #BB4E0B;
   color: #FBFCFC;
@@ -173,6 +196,7 @@ body {
   width: 65%;
   padding-bottom: 5px;
 }
+
 .labelBox label {
   font-weight: bold;
 }
@@ -183,12 +207,14 @@ body {
   justify-content: flex-start;
   width: 65%;
 }
+
 .inputBox input {
   border: 1px solid darkblue;
   border-radius: 45px;
   height: 6vh;
   width: 65%;
 }
+
 .inputBox input:focus {
   border: 2px solid #6B8954;
 }
@@ -200,6 +226,7 @@ body {
   width: 65%;
   height: 50vh;
 }
+
 .txtAreaBox textarea {
   width: 100%;
   height: 100%;
@@ -208,6 +235,7 @@ body {
   font-style: italic;
   margin-bottom: 25px;
 }
+
 .txtAreaBox textarea placeholder {
   color: grey;
 }
@@ -237,6 +265,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .buttonBox button {
   display: flex;
   flex-direction: row;
@@ -250,6 +279,7 @@ body {
   font-size: 1.2em;
   background-color: #FBBB6E;
 }
+
 .buttonBox button:hover {
   border: 2px solid #6B8954;
   background-color: #BB4E0B;
@@ -267,5 +297,6 @@ body {
     height: 25%;
   }
 }
+/*# sourceMappingURL=userProfilStylus.css.map */
 
 /*# sourceMappingURL=userProfilStylus.css.map */

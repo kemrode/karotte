@@ -3,17 +3,23 @@
 
 .blackBlock{
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: black;
   opacity: 0.5;
-  position:absolute;
-}
-.blackBlock__register {
   position: absolute;
   z-index: 2;
 }
-.blackBlock__basket {
-  position: absolute;
-  grid-area: 1/1/12/12;
-  z-index: 2;
+@media only screen and (max-width: 768px) {
+  .blackBlock {
+    &__basket {
+      width: 100%;
+    }
+  }
+}
+@media only screen and (min-width: 768px){
+  .blackBlock {
+    &__basket {
+      grid-area: 1/1/12/12;
+    }
+  }
 }

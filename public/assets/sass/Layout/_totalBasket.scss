@@ -1,0 +1,27 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+.totalBasketBox {
+  @include flexBoxRow;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+}
+.totalTitle {
+  & p {
+    font-size:$veryHighTextSize;
+    font-weight: bold;
+    background-color:$primaryColor;
+    color:$breakingWhite;
+    margin-left: 50px;
+  }
+}
+.totalPrice {
+  & p {
+    font-weight: bold;
+    font-size:$veryHighTextSize;
+    color:$primaryColor;
+    margin-right: 50px;
+  }
+}

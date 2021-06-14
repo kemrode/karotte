@@ -131,12 +131,14 @@
     height: 25vh;
     padding-bottom: 5px;
     white-space: nowrap;
+    position: relative;
+    z-index: 2;
   }
   #sellerList::-webkit-scrollbar {
     display: none;
   }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 768px) {
   #sellerList {
     grid-row: 2;
     grid-column: 1;
@@ -191,7 +193,6 @@ body {
   flex-direction: row;
   justify-content: flex-start;
   width: 85%;
-  height: 100px;
   align-items: center;
   border-bottom: 3px solid #BB4E0B;
 }
@@ -204,34 +205,44 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+  .titleBox {
+    height: auto;
+  }
   .titleBox h1 {
     font-size: 1.1em;
+    font-weight: bold;
   }
 }
 @media only screen and (min-width: 768px) {
+  .titleBox {
+    height: 100px;
+  }
+  .titleBox h1 {
+    font-weight: bold;
+  }
   .titleBox h2 h1 {
     font-size: 1.8em;
   }
 }
 .blackBlock {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: black;
   opacity: 0.5;
   position: absolute;
-}
-
-.blackBlock__register {
-  position: absolute;
   z-index: 2;
 }
 
-.blackBlock__basket {
-  position: absolute;
-  grid-area: 1/1/12/12;
-  z-index: 2;
+@media only screen and (max-width: 768px) {
+  .blackBlock__basket {
+    width: 100%;
+  }
 }
-
+@media only screen and (min-width: 768px) {
+  .blackBlock__basket {
+    grid-area: 1/1/12/12;
+  }
+}
 .seller {
   overflow-x: auto;
   padding: 25px;

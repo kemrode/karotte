@@ -17,7 +17,7 @@
                 </div>
                 <div class="basketContentBox">
                     <div class="productInfo">
-                        <div class="tabBasket">
+                       <!-- <div class="tabBasket">
                            <table class="basketTitleTab">
                                 <thead>
                                 <th class="odd">Code</th>
@@ -26,7 +26,7 @@
                                 <th class="even">Quantité</th>
                                 <th class="odd">Prix</th>
                                 <th class="even">Total</th>
-                                <!--  <div class="code even">
+                                 <div class="code even">
                                      <th>Code</th>
                                  </div>
                                  <div class="Product odd">
@@ -43,16 +43,16 @@
                                  </div>
                                  <div class="TotalProductPrice odd">
                                      <th>Total</th>
-                                 </div> -->
+                                 </div>
                                 </thead>
                             </table>
-                        </div>
+                        </div> -->
                         <div class="getInfoBasket">
                             <div class="infoBasket">
                                 {% set totalPrice = 0 %}
                                 {% for key, item in session.basket %}
                                     {% set totalPrice = totalPrice + (item.productPrice * item.productQuantity) %}
-                                    <div class="infoBasket">
+                                    <div class="contentBasket">
                                         <div class="productCode">
                                             <p>{{ key }}</p>
                                         </div>
@@ -65,7 +65,7 @@
                                                     <p>{{ item.productSeller }}</p>
                                                 </div>
                                                 <div class="productSinglePrice">
-                                                    <p>{{ item.productPrice }}€</p>
+                                                    <p>({{ item.productPrice }}€)</p>
                                                 </div>
                                                 <div class="productBasketTotalPrice">
                                                     <p>{{ item.productQuantity * item.productPrice }}€</p>
@@ -78,9 +78,9 @@
                                                 <div class="addButton">
                                                     <button type="submit" name="modifBtn">Modifier</button>
                                                 </div>
-                                            </div>
-                                            <div class="trashProduct">
-                                                <a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a>
+                                                <div class="trashProduct">
+                                                    <a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -159,7 +159,7 @@
                 </div>
                 <div class="basketInfo">
                     <div class="validateBtn">
-                        <a type="submit" class="btn" href="/order/createorder">Valider</a>
+                        <button type="submit" class="btn" href="/order/createorder">Valider</button>
                     </div>
                     <div class="orderBasket">
                         <a href="/order/GetAllOrdersByUserId/{{ session.USER_ID }}">Mes commandes</a>

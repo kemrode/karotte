@@ -7,10 +7,59 @@ body {
   box-sizing: border-box;
 }
 
-.basketGrid {
-  display: grid;
-  grid-template-columns: repeat(10, 10%);
-  grid-template-rows: repeat(10, 10%);
+.totalBasketBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+}
+
+.totalTitle p {
+  font-size: 1.8em;
+  font-weight: bold;
+  background-color: #BB4E0B;
+  color: #FBFCFC;
+  margin-left: 50px;
+}
+
+.totalPrice p {
+  font-weight: bold;
+  font-size: 1.8em;
+  color: #BB4E0B;
+  margin-right: 50px;
+}
+
+.basketInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+}
+
+.orderBasket {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  width: 50%;
+  height: 50%;
+}
+.orderBasket a {
+  font-size: 1.8em;
+  font-style: italic;
+  color: #FBFCFC;
+  background-color: #6B8954;
+  text-decoration: none;
+}
+.orderBasket a:hover {
+  background-color: #FBFCFC;
+  color: black;
+  text-decoration: 2px solid #BB4E0B;
 }
 
 .basketContainer {
@@ -31,8 +80,6 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: #FBFCFC;
-  width: 85%;
-  height: 85%;
   z-index: 3;
   border: 1px solid #BB4E0B;
   border-radius: 45px;
@@ -44,16 +91,52 @@ body {
   justify-content: flex-start;
   align-items: baseline;
   width: 100%;
-  height: 25%;
   margin-left: 15%;
 }
 
+@media only screen and (max-width: 768px) {
+  .basketContainer {
+    width: 100%;
+    height: 100%;
+  }
+
+  .basketGrid {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100vh;
+  }
+
+  .basketBox {
+    width: 100%;
+    height: 85%;
+  }
+
+  .basketTitle {
+    height: 15%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .basketGrid {
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 10%);
+  }
+
+  .basketBox {
+    width: 85%;
+    height: 85%;
+  }
+
+  .basketTitle {
+    height: 25%;
+  }
+}
 .titleBox {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   width: 85%;
-  height: 100px;
   align-items: center;
   border-bottom: 3px solid #BB4E0B;
 }
@@ -66,11 +149,21 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+  .titleBox {
+    height: auto;
+  }
   .titleBox h1 {
     font-size: 1.1em;
+    font-weight: bold;
   }
 }
 @media only screen and (min-width: 768px) {
+  .titleBox {
+    height: 100px;
+  }
+  .titleBox h1 {
+    font-weight: bold;
+  }
   .titleBox h2 h1 {
     font-size: 1.8em;
   }
@@ -78,11 +171,14 @@ body {
 .basketContentBox {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 90%;
+  justify-content: space-evenly;
   height: auto;
   background-color: #FBFCFC;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.basketContentBox::-webkit-scrollbar {
+  display: none;
 }
 
 .productInfo {
@@ -94,6 +190,123 @@ body {
   height: auto;
 }
 
+.getInfoBasket {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+
+.infoBasket {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.contentBasket {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #B0FBD0;
+  width: 100%;
+  height: auto;
+  border: 1px solid #FBBB6E;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.productBox {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: auto;
+  border-left: 1px solid #FBBB6E;
+}
+
+.infoProduct {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .basketContentBox {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .basketContentBox {
+    width: 90%;
+  }
+}
+.blackBlock {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+  position: absolute;
+  z-index: 2;
+}
+
+@media only screen and (max-width: 768px) {
+  .blackBlock__basket {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .blackBlock__basket {
+    grid-area: 1/1/12/12;
+  }
+}
+.productCode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+}
+.productCode p {
+  font-weight: bold;
+}
+
+.productName p {
+  font-weight: bold;
+  color: black;
+}
+
+.productSeller p {
+  font-weight: bold;
+  font-style: italic;
+  color: #6B8954;
+  text-decoration: 1px underline #BB4E0B;
+}
+
+.productSinglePrice p {
+  font-style: italic;
+  color: #BB4E0B;
+}
+
+.productBasketTotalPrice p {
+  font-weight: bold;
+  text-decoration: 2px underline #BB4E0B;
+}
+
+@media only screen and (max-width: 768px) {
+  p {
+    font-size: 1.1em;
+  }
+}
+@media only screen and (min-width: 768px) {
+  p {
+    font-size: 1.4em;
+  }
+}
 .tabBasket {
   display: flex;
   flex-direction: row;
@@ -126,37 +339,64 @@ body {
   background-color: #FBBB6E;
 }
 
-.getInfoBasket {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: auto;
-}
-
-.infoBasket {
+.quantityBox {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   width: 100%;
-  height: auto;
+  height: 35px;
 }
 
-.blackBlock {
+.formProductBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: black;
-  opacity: 0.5;
-  position: absolute;
+}
+.formProductBox input {
+  width: 80%;
+  height: 80%;
+  border: 1px solid black;
+  border-radius: 45px;
+  font-weight: bold;
+  padding-left: 25px;
 }
 
-.blackBlock__register {
-  position: absolute;
-  z-index: 2;
+.addButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.addButton button {
+  width: 70%;
+  height: 80%;
+  border: 1px solid #BB4E0B;
+  border-radius: 45px;
+  background-color: #6B8954;
+  color: #FBFCFC;
+  font-weight: bold;
 }
 
-.blackBlock__basket {
-  position: absolute;
-  grid-area: 1/1/12/12;
-  z-index: 2;
+.validateBtn {
+  width: 50%;
+  height: 50%;
+  margin-left: 50px;
+}
+.validateBtn button {
+  width: 80%;
+  height: 80%;
+  border: 1px solid black;
+  border-radius: 45px;
+  background-color: #BB4E0B;
+  color: #FBFCFC;
+  font-size: 1.8em;
+}
+.validateBtn button:hover {
+  background-color: #6B8954;
 }
 
 /*# sourceMappingURL=basketStylus.css.map */
