@@ -1,5 +1,7 @@
 @import "../Utils/mixin";
 @import "../Utils/variables";
+@import "../Layout/totalBasket";
+@import "../Layout/basketInfo";
 
 .basketGrid {
   display: grid;
