@@ -28,8 +28,11 @@ Class ProfileController extends AbstractController{
     public function SellerProfileView($id){
         try {
             $id = ($id!="")?$id:$_SESSION["userId"];
-            if($id != $_SESSION["userId"] || $id == "")
-                throw new \Exception("Vous n'avez pas le droit d'accéder à cette page vendeur");
+            if($id != $_SESSION["userId"] || $id == ""){
+                header("location:/Seller/GetSellerById".$id);
+                exit;
+            }
+
             $seller = SellerModel::GetSellerAndUserInformationFromId($id);
             $sellerList = SellerModel::GetAllSellers();
             $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);

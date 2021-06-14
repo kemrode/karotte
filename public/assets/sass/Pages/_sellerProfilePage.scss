@@ -40,26 +40,71 @@
         column-gap: 1em;
       }
     }
-    &__info {
-      grid-column: span 2;
-      display: flex;
-      flex-flow: column;
-      height: auto;
-      & span {
-        margin : 0 5px;
-      }
-      &-userAdress {
+    &__info{
+      &-userAddress {
         @include flexBoxColumn;
         margin : 0 5px;
       }
       &-userPhone {
-        @include flexBoxRowAlignItemsCentering;
+        @include flexBoxColumn;
         margin : 0 5px;
       }
       &-sellerDescription {
-        @include flexBoxRowAlignItemsCentering;
+        @include flexBoxColumn;
         margin : 0 5px;
+        max-width: 100%;
       }
     }
   }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1410px) {
+  .seller{
+    &-page {
+      &__name {
+        & h2 {
+        }
+      }
+      &__resume {
+      }
+      &__rate {
+      }
+      &__tag{
+        & ul {
+        }
+      }
+      &__info {
+        max-width :100%;
+        & span {
+        }
+        &-userAddress {
+          @include flexBoxRow;
+        }
+        &-userPhone {
+          @include flexBoxRowAlignItemsCentering;
+        }
+        &-sellerDescription {
+          max-width :100%;
+
+        }
+      }
+    }
+  }
+
 }

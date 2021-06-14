@@ -7,14 +7,6 @@
 @import "../Layout/blackBlock";
 @import "../Pages/sellerProfilePage";
 
-/*.seller{
-  background-color: white;
-  border-left: $primaryColor solid thick ;
-  padding: 50px;
-  display: grid;
-  overflow-x: auto;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 0fr 0fr 1fr;*/
 .seller{
   overflow-x: auto;
   padding: 25px;
@@ -63,24 +55,13 @@
       & span {
         margin : 0 5px;
       }
-      &-userAdress {
-        @include flexBoxColumn;
-        margin : 0 5px;
-      }
-      &-userPhone {
-        @include flexBoxRowAlignItemsCentering;
-        margin : 0 5px;
-      }
-      &-sellerDescription {
-        @include flexBoxRowAlignItemsCentering;
-        margin : 0 5px;
-      }
     }
   }
 }
 .sellerGrid {
   display: grid;
   position:relative;
+  width:100%;
 }
 .sellerContainer {
   @include flexBoxColumnJustifyCentering;
@@ -89,7 +70,7 @@
 .sellerBox {
   @include flexBoxColumn;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color:$breakingWhite;
   width: 85%;
   height: 85vh;
@@ -110,18 +91,102 @@
   font-size: 1.5em;
   margin: 0 5px 0 0;
 }
+.categoryTitle{
+  display: flex;
+  flex-flow: column;
+  h3{
+    font-weight : bold;
+    font-size: 2em;
+    color: #bb4e0b;
+  }
+  padding : 5px;
+  justify-content: center;
+  width : 100%;
+}
+
 .seller-page-productList{
   grid-row: 3;
   grid-column: span 5;
   display: grid;
-  row-gap: 5em;
+  row-gap: 2em;
   padding: 20px 0;
+  border-top: #bb4e0b solid 5px;
 }
 .seller-page-productList-cards{
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
 }
 .seller-page-product-cards__category{
   font-size: 25px;
   margin-bottom: 20px;
+  width:100%;
+  padding-bottom: 10px;
+  border-bottom:dashed 2px #bb4e0b;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .seller{
+    width : 100%;
+  }
+  .sellerBox {
+    border-radius:0px;
+    width : 100%;
+  }
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1410px) {
+  .seller{
+    &::-webkit-scrollbar {
+    }
+    &-page {
+      &__name {
+        & h2 {
+        }
+      }
+      &__resume {
+      }
+      &__rate {
+      }
+      &__tag{
+        & ul {
+        }
+      }
+      &__info {
+        & span {
+        }
+      }
+    }
+  }
+  .sellerGrid {
+  }
+  .sellerContainer {
+  }
+  .sellerBox {
+  }
+  .sellerTitle {
+  }
+
+  .iconify{
+  }
+  .seller-page-productList{
+  }
+  .seller-page-productList-cards{
+    flex-flow: row wrap;
+  }
+  .seller-page-product-cards__category{
+  }
+
+
 }

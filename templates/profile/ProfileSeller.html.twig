@@ -12,6 +12,9 @@
     <div class="sellerContainer">
         <div class="sellerBox">
         <div class="seller">
+            <div class="categoryTitle">
+                <h3>MA BOUTIQUE</h3>
+            </div>
             <form method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{sellerInfo.seller.SELL_ID }}">
             <div class="seller-page__name">
                 <input type="hidden" name="SELL_ID" value="{{sellerInfo.seller.SELL_ID }}" required>
@@ -57,7 +60,10 @@
             </div>
         </form>
         <div class="seller-page-productList">
-            <a href="#modal" role="button" class="button button__link"><span  class="iconify" data-icon="gridicons:add" data-inline="false"style="font-size: 30px"></span>Ajouter un produit</a>
+            <div class="categoryTitle">
+                <h3>MES PRODUITS</h3>
+                <a href="#modal" role="button" class="button button__link"><span  class="iconify" data-icon="gridicons:add" data-inline="false"style="font-size: 30px"></span>Ajouter un produit</a>
+            </div>
 
                 {#<h2>Liste des produits</h2>#}
                 {#For each tags create category#}
@@ -79,11 +85,12 @@
                                         <input class="heading h3" type="text" name="PROD_NAME" placeholder="Nom du Produit" value="{{ product.PROD_NAME }}" required>
                                         <input class="seller-page-product-description" type="text" name="PROD_DESC" name="PROD_NAME" placeholder="Description du produit" value="{{ product.PROD_DESC }}" required>
                                         <input class="seller-page-product-card__price" type="number" name="PROD_PRICE" name="PROD_NAME" placeholder="Prix" value="{{ product.PROD_PRICE }}" required>
+                                        <div class="seller-page-product-card__quantity">
+                                            <button type="submit" value=""><span class="iconify" data-icon="dashicons:update-alt" data-inline="false" style="font-size: 30px"></span></button>
+                                            <button class="deleteProductButton"><span class="iconify" data-icon="ic:baseline-delete-forever" data-inline="false" style="font-size: 30px"></span></button>
+                                        </div>
                                     </div>
-                                    <div class="seller-page-product-card__quantity">
-                                        <button type="submit" value=""><span class="iconify" data-icon="dashicons:update-alt" data-inline="false" style="font-size: 30px"></span>Mettre à jour</button>
-                                        <button class="deleteProductButton"><span class="iconify" data-icon="ic:baseline-delete-forever" data-inline="false" style="font-size: 30px"></span>Supprimer</button>
-                                    </div>
+
                                 </div>
                             </form>
                             {% endfor %}
