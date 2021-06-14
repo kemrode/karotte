@@ -1,0 +1,65 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+.seller{
+  overflow-x: auto;
+  padding: 25px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &-page {
+    &__name {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-content: center;
+      padding: 5px;
+      & h2 {
+        font-size: 1.5em;
+      }
+    }
+    &__resume {
+      grid-row: 2;
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: repeat(1, auto);
+      grid-template-rows: 3em auto;
+      padding: 5px;
+    }
+    &__rate {
+      color: $secondColor;
+      grid-column: 1;
+    }
+    &__tag{
+      grid-column: 2;
+      color: $secondColor;
+      & ul {
+        display: flex;
+        column-gap: 1em;
+      }
+    }
+    &__info {
+      grid-column: span 2;
+      display: flex;
+      flex-flow: column;
+      height: auto;
+      & span {
+        margin : 0 5px;
+      }
+      &-userAdress {
+        @include flexBoxColumn;
+        margin : 0 5px;
+      }
+      &-userPhone {
+        @include flexBoxRowAlignItemsCentering;
+        margin : 0 5px;
+      }
+      &-sellerDescription {
+        @include flexBoxRowAlignItemsCentering;
+        margin : 0 5px;
+      }
+    }
+  }
+}

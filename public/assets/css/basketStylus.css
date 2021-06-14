@@ -22,7 +22,6 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
 .basketContainer::-webkit-scrollbar {
   display: none;
 }
@@ -58,11 +57,9 @@ body {
   align-items: center;
   border-bottom: 3px solid #BB4E0B;
 }
-
 .titleBox h2 {
   font-size: 1.3em;
 }
-
 .titleBox h2 span {
   font-style: italic;
   color: #BB4E0B;
@@ -113,12 +110,10 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .basketTitleTab thead {
   width: 100%;
   height: auto;
 }
-
 .basketTitleTab thead th {
   width: 15%;
 }
@@ -147,9 +142,10 @@ body {
 
 .blackBlock {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: black;
   opacity: 0.5;
+  position: absolute;
 }
 
 .blackBlock__register {
@@ -163,6 +159,10 @@ body {
   z-index: 2;
 }
 
-/*# sourceMappingURL=basketStylus.css.map */
+.blackBlock__seller {
+  position: absolute;
+  grid-area: 1/1/12/12;
+  z-index: 2;
+}
 
 /*# sourceMappingURL=basketStylus.css.map */

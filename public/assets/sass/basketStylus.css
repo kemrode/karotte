@@ -158,4 +158,10 @@ body {
   z-index: 2;
 }
 
+.blackBlock__seller {
+  position: absolute;
+  grid-area: 1/1/12/12;
+  z-index: 2;
+}
+
 /*# sourceMappingURL=basketStylus.css.map */

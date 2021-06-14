@@ -1,14 +1,29 @@
 @import "../Utils/mixin";
 @import "../Utils/variables";
+@import "../Utils/variables";
+@import "../Base/bodyStyle";
+@import "../Base/boxSizingStyle";
+@import "../Composants/titleBoxStyle";
+@import "../Layout/blackBlock";
+@import "../Pages/sellerProfilePage";
 
-.seller{
+/*.seller{
   background-color: white;
   border-left: $primaryColor solid thick ;
   padding: 50px;
   display: grid;
   overflow-x: auto;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 0fr 0fr 1fr;
+  grid-template-rows: 0fr 0fr 1fr;*/
+.seller{
+  overflow-x: auto;
+  padding: 25px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   &-page {
     &__name {
       display: flex;
@@ -63,6 +78,34 @@
     }
   }
 }
+.sellerGrid {
+  display: grid;
+  position:relative;
+}
+.sellerContainer {
+  @include flexBoxColumnJustifyCentering;
+  align-items: center;
+}
+.sellerBox {
+  @include flexBoxColumn;
+  align-items: center;
+  justify-content: center;
+  background-color:$breakingWhite;
+  width: 85%;
+  height: 85vh;
+  z-index: 3;
+  border: 1px solid $primaryColor;
+  border-radius:$quarterRadius;
+}
+.sellerTitle {
+  @include flexBoxRow;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 100%;
+  height: 25%;
+  margin-left: 15%;
+}
+
 .iconify{
   font-size: 1.5em;
   margin: 0 5px 0 0;
@@ -75,18 +118,10 @@
   padding: 20px 0;
 }
 .seller-page-productList-cards{
-  display: grid;
-  grid-template-columns: repeat(1,min-content);
-  grid-auto-rows: auto;
-  column-gap: 1em;
-  row-gap: 1em;
+  display: flex;
+  flex-flow: row wrap;
 }
 .seller-page-product-cards__category{
   font-size: 25px;
   margin-bottom: 20px;
-}
-@media only screen and (max-width: 768px) {
-  .sellerPage{
-
-  }
 }
