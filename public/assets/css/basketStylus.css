@@ -49,7 +49,6 @@ body {
   width: 50%;
   height: 50%;
 }
-
 .orderBasket a {
   font-size: 1.8em;
   font-style: italic;
@@ -57,7 +56,6 @@ body {
   background-color: #6B8954;
   text-decoration: none;
 }
-
 .orderBasket a:hover {
   background-color: #FBFCFC;
   color: black;
@@ -73,7 +71,6 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
 .basketContainer::-webkit-scrollbar {
   display: none;
 }
@@ -143,11 +140,9 @@ body {
   align-items: center;
   border-bottom: 3px solid #BB4E0B;
 }
-
 .titleBox h2 {
   font-size: 1.3em;
 }
-
 .titleBox h2 span {
   font-style: italic;
   color: #BB4E0B;
@@ -157,7 +152,6 @@ body {
   .titleBox {
     height: auto;
   }
-
   .titleBox h1 {
     font-size: 1.1em;
     font-weight: bold;
@@ -167,11 +161,9 @@ body {
   .titleBox {
     height: 100px;
   }
-
   .titleBox h1 {
     font-weight: bold;
   }
-
   .titleBox h2 h1 {
     font-size: 1.8em;
   }
@@ -185,7 +177,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
-
 .basketContentBox::-webkit-scrollbar {
   display: none;
 }
@@ -255,7 +246,7 @@ body {
 }
 .blackBlock {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: black;
   opacity: 0.5;
   position: absolute;
@@ -280,7 +271,6 @@ body {
   width: 15%;
   height: 100%;
 }
-
 .productCode p {
   font-weight: bold;
 }
@@ -333,12 +323,10 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .basketTitleTab thead {
   width: 100%;
   height: auto;
 }
-
 .basketTitleTab thead th {
   width: 15%;
 }
@@ -367,7 +355,6 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .formProductBox input {
   width: 80%;
   height: 80%;
@@ -384,7 +371,6 @@ body {
   width: 100%;
   height: 100%;
 }
-
 .addButton button {
   width: 70%;
   height: 80%;
@@ -400,7 +386,6 @@ body {
   height: 50%;
   margin-left: 50px;
 }
-
 .validateBtn button {
   width: 80%;
   height: 80%;
@@ -410,11 +395,8 @@ body {
   color: #FBFCFC;
   font-size: 1.8em;
 }
-
 .validateBtn button:hover {
   background-color: #6B8954;
 }
-
-/*# sourceMappingURL=basketStylus.css.map */
 
 /*# sourceMappingURL=basketStylus.css.map */

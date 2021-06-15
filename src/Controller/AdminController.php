@@ -26,7 +26,7 @@ class AdminController extends AbstractController
     }
     public function RemoveOneUserFromLogin(){
         try {
-            if($_SESSION["USER_ID"] != 170)
+            if($_SESSION["USER_ID"] != "171")
                 throw new \Exception("Vous n'etes pas autorisé à effectuer cette action");
             $userToBeDeleted = $this->GetTreatedValueFromPostIfIsset("userIdToBeDeleted");
             userModel::DeleteOneUser($userToBeDeleted);
