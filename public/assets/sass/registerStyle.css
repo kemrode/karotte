@@ -479,23 +479,19 @@ input:checked + .slider:before {
   height: 100vh;
   background-color: black;
   opacity: 0.5;
-}
-
-.blackBlock__register {
   position: absolute;
   z-index: 2;
 }
 
-.blackBlock__basket {
-  position: absolute;
-  grid-area: 1/1/12/12;
-  z-index: 2;
+@media only screen and (max-width: 768px) {
+  .blackBlock__basket {
+    width: 100%;
+  }
 }
-
-.blackBlock__seller {
-  position: absolute;
-  grid-area: 1/1/12/12;
-  z-index: 2;
+@media only screen and (min-width: 768px) {
+  .blackBlock__basket {
+    grid-area: 1/1/12/12;
+  }
 }
 
 /*# sourceMappingURL=registerStyle.css.map */

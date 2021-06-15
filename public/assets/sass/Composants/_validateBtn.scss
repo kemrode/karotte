@@ -1,0 +1,20 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+.validateBtn {
+  width: 50%;
+  height: 50%;
+  margin-left: 50px;
+  & button {
+    width: 80%;
+    height: 80%;
+    border:1px solid black;
+    border-radius:$quarterRadius;
+    background-color:$primaryColor;
+    color:$breakingWhite;
+    font-size:$veryHighTextSize;
+  }
+  & button:hover {
+    background-color:$secondColor;
+  }
+}

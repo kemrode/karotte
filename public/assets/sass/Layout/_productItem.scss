@@ -1,0 +1,49 @@
+@import "../Utils/mixin";
+@import "../Utils/variables";
+
+
+.productCode {
+  @include flexBoxColumnJustifyCentering;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+  & p {
+    font-weight: bold;
+  }
+}
+.productName {
+  & p {
+    font-weight: bold;
+    color: black;
+  }
+}
+.productSeller {
+  & p {
+    font-weight: bold;
+    font-style: italic;
+    color:$secondColor;
+    text-decoration:1px underline $primaryColor;
+  }
+}
+.productSinglePrice {
+  & p {
+    font-style: italic;
+    color:$primaryColor;
+  }
+}
+.productBasketTotalPrice {
+  & p {
+    font-weight: bold;
+    text-decoration:2px underline $primaryColor;
+  }
+}
+@media only screen and(max-width: 768px) {
+  p {
+    font-size:1.1em;
+  }
+}
+@media only screen and (min-width:768px){
+  p {
+    font-size:$titleSizeHandy;
+  }
+}

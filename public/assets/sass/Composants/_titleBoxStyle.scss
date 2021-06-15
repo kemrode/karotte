@@ -5,7 +5,6 @@
   @include flexBoxRow;
   justify-content: flex-start;
   width: 85%;
-  height: 100px;
   align-items: center;
   border-bottom: 3px solid $primaryColor;
     & h2 {
@@ -16,19 +15,23 @@
       }
     }
 }
-
 @media only screen and(max-width:768px) {
   .titleBox {
+    height: auto;
     & h1 {
       font-size:1.1em;
+      font-weight: bold;
     }
   }
-
 }
 @media only screen and(min-width: 768px) {
   .titleBox {
+    height: 100px;
+    & h1 {
+      font-weight: bold;
+    }
     & h2 h1 {
-      font-size:$veryHighTextSize ;
+      font-size:$veryHighTextSize;
     }
   }
 }
