@@ -31,6 +31,7 @@ function removeUser(userId, userName){
 
         fetch(request).then(function(data) {
             alert("Utilisateur et boutique associé supprimé");
+
             window.location.reload();
         }).catch( (err)=> {
             alert('Le serveur est actuellement injoignable nous allons voir si le cdn est stable ou les serveur ne sont pas en feu...')

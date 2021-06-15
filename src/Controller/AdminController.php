@@ -3,7 +3,6 @@
 
 namespace src\Controller;
 
-use src\Model\SellerModel;
 use src\Model\userModel;
 
 class AdminController extends AbstractController
@@ -27,6 +26,7 @@ class AdminController extends AbstractController
     public function RemoveOneUserFromLogin(){
         try {
             if($_SESSION["USER_ID"] != "171")
+
                 throw new \Exception("Vous n'etes pas autorisé à effectuer cette action");
             $userToBeDeleted = $this->GetTreatedValueFromPostIfIsset("userIdToBeDeleted");
             userModel::DeleteOneUser($userToBeDeleted);
