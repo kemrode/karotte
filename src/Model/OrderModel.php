@@ -202,32 +202,7 @@ class OrderModel
                 "ORDER_PROD_QTY" => $this->getORDERPRODQTY(),
                 "PROD_PRICE" => $this->getPRODPRICE(),
                 "PROD_TOTAL_PRICE" => $this->getPRODTOTALPRICE()
-                /*"info"=>[ "ORDER_NUMBER" => $this->getORDERNUMBER(),
-                    "USER_ID" => $this->getUSERID(),
-                ],
-                "list"=>[
-                    "order"=>["SELL_ID" => $this->getSELLID(),
-                        "PROD_ID" => $this->getPRODID(),
-                        "ORDER_PROD_QTY" => $this->getORDERPRODQTY(),
-                        "PROD_PRICE" => $this->getPRODPRICE(),
-                        "PROD_TOTAL_PRICE" => $this->getPRODTOTALPRICE()
-                    ]
-                ]*/
             ]);
-
-            /*$order = [
-                "info"=>[ "ORDER_NUMBER" => $this->getORDERNUMBER(),
-                        "USER_ID" => $this->getUSERID(),
-                ],
-                "list"=>[
-                    "order"=>["SELL_ID" => $this->getSELLID(),
-                        "PROD_ID" => $this->getPRODID(),
-                        "ORDER_PROD_QTY" => $this->getORDERPRODQTY(),
-                        "PROD_PRICE" => $this->getPRODPRICE(),
-                        "PROD_TOTAL_PRICE" => $this->getPRODTOTALPRICE()
-                    ]
-                ]
-            ];*/
             return $requete->fetchAll();
 
 
@@ -260,7 +235,7 @@ class OrderModel
         }
     }
 
-    public static function GetOrdersByOrderNumber($orderNumber){
+    /*public static function GetOrdersByOrderNumber($orderNumber){
         $orders= [];
         try {
             $orders['listOfProduct'] =
@@ -279,8 +254,7 @@ class OrderModel
         } catch (\Exception $e){
             throw $e;
         }
-
-    }
+    }*/
 
 
     public static function GetOrdersFromOrderNumber($orderNumber){
@@ -327,6 +301,24 @@ class OrderModel
         }
     }
 
+    public static function GetOrderById($order_id){
+        try {
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT ORDER_ID, USER_ID, ORDER_PROD_QTY, PROD_TOTAL_PRICE, 
+            PRODUCT.PROD_ID, PRODUCT.PROD_PRICE, PROD_NAME, SELL_NAME, SELLER.SELL_ID, ORDER_NUMBER
+            FROM `ORDER`
+            INNER JOIN PRODUCT ON `ORDER`.PROD_ID = PRODUCT.PROD_ID
+            INNER JOIN SELLER ON `ORDER`.SELL_ID = SELLER.SELL_ID 
+            WHERE ORDER_ID=:ORDER_ID");
+            $requete->execute([
+                "ORDER_ID"=>$order_id
+            ]);
+            return $requete->fetchAll();
+        } catch (\Exception $e){
+            throw $e;
+        }
+    }
+
     //Regroup orders in One
     /*public static function GetAllOrders($id){
         $order = [];
@@ -344,9 +336,26 @@ class OrderModel
         $orders = [];
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT ORDER_NUMBER FROM `ORDER` WHERE USER_ID=:USER_ID GROUP BY ORDER_NUMBER");
+            $requete = $bdd->prepare("SELECT DISTINCT ORDER_NUMBER FROM `ORDER` WHERE USER_ID=:USER_ID");
             $requete->execute([
                 "USER_ID"=>$id
+            ]);
+            return $requete->fetchAll();
+
+        } catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+    public static function GetOrderNumbersFromUserIdAndSellerId($user_id, $sell_id, $orderNumber){
+        $orders = [];
+        try{
+            $bdd = BDD::getInstance();
+            $requete = $bdd->prepare("SELECT ORDER_ID FROM `ORDER` WHERE USER_ID=:USER_ID AND SELL_ID=:SELL_ID AND ORDER_NUMBER=:ORDER_NUMBER");
+            $requete->execute([
+                "USER_ID"=>$user_id,
+                "SELL_ID"=>$sell_id,
+                "ORDER_NUMBER"=>$orderNumber
             ]);
             return $requete->fetchAll();
 

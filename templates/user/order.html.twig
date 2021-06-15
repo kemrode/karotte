@@ -19,8 +19,8 @@
                 {% for item in order %}
                     {% set totalPrice = totalPrice + (item.PROD_PRICE * item.ORDER_PROD_QTY) %}
                     <tr>
-                        <td>{{ item.PROD_ID }}</td>
                         <td>{{ item.PROD_NAME }}</td>
+                        <td>{{ item.SELL_ID }}</td>
                         <td>{{ item.ORDER_PROD_QTY }}</td>
                         <td>{{ item.PROD_PRICE }}</td>
                         <td>{{ item.PROD_TOTAL_PRICE }}€</td>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Internal_email-29</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+<h1>Karotte</h1>
+
+<h3>Bonjour {{ orderArray[0][0]["SELL_NAME"] }}, vous avez reçu une nouvelle commande !</h3>
+
+<p>Commande n°{{ orderArray[0][0]["ORDER_NUMBER"] }}</p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% set totalPrice = 0 %}
+    {% for key, order in orderArray %}
+    {% for item in order %}
+    {% set totalPrice = totalPrice + (item.PROD_PRICE * item.ORDER_PROD_QTY) %}
+        <tr>
+            <td>{{ item.PROD_NAME }}</td>
+            <td>{{ item.ORDER_PROD_QTY }}</td>
+            <td>{{ item.PROD_PRICE }}</td>
+            <td>{{ item.PROD_TOTAL_PRICE }}€</td>
+        </tr>
+    {% endfor %}
+    {% endfor %}
+
+    </tbody>
+</table>
+<p>Prix total = {{ totalPrice }}€</p>
+
+<h5><a href="http://makarotte.fr/user/connectionView">Cliquez-ici pour y accéder depuis Karotte</a></h5>
+</body>
+</html>

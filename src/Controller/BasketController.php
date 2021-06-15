@@ -49,7 +49,6 @@ class BasketController extends AbstractController
     }
 
     public function UpdateBasket(){
-        var_dump($_REQUEST);
         if(isset($_REQUEST["productQuantity"],$_REQUEST["param"])){
             if($_REQUEST["productQuantity"] == 0){
                 unset($_SESSION['basket'][$_REQUEST["param"]]);
@@ -84,10 +83,8 @@ class BasketController extends AbstractController
             try {
                 //Check if product is available
                 $checkProduct = ProductModel::GetProductFromProductId($product_id);
-                var_dump($checkProduct['PROD_QTY']);
 
                 if(isset($checkProduct['PROD_QTY']) && $checkProduct['PROD_QTY'] > $quantity){
-                    var_dump("isOk");
                     $basket = new BasketModel();
 
                 } else{
@@ -107,12 +104,8 @@ class BasketController extends AbstractController
 
     public function AddBasket($id){
         $_SESSION['cart_item'] = BasketModel::GetUserBasket($_SESSION["USER_ID"]);
-        var_dump($_SESSION['cart_item']);
         /*$basket = BasketModel::GetUserBasket($id);*/
         $sellerList = SellerModel::GetAllSellers();
-
-        var_dump($_POST);
-
 
         /*if(!empty($_POST["addToCartBtn"])){
             echo "coucou";
