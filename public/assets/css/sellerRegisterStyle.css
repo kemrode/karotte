@@ -23,6 +23,14 @@ body {
   display: none;
 }
 
+.headConnection {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #6B8954;
+  border-bottom: 2px solid black;
+}
+
 .mainContainer {
   position: absolute;
   z-index: 3;
@@ -36,24 +44,29 @@ body {
   background-color: #BB4E0B;
 }
 
-.titleBox {
+.crossCloseBox {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 20%;
+}
+
+.titleBoxRegisterSeller {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+  align-items: center;
   padding-top: 25px;
   padding-bottom: 45px;
+  background-color: #6B8954;
 }
-.titleBox h2 {
+.titleBoxRegisterSeller h2 {
   font-size: 1.8em;
   font-weight: bold;
   color: white;
-}
-.titleBox__border--bottom {
-  border-bottom: 1px solid black;
-}
-.titleBox__background--color {
-  background-color: #6B8954;
 }
 
 .infoContainer {
@@ -61,7 +74,6 @@ body {
   flex-direction: column;
   width: auto;
   height: 100vh;
-  padding-top: 100px;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -75,7 +87,6 @@ body {
   justify-content: space-evenly;
   width: auto;
   height: 100%;
-  margin-top: 150px;
 }
 
 .okButton {
@@ -96,6 +107,36 @@ body {
   border-radius: 45px;
 }
 
+@media only screen and (max-width: 768px) {
+  .primaryContainer {
+    height: 100%;
+    position: relative;
+    z-index: 0;
+  }
+
+  .blackBlock {
+    display: none;
+  }
+
+  .mainContainer {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .headConnection {
+    border-top: 2px solid black;
+  }
+
+  .titleBoxRegisterSeller {
+    width: 90%;
+  }
+
+  .infoContainer {
+    padding-top: 100px;
+  }
+}
 .itemBox {
   display: flex;
   flex-direction: column;

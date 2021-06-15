@@ -7,6 +7,9 @@
     <div class="navBox">
         <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
         <a href="/basket/getuserbasket/{{ session.USER_ID }}"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
+        {% if session.connected == true and session.isSeller == false %}
+            <a href="/?controller=registerSeller&action=sellerView"><span class="iconify" data-icon="mdi:bee-flower" data-inline="false"></span></a>
+        {% endif %}
         <div class="myAccountBox">
             <a href="" class="myAccountBtn"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
             <div class="dropContent">
@@ -38,5 +41,6 @@
             </div>
         </div>
         <script src="/assets/js/hamburgerMenuDisplay.js"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     </div>
 </nav>

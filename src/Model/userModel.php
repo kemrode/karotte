@@ -372,4 +372,26 @@ class userModel
             return $e->getMessage();
         }
     }
+    //function to delete an account
+    public static function deleteAccount(\PDO $bdd, $userId){
+        try{
+            $sql = 'DELETE FROM USER WHERE USER_ID=:userId LIMIT 1';
+            $request = $bdd->prepare($sql);
+            $request->execute(['userId'=>$userId]);
+            return true;
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
+    //function to find if someone is already inside database
+    public static function isAlreadyInside(\PDO $bdd, $userMail){
+        try {
+            $sql = 'SELECT USER_EMAIL FROM USER WHERE USER_EMAIL=:userMail';
+            $request = $bdd->prepare($sql);
+            $request->execute(['userMail'=>$userMail]);
+            return true;
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
 }

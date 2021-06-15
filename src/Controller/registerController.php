@@ -21,19 +21,23 @@ class registerController extends AbstractController
             $newKarrotte = new userModel();
             switch ($passVerif){
                 case true :
-                    $newKarrotte->setUserName($_POST['itemName']);
-                    $newKarrotte->setUserSurname($_POST['itemSurname']);
-                    $newKarrotte->setUserPseudo($_POST['itemPseudo']);
-                    $newKarrotte->setUserPasswd(password_hash($_POST['itemPasswrd'], PASSWORD_DEFAULT));
-                    $newKarrotte->setUserMail($_POST['itemMail']);
-                    $newKarrotte->setUserAdress($_POST['itemAdress']);
-                    $newKarrotte->setUserZipCode($_POST['itemPostCode']);
-                    $newKarrotte->setUserCity($_POST['itemCity']);
-                    $newKarrotte->setUserPhoneNumber($_POST['itemPhone']);
-                    $newKarrotteToPost = $newKarrotte->postUser(BDD::getInstance());
-                    //$this->typeKarotte($_POST['prodKarotte'], $_POST['userKarotte']);
-                    //header('Location:/');
-                    break;
+                    $newKarrotte->setUserName(htmlentities($_POST['itemName']));
+                    $newKarrotte->setUserSurname(htmlentities($_POST['itemSurname']));
+                    $newKarrotte->setUserPseudo(htmlentities($_POST['itemPseudo']));
+                    $newKarrotte->setUserPasswd(password_hash(htmlentities($_POST['itemPasswrd']), PASSWORD_DEFAULT));
+                    $newKarrotte->setUserMail(htmlentities($_POST['itemMail']));
+                    $newKarrotte->setUserAdress(htmlentities($_POST['itemAdress']));
+                    $newKarrotte->setUserZipCode(htmlentities($_POST['itemPostCode']));
+                    $newKarrotte->setUserCity(htmlentities($_POST['itemCity']));
+                    $newKarrotte->setUserPhoneNumber(htmlentities($_POST['itemPhone']));
+                    //function to know if someone is already inside the bdd
+                    $isAlreadyInDB = $newKarrotte::isAlreadyInside(BDD::getInstance(),$newKarrotte->getUserMail());
+                    if($isAlreadyInDB == true){
+                        header('Location:/');
+                    } else {
+                        $newKarrotteToPost = $newKarrotte->postUser(BDD::getInstance());
+                        break;
+                    }
                 case false :
                     //redirect to error passwd page
                     $this->twig->render('error/error404View.html.twig');
@@ -52,7 +56,6 @@ class registerController extends AbstractController
             case $seller == "1" AND $user == "0":
                 $newSeller = new registerSellerController();
                 echo $newSeller->sellerView();
-                //return $this.registerSellerController::sellerView();
                 break;
             case $seller == "0" AND $user == "1" :
                 header('Location:/');

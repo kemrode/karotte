@@ -4,6 +4,7 @@
 namespace src\Controller;
 
 
+use src\Model\SellerModel;
 use src\Model\user;
 use src\Model\userModel;
 use src\Model\BDD;
@@ -28,7 +29,7 @@ class userController extends AbstractController {
                     $memberToSegue[$key]=$value;
                 }
             }
-            return $this->twig->render("profile\userProfil.html.twig",["member"=>$memberToSegue]);
+            return $this->twig->render("profile\userProfil.html.twig",["member"=>$memberToSegue],);
         }
     }
 
@@ -48,16 +49,34 @@ class userController extends AbstractController {
                             foreach ($userConnected as $key=>$value){
                                 $_SESSION[$key]=$value;
                             }
+                            $_SESSION['connected'] = true;
+                            $isSeller = new SellerModel();
+                            $userId = $_SESSION['USER_ID'];
+                            $resultSeller = $isSeller::GetSellerInformationFromId($userId);
+                            switch ($resultSeller){
+                                case true:
+                                    $_SESSION['isSeller'] = true;
+                                    break;
+                                case false:
+                                    $_SESSION['isseller'] = false;
+                                    break;
+                                default:
+                                    $_SESSION['isSeller'] = false;
+                                    break;
+                            }
                             header('Location:/');
                             return;
                         } else {
+                            $_SESSION['connected'] = false;
                             header('Location:/');
                             return;
                         }
                     case false:
+                        $_SESSION['connected'] = false;
                         header('Location:/');
                         break;
                     default:
+                        $_SESSION['connected'] = false;
                         header('Location:/');
 
                 }
@@ -81,6 +100,22 @@ class userController extends AbstractController {
                 } else {
                     return false;
                 }
+            }
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
+
+    //function to delete a selected account
+    public function deleteAccount(){
+        try{
+            if(isset($_POST['deleteAccountBTN'])){
+                $user = new userModel();
+                $idToDelete = $user->getUserId();
+                $userDelete = $this->deleteAccount($idToDelete);
+                $userLogOut = $this->logout();
+            } else {
+                echo $this->myAccount();
             }
         } catch (\Exception $e){
             return $e->getMessage();

@@ -4,7 +4,6 @@
 .titleBox {
   @include flexBoxRow;
   justify-content: flex-start;
-  width: 85%;
   align-items: center;
   border-bottom: 3px solid $primaryColor;
     & h2 {
@@ -17,6 +16,7 @@
 }
 @media only screen and(max-width:768px) {
   .titleBox {
+    width: 85%;
     height: auto;
     & h1 {
       font-size:1.1em;

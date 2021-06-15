@@ -195,6 +195,17 @@ class SellerModel{
         }
     }
 
+    public function getSellerById(\PDO $bdd, $id){
+        try{
+            $sql = 'SELECT * FROM SELLER WHERE SELL_ID=:userId';
+            $request = $bdd->prepare($sql);
+            $request->execute(['userId'=>$id]);
+            return true;
+        }catch (\Exception $e){
+            throw $e;
+        }
+    }
+
     #endregion
 
 }

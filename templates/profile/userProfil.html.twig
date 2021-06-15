@@ -42,6 +42,11 @@
                         <div class="buttonBox">
                             <button type="submit" name="okBtn">Je valide</button>
                         </div>
+                        {% if session.connected == true %}
+                            <div class="buttonBox">
+                                <button type="submit" name="deleteAccountBTN" formaction="/?controller=&action=&param=">Se désinscrire</button>
+                            </div>
+                        {% endif %}
                     </form>
                 </div>
             </div>
