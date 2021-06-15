@@ -4,6 +4,7 @@
 namespace src\Controller;
 
 
+use src\Model\SellerModel;
 use src\Model\user;
 use src\Model\userModel;
 use src\Model\BDD;
@@ -49,6 +50,20 @@ class userController extends AbstractController {
                                 $_SESSION[$key]=$value;
                             }
                             $_SESSION['connected'] = true;
+                            $isSeller = new SellerModel();
+                            $userId = $_SESSION['USER_ID'];
+                            $resultSeller = $isSeller::GetSellerInformationFromId($userId);
+                            switch ($resultSeller){
+                                case true:
+                                    $_SESSION['isSeller'] = true;
+                                    break;
+                                case false:
+                                    $_SESSION['isseller'] = false;
+                                    break;
+                                default:
+                                    $_SESSION['isSeller'] = false;
+                                    break;
+                            }
                             header('Location:/');
                             return;
                         } else {

@@ -15,6 +15,12 @@
     display: none;
   }
 }
+.headConnection {
+  @include flexBoxRow;
+  width: 100%;
+  background-color: $secondColor;
+  border-bottom: 2px solid black;
+}
 .mainContainer {
   position: absolute;
   z-index: 3;
@@ -28,25 +34,23 @@
     }
   }
 }
-.titleBox {
+.crossCloseBox {
   @include flexBoxRowJustifyCentering;
+  align-items: center;
+  width: 20%;
+}
+.titleBoxRegisterSeller {
+  @include flexBoxRowJustifyCentering;
+  width: 80%;
+  height: 100%;
   align-items: center;
   padding-top: 25px;
   padding-bottom: 45px;
+  background-color: $secondColor;
   & h2 {
     font-size: $veryHighTextSize;
     font-weight: bold;
     color: white;
-  }
-  &__border {
-    &--bottom {
-      border-bottom: 1px solid black;
-    }
-  }
-  &__background {
-    &--color{
-      background-color: $secondColor;
-    }
   }
 }
 .infoContainer {
@@ -95,8 +99,11 @@
     width: 100%;
     height: 100%;
   }
-  .titleBox {
-    width: 100%;
+  .headConnection{
+    border-top: 2px solid black;
+  }
+  .titleBoxRegisterSeller {
+    width: 90%;
   }
   .infoContainer {
     padding-top: 100px;
