@@ -1,0 +1,68 @@
+h2 {
+  font-family: silkBold;
+  color: white;
+  margin: 5px;
+  font-size: 1.5em;
+}
+
+.mainContainer {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  flex-flow: column nowrap;
+  padding: 20px 0px;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+.mainContainer table {
+  background-color: white;
+  overflow: auto;
+  width: 75vw;
+  padding: 20px 10px;
+  border: none;
+  align-items: center;
+}
+.mainContainer table .hidden {
+  display: hidden;
+}
+.mainContainer table thead {
+  background-color: #bb4e0b;
+  color: white;
+  font-size: 2em;
+}
+.mainContainer table th, .mainContainer table td {
+  Padding: 5px;
+  width: auto;
+  vertical-align: middle;
+  text-align: center;
+}
+.mainContainer table tbody tr:hover td:not(.iconData) {
+  background-color: #3e8e41;
+}
+.mainContainer table tbody .iconify {
+  font-size: 2.2em;
+  color: #bb4e0b;
+}
+.mainContainer table tbody .iconify :hover {
+  color: #3e8e41;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  mainContainer {
+    justify-content: flex-start;
+  }
+
+  .hiddenResponsive {
+    display: none;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Medium devices (landscape tablets, 768px and up) */
+/* Large devices (laptops/desktops, 992px and up) */
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+/*# sourceMappingURL=admin.css.map */

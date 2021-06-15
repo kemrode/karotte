@@ -14,21 +14,21 @@ Class ProfileController extends AbstractController{
             "SELL_ID" => "Contacter l'administrateur réseau",
             "SELL_NAME" => "Nom boutique",
             "SELL_PRES" => "présentation vendeur",
-            "userAdress" => "Adresse",
-            "userZipCode" => "Code postal",
-            "userCity" => "Ville",
-            "userPhoneNumber" => "téléphone"];
+            "USER_ADDRESS" => "Adresse",
+            "USER_ZIP_CODE" => "Code postal",
+            "USER_CITY" => "Ville",
+            "USER_PHONE" => "téléphone"];
 
     }
 
     function index(){
-        header("location:/Profile/SellerProfileView".$_SESSION["userId"]);
+        header("location:/Profile/SellerProfileView".$_SESSION["USER_ID"]);
     }
 
     public function SellerProfileView($id){
         try {
-            $id = ($id!="")?$id:$_SESSION["userId"];
-            if($id != $_SESSION["userId"] || $id == ""){
+            $id = ($id!="")?$id:$_SESSION["USER_ID"];
+            if($id != $_SESSION["USER_ID"] || $id == ""){
                 header("location:/Seller/GetSellerById".$id);
                 exit;
             }
@@ -80,11 +80,13 @@ Class ProfileController extends AbstractController{
             foreach ($valueExpected as $field=>$error){
                 if($this->GetTreatedValueFromPostIfIsset($field) == null)
                     throw new \InvalidArgumentException("Veuillez renseigner le champs ".$error);
-                if(property_exists($user, $field))
-                    $user->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
                 if(property_exists($seller, $field))
                     $seller->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
+            $user->setUserAdress($this->GetTreatedValueFromPostIfIsset("USER_ADDRESS"));
+            $user->setUserCity($this->GetTreatedValueFromPostIfIsset("USER_ZIP_CODE"));
+            $user->setUserZipCode($this->GetTreatedValueFromPostIfIsset("USER_CITY"));
+            $user->setUserPhoneNumber($this->GetTreatedValueFromPostIfIsset("USER_PHONE"));
 
             // Update database
             $user->setUserId($seller->getSELLID());

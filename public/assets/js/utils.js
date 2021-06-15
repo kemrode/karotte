@@ -15,7 +15,7 @@
  *  })
  */
 
-function SendRequestReturnAPromise(method, url, headers = []){
+function SendRequestReturnAPromise(method, url, headers = [], param =""){
     return new Promise((resolve, reject) => {
     xhr = new XMLHttpRequest()
     xhr.open(method, url);
@@ -32,6 +32,6 @@ function SendRequestReturnAPromise(method, url, headers = []){
         }
     };
     xhr.onerror = () => reject(xhr.statusText);
-    xhr.send();
+    xhr.send(param);
     });
 }

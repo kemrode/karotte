@@ -1,0 +1,82 @@
+@import "./Utils/mixin";
+@import "./Utils/variables";
+
+h2{
+  font-family: silkBold;
+  color: white;
+  margin: 5px;
+  font-size: 1.5em;
+}
+.mainContainer{
+  grid-column-start:1 ;
+  grid-column-end:3 ;
+  display:flex;
+  align-items: center;
+  background-color: white;
+  flex-flow: column nowrap;
+  padding : 20px 0px;
+  height: 100vh;
+  width:100vw;
+  overflow:auto;
+  table{
+    background-color: white;
+    overflow: auto;
+    width: 75vw;
+    padding : 20px 10px;
+    border : none;
+    align-items: center;
+    .hidden{
+      display:hidden;
+    }
+    thead{
+      background-color: #bb4e0b;
+      color: white;
+      font-size: 2em;
+    }
+    th, td{
+      Padding:5px;
+      width: auto;
+      vertical-align: middle;
+      text-align: center;
+    }
+    tbody{
+      tr:hover td:not(.iconData){
+        background-color: #3e8e41;
+      }
+    .iconify{
+      font-size: 2.2em;
+      color:#bb4e0b;
+      :hover{
+        color:#3e8e41;
+      }
+    }
+    }
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  mainContainer {
+    justify-content: flex-start;
+  }
+  .hiddenResponsive {
+    display: none;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

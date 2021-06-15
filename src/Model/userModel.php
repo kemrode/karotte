@@ -206,7 +206,7 @@ class userModel
             ]);
             $id = $bdd->lastInsertId();
             $this->setUserId($id);
-            $_SESSION['userId'] = $id;
+            $_SESSION['USER_ID'] = $id;
             return "ok";
         } catch (\Exception $e){
             return $e->getMessage();
@@ -246,6 +246,13 @@ class userModel
         } catch (\Exception $e){
             return $e->getMessage();
         }
+    }
+    public static function GetAllUser(){
+        $bdd = BDD::getInstance();
+        $sql = "SELECT USER_ID, USER_NAME, USER_SURNAME, USER_PSEUDO, USER_PWD, USER_EMAIL, USER_ADDRESS, USER_ZIP_CODE, USER_CITY, USER_PHONE FROM USER WHERE USER_NAME !='admin'";
+        $request = $bdd->prepare($sql);
+        $request->execute();
+        return $request->fetchAll();
     }
 
     public static function fetchUserFromId(\PDO $bdd, $userId){
@@ -329,12 +336,29 @@ class userModel
             return $e->getMessage();
         }
     }
+
+    public static function DeleteOneUser($userToBeDeleted){
+        try {
+            $bdd = BDD::getInstance();
+            $sql = 'DELETE FROM USER WHERE USER_ID=:userId';
+            $request = $bdd->prepare($sql);
+            $request->execute([
+                "userId"=>$userToBeDeleted
+            ]);
+        } catch (\Exception $e){
+            throw $e;
+        }
+    }
+
+
     public static function logout(){
         session_start();
         $_SESSION = array();
         session_destroy();
         header('Location:/');
     }
+
+
 
     //function to get the hash
     public static function getHash(\PDO $bdd, $userMail){

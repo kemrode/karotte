@@ -9,7 +9,7 @@ Class ProductController extends AbstractController
 
     public function DeleteProduct(int $productId){
         try {
-            if(!ProductModel::IsThisProductBelongToSeller($_SESSION["userId"], $productId ))
+            if(!ProductModel::IsThisProductBelongToSeller($_SESSION["USER_ID"], $productId ))
                 throw new \Exception("Vous ne pouvez pas supprimer un produit qui n'est pas dans votre boutique");
             ProductModel::DeleteProduct($productId);
             $_SESSION["message"] = "Produit supprimé";
@@ -18,9 +18,8 @@ Class ProductController extends AbstractController
             $_SESSION["alert"] = $ex->getMessage();
         }
         finally{
-            return $_SESSION['userId'];
+            return $_SESSION['USER_ID'];
         }
-
     }
 
     public function UpdateProductInfo(){
@@ -45,7 +44,7 @@ Class ProductController extends AbstractController
                 if(property_exists($product, $field))
                     $product->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
-            $product->setPRODUSERID($_SESSION["userId"]);
+            $product->setPRODUSERID($_SESSION["USER_ID"]);
 
             $product->UpdateProduct();
 
@@ -96,7 +95,7 @@ Class ProductController extends AbstractController
                 if(property_exists($tag, $field))
                     $tag->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
-            $newProduct->setPRODUSERID($_SESSION["userId"]);
+            $newProduct->setPRODUSERID($_SESSION["USER_ID"]);
 
             // Get the picture path and save the file if set.
             if($_FILES["PROD_PICT"]["name"] != "")

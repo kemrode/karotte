@@ -1,0 +1,38 @@
+{% extends "layoutMapAndMenu.html.twig" %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/admin.css">
+{% endblock %}
+{% block fullpage %}
+    <div class="mainContainer">
+        <h2>USERS MANAGEMENT</h2>
+        <table>
+            <thead>
+            <tr>
+                <th class="hidden">UserId</th>
+                <th class="hiddenResponsive">User</th>
+                <th>email</th>
+                <th class="hiddenResponsive">pseudo</th>
+                <th>Remove</th>
+            </tr>
+            </thead>
+            <tbody id="usersTable">
+            {% for key, user in usersInfo %}
+                <tr>
+                    <td class="hidden">{{user.USER_ID }}</td>
+                    <td class="hiddenResponsive">{{user.USER_NAME }}</td>
+                    <td>{{user.USER_EMAIL }}</td>
+                    <td class="hiddenResponsive">{{user.USER_PSEUDO }}</td>
+                    <td class="iconData">
+                                <span id="removeIcon" class="iconify removeIcon" data-icon="ic:baseline-person-remove" data-inline="false"></span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="/assets/js/admin.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+{% endblock %}

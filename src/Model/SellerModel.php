@@ -196,4 +196,5 @@ class SellerModel{
     }
 
     #endregion
+
 }

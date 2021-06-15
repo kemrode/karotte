@@ -2,8 +2,7 @@
 
 
 namespace src\Controller;
-use src\Model\BDD;
-use src\Model\OrderModel;
+
 use src\Model\ProductModel;
 use src\Model\BasketModel;
 use src\Model\SellerModel;

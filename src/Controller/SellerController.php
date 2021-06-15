@@ -21,7 +21,7 @@ class SellerController extends AbstractController {
 
     public function GetSellerById($id){
         try {
-            if($id == $_SESSION["userId"] && $id != "")
+            if($id == $_SESSION["USER_ID"] && $id != "")
                 $_SESSION["accessProfile"] = true;
             $seller = SellerModel::GetSellerInformationFromId($id);
             $sellerList = SellerModel::GetAllSellers();
@@ -36,10 +36,6 @@ class SellerController extends AbstractController {
         catch (\Exception $e) {
             echo $this->index();
         }
-    }
-
-    public function UpdateSellerProfileFromForm(){
-
     }
 
     #region JSON Functions
