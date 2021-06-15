@@ -53,7 +53,6 @@
   @include flexBoxColumn;
   width: auto;
   height: 100vh;
-  padding-top: 100px;
   overflow-x: hidden;
   overflow-y: auto;
   &::-webkit-scrollbar {
@@ -65,7 +64,6 @@
   justify-content: space-evenly;
   width: auto;
   height: 100%;
-  margin-top: 150px;
 }
 .okButton {
   @include flexBoxRowJustifyCentering;
@@ -80,5 +78,27 @@
     color: white;
     border: 1px solid black;
     border-radius: $quarterRadius;
+  }
+}
+@media only screen and (max-width:768px){
+  .primaryContainer {
+    height: 100%;
+    position: relative;
+    z-index: 0;
+  }
+  .blackBlock {
+    display: none;
+  }
+  .mainContainer {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .titleBox {
+    width: 100%;
+  }
+  .infoContainer {
+    padding-top: 100px;
   }
 }
