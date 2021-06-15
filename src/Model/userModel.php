@@ -348,4 +348,15 @@ class userModel
             return $e->getMessage();
         }
     }
+    //function to delete an account
+    public static function deleteAccount(\PDO $bdd, $userId){
+        try{
+            $sql = 'DELETE FROM USER WHERE USER_ID=:userId LIMIT 1';
+            $request = $bdd->prepare($sql);
+            $request->execute(['userId'=>$userId]);
+            return true;
+        } catch (\Exception $e){
+            return $e->getMessage();
+        }
+    }
 }
