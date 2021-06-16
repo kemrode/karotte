@@ -54,9 +54,9 @@ class BasketController extends AbstractController
                 $_SESSION['basket'][$_REQUEST["param"]]["productQuantity"] = $_REQUEST["productQuantity"];
             }
         } else {
-            header("location:/basket/getuserbasket/{$_SESSION["USER_ID"]}");
+            header("location:/Basket/Getuserbasket/{$_SESSION["USER_ID"]}");
         }
-        header("location:/basket/getuserbasket/{$_SESSION["USER_ID"]}");
+        header("location:/Basket/Getuserbasket/{$_SESSION["USER_ID"]}");
 
     }
 
@@ -69,7 +69,7 @@ class BasketController extends AbstractController
                 unset($_SESSION["basket"][$k]);
             }
         }
-        header("location:/basket/GetUserBasket/{$_SESSION["USER_ID"]}");
+        header("location:/Basket/GetUserBasket/{$_SESSION["USER_ID"]}");
     }
 
     public function AddToBasketUser(int $userId){

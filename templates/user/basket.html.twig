@@ -72,14 +72,14 @@
                                                 </div>
                                             </div>
                                             <div class="quantityBox">
-                                                <form class="formProductBox" method="post" action="/basket/updatebasket/{{ key }}">
+                                                <form class="formProductBox" method="post" action="/Basket/Updatebasket/{{ key }}">
                                                     <input type="number" min="0" name="productQuantity" value="{{ item.productQuantity }}">
                                                     <div class="addButton">
                                                         <button type="submit" name="modifBtn">Modifier</button>
                                                     </div>
                                                 </form>
                                                 <div class="trashProduct">
-                                                    <a href="/basket/remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a>
+                                                    <a href="/Basket/Remove/{{ key }}"><span class="iconify" data-icon="ion-trash-a" data-inline="false"></span></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,7 +162,7 @@
                         <button type="submit" class="btn" onclick="location.href='/order/createorder'">Valider</button>
                     </div>
                     <div class="orderBasket">
-                        <a href="/order/GetAllOrdersByUserId/{{ session.USER_ID }}">Mes commandes</a>
+                        <a href="/Order/GetAllOrdersByUserId/{{ session.USER_ID }}">Mes commandes</a>
                     </div>
                 </div>
             </div>

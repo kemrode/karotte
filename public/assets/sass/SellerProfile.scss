@@ -3,6 +3,7 @@
 
 .buttons{
   display:flex;
+  flex-flow: row wrap;
   .iconify{
     color:#bb4e0b;
     margin: 0px 10px;
@@ -29,10 +30,23 @@ textarea {
   &.h2{
     height: auto;
     font-size: 1.5em;
+    width: 50%;
   }
   &.h3{
     font-size: 1.17em;
 
   }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+  .buttons{
+    flex-flow: column;
+  }
+  .heading{
+
+    &.h2{
+      width: 100%;
+    }}
 }
 

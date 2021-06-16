@@ -19,7 +19,7 @@
   &-page {
     &__name {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
       justify-content: space-between;
       align-content: center;
       padding: 5px;

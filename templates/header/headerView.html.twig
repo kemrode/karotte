@@ -6,9 +6,9 @@
 <nav class="navbar">
     <div class="navBox">
         <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
-        <a href="/basket/getuserbasket/{{ session.USER_ID }}"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
+        <a href="/Basket/Getuserbasket/{{ session.USER_ID }}"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
         {% if session.connected == true and session.isSeller == false %}
-            <a href="/?controller=registerSeller&action=sellerView"><span class="iconify" data-icon="mdi:bee-flower" data-inline="false"></span></a>
+            <a href="/registerSeller/sellerView"><span class="iconify" data-icon="mdi:bee-flower" data-inline="false"></span></a>
         {% endif %}
         <div class="myAccountBox">
             <a href="" class="myAccountBtn"><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
@@ -28,16 +28,16 @@
                 <img src="/assets/img/hamburgerWhite.svg" class="myAccountBtn minSize">
                 <div class="dropContent dropMinSize">
                     <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
-                    <a href="/basket/getuserbasket/{{ session.USER_ID }}"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
-                    <a href="/?controller=user&action=logout"><span class="iconify" data-icon="bx:bx-log-out-circle" data-inline="false"></span></a>
+                    <a href="/Basket/Getuserbasket/{{ session.USER_ID }}"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
+                    <a href="/user/logout"><span class="iconify" data-icon="bx:bx-log-out-circle" data-inline="false"></span></a>
                 </div>
         </div>
         <div class="myAccountBox">
             <a class="myAccountBtn minSize"><img><span class="iconify" data-inline="false" data-icon="carbon:user-avatar-filled"></span></a>
             <div class="dropContent dropMinSize">
-                <a href="/?controller=user&action=connectionView">Me connecter</a>
-                <a href="/?controller=register&action=registerView">M'enregistrer</a>
-                <a href="/?controller=user&action=myAccount">Mon compte</a>
+                <a href="/user/connectionView">Me connecter</a>
+                <a href="/register/registerView">M'enregistrer</a>
+                <a href="/user/myAccount">Mon compte</a>
             </div>
         </div>
         <script src="/assets/js/hamburgerMenuDisplay.js"></script>
