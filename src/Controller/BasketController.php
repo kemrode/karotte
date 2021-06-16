@@ -86,13 +86,8 @@ class BasketController extends AbstractController
                     $basket = new BasketModel();
 
                 } else{
-                    var_dump("notOk");
+                    return false;
                 }
-
-                /*$basket = new BasketModel();
-                $basket->setBASKETUSERID($user_id);
-                $basket->setBASKETPRODUCTID($product_id);
-                $basket->setBASKETQUANTITY($quantity);*/
 
             }catch (\Exception $e){
                 return $e->getMessage();
@@ -102,43 +97,35 @@ class BasketController extends AbstractController
 
     public function AddBasket($id){
         $_SESSION['cart_item'] = BasketModel::GetUserBasket($_SESSION["USER_ID"]);
-        /*$basket = BasketModel::GetUserBasket($id);*/
         $sellerList = SellerModel::GetAllSellers();
 
-        /*if(!empty($_POST["addToCartBtn"])){
-            echo "coucou";
-            switch ($_POST["addToCartBtn"]){
-                case "add":*/
-                    if(!empty($_POST["BASKET_QUANTITY"])){
-                        //Get product by ID
-                        $productById = ProductModel::GetProductFromProductId($_POST["BASKET_PRODUCT_ID"]);
+            if(!empty($_POST["BASKET_QUANTITY"])){
+                //Get product by ID
+                $productById = ProductModel::GetProductFromProductId($_POST["BASKET_PRODUCT_ID"]);
 
-                        var_dump($productById);
+                var_dump($productById);
 
-                        $itemArray = array($productById[0]["PROD_ID"] => array("PROD_NAME"=>$productById[0]["PROD_NAME"],
-                            "PROD_QTY"=>$productById[0]["PROD_QTY"],
-                            "PROD_PRICE"=>$productById[0]["PROD_PRICE"],
-                            "PROD_PICT"=>$productById[0]["PROD_PICT"]));
+                $itemArray = array($productById[0]["PROD_ID"] => array("PROD_NAME"=>$productById[0]["PROD_NAME"],
+                    "PROD_QTY"=>$productById[0]["PROD_QTY"],
+                    "PROD_PRICE"=>$productById[0]["PROD_PRICE"],
+                    "PROD_PICT"=>$productById[0]["PROD_PICT"]));
 
-                        if(!empty($_SESSION["cart_item"])){
-                            if(in_array($productById[0]["PROD_ID"], array_keys($_SESSION["cart_item"]))){
-                                foreach ($_SESSION["cart_item"] as $k => $v){
-                                    if($productById[0]["PROD_ID"] == $k){
-                                        if(empty($_SESSION["cart_item"][$k]["PROD_QTY"])){
-                                            $_SESSION["cart_item"][$k]["PROD_QTY"] = 0;
-                                        }
-                                        $_SESSION["cart_item"][$k]["PROD_QTY"] += $_POST["PROD_QTY"];
-                                    }
+                if(!empty($_SESSION["cart_item"])){
+                    if(in_array($productById[0]["PROD_ID"], array_keys($_SESSION["cart_item"]))){
+                        foreach ($_SESSION["cart_item"] as $k => $v){
+                            if($productById[0]["PROD_ID"] == $k){
+                                if(empty($_SESSION["cart_item"][$k]["PROD_QTY"])){
+                                    $_SESSION["cart_item"][$k]["PROD_QTY"] = 0;
                                 }
-                            } else {
-                                $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $productById);
+                                $_SESSION["cart_item"][$k]["PROD_QTY"] += $_POST["PROD_QTY"];
                             }
-                        } else {
-                            $_SESSION["cart_item"] = $productById;
                         }
+                    } else {
+                        $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $productById);
                     }
+                } else {
+                    $_SESSION["cart_item"] = $productById;
+                }
             }
-    /*    }
-
-    }*/
+    }
 }
