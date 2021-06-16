@@ -7,6 +7,7 @@
     <div class="navBox">
         <a href="/"><span class="iconify" data-inline="false" data-icon="fa-solid:map-marked-alt"></span></a>
         <a href="/Basket/Getuserbasket/{{ session.USER_ID }}"><span class="iconify" data-inline="false" data-icon="fa-solid:shopping-basket" ></span></a>
+
         {% if session.connected == true and session.isSeller == false %}
             <a href="/registerSeller/sellerView"><span class="iconify" data-icon="mdi:bee-flower" data-inline="false"></span></a>
         {% endif %}

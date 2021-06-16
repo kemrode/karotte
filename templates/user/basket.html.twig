@@ -159,7 +159,7 @@
                 </div>
                 <div class="basketInfo">
                     <div class="validateBtn">
-                        <button type="submit" class="btn" onclick="location.href='/order/createorder'">Valider</button>
+                        <button type="submit" class="btn" onclick="location.href='/Order/CreateOrder'">Valider</button>
                     </div>
                     <div class="orderBasket">
                         <a href="/Order/GetAllOrdersByUserId/{{ session.USER_ID }}">Mes commandes</a>
@@ -183,7 +183,7 @@
                         <img class="seller-card__thumb" src="/assets/img/img1.jpg">
                     </div>
                     <div class="seller-card__resume">
-                        <h3><a href=/?controller=seller&action=GetSellerById&param={{ seller.SELL_ID }}>{{ seller['SELL_NAME'] }}</a></h3>
+                        <h3><a href=/Seller/GetSellerById/{{ seller.SELL_ID }}>{{ seller['SELL_NAME'] }}</a></h3>
                         <div class="seller-card__rate">
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
