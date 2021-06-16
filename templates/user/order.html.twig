@@ -1,5 +1,8 @@
 {% extends"layoutMapAndMenu.html.twig" %}
 
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/assets/css/orders.css">
+{% endblock %}
 
 {% block rightContent %}
     <div class="orderPage">
@@ -20,7 +23,7 @@
                     {% set totalPrice = totalPrice + (item.PROD_PRICE * item.ORDER_PROD_QTY) %}
                     <tr>
                         <td>{{ item.PROD_NAME }}</td>
-                        <td>{{ item.SELL_ID }}</td>
+                        <td>{{ item.SELL_NAME }}</td>
                         <td>{{ item.ORDER_PROD_QTY }}</td>
                         <td>{{ item.PROD_PRICE }}</td>
                         <td>{{ item.PROD_TOTAL_PRICE }}€</td>
