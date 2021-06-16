@@ -1,7 +1,14 @@
 @import "./Utils/variables";
 @import "./Base/bodyStyle";
 
-
+.buttons{
+  display:flex;
+  .iconify{
+    color:#bb4e0b;
+    margin: 0px 10px;
+    font-size: 3em;
+  }
+}
 input, textarea{
   border-radius : 5px;
   padding : 5px;

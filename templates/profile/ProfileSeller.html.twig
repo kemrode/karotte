@@ -15,13 +15,14 @@
             <div class="categoryTitle">
                 <h3>MA BOUTIQUE</h3>
             </div>
-            <form method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{sellerInfo.seller.SELL_ID }}">
+            <form id="updateSellerForm" method="post" name="UpdateSellerProfileFromForm" action="/Profile/UpdateSellerProfile/{{sellerInfo.seller.SELL_ID }}">
             <div class="seller-page__name">
                 <input type="hidden" name="SELL_ID" value="{{sellerInfo.seller.SELL_ID }}" required>
                 <input class="heading h2" type="text" name="SELL_NAME" value="{{session.SELL_NAME??  sellerInfo.seller.SELL_NAME }}" placeholder="Nom de la boutique" required>
                 <div class="buttons">
-                    <input type="submit" value="Mettre à jour">
-                    <input type="reset" value="Annuler" onclick="ReloadPage({{ sellerInfo.seller.SELL_ID }})">
+                    <a href="/Seller/GetSellerById/{{ sellerInfo.seller.SELL_ID  }}" title="Revenir à la boutique" role="button"><span class="iconify" data-icon="akar-icons:arrow-back-thick-fill" data-inline="false"></span></a>
+                    <a href="#" title="Annuler les modification" onclick="ReloadPage({{ sellerInfo.seller.SELL_ID }})" d><span class="iconify" data-icon="mdi:marker-cancel" data-inline="false"></span></a>
+                    <a href="#" title="Mettre à jour ma boutique" onclick="document.getElementById('updateSellerForm').submit()"><span class="iconify" data-icon="akar-icons:cloud-upload" data-inline="false"></span></a>
                 </div>
             </div>
             <div class="seller-page__resume">

@@ -14,10 +14,10 @@ Class ProfileController extends AbstractController{
             "SELL_ID" => "Contacter l'administrateur réseau",
             "SELL_NAME" => "Nom boutique",
             "SELL_PRES" => "présentation vendeur",
-            "USER_ADDRESS" => "Adresse",
-            "USER_ZIP_CODE" => "Code postal",
-            "USER_CITY" => "Ville",
-            "USER_PHONE" => "téléphone"];
+            "userAdress" => "Adresse",
+            "userZipCode" => "Code postal",
+            "userCity" => "Ville",
+            "userPhoneNumber" => "téléphone"];
 
     }
 
@@ -83,10 +83,10 @@ Class ProfileController extends AbstractController{
                 if(property_exists($seller, $field))
                     $seller->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
-            $user->setUserAdress($this->GetTreatedValueFromPostIfIsset("USER_ADDRESS"));
-            $user->setUserCity($this->GetTreatedValueFromPostIfIsset("USER_ZIP_CODE"));
-            $user->setUserZipCode($this->GetTreatedValueFromPostIfIsset("USER_CITY"));
-            $user->setUserPhoneNumber($this->GetTreatedValueFromPostIfIsset("USER_PHONE"));
+            $user->setUserAdress($this->GetTreatedValueFromPostIfIsset("userAdress"));
+            $user->setUserCity($this->GetTreatedValueFromPostIfIsset("userCity"));
+            $user->setUserZipCode($this->GetTreatedValueFromPostIfIsset("userZipCode"));
+            $user->setUserPhoneNumber($this->GetTreatedValueFromPostIfIsset("userPhoneNumber"));
 
             // Update database
             $user->setUserId($seller->getSELLID());
