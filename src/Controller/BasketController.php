@@ -24,7 +24,6 @@ class BasketController extends AbstractController
     }
 
     //Global var basket : initialize with session_start(). Basket_user_id -> user_id
-
     public function AddToBasket(){
         if(isset($_POST["BASKET_PRODUCT_ID"])){
             $productById = ProductModel::GetProductFromProductId($_POST["BASKET_PRODUCT_ID"]);
@@ -44,7 +43,6 @@ class BasketController extends AbstractController
                     "productPrice"=>$productById["PROD_PRICE"]);
             }
         }
-
         header("location:/Seller/GetSellerById/$sell_id");
     }
 

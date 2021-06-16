@@ -110,8 +110,6 @@ class ProductModel{
         return $this;
     }
 
-
-
     /**
      * @return int
      */
@@ -257,7 +255,6 @@ class ProductModel{
             throw $e;
         }
     }
-
     public static function IsThisProductBelongToSeller($userId, $productId){
         try{
             $bdd = BDD::getInstance();
@@ -277,9 +274,7 @@ class ProductModel{
             throw $e;
         }
     }
-
     #endregion
-
     #region POST
     public function AddProductToSellerShop(){
         try{
@@ -302,18 +297,15 @@ class ProductModel{
             throw $e;
         }
     }
-
     public static function UploadPictureToServer($PICT){
         // Treatment before uploading picture
         try {
             if (empty($PICT["tmp_name"]))
                 throw new \OverflowException("Cette image est trop lourde pour être importee");
-
             if (!empty($PICT["name"])) {
                 // Picture name
                 $extension = pathinfo($PICT["name"], PATHINFO_EXTENSION);
                 $nomImage = (uniqid()) . "." . $extension;
-
                 // Storage folder
                 $dateNow = new \DateTime();
                 $repositoryName = $dateNow->format("Y/W");
@@ -324,7 +316,6 @@ class ProductModel{
                 }
                 // Copying pict into server
                 move_uploaded_file($PICT["tmp_name"], ROOT.$relativePath);
-
                 return $relativePath;
             }else {
                 throw new \Exception();
@@ -336,11 +327,8 @@ class ProductModel{
             throw new \Exception("Une erreur est survenue lors du chargement de l'image");
         }
     }
-
     #endregion
-
     #region PUT
-
     public function UpdateProduct(){
         try{
             // DB registration
@@ -353,12 +341,10 @@ class ProductModel{
                 "PROD_USER_ID" => $this->getPRODUSERID(),
                 "PROD_ID" => $this->getPRODID()
             ]);
-
         }catch (\Exception $e){
             throw $e;
         }
     }
-
     public function UpdateOffer($offerAmount){
         try{
             $this->setPRODOFFER($offerAmount);
@@ -373,10 +359,7 @@ class ProductModel{
             throw $e;
         }
     }
-
-
 #endregion
-
     #region DELETE
     public static function DeleteProduct(int $productID){
         try{
@@ -399,6 +382,5 @@ class ProductModel{
         }
     }
 #endregion
-
 }
 

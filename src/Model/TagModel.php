@@ -67,11 +67,11 @@ class TagModel
     #endregion
 
     #region GET
-
     public static function GetAllTagsFromSellerId($sellerId){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT DISTINCT TP_TAG FROM TAGPRODUCT WHERE TP_ID_PRODUCT IN (SELECT PROD_ID FROM PRODUCT WHERE PROD_USER_ID=:PROD_USER_ID ) GROUP BY TP_TAG");
+            $sql = "SELECT DISTINCT TP_TAG FROM TAGPRODUCT WHERE TP_ID_PRODUCT IN (SELECT PROD_ID FROM PRODUCT WHERE PROD_USER_ID=:PROD_USER_ID ) GROUP BY TP_TAG";
+            $requete = $bdd->prepare($sql);
             $requete->execute([
                 "PROD_USER_ID" => $sellerId
             ]);
@@ -80,14 +80,13 @@ class TagModel
             throw $e;
         }
     }
-
     #endregion
-
     #region POST
     public function PostTag(){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("INSERT INTO TAGPRODUCT (TP_ID_PRODUCT, TP_TAG) VALUES (:idProduct, :tpTag)");
+            $sql = "INSERT INTO TAGPRODUCT (TP_ID_PRODUCT, TP_TAG) VALUES (:idProduct, :tpTag)";
+            $requete = $bdd->prepare($sql);
             $requete->execute([
                 "idProduct" => $this->getTPIDPRODUCT(),
                 "tpTag" => $this->getTPTAG()

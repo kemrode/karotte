@@ -14,7 +14,6 @@ class registerController extends AbstractController
     public function registerView(){
         return $this->twig->render('register/registerView.html.twig');
     }
-
     public function postNewUser(){
         if(isset($_POST['joinUpBtn'])){
             $passVerif = $this->passwordVerifying();
@@ -64,7 +63,6 @@ class registerController extends AbstractController
                 return $this->twig->render('error/error404View.html.twig');
         }
     }
-
     //function to verifying passwords are the same
     private function passwordVerifying(){
         if(isset($_POST['itemPasswrd'])){

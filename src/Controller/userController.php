@@ -14,7 +14,6 @@ class userController extends AbstractController {
     public function connectionView(){
         return $this->twig->render("connection\connectionView.html.twig");
     }
-
     public function myAccount(){
         $memberId = $_SESSION['USER_ID'];
         $memberToSegue = [];
@@ -32,7 +31,6 @@ class userController extends AbstractController {
             return $this->twig->render("profile\userProfil.html.twig",["member"=>$memberToSegue],);
         }
     }
-
     public function log(){
             if (isset($_POST['okButton'])){
                 $logMail = htmlentities($_POST['connMail']);
@@ -56,9 +54,6 @@ class userController extends AbstractController {
                             switch ($resultSeller){
                                 case true:
                                     $_SESSION['isSeller'] = true;
-                                    break;
-                                case false:
-                                    $_SESSION['isseller'] = false;
                                     break;
                                 default:
                                     $_SESSION['isSeller'] = false;
@@ -85,8 +80,7 @@ class userController extends AbstractController {
     public function logout(){
         userModel::logout();
     }
-
-    //function to verify the hash -- to complete for Karotte
+    //function to verify the hash
     public function verifyHash($userMail, $userPasswd){
         try {
             if(isset($_POST['connPWD'])){
@@ -105,7 +99,6 @@ class userController extends AbstractController {
             return $e->getMessage();
         }
     }
-
     //function to delete a selected account
     public function deleteAccount(){
         try{

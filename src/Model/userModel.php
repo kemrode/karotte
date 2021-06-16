@@ -212,14 +212,12 @@ class userModel
             return $e->getMessage();
         }
     }
-
     public function getUserInfo(\PDO $bdd){
         $sql = "SELECT USER_PSEUDO FROM USER";
         $requete = $bdd->prepare($sql);
         $requete->execute();
         return $requete->fetch(\PDO::FETCH_CLASS, "src\Model\\registerModel");
     }
-
     public function loginUser(\PDO $bdd){
         try {
             $mailLog = htmlentities($this->getUserMail());
@@ -234,7 +232,6 @@ class userModel
             return $e->getMessage();
         }
     }
-
     public function fetchUser(\PDO $bdd){
         try {
             $userConnect = $this->getUserMail();
@@ -254,7 +251,6 @@ class userModel
         $request->execute();
         return $request->fetchAll();
     }
-
     public static function fetchUserFromId(\PDO $bdd, $userId){
         try {
             $bdd = BDD::getInstance();
@@ -266,8 +262,6 @@ class userModel
             return $e->getMessage();
         }
     }
-
-
     public static function GetCoordinatesFromAdress($address, $zipCode, $city){
         try{
             // query construction using global variable of the api key
@@ -278,13 +272,10 @@ class userModel
             'limit' => 1
         ]);
         $baseUrl= "http://api.positionstack.com/v1/forward";
-
         $curl = curl_init(sprintf('%s?%s', $baseUrl, $buildQuery));
-
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         $responseData = json_decode(curl_exec($curl),true);
         curl_close($curl);
-
         // If the response is not null, contains a field 'data' and the latitude is not null
         if($responseData != null){
             if(count($responseData['data'])>0){
@@ -295,7 +286,6 @@ class userModel
         }
         // Else throw an exception
         throw new \Exception("L'adresse renseignée n'est pas valide");
-
         }catch(\Exception $e) {
             throw $e;
         }
@@ -319,7 +309,6 @@ class userModel
             return $e->getMessage();
         }
     }
-
     public function updateMemberAddress(\PDO $bdd, $id){
         try {
             $sql = 'UPDATE USER SET USER_ADDRESS=:userAddress, USER_ZIP_CODE=:userZipCode, USER_CITY=:userCity, USER_PHONE=:userPhone WHERE USER_ID=:userId';
@@ -336,7 +325,6 @@ class userModel
             return $e->getMessage();
         }
     }
-
     public static function DeleteOneUser($userToBeDeleted){
         try {
             $bdd = BDD::getInstance();
@@ -349,17 +337,12 @@ class userModel
             throw $e;
         }
     }
-
-
     public static function logout(){
         session_start();
         $_SESSION = array();
         session_destroy();
         header('Location:/');
     }
-
-
-
     //function to get the hash
     public static function getHash(\PDO $bdd, $userMail){
         try {

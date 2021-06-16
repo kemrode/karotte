@@ -18,13 +18,10 @@ Class ProfileController extends AbstractController{
             "userZipCode" => "Code postal",
             "userCity" => "Ville",
             "userPhoneNumber" => "téléphone"];
-
     }
-
     function index(){
         header("location:/Profile/SellerProfileView".$_SESSION["USER_ID"]);
     }
-
     public function SellerProfileView($id){
         try {
             $id = ($id!="")?$id:$_SESSION["USER_ID"];
@@ -32,11 +29,9 @@ Class ProfileController extends AbstractController{
                 header("location:/Seller/GetSellerById".$id);
                 exit;
             }
-
             $seller = SellerModel::GetSellerAndUserInformationFromId($id);
             $sellerList = SellerModel::GetAllSellers();
             $sellerProduct = ProductModel::GetAllProductAndTagGroupedByTagFromSellerId($id);
-
         }
         catch(\Exception $e){
             $_SESSION["alert"] = $e->getMessage();
@@ -53,7 +48,6 @@ Class ProfileController extends AbstractController{
             ]);
         }
     }
-
     public function CancelCurrentModification($id){
         $valueExpected = $this->getValueExpected();
         // Unsetting all stored variable from post
@@ -63,19 +57,15 @@ Class ProfileController extends AbstractController{
         header("location:/Profile/SellerProfileView/$id");
         exit;
     }
-
     public function UpdateSellerProfile($id){
         try {
             $user = new userModel();
             $seller = new SellerModel();
-
             $valueExpected = $this->getValueExpected();
-
             // Storing all $_POST variable into session to avoid rewriting them in the form in case of error
             foreach ($valueExpected as $field=>$error){
                 $_SESSION[$field] = $_POST[$field];
             }
-
             // Treatment of posted variable, if empty throw an exception
             foreach ($valueExpected as $field=>$error){
                 if($this->GetTreatedValueFromPostIfIsset($field) == null)
@@ -87,13 +77,11 @@ Class ProfileController extends AbstractController{
             $user->setUserCity($this->GetTreatedValueFromPostIfIsset("userCity"));
             $user->setUserZipCode($this->GetTreatedValueFromPostIfIsset("userZipCode"));
             $user->setUserPhoneNumber($this->GetTreatedValueFromPostIfIsset("userPhoneNumber"));
-
             // Update database
             $user->setUserId($seller->getSELLID());
             $user->updateMemberAddress(BDD::getInstance(),$seller->getSELLID());
             $seller->setSELLLOC($user::GetCoordinatesFromAdress($user->getUserAdress(), $user->getUserZipCode(), $user->getUserCity()));
             $seller->UpdateSellerInfo();
-
             // Unsetting all stored variable from post
             foreach ($valueExpected as $field=>$error){
                 if(isset($_SESSION[$field]))
@@ -112,7 +100,6 @@ Class ProfileController extends AbstractController{
             exit;
         }
     }
-
     //function to update user profile
     public function updateUser(){
         try {

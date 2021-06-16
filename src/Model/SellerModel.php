@@ -96,7 +96,6 @@ class SellerModel{
 
 
     #region POST
-
     public function postNewSeller(\PDO $bdd){
         try {
             $sql = 'INSERT INTO SELLER (SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES) VALUES (:SELL_ID,:SELL_NAME,:SELL_LOC,:SELL_PRES)';
@@ -114,13 +113,12 @@ class SellerModel{
         }
     }
     #endregion
-
     #region GET
-
     public static function GetAllSellers(){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER");
+            $sql = "SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER";
+            $requete = $bdd->prepare($sql);
             $requete->execute();
             return $requete->fetchAll();
         }catch (\Exception $e){
@@ -130,7 +128,8 @@ class SellerModel{
     public static function GetAllSellerLocationAndIdAndName(){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT SELL_ID, SELL_LOC, SELL_NAME FROM SELLER");
+            $sql = "SELECT SELL_ID, SELL_LOC, SELL_NAME FROM SELLER";
+            $requete = $bdd->prepare($sql);
             $requete->execute();
             return $requete->fetchAll();
         }catch (\Exception $e){
@@ -140,7 +139,8 @@ class SellerModel{
     public static function GetSellerInformationFromId($id){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER WHERE SELL_ID=:SELL_ID");
+            $sql = "SELECT SELL_ID, SELL_NAME, SELL_LOC, SELL_PRES FROM SELLER WHERE SELL_ID=:SELL_ID";
+            $requete = $bdd->prepare($sql);
             $requete->execute([
                 "SELL_ID" => $id
             ]);
@@ -149,9 +149,7 @@ class SellerModel{
             throw $e;
         }
     }
-
     public static function GetSellerAndUserInformationFromId($id){
-
         $info = [];
         try {
             $info['seller'] = self::GetSellerInformationFromId($id);
@@ -161,16 +159,14 @@ class SellerModel{
         catch (\Exception $e) {
             return $e->getMessage();
         }
-
     }
-
     #endregion
-
     #region PUT
     public function UpdateSellerInfo(){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("UPDATE SELLER SET SELL_NAME=:sellName, SELL_PRES=:sellPres, SELL_LOC=:sellLoc WHERE SELL_ID=:sellId");
+            $sql = "UPDATE SELLER SET SELL_NAME=:sellName, SELL_PRES=:sellPres, SELL_LOC=:sellLoc WHERE SELL_ID=:sellId";
+            $requete = $bdd->prepare($sql);
             return  $requete->execute([
                 "sellName" => $this->getSELLNAME(),
                 "sellPres" => $this->getSELLPRES(),
@@ -181,11 +177,11 @@ class SellerModel{
             throw $e;
         }
     }
-
     public function UpdateSellerLocInfo(){
         try{
             $bdd = BDD::getInstance();
-            $requete = $bdd->prepare("UPDATE SELLER SET SELL_LOC=:sellLoc WHERE SELL_ID=:sellId");
+            $sql = "UPDATE SELLER SET SELL_LOC=:sellLoc WHERE SELL_ID=:sellId";
+            $requete = $bdd->prepare($sql);
             return  $requete->execute([
                 "sellLoc" => $this->getSELLLOC(),
                 "sellId" => $this->getSELLID()
@@ -194,7 +190,6 @@ class SellerModel{
             throw $e;
         }
     }
-
     public function getSellerById(\PDO $bdd, $id){
         try{
             $sql = 'SELECT * FROM SELLER WHERE SELL_ID=:userId';
@@ -205,7 +200,5 @@ class SellerModel{
             throw $e;
         }
     }
-
     #endregion
-
 }

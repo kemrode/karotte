@@ -189,7 +189,6 @@ class OrderModel
 
 
     public function CreateOrder(\PDO $bdd){
-        /*$order = [];*/
         try{
             $requete = $bdd->prepare("INSERT INTO `ORDER`( ORDER_NUMBER, USER_ID, SELL_ID, PROD_ID, 
                     ORDER_PROD_QTY, PROD_PRICE, PROD_TOTAL_PRICE) 

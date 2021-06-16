@@ -18,7 +18,6 @@ class SellerController extends AbstractController {
             var_dump($e);
         }
     }
-
     public function GetSellerById($id){
         try {
             if($id == $_SESSION["USER_ID"] && $id != "")
@@ -37,9 +36,7 @@ class SellerController extends AbstractController {
             echo $this->index();
         }
     }
-
     #region JSON Functions
-
     public function GetAllSellerLocationAndIdAndName(){
         try{
             header("Content-Type: application/json");
@@ -50,7 +47,6 @@ class SellerController extends AbstractController {
             ]);
         }
     }
-
     public function GetSellerInformationFromId($id){
         try{
             header("Content-Type: application/json");
@@ -62,6 +58,5 @@ class SellerController extends AbstractController {
             ]);
         }
     }
-
     #endregion
 }

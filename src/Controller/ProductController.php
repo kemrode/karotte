@@ -21,7 +21,6 @@ Class ProductController extends AbstractController
             return $_SESSION['USER_ID'];
         }
     }
-
     public function UpdateProductInfo(){
         try {
             $valueExpected = [
@@ -31,12 +30,10 @@ Class ProductController extends AbstractController
                 "PROD_DESC" => "Description"
             ];
             $product = new ProductModel();
-
             // Storing all $_POST variable into session to avoid rewriting them in the form in case of error
             foreach ($valueExpected as $field=>$error){
                 $_SESSION[$field] = $_POST[$field];
             }
-
             // Treatment of posted variable, if empty throw an exception
             foreach ($valueExpected as $field=>$error){
                 if($this->GetTreatedValueFromPostIfIsset($field) == null)
@@ -45,9 +42,7 @@ Class ProductController extends AbstractController
                     $product->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
             $product->setPRODUSERID($_SESSION["USER_ID"]);
-
             $product->UpdateProduct();
-
             // Unsetting all stored variable from post
             foreach ($valueExpected as $field=>$error){
                 if(isset($_SESSION[$field]))
@@ -66,13 +61,10 @@ Class ProductController extends AbstractController
             exit;
         }
     }
-
     public function AddProduct(){
         try {
-
             $newProduct = new ProductModel();
             $tag = new TagModel();
-
             $valueExpected = [
                 "PROD_NAME" => "Nom du produit",
                 "PROD_PRICE" => "Prix",
@@ -80,12 +72,10 @@ Class ProductController extends AbstractController
                 "PROD_DESC" => "Description",
                 "TP_TAG" => "Catégorie"
             ];
-
             // Storing all $_POST variable into session to avoid rewriting them in the form in case of error
             foreach ($valueExpected as $field=>$error){
                 $_SESSION[$field] = $_POST[$field];
             }
-
             // Treatment of posted variable, if empty throw an exception
             foreach ($valueExpected as $field=>$error){
                 if($this->GetTreatedValueFromPostIfIsset($field) == null)
@@ -96,22 +86,17 @@ Class ProductController extends AbstractController
                     $tag->{$field} = $this->GetTreatedValueFromPostIfIsset($field);
             }
             $newProduct->setPRODUSERID($_SESSION["USER_ID"]);
-
             // Get the picture path and save the file if set.
             if($_FILES["PROD_PICT"]["name"] != "")
                 $pictPath = ProductModel::UploadPictureToServer($_FILES["PROD_PICT"]);
             // Else put a default picture
             else
                 $pictPath = "/assets/img/files/products/default.jpg";
-
             $newProduct->setPRODPICT($pictPath);
-
             // Saving the product and put the Id inserted into $tag
             $tag->setTPIDPRODUCT($newProduct->AddProductToSellerShop());
-
             // Saving the category of product
             $tag->PostTag();
-
             // Return feedback
             $_SESSION["message"] = "Produit ajouté";
         }
@@ -128,7 +113,5 @@ Class ProductController extends AbstractController
             header("location:/Profile/SellerProfileView/$id");
             exit;
         }
-
-
     }
 }

@@ -78,23 +78,20 @@ class BasketModel
     public function AddToBasket(){
         try {
             $bdd = BDD::getInstance();
-            $request = $bdd->prepare("INSERT INTO BASKET(BASKET_USER_ID, BASKET_PRODUCT_ID, BASKET_ID, BASKET_QUANTITY)
-            VALUES (:BASKET_USER_ID, :BASKET_PRODUCT_ID, :BASKET_ID, :BASKET_QUANTITY)");
-
+            $sql = "INSERT INTO BASKET(BASKET_USER_ID, BASKET_PRODUCT_ID, BASKET_ID, BASKET_QUANTITY)
+            VALUES (:BASKET_USER_ID, :BASKET_PRODUCT_ID, :BASKET_ID, :BASKET_QUANTITY)";
+            $request = $bdd->prepare($sql);
             $execute = $request->execute([
                 'BASKET_USER_ID' => $this->getBASKETUSERID(),
                 'BASKET_PRODUCT_ID' => $this->getBASKETPRODUCTID(),
                 'BASKET_ID' => $this->getBASKETID(),
                 'BASKET_QUANTITY' => $this->getBASKETQUANTITY()
             ]);
-
             return "added";
-
         }catch (\Exception $e){
             return $e->getMessage();
         }
     }
-
     public static function GetUserBasket($id){
         try {
             $bdd = BDD::getInstance();
@@ -103,12 +100,8 @@ class BasketModel
             $requete->execute([
                 'BASKET_USER_ID' => $id
             ]);
-
             //Get productinfo by productId
-            /*$requete2 = $bdd->prepare("SELECT * FROM PRODUCT WHERE PROD_ID=:")*/
-
             return $requete->fetchAll();
-
         }catch (\Exception $e){
             return $e->getMessage();
         }
