@@ -645,7 +645,7 @@ body {
     height: 100%;
   }
   .seller-card__resume:nth-child(2) h3 {
-    font-size: 1.8em;
+    font-size: 1.4em;
     text-decoration-line: underline;
     margin-bottom: 15px;
   }
@@ -664,7 +664,7 @@ body {
     display: none;
   }
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 769px) {
   .seller-cards {
     display: grid;
     grid-auto-rows: minmax(80px, auto);

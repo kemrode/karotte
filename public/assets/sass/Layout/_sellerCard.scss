@@ -42,7 +42,7 @@
       width: 100%;
       height: 100%;
       & h3 {
-        font-size:$veryHighTextSize;
+        font-size:1.4em;
         text-decoration-line: underline;
         margin-bottom: 15px;
       }
@@ -63,7 +63,7 @@
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 769px) {
   .seller-cards{
     display: grid;
     grid-auto-rows: minmax(80px, auto);
