@@ -58,6 +58,18 @@
     }
   }
 }
+.headConnection {
+  @include flexBoxRow;
+  width: 100%;
+  height: auto;
+}
+.crossCloseBox {
+  @include flexBoxRowJustifyCentering;
+  align-items: start;
+  width: 20%;
+  height: auto;
+}
+
 .sellerGrid {
   display: grid;
   position:relative;

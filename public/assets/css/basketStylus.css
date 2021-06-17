@@ -62,6 +62,11 @@ body {
   text-decoration: 2px solid #BB4E0B;
 }
 
+@media only screen and (max-width: 768px) {
+  .orderBasket a {
+    font-style: 1.2em;
+  }
+}
 .basketContainer {
   grid-area: 2/2/11/11;
   display: flex;
@@ -92,6 +97,15 @@ body {
   align-items: baseline;
   width: 100%;
   margin-left: 15%;
+}
+
+.crossCloseBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  width: 20%;
+  height: auto;
 }
 
 @media only screen and (max-width: 768px) {
@@ -149,7 +163,7 @@ body {
 
 @media only screen and (max-width: 768px) {
   .titleBox {
-    width: 85%;
+    width: 70%;
     height: auto;
   }
   .titleBox h1 {
@@ -159,6 +173,7 @@ body {
 }
 @media only screen and (min-width: 768px) {
   .titleBox {
+    width: 70%;
     height: 100px;
   }
   .titleBox h1 {
@@ -239,7 +254,7 @@ body {
     width: 100%;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   .basketContentBox {
     width: 90%;
   }
@@ -393,10 +408,20 @@ body {
   border-radius: 45px;
   background-color: #BB4E0B;
   color: #FBFCFC;
-  font-size: 1.8em;
 }
 .validateBtn button:hover {
   background-color: #6B8954;
+}
+
+@media only screen and (max-width: 768px) {
+  .validateBtn button {
+    font-size: 1.2em;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .validateBtn button {
+    font-size: 1.8em;
+  }
 }
 
 /*# sourceMappingURL=basketStylus.css.map */

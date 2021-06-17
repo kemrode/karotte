@@ -16,7 +16,7 @@
 }
 @media only screen and(max-width:768px) {
   .titleBox {
-    width: 85%;
+    width: 70%;
     height: auto;
     & h1 {
       font-size:1.1em;
@@ -26,6 +26,7 @@
 }
 @media only screen and(min-width: 768px) {
   .titleBox {
+    width: 70%;
     height: 100px;
     & h1 {
       font-weight: bold;

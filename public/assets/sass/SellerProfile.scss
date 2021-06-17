@@ -1,5 +1,6 @@
 @import "./Utils/variables";
 @import "./Base/bodyStyle";
+@import "./Utils/mixin";
 
 .buttons{
   display:flex;
@@ -36,6 +37,17 @@ textarea {
     font-size: 1.17em;
 
   }
+}
+.headConnection {
+  @include flexBoxRow;
+  width: 100%;
+  height: auto;
+}
+.crossCloseBox {
+  @include flexBoxRowJustifyCentering;
+  align-items: start;
+  width: 20%;
+  height: auto;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

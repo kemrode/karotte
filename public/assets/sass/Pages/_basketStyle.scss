@@ -28,6 +28,12 @@
   width: 100%;
   margin-left: 15%;
 }
+.crossCloseBox {
+  @include flexBoxRowJustifyCentering;
+  align-items: start;
+  width: 20%;
+  height: auto;
+}
 @media only screen and (max-width: 768px) {
   .basketContainer {
     width: 100%;
