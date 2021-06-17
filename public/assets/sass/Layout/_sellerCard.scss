@@ -78,6 +78,9 @@
       max-height: 100%;
     }
     .seller-card__resume{
+      & h3 {
+        font-size:$veryHighTextSize;
+      }
     }
     .seller-card__rate{
       margin-top: 30px;
