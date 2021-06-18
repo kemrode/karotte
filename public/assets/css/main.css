@@ -680,6 +680,9 @@ body {
     max-width: 100%;
     max-height: 100%;
   }
+  .seller-card .seller-card__resume h3 {
+    font-size: 1.8em;
+  }
   .seller-card .seller-card__rate {
     margin-top: 30px;
     color: #6B8954;
