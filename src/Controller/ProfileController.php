@@ -81,7 +81,12 @@ Class ProfileController extends AbstractController{
             // Update database
             $user->setUserId($seller->getSELLID());
             $user->updateMemberAddress(BDD::getInstance(),$seller->getSELLID());
-            $seller->setSELLLOC($user::GetCoordinatesFromAdress($user->getUserAdress(), $user->getUserZipCode(), $user->getUserCity()));
+            try {
+                $address = $user::GetCoordinatesFromAdress($user->getUserAdress(), $user->getUserZipCode(), $user->getUserCity());
+            }catch(\Exception $e){
+                $address= "49.382509;1.07448";
+            }
+            $seller->setSELLLOC($address);
             $seller->UpdateSellerInfo();
             // Unsetting all stored variable from post
             foreach ($valueExpected as $field=>$error){

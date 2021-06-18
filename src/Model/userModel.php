@@ -278,6 +278,9 @@ class userModel
         curl_close($curl);
         // If the response is not null, contains a field 'data' and the latitude is not null
         if($responseData != null){
+            if(count($responseData['error'])>0){
+               throw new \Exception("La recherche d'adresse n'a pas abouti");
+            }
             if(count($responseData['data'])>0){
                 if(array_key_exists('latitude', $responseData['data'][0])){
                     return $responseData['data'][0]["latitude"].";".$responseData['data'][0]["longitude"];

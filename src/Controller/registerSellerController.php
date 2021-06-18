@@ -17,7 +17,12 @@ class registerSellerController extends AbstractController {
         try {
             if (isset($_POST['okButton'])){
                 $newSellerId = $_SESSION['USER_ID'];
-                $newSellerAdress = userModel::GetCoordinatesFromAdress($_POST['adresse'], $_POST['zipCode'], $_POST['ville']);
+                try{
+                    $newSellerAdress = userModel::GetCoordinatesFromAdress($_POST['adresse'], $_POST['zipCode'], $_POST['ville']);
+                }
+                catch(\Exception $e){
+                    $newSellerAdress= "49.382509;1.07448";
+                }
                 $newSeller = new SellerModel();
                 $newSeller->setSELLID($newSellerId);
                 $newSeller->setSELLNAME($_POST['nom']);
