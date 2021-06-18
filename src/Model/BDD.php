@@ -2,8 +2,7 @@
 namespace src\Model;
 use PDO;
 
-//require_once ROOT."/../configProd.php";
-require_once ROOT."./configProd.php";
+require_once ROOT."/../configProd.php";
 class BDD
 {
     private static $_instance = null;

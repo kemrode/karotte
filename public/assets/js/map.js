@@ -63,7 +63,7 @@ function GenerateMap(){
     let map = new L.map('map', mapOptions);
 
     // Creating a Layer object
-    let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    let layer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
     // Adding layer to the seller
     map.addLayer(layer);
