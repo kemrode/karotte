@@ -35,6 +35,7 @@ class registerController extends AbstractController
                         header('Location:/');
                     } else {
                         $newKarrotteToPost = $newKarrotte->postUser(BDD::getInstance());
+                        $this->typeKarotte($_POST['prodKarotte'], $_POST['userKarotte']);
                         break;
                     }
                 case false :
@@ -46,7 +47,7 @@ class registerController extends AbstractController
                     $this->twig->render('error/error404View.html.twig');
                     break;
             }
-            $this->typeKarotte($_POST['prodKarotte'], $_POST['userKarotte']);
+
         }
     }
     //function to switch case by checkbox in registerView

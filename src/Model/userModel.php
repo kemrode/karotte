@@ -372,7 +372,10 @@ class userModel
             $sql = 'SELECT USER_EMAIL FROM USER WHERE USER_EMAIL=:userMail';
             $request = $bdd->prepare($sql);
             $request->execute(['userMail'=>$userMail]);
-            return true;
+            $result = $request->fetch();
+            return $result != false;
+
+
         } catch (\Exception $e){
             return $e->getMessage();
         }
